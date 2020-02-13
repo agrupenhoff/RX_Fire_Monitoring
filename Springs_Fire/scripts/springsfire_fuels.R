@@ -2,6 +2,7 @@
 library(tidyverse)
 library(tibble)
 library(dplyr)
+library(ggplot2)
 getwd()
 
 
@@ -61,6 +62,26 @@ SpringsFire_treatment <- read_csv("Springs_Fire/data/raw/springsfire_treatment.c
             prespringsfuels_complete_joined <- left_join(prespringsfuels_complete,
                                                          SpringsFire_treatment,
                                                          by = "plot_id")
+            
+          
+            
+#plot
+     
 
+            ggplot(data=prespringsfuels_complete_joined, mapping = aes(x=treatment_type, y=mass_1hr)) +
+              geom_point()
+
+            ggplot(data=prespringsfuels_complete_joined, mapping = aes(x=treatment_type, y=mass_10hr)) +
+              geom_point()
+            
+            ggplot(data=prespringsfuels_complete_joined, mapping = aes(x=treatment_type, y=mass_100hr)) +
+              geom_point()
+            
+            ggplot(data=prespringsfuels_complete_joined, mapping = aes(x=treatment_type, y=mass_cwd_sound)) +
+              geom_point()
+            
+            ggplot(data=prespringsfuels_complete_joined, mapping = aes(x=treatment_type, y=mass_cwd_rotten)) +
+              geom_point()
+            
 
                 
