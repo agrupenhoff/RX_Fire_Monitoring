@@ -1,5 +1,4 @@
-site,year,plot_id,azimuth,intersect,large,small,length,decay,notes
-,,,,cm,cm,cm,m,,
+site,year,plot_id,azimuth,intersect_cm,large_cm,small_cm,length_cm,decay,notes
 springsfire,2019,springs1,W,32,20,17,2.3,3,
 springsfire,2019,springs1,E,13,13,5,1.4,3,
 springsfire,2019,springs11,S,12.5,13.5,8,2.8,3,

@@ -1,0 +1,264 @@
+---
+title: "SpringsFire_dataanalysis"
+author: "Ashley Grupenhoff"
+date: "4/19/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Load library
+
+```{r, include=FALSE}
+library(tidyverse)
+library(tibble)
+library(dplyr)
+library(ggplot2)
+setwd("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring")
+getwd()
+```
+
+# *PREFIRE* Springs fire fuels
+
+Pre springs fire fuels.
+*Browns equations*
+                              Sq diam        specific grav   angle corr fact   length of line (ft)
+                              1 hr: 0.0151     0.48            1.13             2*3.28
+                              10 hr: 0.289    0.48            1.13              2*3.28
+                              100 hr: 2.76   0.40            1.13               4*3.28
+                              cwd sound       0.40            1.00              11.3*3.28
+                              cwd rotten      0.30            1.00              11.3*3.28
+                              
+                              slope correction = (1+(presprings_fuelslope/100)^2)^(1/2)
+                              
+                              convert sq cm to sq in: * 0.155
+
+
+```{r, message=FALSE}
+#load data
+Pre_SpringsFire_FUELS <- read_csv("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/data/raw/pre_springsfire_finefuels.csv")
+Pre_SpringsFire_FUELS
+SpringsFire_treatment <- read_csv("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/data/raw/springsfire_treatment.csv")
+
+PreSpringsFuels_Slope <- Pre_SpringsFire_FUELS  %>% 
+                            mutate(slopecorrection = (1+(Pre_SpringsFire_FUELS$slope_percent/100)^2)^(1/2))
+                          
+                    #Create New data frame
+                    prespringsfuels<-NULL
+                    prespringsfuels<-as.data.frame(matrix(NA, ncol=6, nrow=nrow(PreSpringsFuels_Slope)))
+                    colnames(prespringsfuels)<-c("plot_id","mass_1hr", "mass_10hr", "mass_100hr", "mass_cwd_sound", "mass_cwd_rotten")
+                    
+                    #run a forloop to apply the equations to each row in the data frame
+                    for (i in 1:nrow(PreSpringsFuels_Slope)) {
+                    	      
+                      prespringsfuels[i,"plot_id"]<-PreSpringsFuels_Slope[i,"plot_id"]          
+                      prespringsfuels[i,"mass_1hr"]<- ((11.64 * PreSpringsFuels_Slope[i,"count_x1h"] * 0.0151 * 	0.48 * 1.13 * PreSpringsFuels_Slope [i, "slopecorrection"])/ (2*3.28))                          
+                      prespringsfuels[i,"mass_10hr"]<-((11.64 * PreSpringsFuels_Slope[i,"count_x10h"] * 0.289 * 	0.48 * 1.13 * PreSpringsFuels_Slope [i, "slopecorrection"]) / (2*3.28))                            
+                      prespringsfuels[i,"mass_100hr"]<-((11.64 * PreSpringsFuels_Slope[i,"count_x100h"] * 2.76 * 	0.40 * 1.13 * PreSpringsFuels_Slope [i, "slopecorrection"]) / (4*3.28))           
+                      prespringsfuels[i,"mass_cwd_sound"]<- ((11.64 * PreSpringsFuels_Slope[i,"sum_d2_1000s_cm2"] 	* 0.155 * 0.40 * PreSpringsFuels_Slope [i, "slopecorrection"]) / (11.3*3.28))           
+                      prespringsfuels[i,"mass_cwd_rotten"]<-((11.64 * PreSpringsFuels_Slope[i,"sum_d2_1000r_cm2"] 	* 0.155 * 0.30 * PreSpringsFuels_Slope [i, "slopecorrection"]) / (11.3*3.28))    
+                            
+                    }      
+                       
+##Average each mass type per plot
+              
+              prespringsfuels_complete<- prespringsfuels %>% 
+                            group_by(plot_id) %>% 
+                            summarise_all(list(mean))
+#pivot longer
+
+springsfuels_longer <- prespringsfuels_complete %>% 
+  pivot_longer(cols = -plot_id, names_to = "fuel_size", values_to= "mass")
+
+#add column for treatment type
+
+prespringsfuels_complete_joined <- left_join(springsfuels_longer,SpringsFire_treatment,                                                     by = "plot_id")
+
+prespringsfuels_complete_joined
+
+#plot
+     
+            ggplot(data=prespringsfuels_complete_joined, mapping = aes(x=treatment_type, y=mass))+
+              geom_boxplot()+
+              geom_jitter(alpha = 0.3)+
+              facet_wrap(~ fuel_size,scales = "free_y")+
+               theme(axis.text.x = element_text(angle=45, hjust=1))
+
+```
+
+# *POSTFIRE* Springs fire fuels
+
+```{r}
+#load data
+Post_SpringsFire_FUELS <- read_csv("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/data/raw/post_springsfire_finefuels.csv")
+
+
+SpringsFire_treatment <- read_csv("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/data/raw/springsfire_treatment.csv")
+
+#CWD data clean
+
+Post_springs_cwd <- read_csv("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/data/raw/post_springsfire_cwd.csv")
+
+Post_springs_cwd <- Post_springs_cwd %>% 
+  mutate(sound_rotten = case_when(
+         decay > 3 ~ "rotten",
+         TRUE ~ "sound"))  
+  
+
+Post_springs_cwd <- Post_springs_cwd %>% 
+  mutate(azimuth2 = case_when(
+        azimuth == "N" ~ 0,
+        azimuth == "E" ~ 90,
+        azimuth == "S" ~ 180,
+        TRUE ~ 270
+  )) %>% 
+  mutate(intersect_in = intersect_cm*0.3937) %>% 
+  mutate(intersect_in_square = intersect_in^2) 
+
+Postsprings_cwd_sum <- Post_springs_cwd %>% 
+  group_by(plot_id, azimuth2, sound_rotten) %>% 
+  summarize(sum_diameter_square = sum(intersect_in_square)) %>% 
+  pivot_wider(names_from = "sound_rotten",
+              values_from = "sum_diameter_square") %>% 
+  mutate(plot_id_azimuth = paste(plot_id, azimuth2))
+
+
+#Clean up fine fuels
+
+Post_SpringsFire_FUELS <- Post_SpringsFire_FUELS %>% 
+  mutate(duff_depth_cm = (duff1_cm + duff2_cm)/2,
+         litter_depth_cm = (litter1_cm + litter2_cm)/2)%>% 
+        mutate(slopecorrection = (1+(Post_SpringsFire_FUELS$slope_percent/100)^2)^(1/2)) %>% 
+        mutate(plot_id_azimuth = paste(plot_id, azimuth))
+
+postspringsfuels_combine <- left_join(Post_SpringsFire_FUELS, Postsprings_cwd_sum, by="plot_id_azimuth")
+  
+
+
+#Create New data frame
+                    postspringsfuels<-NULL
+                    postspringsfuels<-as.data.frame(matrix(NA, ncol=6, nrow=nrow(postspringsfuels_combine)))
+                    colnames(postspringsfuels)<-c("plot_id","mass_1hr", "mass_10hr", "mass_100hr", "mass_cwd_sound", "mass_cwd_rotten")
+                    
+                    #run a forloop to apply the equations to each row in the data frame
+                    for (i in 1:nrow(postspringsfuels_combine)) {
+                    	      
+                      postspringsfuels[i,"plot_id"]<-postspringsfuels_combine[i,"plot_id.x"]          
+                      postspringsfuels[i,"mass_1hr"]<- ((11.64 * postspringsfuels_combine[i,"count_x1h"] * 0.0151 * 	0.48 * 1.13 * postspringsfuels_combine [i, "slopecorrection"])/ (2*3.28))                          
+                      postspringsfuels[i,"mass_10hr"]<-((11.64 * postspringsfuels_combine[i,"count_x10h"] * 0.289 * 	0.48 * 1.13 * postspringsfuels_combine [i, "slopecorrection"]) / (2*3.28))                            
+                      postspringsfuels[i,"mass_100hr"]<-((11.64 * postspringsfuels_combine[i,"count_x100h"] * 2.76 * 	0.40 * 1.13 * postspringsfuels_combine [i, "slopecorrection"]) / (4*3.28))           
+                      postspringsfuels[i,"mass_cwd_sound"]<- ((11.64 * postspringsfuels_combine[i,"sound"] 	* 0.155 * 0.40 * postspringsfuels_combine [i, "slopecorrection"]) / (11.3*3.28))           
+                      postspringsfuels[i,"mass_cwd_rotten"]<-((11.64 * postspringsfuels_combine[i,"rotten"] 	* 0.155 * 0.30 *postspringsfuels_combine [i, "slopecorrection"]) / (11.3*3.28))    
+                            
+                    }      
+
+                   
+                    ##Average each mass type per plot
+              
+              postspringsfuels_complete<- postspringsfuels %>% 
+                            group_by(plot_id) %>% 
+                            summarise_all(list(mean), na.rm=TRUE)
+#pivot longer
+  
+
+postspringsfuels_longer <- postspringsfuels_complete %>% 
+  pivot_longer(cols = -plot_id, names_to = "fuel_size", values_to= "mass") %>% 
+  mutate(mass = replace_na(mass,0))   #turn NaN values to 0 for CWD
+
+    
+ 
+
+#add column for treatment type
+
+postspringsfuels_complete_joined <- left_join(postspringsfuels_longer,SpringsFire_treatment,by = "plot_id")
+
+postspringsfuels_complete_joined
+
+#plot
+     
+
+            
+            ggplot(data=postspringsfuels_complete_joined, mapping = aes(x=treatment_type, y=mass))+
+              geom_boxplot()+
+              geom_jitter(alpha = 0.3)+
+              facet_wrap(~ fuel_size, scales = "free_y") +
+              theme(axis.text.x = element_text(angle=45, hjust=1))
+```
+
+# *COMPARE* pre and post burn
+
+DT::datatable(prespringsfuels_complete_joined)
+
+```{r}
+
+prespringsfuels_complete_joined$preburn_mass <- prespringsfuels_complete_joined$mass
+postspringsfuels_complete_joined$postburn_mass <- postspringsfuels_complete_joined$mass
+
+prespringsfuels_complete_joined <- prespringsfuels_complete_joined %>% 
+  mutate(plot_id_fuel = paste(plot_id, fuel_size))
+postspringsfuels_complete_joined <- postspringsfuels_complete_joined %>% 
+  mutate(plot_id_fuel = paste(plot_id, fuel_size))
+
+springsfirefuels_ALL <- prespringsfuels_complete_joined %>% 
+  left_join(postspringsfuels_complete_joined,prespringsfuels_complete_joined, by = "plot_id_fuel") %>% 
+  select(plot_id.x, fuel_size.x, preburn_mass, postburn_mass, treatment_type.x) 
+  
+springsfirefuels_completeplots <- springsfirefuels_ALL %>% 
+   na.omit() %>% 
+   mutate(id_fuelsize = paste(plot_id.x, fuel_size.x)) %>% 
+  select(id_fuelsize, preburn_mass, postburn_mass) %>% 
+  pivot_longer(-id_fuelsize, names_to = "time", values_to = "mass") %>% 
+  separate(id_fuelsize, c("plot_id", "fuel_size"), sep=" ") 
+
+springsfirefuels_completeplots <- left_join(springsfirefuels_completeplots, SpringsFire_treatment, by="plot_id")
+
+
+
+
+ggplot(data=springsfirefuels_completeplots, mapping = aes(x=treatment_type, y=mass, fill=time))+
+              geom_boxplot()+
+              geom_jitter(alpha = 0.1)+
+              facet_wrap(~ fuel_size, scales = "free_y") +
+              theme_minimal()+
+              xlab("Prior Treatment")+
+              ylab("Mass (Ton/Acre)")+
+              scale_fill_manual(values=c("#69b3a2", "#404080"))+
+              theme(axis.text.x = element_text(angle=45, hjust=1))
+
+```
+
+
+# Initial basal area
+
+```{r}
+Pre_SpringsFire_ba <- read_csv("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/data/raw/pre_springsfire_basalarea.csv", col_names = TRUE)
+
+Pre_SpringsFire_ba <- na.omit(Pre_SpringsFire_ba)
+Pre_SpringsFire_ba <-   left_join(Pre_SpringsFire_ba, SpringsFire_treatment, by="plot_id") 
+
+SpringsFire_ba_condense <- Pre_SpringsFire_ba %>% 
+    select(plot_id, status, species_id, stand_ba, treatment_type) 
+
+str(SpringsFire_ba_condense)
+SpringsFire_ba_condense$stand_ba <- as.numeric(SpringsFire_ba_condense$stand_ba)
+
+ggplot(data=SpringsFire_ba_condense, mapping = aes(x=treatment_type, y=stand_ba))+
+              geom_boxplot(alpha=5)+
+              geom_jitter(alpha= 0.7,aes(colour = status))+
+              scale_color_manual(values=c("#69b3a2", "#404080"))+
+              theme_minimal()+
+              xlab("Prior Treatment")+
+              ylab("Initial stand basal area (ft^2/acre)")
+              
+  
+  
+```
+
+# Initial species composition 
+
+
+
+
+
