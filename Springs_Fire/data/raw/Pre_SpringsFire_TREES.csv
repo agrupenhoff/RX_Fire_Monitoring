@@ -1,5 +1,4 @@
-﻿site,year,plot_id,tag,status,species_id,dbh,height,ht_to_crownlive,ht_to_crowndead,crown_class,crown_width,bolechar,decay,stump_diam,stump_ht,decay,scorch_ht,scorch,torch_ht,torch,resprout,notes
-,,,,,,cm,m,m,m,,m,m,,cm,m,,m,%,m,%,,
+﻿site,year,plot_id,tag,status,species_id,dbm_cm,ht_m,ht_to_crownlive_m,ht_to_crowndead_m,crown_class_m,crown_width_m,bolechar_m,decay,stump_diam_m,stump_ht_m,decay,scorch_ht_m,scorch_percent,torch_ht_m,torch_percent,resprout,notes
 springsfire,2019,springs1,1,live,pije,38.3,14.7,7.6,,IN,2,,,,,,,,,,,hadnt started collecting ladder fuels or live score yet
 springsfire,2019,springs1,2,live,pije,34.9,11.3,3,,IN,1.5,,,,,,,,,,,
 springsfire,2019,springs1,3,live,pije,37.7,15.5,7.5,,IN,1.5,,,,,,,,,,,

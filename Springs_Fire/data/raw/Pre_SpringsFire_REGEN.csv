@@ -1,5 +1,4 @@
-site,year,plot_id,species_id,status,recruitment,lifeform,tse_count,tse_ht,tse_age,growth_lastyr,tsa_dbh,tsa_age,tsa_ht,tre_count,tre_ht,tre_dbh,tre_age,NOTES
-,,,,,,,count,cm_of_tallest,year_of_tallest,cm,cm,year,m,count,m_of_tallest,cm_of_tallest,year_of_tallest,
+site,year,plot_id,species_id,status,recruitment,lifeform,tse_count,tse_ht_cm,tse_age_yr,growth_lastyr_cm,tsa_dbh_cm,tsa_age_yr,tsa_ht_m,tre_count,tre_ht_m,tre_dbh_cm,tre_age_yr,NOTES
 springsfire,2019,springs8,pije,live,natural ,TSE,1,0.17,3,2,,,,,,,,
 springsfire,2019,springs11,pije,live,natural ,TSE,3,0.03,0,0,,,,,,,,
 springsfire,2019,springs11,pije,live,natural ,TSE,1,0.05,1,0,,,,,,,,
