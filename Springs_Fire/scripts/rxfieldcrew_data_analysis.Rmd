@@ -96,6 +96,7 @@ prespringsfuels_complete_joined <- left_join(springsfuels_longer,SpringsFire_tre
             
 DT::datatable(prespringsfuels_complete_joined, options = list(pageLength = 10))
 
+
 ```
 
 ## Post Springs fire fuels
