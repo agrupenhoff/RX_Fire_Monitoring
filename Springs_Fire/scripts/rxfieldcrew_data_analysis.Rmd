@@ -9,7 +9,6 @@ output:
   word_document: default
 ---
 
-is john here
 
 
 # Prescribed Monitoring Field Crew Initial Analysis 
