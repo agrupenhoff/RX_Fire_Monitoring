@@ -1,5 +1,5 @@
 ---
-title: "SpringsFire Data Analysis"
+title: "Lakes District Data Analysis"
 author: "Ashley Grupenhoff"
 date: "4/19/2020"
 output:
@@ -12,6 +12,7 @@ output:
 
 # Prescribed Monitoring Field Crew Initial Analysis 
 
+Bliss State Park and Burton State Park
 
 
 ```{r setup, include=FALSE}
@@ -31,10 +32,25 @@ library(knitr)
 library(kableExtra)
 library(rio)
           
-          wes_palette("IsleofDogs2")
+        
 ```
 
-## Pre Springs fire fuels
+
+## Lakes District Description
+
+```{r}
+LakesDistrictDescription <- read_csv("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Lakes_District/data/raw/LakesDistrict_description.csv")
+
+LakesDistrictLocation <- LakesDistrictDescription %>% 
+  select(plot_id, )
+
+
+```
+
+
+
+
+## Pre fire fuels - Burton and Bliss
 
 Initial fuels data 
 
@@ -47,14 +63,14 @@ convert sq cm to sq in: * 0.155
 
 ```{r, message=FALSE, echo=FALSE, message=FALSE, warning=FALSE, results= "asis"}
 #load data
-Pre_SpringsFire_FUELS <- read_csv("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/data/raw/pre_springsfire_finefuels.csv")
-SpringsFire_treatment <- read_csv("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/data/raw/springsfire_treatment.csv")
+LakesDistrictFuels <- read_csv("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Lakes_District/data/raw/LakesDistrict_finefuels.csv")
 
-PreSpringsFuels_Slope <- Pre_SpringsFire_FUELS  %>% 
-                            mutate(slopecorrection = (1+(Pre_SpringsFire_FUELS$slope_percent/100)^2)^(1/2))
+
+PreLakesFuels_Slope <- LakesDistrictFuels  %>% 
+                            mutate(slopecorrection = (1+(LakesDistrictFuels$`Slope %`/100)^2)^(1/2))
                           
                     #Create New data frame
-                    prespringsfuels<-NULL
+                    lakesdistrictfuels<-NULL
                     prespringsfuels<-as.data.frame(matrix(NA, ncol=6, nrow=nrow(PreSpringsFuels_Slope)))
                     colnames(prespringsfuels)<-c("plot_id","mass_1hr", "mass_10hr", "mass_100hr", "mass_cwd_sound", "mass_cwd_rotten")
                     
