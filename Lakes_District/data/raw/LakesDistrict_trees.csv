@@ -1,5 +1,4 @@
-site,year,plot_id,tag,status,species_id,dbh,height,ht_to_crownlive,ht_to_crowndead,crown_class,crown_width,deacy,bolechar,stump_diam,stump_ht,scorch_ht,scorch,torch_ht,torch,notes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,NOTES
-,,,,,,cm,m,m,m,,m,,m,cm,m,m,%,m,%,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+site,year,plot_id,tag,status,species_id,dbh_cm,height_m,ht_to_crownlive_m,ht_to_crowndead_m,crown_class,crown_width_m,deacy,bolechar_m,stump_diam_cm,stump_ht_cm,scorch_ht_m,scorch_%,torch_ht_m,torch%,notes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,NOTES
 lakesdistrict,2019,burton1,423,live,abco,24.1,10,1,0.2,IN,1.75,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 lakesdistrict,2019,burton1,,stump,abco,,,,,,,5,,6.9,0.34,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 lakesdistrict,2019,burton1,,dead,abco,8.3,1.75,,,,,3,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

@@ -1,5 +1,4 @@
-site,year,plot_id,azimuth,intersect,large,small,length,decay,notes
-,,,,cm,cm,cm,m,,
+site,year,plot_id,azimuth,intersect_cm,large_cm,small_cm,length_m,decay,notes
 lakesdistrict,2019,burton1,N,47,50,29,2.3,5-rotten,
 lakesdistrict,2019,burton1,N,28,30,10,3.4,4,
 lakesdistrict,2019,burton1,E,30,15,12,3.5,4,

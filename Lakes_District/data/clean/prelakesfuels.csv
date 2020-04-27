@@ -1,0 +1,196 @@
+plot_id,fuel_size,mass
+bliss 1,mass_1hr,0.314856704477808
+bliss 1,mass_10hr,1.47148108692116
+bliss 1,mass_100hr,0.836482081047618
+bliss 1,mass_cwd_sound,5.94259985561599
+bliss 1,mass_cwd_rotten,35.6396325783009
+bliss 2,mass_1hr,0.276120957073171
+bliss 2,mass_10hr,1.73838786585366
+bliss 2,mass_100hr,1.93688890243902
+bliss 2,mass_cwd_sound,
+bliss 2,mass_cwd_rotten,58.5963269287662
+bliss 3,mass_1hr,0.25102118584325
+bliss 3,mass_10hr,1.7662914566785
+bliss 3,mass_100hr,2.24911853307158
+bliss 3,mass_cwd_sound,25.9362139126459
+bliss 3,mass_cwd_rotten,21.2874434832806
+bliss 4,mass_1hr,0.140719280416007
+bliss 4,mass_10hr,0.425247877729796
+bliss 4,mass_100hr,1.12810855683798
+bliss 4,mass_cwd_sound,37.4736536600503
+bliss 4,mass_cwd_rotten,0.378366393054194
+bliss 5,mass_1hr,0.0893841565641115
+bliss 5,mass_10hr,1.06920617744322
+bliss 5,mass_100hr,0.567283554352805
+bliss 5,mass_cwd_sound,19.8402883223768
+bliss 5,mass_cwd_rotten,15.2700301087122
+bliss 6,mass_1hr,0.403281924146341
+bliss 6,mass_10hr,1.9469944097561
+bliss 6,mass_100hr,4.1504762195122
+bliss 6,mass_cwd_sound,93.3553510945579
+bliss 6,mass_cwd_rotten,18.3345178851754
+bliss10,mass_1hr,0.44687997
+bliss10,mass_10hr,1.9469944097561
+bliss10,mass_100hr,3.04368256097561
+bliss10,mass_cwd_sound,3.72424610210805
+bliss10,mass_cwd_rotten,33.1696327270815
+bliss11,mass_1hr,0.432347288048781
+bliss11,mass_10hr,1.8079233804878
+bliss11,mass_100hr,0.553396829268293
+bliss11,mass_cwd_sound,
+bliss11,mass_cwd_rotten,
+bliss12,mass_1hr,0.117529409776297
+bliss12,mass_10hr,1.26528971369267
+bliss12,mass_100hr,1.11886441426111
+bliss12,mass_cwd_sound,
+bliss12,mass_cwd_rotten,
+bliss13,mass_1hr,0.260482903670566
+bliss13,mass_10hr,0.569760145020197
+bliss13,mass_100hr,0.283401456216793
+bliss13,mass_cwd_sound,0.979891253254615
+bliss13,mass_cwd_rotten,
+bliss14,mass_1hr,0.191957377409544
+bliss14,mass_10hr,1.62498814014422
+bliss14,mass_100hr,1.96797871643763
+bliss14,mass_cwd_sound,15.710084227121
+bliss14,mass_cwd_rotten,
+bliss15,mass_1hr,0.287020468536585
+bliss15,mass_10hr,2.01652992439024
+bliss15,mass_100hr,2.21358731707317
+bliss15,mass_cwd_sound,2.17068619649935
+bliss15,mass_cwd_rotten,5.02628358458087
+bliss7,mass_1hr,0.254321934146342
+bliss7,mass_10hr,1.8079233804878
+bliss7,mass_100hr,1.10679365853659
+bliss7,mass_cwd_sound,1.7051856140122
+bliss7,mass_cwd_rotten,13.1974575962364
+bliss8,mass_1hr,0.0667406247535007
+bliss8,mass_10hr,0.78060502609043
+bliss8,mass_100hr,1.41191535074551
+bliss8,mass_cwd_sound,3.03383129951196
+bliss8,mass_cwd_rotten,3.34953455656777
+bliss9,mass_1hr,0.104271768032154
+bliss9,mass_10hr,0.285094994903429
+bliss9,mass_100hr,3.9706136833436
+bliss9,mass_cwd_sound,14.9112757962969
+bliss9,mass_cwd_rotten,3.39431177026181
+burton1,mass_1hr,0.214357058780488
+burton1,mass_10hr,1.18210374878049
+burton1,mass_100hr,2.76698414634146
+burton1,mass_cwd_sound,1.20721105416793
+burton1,mass_cwd_rotten,18.3752612582535
+burton10,mass_1hr,0.29791998
+burton10,mass_10hr,2.22513646829268
+burton10,mass_100hr,0.830095243902439
+burton10,mass_cwd_sound,9.09029923788448
+burton10,mass_cwd_rotten,
+burton11,mass_1hr,0.396015583170732
+burton11,mass_10hr,3.47677573170732
+burton11,mass_100hr,4.42717463414634
+burton11,mass_cwd_sound,1.33095018722014
+burton11,mass_cwd_rotten,20.2381388162164
+burton12,mass_1hr,0.029065363902439
+burton12,mass_10hr,0.417213087804878
+burton12,mass_100hr,0.830095243902439
+burton12,mass_cwd_sound,7.71407863613305
+burton12,mass_cwd_rotten,0.226352072656486
+burton13,mass_1hr,0.388749242195122
+burton13,mass_10hr,1.87745889512195
+burton13,mass_100hr,
+burton13,mass_cwd_sound,25.8644968355478
+burton13,mass_cwd_rotten,9.62222660862722
+burton14,mass_1hr,0.14895999
+burton14,mass_10hr,0.834426175609756
+burton14,mass_100hr,1.66019048780488
+burton14,mass_cwd_sound,1.5610747944209
+burton14,mass_cwd_rotten,0.144865326500151
+burton15,mass_1hr,0.254321934146342
+burton15,mass_10hr,4.17213087804878
+burton15,mass_100hr,3.04368256097561
+burton15,mass_cwd_sound,17.2955920519585
+burton15,mass_cwd_rotten,2.99237440051875
+burton16,mass_1hr,0.323352173414634
+burton16,mass_10hr,1.39071029268293
+burton16,mass_100hr,3.04368256097561
+burton16,mass_cwd_sound,0.365181343885798
+burton16,mass_cwd_rotten,9.76482841440081
+burton17,mass_1hr,0.30518632097561
+burton17,mass_10hr,1.8079233804878
+burton17,mass_100hr,1.66019048780488
+burton17,mass_cwd_sound,3.60352499669126
+burton17,mass_cwd_rotten,11.8970649388249
+burton18,mass_1hr,0.236156081707317
+burton18,mass_10hr,3.82445330487805
+burton18,mass_100hr,1.10679365853659
+burton18,mass_cwd_sound,4.76244760869247
+burton18,mass_cwd_rotten,23.1716616778445
+burton19,mass_1hr,0.432347288048781
+burton19,mass_10hr,1.11256823414634
+burton19,mass_100hr,1.66019048780488
+burton19,mass_cwd_sound,
+burton19,mass_cwd_rotten,11.1478395783319
+burton2,mass_1hr,0.301553150487805
+burton2,mass_10hr,2.71188507073171
+burton2,mass_100hr,3.04368256097561
+burton2,mass_cwd_sound,0.301802763541982
+burton2,mass_cwd_rotten,12.3203433146925
+burton20,mass_1hr,0.515910209268293
+burton20,mass_10hr,4.31120190731707
+burton20,mass_100hr,0.830095243902439
+burton20,mass_cwd_sound,7.85592593499778
+burton20,mass_cwd_rotten,14.3914647794994
+burton21,mass_1hr,0.225256570243903
+burton21,mass_10hr,0.695355146341463
+burton21,mass_100hr,1.10679365853659
+burton21,mass_cwd_sound,
+burton21,mass_cwd_rotten,29.6113781449215
+burton22,mass_1hr,0.345151196341463
+burton22,mass_10hr,1.87745889512195
+burton22,mass_100hr,4.98057146341463
+burton22,mass_cwd_sound,7.93816718806297
+burton22,mass_cwd_rotten,9.56337506973654
+burton23,mass_1hr,0.330618514390244
+burton23,mass_10hr,1.9469944097561
+burton23,mass_100hr,0.553396829268293
+burton23,mass_cwd_sound,
+burton23,mass_cwd_rotten,
+burton24,mass_1hr,0.0799297507317073
+burton24,mass_10hr,0.695355146341463
+burton24,mass_100hr,1.93688890243902
+burton24,mass_cwd_sound,0.872209986636326
+burton24,mass_cwd_rotten,0.144865326500151
+burton3,mass_1hr,0.396478240364262
+burton3,mass_10hr,4.46783395575423
+burton3,mass_100hr,3.66859546539934
+burton3,mass_cwd_sound,16.257975978063
+burton3,mass_cwd_rotten,0.59098198536676
+burton4,mass_1hr,0.417814606097561
+burton4,mass_10hr,1.18210374878049
+burton4,mass_100hr,0.276698414634146
+burton4,mass_cwd_sound,
+burton4,mass_cwd_rotten,
+burton5,mass_1hr,0.250688763658537
+burton5,mass_10hr,2.29467198292683
+burton5,mass_100hr,0.830095243902439
+burton5,mass_cwd_sound,
+burton5,mass_cwd_rotten,
+burton6,mass_1hr,0.584940448536585
+burton6,mass_10hr,2.43374301219512
+burton6,mass_100hr,2.21358731707317
+burton6,mass_cwd_sound,1.49090565189739
+burton6,mass_cwd_rotten,7.34512475770297
+burton7,mass_1hr,0.316085832439024
+burton7,mass_10hr,1.73838786585366
+burton7,mass_100hr,6.36406353658537
+burton7,mass_cwd_sound,1.93153768666868
+burton7,mass_cwd_rotten,
+burton8,mass_1hr,0.14169364902439
+burton8,mass_10hr,1.8079233804878
+burton8,mass_100hr,4.1504762195122
+burton8,mass_cwd_sound,4.47573498332759
+burton8,mass_cwd_rotten,
+burton9,mass_1hr,0.276120957073171
+burton9,mass_10hr,1.9469944097561
+burton9,mass_100hr,3.5970793902439
+burton9,mass_cwd_sound,0.301802763541982
+burton9,mass_cwd_rotten,

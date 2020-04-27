@@ -1,5 +1,4 @@
-site,year,plot_id,species_id,status,BAF,count,stand_BA
-,,,,,,,ft2/ac
+site,year,plot_id,species_id,status,BAF,count,stand_BA_ft2/ac
 lakesdistrict,2019,burton1,abco,live,20,8,160
 lakesdistrict,2019,burton1,abma,live,20,1,20
 lakesdistrict,2019,burton2,abco,live,40,5,200
