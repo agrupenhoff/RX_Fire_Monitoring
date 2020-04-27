@@ -35,7 +35,7 @@ library(rio)
 ```
 
 
-## Lakes District Description
+## Description
 
 ```{r}
 French_MeadowsDescription <- read_csv("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/French_Meadows/data/raw/FrenchMeadows_description.csv")

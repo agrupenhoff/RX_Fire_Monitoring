@@ -35,10 +35,10 @@ library(rio)
 ```
 
 
-## Lakes District Description
+##  Description
 
 ```{r}
-French_MeadowsDescription <- read_csv("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/French_Meadows/data/raw/FrenchMeadows_description.csv")
+
 
 ```
 
@@ -58,18 +58,18 @@ convert sq cm to sq in: * 0.155
 
 ```{r, message=FALSE, echo=FALSE, message=FALSE, warning=FALSE, results= "asis"}
 #load data
-French_MeadowsFuels <- read_csv("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/French_Meadows/data/raw/FrenchMeadows_finefuels.csv")
-French_MeadowsCWD <- read_csv("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/French_Meadows/data/raw/FrenchMeadows_cwd.csv")
+BearMtn_Fuels <- read_csv("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Bear_Mtn/data/raw/BearMtn_finefuels.csv")
+BearMtn_CWD <- read_csv("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Bear_Mtn/data/raw/BearMtn_cwd.csv")
 
 
 #combine sum CWD rotten and sound per plot
 
-                    FM_CWD <- French_MeadowsCWD %>% 
+                    BearMtn_CWD_combined <- BearMtn_CWD %>% 
                           mutate( decay_type = case_when(
                             decay >= 4 | decay == '5-rotten' ~ "rotten",
-                            decay < 4 ~ "sound"
+                            decay < 4 | decay == '1-intact' ~ "sound"
                           )) %>% 
-                      mutate(diam_in_square = (intersect_cm * 0.3937)^2) %>% 
+                      mutate(diam_in_square = (intersect_cm * 0.3937)^2)  %>% 
                       group_by(plot_id, decay_type) %>% 
                       summarise(sum_diam = sum(diam_in_square)) %>% 
                       pivot_wider(names_from = "decay_type", values_from = "sum_diam") 
@@ -79,51 +79,51 @@ French_MeadowsCWD <- read_csv("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_
 ##Average each mass type per plot
 
               
-FM_fuels_combined <- French_MeadowsFuels %>% 
-
+BearMtn_fuels_combined <- BearMtn_Fuels %>% 
+  rename(plot_id = `Plot ID`) %>% 
   mutate( avg_duff = (duff1_cm + duff2_cm)/2,
-          avg_litter = (litter1_cm +litter2)/2) %>%
+          avg_litter = (litter1_cm +litter2_cm)/2) %>%
           mutate(slopecorrection = (1+(slope_percent/100)^2)^(1/2)) %>% 
   group_by(plot_id) %>% 
-  summarise_all(list(mean))  %>% 
-   left_join(FM_CWD, by="plot_id")
+  summarise_all(list(mean))  
+   left_join(BearMtn_CWD_combined, by="plot_id")
   
 
                           
                     #Create New data frame
-                    FMfuels<-NULL
-                   FMfuels<-as.data.frame(matrix(NA, ncol=6, nrow=nrow(FM_fuels_combined)))
-                    colnames(FMfuels)<-c("plot_id","mass_1hr", "mass_10hr", "mass_100hr", "mass_cwd_sound", "mass_cwd_rotten")
+                    BMfuels<-NULL
+                   BMfuels<-as.data.frame(matrix(NA, ncol=6, nrow=nrow(BearMtn_fuels_combined)))
+                    colnames(BMfuels)<-c("plot_id","mass_1hr", "mass_10hr", "mass_100hr", "mass_cwd_sound", "mass_cwd_rotten")
                     
                     #run a forloop to apply the equations to each row in the data frame
-                    for (i in 1:nrow(FM_fuels_combined)) {
+                    for (i in 1:nrow(BearMtn_fuels_combined)) {
                     	      
-                      FMfuels[i,"plot_id"]<-FM_fuels_combined[i,"plot_id"]          
-                      FMfuels[i,"mass_1hr"]<- ((11.64 * FM_fuels_combined[i,"1hr_count"] * 0.0151 * 	0.48 * 1.13 * FM_fuels_combined [i, "slopecorrection"])/ (2*3.28))                          
-                      FMfuels[i,"mass_10hr"]<-((11.64 * FM_fuels_combined[i,"10hr_count"] * 0.289 * 	0.48 * 1.13 * FM_fuels_combined [i, "slopecorrection"]) / (2*3.28))                            
-                      FMfuels[i,"mass_100hr"]<-((11.64 * FM_fuels_combined[i,"100hr_count"] * 2.76 * 	0.40 * 1.13 * FM_fuels_combined[i, "slopecorrection"]) / (4*3.28))           
-                      FMfuels[i,"mass_cwd_sound"]<- ((11.64 * FM_fuels_combined[i,"sound"] 	* 0.155 * 0.40 * FM_fuels_combined [i, "slopecorrection"]) / (11.3*3.28))           
-                      FMfuels[i,"mass_cwd_rotten"]<-((11.64 * FM_fuels_combined[i,"rotten"] 	* 0.155 * 0.30 * FM_fuels_combined [i, "slopecorrection"]) / (11.3*3.28))    
+                      BMfuels[i,"plot_id"]<-BearMtn_fuels_combined[i,"plot_id"]          
+                      BMfuels[i,"mass_1hr"]<- ((11.64 * BearMtn_fuels_combined[i,"1hr_count"] * 0.0151 * 	0.48 * 1.13 * BearMtn_fuels_combined [i, "slopecorrection"])/ (2*3.28))                          
+                      BMfuels[i,"mass_10hr"]<-((11.64 * BearMtn_fuels_combined[i,"10hr_count"] * 0.289 * 	0.48 * 1.13 * BearMtn_fuels_combined [i, "slopecorrection"]) / (2*3.28))                            
+                      BMfuels[i,"mass_100hr"]<-((11.64 * BearMtn_fuels_combined[i,"100hr_count"] * 2.76 * 	0.40 * 1.13 * BearMtn_fuels_combined[i, "slopecorrection"]) / (4*3.28))           
+                      BMfuels[i,"mass_cwd_sound"]<- ((11.64 * BearMtn_fuels_combined[i,"sound"] 	* 0.155 * 0.40 * BearMtn_fuels_combined [i, "slopecorrection"]) / (11.3*3.28))           
+                      BMfuels[i,"mass_cwd_rotten"]<-((11.64 * BearMtn_fuels_combined[i,"rotten"] 	* 0.155 * 0.30 * BearMtn_fuels_combined [i, "slopecorrection"]) / (11.3*3.28))    
                             
                     }      
                        
 
 #pivot longer
 
-FMfuels <- FMfuels %>% 
+BMfuels <- BMfuels %>% 
   pivot_longer(cols = -plot_id, names_to = "fuel_size", values_to= "mass")
 
 
 
 #save completed pre fuels data frame
-export(FMfuels, "C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/French_Meadows/data/clean/PreBurn_FMfuels.csv")
+export(BMfuels, "C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Bear_Mtn/data/clean/PreBurn_BMfuels.csv")
 
 
 #plot
 
 
      
-           FMfuels_plot <-  ggplot(data=FMfuels, mapping = aes(x=fuel_size, y=mass))+
+           BMfuels_plot <-  ggplot(data=BMfuels, mapping = aes(x=fuel_size, y=mass))+
               geom_boxplot()+
               
               geom_jitter(alpha = 0.3)+
@@ -132,10 +132,10 @@ export(FMfuels, "C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitorin
               ylab("Mass (Ton/Acre)")+
               ggtitle("Pre-burn Fuels")+
               theme(plot.title = element_text(hjust = 0.5))
-           FMfuels_plot
+           BMfuels_plot
             
 
-ggsave("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/French_Meadows/images/FMfuels.png", FMfuels_plot)
+ggsave("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Bear_Mtn/images/BMfuels.png", BMfuels_plot)
 
 
 ```
@@ -144,15 +144,14 @@ ggsave("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/French_
 ## Tree data
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, results= "asis"}
-FrenchMeadows_trees <- read_csv("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/French_Meadows/data/raw/FrenchMeadows_trees.csv", col_names = TRUE)
-str(FrenchMeadows_trees)
-FrenchMeadows_trees$ht_to_crown_m <- as.numeric(FrenchMeadows_trees$ht_to_crown_m)
+BM_trees <- read_csv("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Bear_Mtn/data/raw/BearMtn_trees.csv", col_names = TRUE)
+str(BM_trees)
 
 
 #live trees only
 
 
-FM_trees_live <- FrenchMeadows_trees %>% 
+BM_trees_live <- BM_trees %>% 
   filter(status == "live") %>% 
   select(plot_id, species_id, dbh_cm, height_m, ht_to_crown_m) %>% 
   drop_na() %>% 
@@ -164,12 +163,12 @@ FM_trees_live <- FrenchMeadows_trees %>%
   mutate(total_trees_acre = total_trees*10) 
 
 
-export(FM_trees_live, "C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/French_Meadows/data/clean/FM_trees_live.csv")
+export(BM_trees_live, "C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Bear_Mtn/data/clean/BM_trees_live.csv")
 
 #adjust values to be per acre
 
 
-ggplot(data=FM_trees_live, mapping = aes(x=species_id, y=total_trees_acre))+
+ggplot(data=BM_trees_live, mapping = aes(x=species_id, y=total_trees_acre))+
               scale_fill_manual(values=c("#69b3a2", "#404080"))+
               geom_boxplot(alpha=5)+
               geom_jitter(alpha= 0.7)+
@@ -179,7 +178,7 @@ ggplot(data=FM_trees_live, mapping = aes(x=species_id, y=total_trees_acre))+
    ggtitle("Total Live Trees per Acre")+
               theme(plot.title = element_text(hjust = 0.5))
 
-ggplot(data=FM_trees_live, mapping = aes(x=species_id, y=mean_dbh))+
+ggplot(data=BM_trees_live, mapping = aes(x=species_id, y=mean_dbh))+
               scale_fill_manual(values=c("#69b3a2", "#404080"))+
               geom_boxplot(alpha=5)+
               geom_jitter(alpha= 0.7)+
@@ -189,7 +188,7 @@ ggplot(data=FM_trees_live, mapping = aes(x=species_id, y=mean_dbh))+
      ggtitle("Average DBH (cm) Live Trees")+
               theme(plot.title = element_text(hjust = 0.5))
 
-ggplot(data=FM_trees_live, mapping = aes(x=species_id, y=mean_ht))+
+ggplot(data=BM_trees_live, mapping = aes(x=species_id, y=mean_ht))+
               scale_fill_manual(values=c("#69b3a2", "#404080"))+
               geom_boxplot(alpha=5)+
               geom_jitter(alpha= 0.7)+
@@ -205,7 +204,7 @@ ggplot(data=FM_trees_live, mapping = aes(x=species_id, y=mean_ht))+
 #live and dead trees simple comparison
 
 
-FM_trees_standing <- FrenchMeadows_trees %>% 
+BM_trees_standing <- BM_trees %>% 
   filter(status == "live" | status == "dead") %>% 
   select(plot_id, status, species_id, dbh_cm, height_m) %>% 
   group_by(plot_id, species_id, status) %>% 
@@ -214,9 +213,9 @@ FM_trees_standing <- FrenchMeadows_trees %>%
             total_trees = length(dbh_cm)) %>% 
   mutate(total_trees_acre = total_trees*10) 
 
-export(FM_trees_standing, "C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/French_Meadows/data/clean/FM_trees_standing.csv")
+export(BM_trees_standing, "C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Bear_Mtn/data/clean/BM_trees_standing.csv")
 
-ggplot(data=FM_trees_standing, mapping = aes(x=species_id, y=total_trees_acre))+
+ggplot(data=BM_trees_standing, mapping = aes(x=species_id, y=total_trees_acre))+
               scale_fill_manual(values=c("#69b3a2", "#404080"))+
               facet_wrap(~status,scales = "free_y")+
               geom_boxplot(alpha=5)+
@@ -241,17 +240,18 @@ Basal area compared between treatment type, by species and status (live or dead)
 
 
 ```{r}
-FM_ba <- read_csv("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/French_Meadows/data/raw/FrenchMeadows_basalarea.csv", col_names = TRUE)
+BM_ba <- read_csv("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Bear_Mtn/data/raw/BearMtn_basalarea.csv", col_names = TRUE)
 
 
-FM_ba_condense <- FM_ba %>% 
+BM_ba_condense <- BM_ba %>% 
+  rename(plot_id = `Plot ID`) %>% 
     select(plot_id, status, species_id, stand_BA_ft2acre) %>% 
     rename(stand_ba = 'stand_BA_ft2acre' )
 
 
-export(FM_ba_condense, "C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/French_Meadows/data/clean/FMbasalarea_complete.csv")
+export(BM_ba_condense, "C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Bear_Mtn/data/clean/BM_basalarea_complete.csv")
 
-ggplot(data=FM_ba_condense, mapping = aes(x=species_id, y=stand_ba))+
+ggplot(data=BM_ba_condense, mapping = aes(x=species_id, y=stand_ba))+
               
               geom_boxplot(alpha=5)+
               geom_jitter(alpha= 0.7,aes(colour = status))+
