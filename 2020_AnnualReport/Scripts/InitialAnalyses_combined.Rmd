@@ -1,0 +1,93 @@
+---
+title: "Rx_Monitoring_InitialAnalyses"
+author: "Ashley Grupenhoff"
+date: "4/27/2020"
+output: html_document
+---
+
+
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r, include=FALSE}
+library(tidyverse)
+  library(tinytex)
+          options(tinytex.verbose=TRUE)
+library(tibble)
+library(dplyr)
+library(ggplot2)
+library(vegan)
+library(knitr)
+library(kableExtra)
+library(rio)
+      
+```
+
+
+# Pre-fire fuels comparions across sites
+
+```{r}
+
+PreBurn_BMfuels <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Bear_Mtn/data/clean/PreBurn_BMfuels.csv")
+PreBurn_BMfuels <- PreBurn_BMfuels %>% 
+  mutate(location = 'BearMtn')
+
+PreBurn_FMfuels <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/French_Meadows/data/clean/PreBurn_FMfuels.csv")
+PreBurn_FMfuels <- PreBurn_FMfuels %>% 
+  mutate(location = 'FrenchMeadows')
+
+
+PreBurn_lakesfuels <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Lakes_District/data/clean/prelakesfuels.csv")
+PreBurn_lakesfuels <- PreBurn_lakesfuels %>% 
+  mutate(location = 'LakesDistrict')
+
+PreBurn_SlyParkFuels <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Sly_Park/data/clean/PreBurn_SlyParkfuels.csv")
+PreBurn_SlyParkFuels <- PreBurn_SlyParkFuels %>% 
+  mutate(location = 'SlyPark')
+
+PreBurn_SpringsFire <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/data/clean/prespringsfuels_complete.csv")
+PreBurn_SpringsFire <- PreBurn_SpringsFire %>% 
+  mutate(location = 'SpringsFire')
+
+
+
+allfuels <- bind_rows(PreBurn_BMfuels, PreBurn_FMfuels, PreBurn_lakesfuels, PreBurn_SlyParkFuels, PreBurn_SpringsFire)
+
+```
+
+
+# Pre-fire Trees
+
+
+```{r}
+#all standing
+BM_trees_standing <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Bear_Mtn/data/clean/BM_trees_standing.csv")
+
+BM_trees_live <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Bear_Mtn/data/clean/BM_trees_live.csv")
+
+
+
+```
+
+
+# Pre-fire Basal Area
+
+```{r}
+
+BM_basalarea_complete <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Bear_Mtn/data/clean/BM_basalarea_complete.csv")
+
+
+
+```
+
+
+
+
+
+
+
+

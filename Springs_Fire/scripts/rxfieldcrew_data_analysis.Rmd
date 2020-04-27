@@ -1,0 +1,511 @@
+---
+title: "SpringsFire Data Analysis"
+author: "Ashley Grupenhoff"
+date: "4/19/2020"
+output:
+  html_document:
+    df_print: paged
+  pdf_document: default
+  word_document: default
+---
+
+
+
+# Prescribed Monitoring Field Crew Initial Analysis 
+
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r, include=FALSE}
+library(tidyverse)
+  library(tinytex)
+          options(tinytex.verbose=TRUE)
+library(tibble)
+library(dplyr)
+library(ggplot2)
+library(vegan)
+library(knitr)
+library(kableExtra)
+library(rio)
+      
+```
+
+## Pre Springs fire fuels
+
+Initial fuels data 
+
+0-3" = (11.64 * n * d^2 * s * a * c)/ (Nl)
+CWD = (11.64 * n * sum(d^2) * s * a * c)/ (Nl)
+
+slope correction = (1+(presprings_fuelslope/100)^2)^(1/2)
+convert sq cm to sq in: * 0.155
+
+
+```{r, message=FALSE, echo=FALSE, message=FALSE, warning=FALSE, results= "asis"}
+#load data
+Pre_SpringsFire_FUELS <- read_csv("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/data/raw/pre_springsfire_finefuels.csv")
+SpringsFire_treatment <- read_csv("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/data/raw/springsfire_treatment.csv")
+
+PreSpringsFuels_Slope <- Pre_SpringsFire_FUELS  %>% 
+                            mutate(slopecorrection = (1+(Pre_SpringsFire_FUELS$slope_percent/100)^2)^(1/2))
+                          
+                    #Create New data frame
+                    prespringsfuels<-NULL
+                    prespringsfuels<-as.data.frame(matrix(NA, ncol=6, nrow=nrow(PreSpringsFuels_Slope)))
+                    colnames(prespringsfuels)<-c("plot_id","mass_1hr", "mass_10hr", "mass_100hr", "mass_cwd_sound", "mass_cwd_rotten")
+                    
+                    #run a forloop to apply the equations to each row in the data frame
+                    for (i in 1:nrow(PreSpringsFuels_Slope)) {
+                    	      
+                      prespringsfuels[i,"plot_id"]<-PreSpringsFuels_Slope[i,"plot_id"]          
+                      prespringsfuels[i,"mass_1hr"]<- ((11.64 * PreSpringsFuels_Slope[i,"count_x1h"] * 0.0151 * 	0.48 * 1.13 * PreSpringsFuels_Slope [i, "slopecorrection"])/ (2*3.28))                          
+                      prespringsfuels[i,"mass_10hr"]<-((11.64 * PreSpringsFuels_Slope[i,"count_x10h"] * 0.289 * 	0.48 * 1.13 * PreSpringsFuels_Slope [i, "slopecorrection"]) / (2*3.28))                            
+                      prespringsfuels[i,"mass_100hr"]<-((11.64 * PreSpringsFuels_Slope[i,"count_x100h"] * 2.76 * 	0.40 * 1.13 * PreSpringsFuels_Slope [i, "slopecorrection"]) / (4*3.28))           
+                      prespringsfuels[i,"mass_cwd_sound"]<- ((11.64 * PreSpringsFuels_Slope[i,"sum_d2_1000s_cm2"] 	* 0.155 * 0.40 * PreSpringsFuels_Slope [i, "slopecorrection"]) / (11.3*3.28))           
+                      prespringsfuels[i,"mass_cwd_rotten"]<-((11.64 * PreSpringsFuels_Slope[i,"sum_d2_1000r_cm2"] 	* 0.155 * 0.30 * PreSpringsFuels_Slope [i, "slopecorrection"]) / (11.3*3.28))    
+                            
+                    }      
+                       
+##Average each mass type per plot
+              
+              prespringsfuels_complete<- prespringsfuels %>% 
+                            group_by(plot_id) %>% 
+                            summarise_all(list(mean))
+#pivot longer
+
+springsfuels_longer <- prespringsfuels_complete %>% 
+  pivot_longer(cols = -plot_id, names_to = "fuel_size", values_to= "mass")
+
+#add column for treatment type
+
+prespringsfuels_complete_joined <- left_join(springsfuels_longer,SpringsFire_treatment,                                                     by = "plot_id")
+
+
+#save completed pre fuels data frame
+export(prespringsfuels_complete_joined, "C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/data/clean/prespringsfuels_complete.csv")
+
+
+#plot
+
+
+     
+            ggplot(data=prespringsfuels_complete_joined, mapping = aes(x=treatment_type, y=mass))+
+              geom_boxplot()+
+              
+              geom_jitter(alpha = 0.3)+
+              
+              facet_wrap(~ fuel_size,scales = "free_y")+
+              theme(axis.text.x = element_text(angle=45, hjust=1))+
+              xlab("Prior Treatment")+
+              ylab("Mass (Ton/Acre)")+
+              ggtitle("Pre-burn Fuels")+
+              theme(plot.title = element_text(hjust = 0.5))
+            
+DT::datatable(prespringsfuels_complete_joined, options = list(pageLength = 10))
+
+
+```
+
+## Post Springs fire fuels
+
+Post fuels data by treatment.
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE,results= "asis"}
+#load data
+Post_SpringsFire_FUELS <- read_csv("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/data/raw/post_springsfire_finefuels.csv")
+SpringsFire_treatment <- read_csv("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/data/raw/springsfire_treatment.csv")
+
+#CWD data clean
+
+Post_springs_cwd <- read_csv("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/data/raw/post_springsfire_cwd.csv")
+
+Post_springs_cwd <- Post_springs_cwd %>% 
+  mutate(sound_rotten = case_when(
+         decay > 3 ~ "rotten",
+         TRUE ~ "sound"))  
+  
+
+Post_springs_cwd <- Post_springs_cwd %>% 
+  mutate(azimuth2 = case_when(
+        azimuth == "N" ~ 0,
+        azimuth == "E" ~ 90,
+        azimuth == "S" ~ 180,
+        TRUE ~ 270
+  )) %>% 
+  mutate(intersect_in = intersect_cm*0.3937) %>% 
+  mutate(intersect_in_square = intersect_in^2) 
+
+Postsprings_cwd_sum <- Post_springs_cwd %>% 
+  group_by(plot_id, azimuth2, sound_rotten) %>% 
+  summarize(sum_diameter_square = sum(intersect_in_square)) %>% 
+  pivot_wider(names_from = "sound_rotten",
+              values_from = "sum_diameter_square") %>% 
+  mutate(plot_id_azimuth = paste(plot_id, azimuth2))
+
+
+#Clean up fine fuels
+
+Post_SpringsFire_FUELS <- Post_SpringsFire_FUELS %>% 
+  mutate(duff_depth_cm = (duff1_cm + duff2_cm)/2,
+         litter_depth_cm = (litter1_cm + litter2_cm)/2)%>% 
+        mutate(slopecorrection = (1+(Post_SpringsFire_FUELS$slope_percent/100)^2)^(1/2)) %>% 
+        mutate(plot_id_azimuth = paste(plot_id, azimuth))
+
+postspringsfuels_combine <- left_join(Post_SpringsFire_FUELS, Postsprings_cwd_sum, by="plot_id_azimuth")
+  
+
+
+#Create New data frame
+                    postspringsfuels<-NULL
+                    postspringsfuels<-as.data.frame(matrix(NA, ncol=6, nrow=nrow(postspringsfuels_combine)))
+                    colnames(postspringsfuels)<-c("plot_id","mass_1hr", "mass_10hr", "mass_100hr", "mass_cwd_sound", "mass_cwd_rotten")
+                    
+                    #run a forloop to apply the equations to each row in the data frame
+                    for (i in 1:nrow(postspringsfuels_combine)) {
+                    	      
+                      postspringsfuels[i,"plot_id"]<-postspringsfuels_combine[i,"plot_id.x"]          
+                      postspringsfuels[i,"mass_1hr"]<- ((11.64 * postspringsfuels_combine[i,"count_x1h"] * 0.0151 * 	0.48 * 1.13 * postspringsfuels_combine [i, "slopecorrection"])/ (2*3.28))                          
+                      postspringsfuels[i,"mass_10hr"]<-((11.64 * postspringsfuels_combine[i,"count_x10h"] * 0.289 * 	0.48 * 1.13 * postspringsfuels_combine [i, "slopecorrection"]) / (2*3.28))                            
+                      postspringsfuels[i,"mass_100hr"]<-((11.64 * postspringsfuels_combine[i,"count_x100h"] * 2.76 * 	0.40 * 1.13 * postspringsfuels_combine [i, "slopecorrection"]) / (4*3.28))           
+                      postspringsfuels[i,"mass_cwd_sound"]<- ((11.64 * postspringsfuels_combine[i,"sound"] 	* 0.155 * 0.40 * postspringsfuels_combine [i, "slopecorrection"]) / (11.3*3.28))           
+                      postspringsfuels[i,"mass_cwd_rotten"]<-((11.64 * postspringsfuels_combine[i,"rotten"] 	* 0.155 * 0.30 *postspringsfuels_combine [i, "slopecorrection"]) / (11.3*3.28))    
+                            
+                    }      
+
+                   
+                    ##Average each mass type per plot
+              
+              postspringsfuels_complete<- postspringsfuels %>% 
+                            group_by(plot_id) %>% 
+                            summarise_all(list(mean), na.rm=TRUE)
+#pivot longer
+  
+
+postspringsfuels_longer <- postspringsfuels_complete %>% 
+  pivot_longer(cols = -plot_id, names_to = "fuel_size", values_to= "mass") %>% 
+  mutate(mass = replace_na(mass,0))   #turn NaN values to 0 for CWD
+
+    
+ 
+
+#add column for treatment type
+
+postspringsfuels_complete_joined <- left_join(postspringsfuels_longer,SpringsFire_treatment,by = "plot_id")
+
+
+export(postspringsfuels_complete_joined, "C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/data/clean/postspringsfuels_complete.csv")
+
+#plot
+     
+
+            
+            ggplot(data=postspringsfuels_complete_joined, mapping = aes(x=treatment_type, y=mass))+
+              geom_boxplot()+
+              geom_jitter(alpha = 0.3)+
+              facet_wrap(~ fuel_size, scales = "free_y") +
+              xlab("Prior Treatment")+
+              ylab("Mass (Ton/Acre)")+
+              theme(axis.text.x = element_text(angle=45, hjust=1))+
+              ggtitle("Post-burn Fuels")+
+              theme(plot.title = element_text(hjust = 0.5))
+            
+            
+DT::datatable(postspringsfuels_complete_joined, options = list(pageLength = 10))
+```
+
+## pre and post burn fuel consumption
+
+Comparison of fuels consumption by treatment (time since last burn). Only includes plots in which we have pre- and post-burn data. 
+
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE,results= "asis"}
+
+prespringsfuels_complete_joined$preburn_mass <- prespringsfuels_complete_joined$mass
+postspringsfuels_complete_joined$postburn_mass <- postspringsfuels_complete_joined$mass
+
+prespringsfuels_complete_joined <- prespringsfuels_complete_joined %>% 
+  mutate(plot_id_fuel = paste(plot_id, fuel_size))
+postspringsfuels_complete_joined <- postspringsfuels_complete_joined %>% 
+  mutate(plot_id_fuel = paste(plot_id, fuel_size))
+
+springsfirefuels_ALL <- prespringsfuels_complete_joined %>% 
+  left_join(postspringsfuels_complete_joined,prespringsfuels_complete_joined, by = "plot_id_fuel") %>% 
+  select(plot_id.x, fuel_size.x, preburn_mass, postburn_mass, treatment_type.x) 
+  
+springsfirefuels_completeplots <- springsfirefuels_ALL %>% 
+   na.omit() %>% 
+   mutate(id_fuelsize = paste(plot_id.x, fuel_size.x)) %>% 
+  select(id_fuelsize, preburn_mass, postburn_mass) %>% 
+  pivot_longer(-id_fuelsize, names_to = "time", values_to = "mass") %>% 
+  separate(id_fuelsize, c("plot_id", "fuel_size"), sep=" ") 
+
+springsfirefuels_completeplots <- left_join(springsfirefuels_completeplots, SpringsFire_treatment, by="plot_id")
+
+
+export(springsfirefuels_completeplots, "C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/data/clean/springsfuels_complete.csv")
+
+ggplot(data=springsfirefuels_completeplots, mapping = aes(x=treatment_type, y=mass, fill=time))+
+              geom_boxplot()+
+              geom_jitter(alpha = 0.1)+
+              facet_wrap(~ fuel_size, scales = "free_y") +
+              theme_minimal()+
+              xlab("Prior Treatment")+
+              ylab("Mass (Ton/Acre)")+
+              scale_fill_manual(values=c("#69b3a2", "#404080"))+
+              theme(axis.text.x = element_text(angle=45, hjust=1))+
+              ggtitle("Springs Fire Fuel Consumption")+
+              theme(plot.title = element_text(hjust = 0.5))
+
+DT::datatable(springsfirefuels_completeplots, options = list(pageLength = 10))
+
+```
+
+>I tried for a while to put the preburn_mass before the postburn_mass but am having issues. Something that I can work on closer to the deadline....
+
+
+## Tree data
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, results= "asis"}
+Pre_SpringsFire_trees <- read_csv("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/data/raw/pre_springsfire_trees.csv", col_names = TRUE)
+
+Pre_SpringsFire_trees$ht_to_crownlive_m <- as.numeric(Pre_SpringsFire_trees$ht_to_crownlive_m )
+
+
+#live trees only
+
+
+presprings_trees_live <- Pre_SpringsFire_trees %>% 
+  filter(status == "live") %>% 
+  select(plot_id, species_id, dbm_cm, ht_m, ht_to_crownlive_m) %>% 
+  drop_na() %>% 
+  group_by(plot_id, species_id) %>% 
+  summarize(mean_dbh = mean(dbm_cm), 
+            mean_ht = mean(ht_m),
+            mean_ht2crwn = mean(ht_to_crownlive_m),
+            total_trees = length(dbm_cm)) %>% 
+  mutate(total_trees_acre = total_trees*10) 
+
+
+
+presprings_trees_live <-  left_join(presprings_trees_live, SpringsFire_treatment, by="plot_id")
+
+presprings_trees_live <- drop_na(presprings_trees_live)
+
+export(presprings_trees_live, "C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/data/clean/prespringstrees_complete.csv")
+
+#adjust values to be per acre
+
+
+ggplot(data=presprings_trees_live, mapping = aes(x=treatment_type, y=total_trees_acre, fill = species_id))+
+              scale_fill_manual(values=c("#69b3a2", "#404080"))+
+              geom_boxplot(alpha=5)+
+              geom_jitter(alpha= 0.7)+
+              theme_minimal()+
+              xlab("Prior Treatment")+
+              ylab("Total adult live trees per acre (count)")+
+   ggtitle("Total Live Trees per Acre")+
+              theme(plot.title = element_text(hjust = 0.5))
+
+ggplot(data=presprings_trees_live, mapping = aes(x=treatment_type, y=mean_dbh, fill = species_id))+
+              scale_fill_manual(values=c("#69b3a2", "#404080"))+
+              geom_boxplot(alpha=5)+
+              geom_jitter(alpha= 0.7)+
+              theme_minimal()+
+              xlab("Prior Treatment")+
+              ylab("Average DBH (cm)")+
+     ggtitle("Average DBH (cm) Live Trees")+
+              theme(plot.title = element_text(hjust = 0.5))
+
+ggplot(data=presprings_trees_live, mapping = aes(x=treatment_type, y=mean_ht, fill = species_id))+
+              scale_fill_manual(values=c("#69b3a2", "#404080"))+
+              geom_boxplot(alpha=5)+
+              geom_jitter(alpha= 0.7)+
+              theme_minimal()+
+              xlab("Prior Treatment")+
+              ylab("Mean Height (m)")+
+  ggtitle("Average Height (m) Live Trees")+
+              theme(plot.title = element_text(hjust = 0.5))
+
+ggplot(data=presprings_trees_live, mapping = aes(x=treatment_type, y=mean_ht2crwn, fill = species_id))+
+              scale_fill_manual(values=c("#69b3a2", "#404080"))+
+              geom_boxplot(alpha=5)+
+              geom_jitter(alpha= 0.7)+
+              theme_minimal()+
+              xlab("Prior Treatment")+
+              ylab("Mean Height to Live Crown (m)")+
+  ggtitle("Average Height to Crown (m) Live Trees")+
+              theme(plot.title = element_text(hjust = 0.5))
+
+
+#live and dead trees simple comparison
+
+
+presprings_trees_standing <- Pre_SpringsFire_trees %>% 
+  filter(status == "live" | status == "dead") %>% 
+  select(plot_id, status, species_id, dbm_cm, ht_m) %>% 
+  group_by(plot_id, species_id, status) %>% 
+  summarize(mean_dbh = mean(dbm_cm), 
+            mean_ht = mean(ht_m),
+           
+            total_trees = length(dbm_cm)) %>% 
+  mutate(total_trees_acre = total_trees*10) 
+presprings_trees_standing <-  left_join(presprings_trees_standing, SpringsFire_treatment, by="plot_id")
+presprings_trees_standing <- drop_na(presprings_trees_standing)
+
+ggplot(data=presprings_trees_standing, mapping = aes(x=treatment_type, y=total_trees_acre, fill = species_id))+
+              scale_fill_manual(values=c("#69b3a2", "#404080"))+
+              facet_wrap(~status,scales = "free_y")+
+              geom_boxplot(alpha=5)+
+              geom_jitter(alpha= 0.7)+
+              theme_minimal()+
+              xlab("Prior Treatment")+
+              ylab("Total adult trees per acre (count)")+
+  ggtitle("Total Standing Trees per Acre")+
+              theme(plot.title = element_text(hjust = 0.5))
+
+ggplot(data=presprings_trees_standing, mapping = aes(x=treatment_type, y=mean_dbh, fill = species_id))+
+              scale_fill_manual(values=c("#69b3a2", "#404080"))+
+              facet_wrap(~status,scales = "free_y")+
+              geom_boxplot(alpha=5)+
+              geom_jitter(alpha= 0.7)+
+              theme_minimal()+
+              xlab("Prior Treatment")+
+              ylab("Mean DBH (cm)")+
+  ggtitle("Average DBH (cm) Standing Trees")+
+              theme(plot.title = element_text(hjust = 0.5))
+
+ggplot(data=presprings_trees_standing, mapping = aes(x=treatment_type, y=mean_ht, fill = species_id))+
+              scale_fill_manual(values=c("#69b3a2", "#404080"))+
+   facet_wrap(~status,scales = "free_y")+
+              geom_boxplot(alpha=5)+
+              geom_jitter(alpha= 0.7)+
+              theme_minimal()+
+              xlab("Prior Treatment")+
+              ylab("Mean Height (m)")+
+  ggtitle("Average Height Standing Trees")+
+              theme(plot.title = element_text(hjust = 0.5))
+
+DT::datatable(presprings_trees_standing, options = list(pageLength = 10))
+  
+
+```
+
+
+
+>Additional data that I have not provided: look at only dead trees, look at stumps, and health/decay by trt.
+
+## Initial basal area
+
+Basal area compared between treatment type, by species and status (live or dead).
+
+*Note* This includes a chunk of control plots that were PICO dominated. Might be best to take these out for statistical analysis. Just plotting all data for now. 
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, results= "asis"}
+Pre_SpringsFire_ba <- read_csv("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/data/raw/pre_springsfire_basalarea.csv", col_names = TRUE)
+
+Pre_SpringsFire_ba <- na.omit(Pre_SpringsFire_ba)
+Pre_SpringsFire_ba <-   left_join(Pre_SpringsFire_ba, SpringsFire_treatment, by="plot_id") 
+
+SpringsFire_ba_condense <- Pre_SpringsFire_ba %>% 
+    select(plot_id, status, species_id, stand_ba, treatment_type) 
+
+
+SpringsFire_ba_condense$stand_ba <- as.numeric(SpringsFire_ba_condense$stand_ba)
+
+export(SpringsFire_ba_condense, "C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/data/clean/prespringsbasalarea_complete.csv")
+
+ggplot(data=SpringsFire_ba_condense, mapping = aes(x=treatment_type, y=stand_ba, fill = species_id))+
+              scale_fill_manual(values=c("#69b3a2", "#404080"))+
+              geom_boxplot(alpha=5)+
+              geom_jitter(alpha= 0.7,aes(colour = status))+
+              scale_color_manual(values=c("#69b3a2", "#404080"))+
+              theme_minimal()+
+              xlab("Prior Treatment")+
+              ylab("Initial stand basal area (ft^2/acre)")+
+  ggtitle("Stand Basal Area (ft^2/acre)")+
+              theme(plot.title = element_text(hjust = 0.5))
+              
+DT::datatable(SpringsFire_ba_condense, options = list(pageLength = 10))
+  
+```
+
+
+
+## Initial Regen
+
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, results= "asis"}
+Pre_SpringsFire_regen <- read_csv("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/data/raw/pre_springsfire_regen.csv")
+
+Pre_SpringsFire_regen <-  left_join(Pre_SpringsFire_regen, SpringsFire_treatment, by="plot_id")
+
+Pre_SpringsFire_regen$tse_count <- as.numeric(Pre_SpringsFire_regen$tse_count)
+
+
+#Seedling Count
+
+springsfire_regen_tse <- Pre_SpringsFire_regen %>% 
+  filter(lifeform == "TSE") %>% 
+select(plot_id, species_id, status, lifeform, tse_count, tse_ht_cm) %>% 
+   group_by(plot_id, species_id, status) %>% 
+  summarize(total_tse_count = sum(tse_count),
+            avg_tse_ht = mean(tse_ht_cm)) %>% 
+  mutate(tse_count_acre = total_tse_count*10)
+
+springsfire_regen_tse <- left_join(springsfire_regen_tse, SpringsFire_treatment, by="plot_id")
+springsfire_regen_tse <- drop_na(springsfire_regen_tse)
+
+
+
+
+ggplot(data=springsfire_regen_tse, mapping = aes(x=treatment_type, y=tse_count_acre, fill = species_id))+
+              scale_fill_manual(values=c("#69b3a2", "#404080"))+
+              geom_boxplot(alpha=5)+
+              geom_jitter(alpha= 0.7,aes(colour = status))+
+              scale_color_manual(values=c("#69b3a2", "#404080"))+
+              theme_minimal()+
+              xlab("Prior Treatment")+
+              ylab("Seedling Count (per Acre)")+
+  ggtitle("Seedling Count (per Acre)")+
+              theme(plot.title = element_text(hjust = 0.5))
+
+DT::datatable(springsfire_regen_tse, options = list(pageLength = 10))
+
+
+#Sapling Count
+
+springsfire_regen_tsa <- Pre_SpringsFire_regen %>% 
+  filter(lifeform == "TSA") %>% 
+select(plot_id, species_id, status, lifeform, tsa_dbh_cm, tsa_ht_m, tsa_age_yr) %>% 
+  group_by(plot_id, species_id, status) %>% 
+  summarize(total_tsa_count = length(tsa_dbh_cm),
+            avg_tsa_ht = mean(tsa_ht_m),
+            avg_tsa_age = mean(tsa_age_yr)) %>%   
+  mutate(tsa_count_acre = total_tsa_count*10)
+
+springsfire_regen_tsa <- left_join(springsfire_regen_tsa, SpringsFire_treatment, by="plot_id")
+
+export(springsfire_regen_tse, "C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/data/clean/prespringsregen_tse_complete.csv")
+export(springsfire_regen_tsa, "C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/data/clean/prespringsregen_tsa_complete.csv")
+  
+ggplot(data=springsfire_regen_tsa, mapping = aes(x=treatment_type, y=tsa_count_acre, fill = species_id))+
+              scale_fill_manual(values=c("#69b3a2", "#404080"))+
+              geom_boxplot(alpha=5)+
+              geom_jitter(alpha= 0.7,aes(colour = status))+
+              scale_color_manual(values=c("#69b3a2", "#404080"))+
+              theme_minimal()+
+              xlab("Prior Treatment")+
+              ylab("Sapling Count (per Acre)")+
+  ggtitle("Sapling Count (per Acre)")+
+              theme(plot.title = element_text(hjust = 0.5))
+
+DT::datatable(springsfire_regen_tsa, options = list(pageLength = 10))
+
+```
+
+
+
