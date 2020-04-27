@@ -1,5 +1,5 @@
 ---
-title: "FrenchMeadows Data Analysis"
+title: "Bear Mountain Data Analysis"
 author: "Ashley Grupenhoff"
 date: "4/19/2020"
 output:

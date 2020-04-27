@@ -1,5 +1,4 @@
-site,year,plot_id,azimuth,intersect,large,small,length,decay,notes
-,,,,cm,cm,cm,m,,
+site,year,plot_id,azimuth,intersect_cm,large_cm,small_cm,length_m,decay,notes
 bearmtn,2019,BM1,N,11,14,11,1.4,3,
 bearmtn,2019,BM2,E,13,20,10,73,3,
 bearmtn,2019,BM3,E,20,18,11,0.8,3,

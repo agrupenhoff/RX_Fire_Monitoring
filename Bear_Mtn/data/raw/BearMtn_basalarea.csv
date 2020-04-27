@@ -1,5 +1,4 @@
-site,year,Plot ID,species_id,status,BAF,count,stand_BA
-,,,,,,,ft2/ac
+site,year,Plot ID,species_id,status,BAF,count,stand_BA_ft2acre
 bearmtn,2019,BM1,pipo,live,20,3,60
 bearmtn,2019,BM1,cade,live,20,2,40
 bearmtn,2019,BM1,cade,dead,20,1,20
@@ -10,7 +9,6 @@ bearmtn,2019,BM3,pipo,live,10,4,40
 bearmtn,2019,BM3,psme,live,10,2,20
 bearmtn,2019,BM4,cade,live,10,5,50
 bearmtn,2019,BM4,pipo,live,10,10,100
-bearmtn,2019,BM4,cade,dead,10,,0
 bearmtn,2019,BM5,pipo,live,10,2,20
 bearmtn,2019,BM5,quke,live,10,1,10
 bearmtn,2019,BM5,cade,dead,10,2,20
