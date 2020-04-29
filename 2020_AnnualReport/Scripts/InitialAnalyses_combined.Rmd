@@ -57,6 +57,25 @@ PreBurn_SpringsFire <- PreBurn_SpringsFire %>%
 
 allfuels <- bind_rows(PreBurn_BMfuels, PreBurn_FMfuels, PreBurn_lakesfuels, PreBurn_SlyParkFuels, PreBurn_SpringsFire)
 
+allfuels <- allfuels %>% 
+  select(plot_id, location, mass, fuel_size) %>% 
+  na.omit()
+
+ allfuels_plot <- ggplot(data=allfuels, mapping = aes(x=location, y=mass))+
+              geom_boxplot()+
+              geom_jitter(alpha = 0.1)+
+              facet_wrap(~ fuel_size, scales = "free_y") +
+              theme_minimal()+
+              xlab("Location")+
+              ylab("Mass (Ton/Acre)")+
+              scale_fill_manual(values=c("#69b3a2", "#404080"))+
+              theme(axis.text.x = element_text(angle=45, hjust=1))+
+              
+              theme(plot.title = element_text(hjust = 0.5))
+ allfuels_plot
+ 
+ ggsave("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/2020_AnnualReport/results/preburnfuels.png", allfuels_plot)
+
 ```
 
 
@@ -65,11 +84,87 @@ allfuels <- bind_rows(PreBurn_BMfuels, PreBurn_FMfuels, PreBurn_lakesfuels, PreB
 
 ```{r}
 #all standing
-BM_trees_standing <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Bear_Mtn/data/clean/BM_trees_standing.csv")
-
-BM_trees_live <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Bear_Mtn/data/clean/BM_trees_live.csv")
 
 
+PreBurn_BMtrees <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Bear_Mtn/data/clean/BM_trees_standing.csv")
+PreBurn_BMtrees <- PreBurn_BMtrees %>% 
+  mutate(location = 'BearMtn')
+
+PreBurn_FMtrees <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/French_Meadows/data/clean/FM_trees_standing.csv")
+PreBurn_FMtrees <- PreBurn_FMtrees %>% 
+  mutate(location = 'FrenchMeadows')
+
+
+PreBurn_lakestrees <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Lakes_District/data/clean/prelakesdistrict_trees_standing.csv")
+PreBurn_lakestrees <- PreBurn_lakestrees %>% 
+  mutate(location = 'LakesDistrict')
+
+PreBurn_SlyParktrees <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Sly_Park/data/clean/SlyPark_trees_standing.csv")
+PreBurn_SlyParktrees <- PreBurn_SlyParktrees %>% 
+  mutate(location = 'SlyPark')
+
+PreBurn_SpringsFiretrees <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/data/clean/prespringstrees_standing.csv")
+PreBurn_SpringsFiretrees <- PreBurn_SpringsFiretrees %>% 
+  mutate(location = 'SpringsFire')
+
+alltrees <- bind_rows(PreBurn_BMtrees, PreBurn_FMtrees , PreBurn_lakestrees, PreBurn_SlyParktrees, PreBurn_SpringsFiretrees)
+
+alltrees <- alltrees %>% 
+  select(location, plot_id, species_id, status, mean_dbh, mean_ht, total_trees_acre, location ) %>% 
+  mutate(diameter_class = case_when(
+         mean_dbh < 11.5 ~ 2,
+        mean_dbh < 25.3 ~ 3,
+        mean_dbh < 45.6 ~ 4,
+        mean_dbh < 76.2 ~ 5,
+        TRUE ~ 6
+  )) 
+str(alltrees)
+alltrees$diameter_class <- as.character(alltrees$diameter_class)
+alltrees <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/2020_AnnualReport/Data/alltrees_complete.csv")
+
+
+
+ alltrees_total <- ggplot(data=alltrees, mapping = aes(x=location, y=total_trees_acre, fill= diameter_class))+
+              geom_boxplot()+
+              geom_jitter(alpha = 0.1)+
+              facet_wrap(~status,scales = "free_y")+
+              theme_minimal()+
+              xlab("Location")+
+              ylab("Total Trees/ Acre")+
+              
+              theme(axis.text.x = element_text(angle=45, hjust=1))+
+              
+              theme(plot.title = element_text(hjust = 0.5))
+ 
+ ggplot(data=alltrees, mapping = aes(x=location, y=total_trees_acre, fill= diameter_class))+
+              geom_boxplot()+
+              geom_jitter(alpha = 0.1)+
+              facet_wrap(~status,scales = "free_y")+
+              theme_minimal()+
+              xlab("Location")+
+              ylab("Total Trees/ Acre")+
+              
+              theme(axis.text.x = element_text(angle=45, hjust=1))+
+              
+              theme(plot.title = element_text(hjust = 0.5))
+
+ ggsave("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/2020_AnnualReport/results/alltrees_totalstatus.png", alltrees_totalstatus)
+
+ livetrees <- alltrees %>% 
+   filter(status == "live") 
+ 
+ 
+alltrees_live <-  ggplot(data=livetrees, mapping = aes(x=location, y=total_trees_acre, fill= species_id))+
+        scale_fill_brewer(palette = "Spectral")+
+                         geom_boxplot()+
+              geom_jitter(alpha = 0.1)+
+                           theme_minimal()+
+              xlab("Location")+
+              ylab("Initial Stand Basal Area (ft^2/acre)")+
+              theme(axis.text.x = element_text(angle=45, hjust=1))+
+              theme(plot.title = element_text(hjust = 0.5))
+
+ggsave("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/2020_AnnualReport/results/alltrees_live.png", alltrees_live)
 
 ```
 
@@ -79,7 +174,67 @@ BM_trees_live <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_M
 ```{r}
 
 BM_basalarea_complete <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Bear_Mtn/data/clean/BM_basalarea_complete.csv")
+BM_basalarea_complete <- BM_basalarea_complete %>% 
+  mutate(location = 'BearMtn')
 
+FM_basalarea_complete <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/French_Meadows/data/clean/FMbasalarea_complete.csv")
+FM_basalarea_complete <- FM_basalarea_complete %>% 
+  mutate(location = 'FrenchMeadows')
+
+
+Lakes_basalarea_complete <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Lakes_District/data/clean/prelakesbasalarea_complete.csv")
+Lakes_basalarea_complete <- Lakes_basalarea_complete %>% 
+  mutate(location = 'LakesDistrict')
+
+SlyPark_basalarea <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Sly_Park/data/clean/SlyParkbasalarea_complete.csv")
+SlyPark_basalarea <- SlyPark_basalarea %>% 
+  mutate(location = 'SlyPark')
+
+BasalArea_SpringsFire <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/data/clean/prespringsbasalarea_complete.csv")
+BasalArea_SpringsFire <- BasalArea_SpringsFire %>% 
+  mutate(location = 'SpringsFire')
+
+allbasalarea <- bind_rows(FM_basalarea_complete, Lakes_basalarea_complete, SlyPark_basalarea, BasalArea_SpringsFire, BM_basalarea_complete)
+
+allbasalarea <- allbasalarea %>% 
+  select(plot_id, location, stand_ba, status, species_id) %>% 
+  na.omit()
+
+allbasalarea <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/2020_AnnualReport/Data/allbasalarea.csv")
+
+ basalarea_byspecies <- ggplot(data=allbasalarea, mapping = aes(x=location, y=stand_ba, fill= species_id))+
+        scale_fill_brewer(palette = "Spectral")+
+                         geom_boxplot()+
+              geom_jitter(alpha = 0.1)+
+              facet_wrap(~ status, scales = "free_y") +
+              theme_minimal()+
+              xlab("Location")+
+              ylab("Initial Stand Basal Area (ft^2/acre)")+
+              theme(axis.text.x = element_text(angle=45, hjust=1))+
+              ggtitle("Initial Stand Basal Area by Species")+
+              theme(plot.title = element_text(hjust = 0.5))
+
+ 
+  basalarea_live <- allbasalarea %>% 
+    filter(status == "live")
+  
+  ggplot(data=basalarea_live, mapping = aes(x=location, y=stand_ba, fill=species_id))+
+       geom_boxplot()+
+     scale_fill_brewer(palette = "Spectral")+
+              geom_jitter(alpha = 0.1)+
+              
+              theme_minimal()+
+              xlab("Location")+
+              ylab("Initial Stand Basal Area (ft^2/acre)")+
+              theme(axis.text.x = element_text(angle=45, hjust=1))+
+              ggtitle("Initial Stand Basal Area by Species")+
+              theme(plot.title = element_text(hjust = 0.5))
+  basalarea_byspecies
+ 
+ 
+ ggsave("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/2020_AnnualReport/results/basalarea_avg.png",  basalarea_avg)
+ 
+ ggsave("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/2020_AnnualReport/results/basalarea_byspp.png",  basalarea_byspecies)
 
 
 ```

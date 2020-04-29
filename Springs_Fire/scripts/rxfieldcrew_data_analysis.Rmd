@@ -93,7 +93,7 @@ export(prespringsfuels_complete_joined, "C:/Users/ashle/Documents/R/RX_Fire_Moni
 
 
      
-            ggplot(data=prespringsfuels_complete_joined, mapping = aes(x=treatment_type, y=mass))+
+            prespringsfuels_plot <- ggplot(data=prespringsfuels_complete_joined, mapping = aes(x=treatment_type, y=mass))+
               geom_boxplot()+
               
               geom_jitter(alpha = 0.3)+
@@ -105,7 +105,7 @@ export(prespringsfuels_complete_joined, "C:/Users/ashle/Documents/R/RX_Fire_Moni
               ggtitle("Pre-burn Fuels")+
               theme(plot.title = element_text(hjust = 0.5))
             
-DT::datatable(prespringsfuels_complete_joined, options = list(pageLength = 10))
+ggsave("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/images/prespringsfuels.png", prespringsfuels_plot)
 
 
 ```
@@ -203,7 +203,7 @@ export(postspringsfuels_complete_joined, "C:/Users/ashle/Documents/R/RX_Fire_Mon
      
 
             
-            ggplot(data=postspringsfuels_complete_joined, mapping = aes(x=treatment_type, y=mass))+
+            postspringsfuels_plot <- ggplot(data=postspringsfuels_complete_joined, mapping = aes(x=treatment_type, y=mass))+
               geom_boxplot()+
               geom_jitter(alpha = 0.3)+
               facet_wrap(~ fuel_size, scales = "free_y") +
@@ -213,8 +213,8 @@ export(postspringsfuels_complete_joined, "C:/Users/ashle/Documents/R/RX_Fire_Mon
               ggtitle("Post-burn Fuels")+
               theme(plot.title = element_text(hjust = 0.5))
             
-            
-DT::datatable(postspringsfuels_complete_joined, options = list(pageLength = 10))
+            ggsave("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/images/postspringsfuels.png", postspringsfuels_plot)
+
 ```
 
 ## pre and post burn fuel consumption
@@ -248,7 +248,7 @@ springsfirefuels_completeplots <- left_join(springsfirefuels_completeplots, Spri
 
 export(springsfirefuels_completeplots, "C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/data/clean/springsfuels_complete.csv")
 
-ggplot(data=springsfirefuels_completeplots, mapping = aes(x=treatment_type, y=mass, fill=time))+
+springs_fuels_complete_plot <- ggplot(data=springsfirefuels_completeplots, mapping = aes(x=treatment_type, y=mass, fill=time))+
               geom_boxplot()+
               geom_jitter(alpha = 0.1)+
               facet_wrap(~ fuel_size, scales = "free_y") +
@@ -257,8 +257,25 @@ ggplot(data=springsfirefuels_completeplots, mapping = aes(x=treatment_type, y=ma
               ylab("Mass (Ton/Acre)")+
               scale_fill_manual(values=c("#69b3a2", "#404080"))+
               theme(axis.text.x = element_text(angle=45, hjust=1))+
-              ggtitle("Springs Fire Fuel Consumption")+
+             
               theme(plot.title = element_text(hjust = 0.5))
+
+ggsave("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/images/springsfuelscomplete.png", springs_fuels_complete_plot)
+
+springs_fuels_complete2 <- ggplot(data=springsfirefuels_completeplots, mapping = aes(x=time, y=mass))+
+              geom_boxplot()+
+              geom_jitter(alpha = 0.1)+
+              facet_wrap(~ fuel_size, scales = "free_y") +
+              theme_minimal()+
+              xlab("Prior Treatment")+
+              ylab("Mass (Ton/Acre)")+
+              scale_fill_manual(values=c("#69b3a2", "#404080"))+
+              theme(axis.text.x = element_text(angle=45, hjust=1))+
+             
+              theme(plot.title = element_text(hjust = 0.5))
+
+ggsave("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/images/springsfuelscomplete2.png", springs_fuels_complete2)
+
 
 DT::datatable(springsfirefuels_completeplots, options = list(pageLength = 10))
 
@@ -300,7 +317,7 @@ export(presprings_trees_live, "C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_
 #adjust values to be per acre
 
 
-ggplot(data=presprings_trees_live, mapping = aes(x=treatment_type, y=total_trees_acre, fill = species_id))+
+springstotaltrees_plot <- ggplot(data=presprings_trees_live, mapping = aes(x=treatment_type, y=total_trees_acre, fill = species_id))+
               scale_fill_manual(values=c("#69b3a2", "#404080"))+
               geom_boxplot(alpha=5)+
               geom_jitter(alpha= 0.7)+
@@ -310,7 +327,7 @@ ggplot(data=presprings_trees_live, mapping = aes(x=treatment_type, y=total_trees
    ggtitle("Total Live Trees per Acre")+
               theme(plot.title = element_text(hjust = 0.5))
 
-ggplot(data=presprings_trees_live, mapping = aes(x=treatment_type, y=mean_dbh, fill = species_id))+
+springs_avgdbh_plot <- ggplot(data=presprings_trees_live, mapping = aes(x=treatment_type, y=mean_dbh, fill = species_id))+
               scale_fill_manual(values=c("#69b3a2", "#404080"))+
               geom_boxplot(alpha=5)+
               geom_jitter(alpha= 0.7)+
@@ -320,7 +337,7 @@ ggplot(data=presprings_trees_live, mapping = aes(x=treatment_type, y=mean_dbh, f
      ggtitle("Average DBH (cm) Live Trees")+
               theme(plot.title = element_text(hjust = 0.5))
 
-ggplot(data=presprings_trees_live, mapping = aes(x=treatment_type, y=mean_ht, fill = species_id))+
+springs_avght_plot <- ggplot(data=presprings_trees_live, mapping = aes(x=treatment_type, y=mean_ht, fill = species_id))+
               scale_fill_manual(values=c("#69b3a2", "#404080"))+
               geom_boxplot(alpha=5)+
               geom_jitter(alpha= 0.7)+
@@ -330,7 +347,7 @@ ggplot(data=presprings_trees_live, mapping = aes(x=treatment_type, y=mean_ht, fi
   ggtitle("Average Height (m) Live Trees")+
               theme(plot.title = element_text(hjust = 0.5))
 
-ggplot(data=presprings_trees_live, mapping = aes(x=treatment_type, y=mean_ht2crwn, fill = species_id))+
+springs_avght2crwn_plot <- ggplot(data=presprings_trees_live, mapping = aes(x=treatment_type, y=mean_ht2crwn, fill = species_id))+
               scale_fill_manual(values=c("#69b3a2", "#404080"))+
               geom_boxplot(alpha=5)+
               geom_jitter(alpha= 0.7)+
@@ -339,6 +356,15 @@ ggplot(data=presprings_trees_live, mapping = aes(x=treatment_type, y=mean_ht2crw
               ylab("Mean Height to Live Crown (m)")+
   ggtitle("Average Height to Crown (m) Live Trees")+
               theme(plot.title = element_text(hjust = 0.5))
+
+ggsave("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/images/springstotaltrees_plot.png", springstotaltrees_plot)
+ggsave("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/images/springs_avgdbh_plot.png", springs_avgdbh_plot)
+ggsave("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/images/springs_avght_plot.png", springs_avght_plot)
+ggsave("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/images/springs_avght2crwn_plot.png", springs_avght2crwn_plot)
+
+
+
+
 
 
 #live and dead trees simple comparison
@@ -355,6 +381,7 @@ presprings_trees_standing <- Pre_SpringsFire_trees %>%
   mutate(total_trees_acre = total_trees*10) 
 presprings_trees_standing <-  left_join(presprings_trees_standing, SpringsFire_treatment, by="plot_id")
 presprings_trees_standing <- drop_na(presprings_trees_standing)
+export(presprings_trees_standing, "C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/data/clean/prespringstrees_standing.csv")
 
 ggplot(data=presprings_trees_standing, mapping = aes(x=treatment_type, y=total_trees_acre, fill = species_id))+
               scale_fill_manual(values=c("#69b3a2", "#404080"))+
@@ -418,7 +445,7 @@ SpringsFire_ba_condense$stand_ba <- as.numeric(SpringsFire_ba_condense$stand_ba)
 
 export(SpringsFire_ba_condense, "C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/data/clean/prespringsbasalarea_complete.csv")
 
-ggplot(data=SpringsFire_ba_condense, mapping = aes(x=treatment_type, y=stand_ba, fill = species_id))+
+springs_basalarea <- ggplot(data=SpringsFire_ba_condense, mapping = aes(x=treatment_type, y=stand_ba, fill = species_id))+
               scale_fill_manual(values=c("#69b3a2", "#404080"))+
               geom_boxplot(alpha=5)+
               geom_jitter(alpha= 0.7,aes(colour = status))+
@@ -428,8 +455,11 @@ ggplot(data=SpringsFire_ba_condense, mapping = aes(x=treatment_type, y=stand_ba,
               ylab("Initial stand basal area (ft^2/acre)")+
   ggtitle("Stand Basal Area (ft^2/acre)")+
               theme(plot.title = element_text(hjust = 0.5))
+springs_basalarea
               
 DT::datatable(SpringsFire_ba_condense, options = list(pageLength = 10))
+
+ggsave("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/images/springs_basalarea.png", springs_basalarea)
   
 ```
 
@@ -462,7 +492,7 @@ springsfire_regen_tse <- drop_na(springsfire_regen_tse)
 
 
 
-ggplot(data=springsfire_regen_tse, mapping = aes(x=treatment_type, y=tse_count_acre, fill = species_id))+
+springs_tseplot <- ggplot(data=springsfire_regen_tse, mapping = aes(x=treatment_type, y=tse_count_acre, fill = species_id))+
               scale_fill_manual(values=c("#69b3a2", "#404080"))+
               geom_boxplot(alpha=5)+
               geom_jitter(alpha= 0.7,aes(colour = status))+
@@ -472,8 +502,10 @@ ggplot(data=springsfire_regen_tse, mapping = aes(x=treatment_type, y=tse_count_a
               ylab("Seedling Count (per Acre)")+
   ggtitle("Seedling Count (per Acre)")+
               theme(plot.title = element_text(hjust = 0.5))
+ggsave("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/images/springs_tseplot.png", springs_tseplot)
 
 DT::datatable(springsfire_regen_tse, options = list(pageLength = 10))
+
 
 
 #Sapling Count
@@ -492,7 +524,7 @@ springsfire_regen_tsa <- left_join(springsfire_regen_tsa, SpringsFire_treatment,
 export(springsfire_regen_tse, "C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/data/clean/prespringsregen_tse_complete.csv")
 export(springsfire_regen_tsa, "C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/data/clean/prespringsregen_tsa_complete.csv")
   
-ggplot(data=springsfire_regen_tsa, mapping = aes(x=treatment_type, y=tsa_count_acre, fill = species_id))+
+springs_tsaplot <- ggplot(data=springsfire_regen_tsa, mapping = aes(x=treatment_type, y=tsa_count_acre, fill = species_id))+
               scale_fill_manual(values=c("#69b3a2", "#404080"))+
               geom_boxplot(alpha=5)+
               geom_jitter(alpha= 0.7,aes(colour = status))+
@@ -502,6 +534,7 @@ ggplot(data=springsfire_regen_tsa, mapping = aes(x=treatment_type, y=tsa_count_a
               ylab("Sapling Count (per Acre)")+
   ggtitle("Sapling Count (per Acre)")+
               theme(plot.title = element_text(hjust = 0.5))
+ggsave("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/images/springs_tsaplot.png", springs_tsaplot)
 
 DT::datatable(springsfire_regen_tsa, options = list(pageLength = 10))
 
