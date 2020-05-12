@@ -79,14 +79,14 @@ BearMtn_CWD <- read_csv("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_M
 ##Average each mass type per plot
 
               
-BearMtn_fuels_combined <- BearMtn_Fuels %>% 
-  rename(plot_id = `Plot ID`) %>% 
-  mutate( avg_duff = (duff1_cm + duff2_cm)/2,
-          avg_litter = (litter1_cm +litter2_cm)/2) %>%
-          mutate(slopecorrection = (1+(slope_percent/100)^2)^(1/2)) %>% 
-  group_by(plot_id) %>% 
-  summarise_all(list(mean))  
-   left_join(BearMtn_CWD_combined, by="plot_id")
+#BearMtn_fuels_combined <- BearMtn_Fuels %>% 
+ # rename(plot_id = `Plot ID`) %>% 
+  #mutate( avg_duff = (duff1_cm + duff2_cm)/2,
+   #       avg_litter = (litter1_cm +litter2_cm)/2) %>%
+    #      mutate(slopecorrection = (1+(slope_percent/100)^2)^(1/2)) %>% 
+  #group_by(plot_id) %>% 
+  #summarise_all(list(mean))  
+   #left_join(BearMtn_CWD_combined, by="plot_id")
   
 
                           
@@ -137,6 +137,53 @@ export(BMfuels, "C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitorin
 
 ggsave("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Bear_Mtn/images/BMfuels.png", BMfuels_plot)
 
+
+#LITTER DUFF
+
+BearMtn_litter_duff <- BearMtn_Fuels %>% 
+  select(plot_id, duff_depth_cm, litter_depth_cm) %>% 
+  group_by(plot_id) %>% 
+   summarize(mean_litter = mean(litter_depth_cm),
+         mean_duff = mean(duff_depth_cm)) %>% 
+  pivot_longer(-plot_id, names_to = "litter_duff", values_to = "depth_cm")
+
+export(Pre_springs_litter_duff, "C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/data/clean/pre_springs_litterduff.csv")
+
+  
+
+Post_springs_litter_duff <- Post_springs_litter_duff %>% 
+  mutate(plot_id_litterduff = paste(plot_id, litter_duff))
+Pre_springs_litter_duff <- Pre_springs_litter_duff %>% 
+  mutate(plot_id_litterduff = paste(plot_id, litter_duff))
+
+springsfire_litterduffall <-   left_join(Pre_springs_litter_duff, Post_springs_litter_duff, by = "plot_id_litterduff") 
+springsfire_litterduffall$preburn_depth_cm <- springsfire_litterduffall$depth_cm.x 
+springsfire_litterduffall$postburn_depth_cm <- springsfire_litterduffall$depth_cm.y
+
+springsfire_litterduffall <-  springsfire_litterduffall %>% 
+select(plot_id.x, litter_duff.x, preburn_depth_cm, postburn_depth_cm) %>% 
+  na.omit() %>% 
+  pivot_longer(-id_litterduff, names_to = "time", values_to = "depth_cm") 
+
+springsfire_litterduffall <- springsfire_litterduffall %>% 
+  separate(id_litterduff, c("plot_id", "litter_duff"), sep=" ")
+ 
+
+
+export(springsfire_litterduffall, "C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/data/clean/springsfire_litterduff_consumption.csv")
+
+springs_litter_duff <- ggplot(data=springsfire_litterduffall, mapping = aes(x=litter_duff, y=depth_cm, fill=time))+
+              geom_boxplot()+
+              geom_jitter(alpha = 0.1)+
+            
+              theme_minimal()+
+              xlab("Duff and Litter consumption")+
+              ylab("Depth (cm)")+
+              scale_fill_manual(values=c("#69b3a2", "#404080"))+
+              theme(axis.text.x = element_text(angle=45, hjust=1))+
+             
+              theme(plot.title = element_text(hjust = 0.5))
+springs_litter_duff
 
 ```
 

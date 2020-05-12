@@ -110,6 +110,8 @@ ggsave("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs
 
 ```
 
+
+
 ## Post Springs fire fuels
 
 Post fuels data by treatment.
@@ -245,6 +247,9 @@ springsfirefuels_completeplots <- springsfirefuels_ALL %>%
 
 springsfirefuels_completeplots <- left_join(springsfirefuels_completeplots, SpringsFire_treatment, by="plot_id")
 
+#reorder so preburn comes before postburn
+springsfirefuels_completeplots$time <- factor(springsfirefuels_completeplots$time, levels=c("preburn_mass", "postburn_mass"))
+
 
 export(springsfirefuels_completeplots, "C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/data/clean/springsfuels_complete.csv")
 
@@ -259,26 +264,91 @@ springs_fuels_complete_plot <- ggplot(data=springsfirefuels_completeplots, mappi
               theme(axis.text.x = element_text(angle=45, hjust=1))+
              
               theme(plot.title = element_text(hjust = 0.5))
+springs_fuels_complete_plot
 
 ggsave("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/images/springsfuelscomplete.png", springs_fuels_complete_plot)
 
-springs_fuels_complete2 <- ggplot(data=springsfirefuels_completeplots, mapping = aes(x=time, y=mass))+
+springs_fuels_complete2 <- ggplot(data=springsfirefuels_completeplots, mapping = aes(x=time, y=mass, fill=time))+
               geom_boxplot()+
+  scale_fill_manual(values=c("#69b3a2", "#404080"))+
               geom_jitter(alpha = 0.1)+
               facet_wrap(~ fuel_size, scales = "free_y") +
               theme_minimal()+
               xlab("Prior Treatment")+
               ylab("Mass (Ton/Acre)")+
-              scale_fill_manual(values=c("#69b3a2", "#404080"))+
               theme(axis.text.x = element_text(angle=45, hjust=1))+
-             
               theme(plot.title = element_text(hjust = 0.5))
+
+springs_fuels_complete2
 
 ggsave("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/images/springsfuelscomplete2.png", springs_fuels_complete2)
 
 
 DT::datatable(springsfirefuels_completeplots, options = list(pageLength = 10))
 
+
+
+##LITTER DUFF CONSUMPTION
+
+                Pre_springs_litter_duff <- Pre_SpringsFire_FUELS %>% 
+                  select(plot_id, duff_depth_cm, litter_depth_cm) %>% 
+                  group_by(plot_id) %>% 
+                   summarize(mean_litter = mean(litter_depth_cm),
+                         mean_duff = mean(duff_depth_cm)) %>% 
+                  pivot_longer(-plot_id, names_to = "litter_duff", values_to = "depth_cm")
+                export(Pre_springs_litter_duff, "C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/data/clean/pre_springs_litterduff.csv")
+                
+                  
+                Post_springs_litter_duff <- Post_SpringsFire_FUELS %>% 
+                  select(plot_id, duff_depth_cm, litter_depth_cm) %>% 
+                  group_by(plot_id) %>% 
+                   summarize(mean_litter = mean(litter_depth_cm),
+                         mean_duff = mean(duff_depth_cm)) %>% 
+                    na.omit() %>% 
+                  pivot_longer(-plot_id, names_to = "litter_duff", values_to = "depth_cm")
+                export(Post_springs_litter_duff, "C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/data/clean/post_springs_litterduff.csv")
+
+
+                Post_springs_litter_duff <- Post_springs_litter_duff %>% 
+                  mutate(plot_id_litterduff = paste(plot_id, litter_duff))
+                Pre_springs_litter_duff <- Pre_springs_litter_duff %>% 
+                  mutate(plot_id_litterduff = paste(plot_id, litter_duff))
+                
+                springsfire_litterduffall <-   left_join(Pre_springs_litter_duff, Post_springs_litter_duff, by = "plot_id_litterduff") 
+                springsfire_litterduffall$preburn_depth_cm <- springsfire_litterduffall$depth_cm.x 
+                springsfire_litterduffall$postburn_depth_cm <- springsfire_litterduffall$depth_cm.y
+                
+                springsfire_litterduffall <-  springsfire_litterduffall %>% 
+                      select(plot_id_litterduff, preburn_depth_cm, postburn_depth_cm) %>% 
+                  na.omit() %>% 
+                   pivot_longer(-plot_id_litterduff, names_to = "time", values_to = "depth_cm") 
+                
+                springsfire_litterduffall <- springsfire_litterduffall %>% 
+                 separate(plot_id_litterduff, c("plot_id", "litter_duff"), sep=" ")
+                
+
+#MAKE PRE BURN FIRST
+          springsfire_litterduffall$time <- factor(springsfire_litterduffall$time, levels=c("preburn_depth_cm", "postburn_depth_cm"))
+
+str(springsfire_litterduffall$time)
+
+export(springsfire_litterduffall, "C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/data/clean/springsfire_litterduff_consumption.csv")
+
+springs_litter_duff <- ggplot(data=springsfire_litterduffall, mapping = aes(x=litter_duff, y=depth_cm, fill=time))+
+              geom_boxplot()+
+              geom_jitter(alpha = 0.1)+
+              theme_minimal()+
+              xlab("Duff and Litter consumption")+
+              ylab("Depth (cm)")+
+              scale_fill_manual(values=c("#69b3a2", "#404080"))+
+              theme(axis.text.x = element_text(angle=45, hjust=1))+
+             
+              theme(plot.title = element_text(hjust = 0.5))
+springs_litter_duff
+
+ggsave("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/images/springsfuels_litterduff.png", springs_litter_duff)
+
+  
 ```
 
 >I tried for a while to put the preburn_mass before the postburn_mass but am having issues. Something that I can work on closer to the deadline....

@@ -61,14 +61,14 @@ allfuels <- allfuels %>%
   select(plot_id, location, mass, fuel_size) %>% 
   na.omit()
 
- allfuels_plot <- ggplot(data=allfuels, mapping = aes(x=location, y=mass))+
+ allfuels_plot <- ggplot(data=allfuels, mapping = aes(x=location, y=mass, fill=location))+
               geom_boxplot()+
               geom_jitter(alpha = 0.1)+
+             
               facet_wrap(~ fuel_size, scales = "free_y") +
               theme_minimal()+
               xlab("Location")+
               ylab("Mass (Ton/Acre)")+
-              scale_fill_manual(values=c("#69b3a2", "#404080"))+
               theme(axis.text.x = element_text(angle=45, hjust=1))+
               
               theme(plot.title = element_text(hjust = 0.5))
@@ -111,50 +111,55 @@ alltrees <- bind_rows(PreBurn_BMtrees, PreBurn_FMtrees , PreBurn_lakestrees, Pre
 
 alltrees <- alltrees %>% 
   select(location, plot_id, species_id, status, mean_dbh, mean_ht, total_trees_acre, location ) %>% 
-  mutate(diameter_class = case_when(
-         mean_dbh < 11.5 ~ 2,
-        mean_dbh < 25.3 ~ 3,
-        mean_dbh < 45.6 ~ 4,
-        mean_dbh < 76.2 ~ 5,
-        TRUE ~ 6
+  mutate(diameter_class_cm = case_when(
+         mean_dbh < 11.5 ~ "<11.5" ,
+        mean_dbh < 25.3 ~ "11.5-25.3",
+        mean_dbh < 45.6 ~ "25.3-45.6",
+        mean_dbh < 76.2 ~ "45.6-76.2",
+        TRUE ~ ">76.2"
   )) 
 str(alltrees)
-alltrees$diameter_class <- as.character(alltrees$diameter_class)
+alltrees$diameter_class_cm <- as.character(alltrees$diameter_class_cm)
 alltrees <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/2020_AnnualReport/Data/alltrees_complete.csv")
 
 
 
- alltrees_total <- ggplot(data=alltrees, mapping = aes(x=location, y=total_trees_acre, fill= diameter_class))+
+ alltrees_total <- ggplot(data=alltrees, mapping = aes(x=location, y=total_trees_acre, fill= diameter_class_cm))+
               geom_boxplot()+
               geom_jitter(alpha = 0.1)+
               facet_wrap(~status,scales = "free_y")+
               theme_minimal()+
               xlab("Location")+
               ylab("Total Trees/ Acre")+
-              
               theme(axis.text.x = element_text(angle=45, hjust=1))+
-              
               theme(plot.title = element_text(hjust = 0.5))
- 
- ggplot(data=alltrees, mapping = aes(x=location, y=total_trees_acre, fill= diameter_class))+
-              geom_boxplot()+
-              geom_jitter(alpha = 0.1)+
-              facet_wrap(~status,scales = "free_y")+
-              theme_minimal()+
-              xlab("Location")+
-              ylab("Total Trees/ Acre")+
-              
-              theme(axis.text.x = element_text(angle=45, hjust=1))+
-              
-              theme(plot.title = element_text(hjust = 0.5))
+ alltrees_total
+  ggsave("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/2020_AnnualReport/results/alltrees_total.png", alltrees_total)
 
- ggsave("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/2020_AnnualReport/results/alltrees_totalstatus.png", alltrees_totalstatus)
+
 
  livetrees <- alltrees %>% 
    filter(status == "live") 
  
+  alltrees_live_class <- ggplot(data=livetrees, mapping = aes(x=location, y=total_trees_acre, fill= diameter_class_cm))+
+              geom_boxplot()+
+              geom_jitter(alpha = 0.1)+
+              facet_wrap(~status,scales = "free_y")+
+              theme_minimal()+
+              xlab("Location")+
+              ylab("Total Live Trees/ Acre")+
+              theme(axis.text.x = element_text(angle=45, hjust=1))+
+              theme(plot.title = element_text(hjust = 0.5))
+ alltrees_live_class
+  ggsave("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/2020_AnnualReport/results/alltrees_live_class.png", alltrees_live_class)
  
-alltrees_live <-  ggplot(data=livetrees, mapping = aes(x=location, y=total_trees_acre, fill= species_id))+
+ livetrees <- alltrees %>% 
+   filter(status == "live") %>% 
+   filter(species_id == "abco" | species_id == "abma" |species_id == "cade"|species_id == "pico"|species_id == "pije"|species_id == "pila"|species_id == "pimo"|species_id == "pipo"|species_id == "psme"|species_id == "quch"|species_id == "quke")
+ 
+ str(livetrees) 
+ 
+ alltrees_live <-  ggplot(data=livetrees, mapping = aes(x=location, y=total_trees_acre, fill= species_id))+
         scale_fill_brewer(palette = "Spectral")+
                          geom_boxplot()+
               geom_jitter(alpha = 0.1)+
@@ -164,6 +169,7 @@ alltrees_live <-  ggplot(data=livetrees, mapping = aes(x=location, y=total_trees
               theme(axis.text.x = element_text(angle=45, hjust=1))+
               theme(plot.title = element_text(hjust = 0.5))
 
+alltrees_live
 ggsave("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/2020_AnnualReport/results/alltrees_live.png", alltrees_live)
 
 ```
