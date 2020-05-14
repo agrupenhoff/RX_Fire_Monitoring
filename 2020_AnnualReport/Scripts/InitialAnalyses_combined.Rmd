@@ -115,9 +115,13 @@ allfuels <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monito
                                           PreBurn_BM_livetree <- PreBurn_BMtrees %>% 
                                             filter(status == "live") %>% 
                                             group_by(plot_id) %>% 
-                                            summarize(total_trees_acre = sum(total_trees_acre))
+                                            summarize(total_trees_acre = sum(total_trees_acre),
+                                                      mean_dbh = mean(mean_dbh),
+                                                      mean_ht = mean(mean_ht))
                      
                                              mean(PreBurn_BM_livetree$total_trees_acre)
+                                             mean(PreBurn_BM_livetree$mean_dbh)
+                                             mean(PreBurn_BM_livetree$mean_ht)
                 
                 PreBurn_FMtrees <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/French_Meadows/data/clean/FM_trees_standing.csv")
                 PreBurn_FMtrees <- PreBurn_FMtrees %>% 
@@ -127,9 +131,13 @@ allfuels <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monito
                                           PreBurn_FM_livetree <- PreBurn_FMtrees %>% 
                                             filter(status == "live") %>% 
                                             group_by(plot_id) %>% 
-                                            summarize(total_trees_acre = sum(total_trees_acre))
+                                            summarize(total_trees_acre = sum(total_trees_acre),
+                                                      mean_dbh = mean(mean_dbh),
+                                                      mean_ht = mean(mean_ht))
                      
                                              mean(PreBurn_FM_livetree$total_trees_acre)
+                                             mean(PreBurn_FM_livetree$mean_dbh)
+                                             mean(PreBurn_FM_livetree$mean_ht)
                 
                 
                 PreBurn_lakestrees <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Lakes_District/data/clean/prelakesdistrict_trees_standing.csv")
@@ -224,7 +232,7 @@ allfuels <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monito
                           scale_fill_brewer(palette = "Spectral")+
                             theme_minimal()+
                             xlab("Location")+
-                            ylab("Initial Stand Basal Area (ft^2/acre)")+
+                            ylab("Total trees/acre")+
                             theme(axis.text.x = element_text(angle=45, hjust=1))+
                             theme(plot.title = element_text(hjust = 0.5))
 
@@ -243,21 +251,37 @@ BM_basalarea_complete <- BM_basalarea_complete %>%
   mutate(location = 'BearMtn')
 
 #Avg basal area stand (ft^2/acre)
-                                          PreBurn_BM_livetree <- PreBurn_BMtrees %>% 
-                                            filter(status == "live") %>% 
+                                          BM_basalarea_avg <- BM_basalarea_complete %>% 
+                                             filter(status == "live") %>% 
                                             group_by(plot_id) %>% 
-                                            summarize(total_trees_acre = sum(total_trees_acre))
+                                            summarize(avg_ba = mean(stand_ba))
                      
-                                             mean(PreBurn_BM_livetree$total_trees_acre)
+                                             mean(BM_basalarea_avg$avg_ba)
 
 FM_basalarea_complete <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/French_Meadows/data/clean/FMbasalarea_complete.csv")
 FM_basalarea_complete <- FM_basalarea_complete %>% 
   mutate(location = 'FrenchMeadows')
 
+#Avg basal area stand (ft^2/acre)
+                                          FM_basalarea_avg <- FM_basalarea_complete %>% 
+                                            filter(status == "live") %>% 
+                                            group_by(plot_id) %>% 
+                                            summarize(avg_ba = mean(stand_ba))
+                     
+                                             mean(FM_basalarea_avg$avg_ba)
+
 
 Lakes_basalarea_complete <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Lakes_District/data/clean/prelakesbasalarea_complete.csv")
 Lakes_basalarea_complete <- Lakes_basalarea_complete %>% 
   mutate(location = 'LakesDistrict')
+
+#Avg basal area stand (ft^2/acre)
+                                          lakes_basalarea_avg <- Lakes_basalarea_complete %>% 
+                                            filter(status == "live") %>% 
+                                            group_by(plot_id) %>% 
+                                            summarize(avg_ba = mean(stand_ba))
+                     
+                                             mean(FM_basalarea_avg$avg_ba)
 
 SlyPark_basalarea <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Sly_Park/data/clean/SlyParkbasalarea_complete.csv")
 SlyPark_basalarea <- SlyPark_basalarea %>% 
