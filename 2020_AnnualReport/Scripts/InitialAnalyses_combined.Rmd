@@ -61,14 +61,35 @@ allfuels <- allfuels %>%
   select(plot_id, location, mass, fuel_size) %>% 
   na.omit()
 
- allfuels_plot <- ggplot(data=allfuels, mapping = aes(x=location, y=mass, fill=location))+
+###CREATE TOTAL FUEL LOAD COLUMN
+                        
+                        allfuels_sum <- allfuels %>% 
+                          pivot_wider(names_from = fuel_size,
+                                      values_from = mass) %>% 
+                           mutate_all(~replace(., is.na(.), 0)) %>% 
+                          group_by(plot_id) %>% 
+                          mutate(total_fuel = sum(mass_1hr,mass_10hr,mass_100hr,mass_cwd_sound, mass_cwd_rotten)) %>% 
+                            mutate(plot_id_location = paste(plot_id, location)) 
+                        
+                        allfuels2 <- allfuels_sum %>% 
+                            group_by(plot_id_location) %>% 
+                            select(plot_id_location, mass_1hr, mass_10hr, mass_100hr, mass_cwd_sound, mass_cwd_rotten, total_fuel) %>% 
+                              pivot_longer(-plot_id_location, names_to = "fuel_size", values_to = "mass") %>% 
+                              separate(plot_id_location, c("plot_id", "location"), sep=" ")
+                        
+                        
+export(allfuels, "C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/2020_AnnualReport/data/allfuels.csv")
+allfuels <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/2020_AnnualReport/data/allfuels.csv")
+
+
+ allfuels_plot <- ggplot(data=allfuels2, mapping = aes(x=location, y=mass, fill=location))+
               geom_boxplot()+
-              geom_jitter(alpha = 0.1)+
+              
              
               facet_wrap(~ fuel_size, scales = "free_y") +
               theme_minimal()+
               xlab("Location")+
-              ylab("Mass (Ton/Acre)")+
+              ylab("Mass(Tons/Acre)")+
               theme(axis.text.x = element_text(angle=45, hjust=1))+
               
               theme(plot.title = element_text(hjust = 0.5))
@@ -85,89 +106,127 @@ allfuels <- allfuels %>%
 ```{r}
 #all standing
 
+                
+                PreBurn_BMtrees <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Bear_Mtn/data/clean/BM_trees_standing.csv")
+                PreBurn_BMtrees <- PreBurn_BMtrees %>% 
+                  mutate(location = 'BearMtn')
+                
+                                    #Total tree density live
+                                          PreBurn_BM_livetree <- PreBurn_BMtrees %>% 
+                                            filter(status == "live") %>% 
+                                            group_by(plot_id) %>% 
+                                            summarize(total_trees_acre = sum(total_trees_acre))
+                     
+                                             mean(PreBurn_BM_livetree$total_trees_acre)
+                
+                PreBurn_FMtrees <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/French_Meadows/data/clean/FM_trees_standing.csv")
+                PreBurn_FMtrees <- PreBurn_FMtrees %>% 
+                  mutate(location = 'FrenchMeadows')
+                
+                 #Total tree density live
+                                          PreBurn_FM_livetree <- PreBurn_FMtrees %>% 
+                                            filter(status == "live") %>% 
+                                            group_by(plot_id) %>% 
+                                            summarize(total_trees_acre = sum(total_trees_acre))
+                     
+                                             mean(PreBurn_FM_livetree$total_trees_acre)
+                
+                
+                PreBurn_lakestrees <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Lakes_District/data/clean/prelakesdistrict_trees_standing.csv")
+                PreBurn_lakestrees <- PreBurn_lakestrees %>% 
+                  mutate(location = 'LakesDistrict')
+                
+                 #Total tree density live
+                                          PreBurn_lakes_livetree <- PreBurn_lakestrees %>% 
+                                            filter(status == "live") %>% 
+                                            group_by(plot_id) %>% 
+                                            summarize(total_trees_acre = sum(total_trees_acre))
+                     
+                                             mean(PreBurn_lakes_livetree$total_trees_acre)
+                
+                PreBurn_SlyParktrees <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Sly_Park/data/clean/SlyPark_trees_standing.csv")
+                PreBurn_SlyParktrees <- PreBurn_SlyParktrees %>% 
+                  mutate(location = 'SlyPark')
+                
+                #Total tree density live
+                                          PreBurn_slypark_livetree <- PreBurn_SlyParktrees %>% 
+                                            filter(status == "live") %>% 
+                                            group_by(plot_id) %>% 
+                                            summarize(total_trees_acre = sum(total_trees_acre))
+                     
+                                             mean(PreBurn_slypark_livetree$total_trees_acre)
+                
+                PreBurn_SpringsFiretrees <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/data/clean/prespringstrees_standing.csv")
+                PreBurn_SpringsFiretrees <- PreBurn_SpringsFiretrees %>% 
+                  mutate(location = 'SpringsFire')
 
-PreBurn_BMtrees <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Bear_Mtn/data/clean/BM_trees_standing.csv")
-PreBurn_BMtrees <- PreBurn_BMtrees %>% 
-  mutate(location = 'BearMtn')
+                  alltrees <- bind_rows(PreBurn_BMtrees, PreBurn_FMtrees , PreBurn_lakestrees, PreBurn_SlyParktrees, PreBurn_SpringsFiretrees)
+                  
+                  alltrees <- alltrees %>% 
+                    select(location, plot_id, species_id, status, mean_dbh, mean_ht, total_trees_acre, location ) %>% 
+                    mutate(diameter_class_cm = case_when(
+                           mean_dbh < 11.5 ~ "<11.5" ,
+                          mean_dbh < 25.3 ~ "11.5-25.3",
+                          mean_dbh < 45.6 ~ "25.3-45.6",
+                          mean_dbh < 76.2 ~ "45.6-76.2",
+                          TRUE ~ ">76.2"
+                    )) 
+                  str(alltrees)
+                  alltrees$diameter_class_cm <- as.character(alltrees$diameter_class_cm)
 
-PreBurn_FMtrees <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/French_Meadows/data/clean/FM_trees_standing.csv")
-PreBurn_FMtrees <- PreBurn_FMtrees %>% 
-  mutate(location = 'FrenchMeadows')
+  ##PLOT ALL TREES DBH LIVE AND DEAD
 
-
-PreBurn_lakestrees <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Lakes_District/data/clean/prelakesdistrict_trees_standing.csv")
-PreBurn_lakestrees <- PreBurn_lakestrees %>% 
-  mutate(location = 'LakesDistrict')
-
-PreBurn_SlyParktrees <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Sly_Park/data/clean/SlyPark_trees_standing.csv")
-PreBurn_SlyParktrees <- PreBurn_SlyParktrees %>% 
-  mutate(location = 'SlyPark')
-
-PreBurn_SpringsFiretrees <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/data/clean/prespringstrees_standing.csv")
-PreBurn_SpringsFiretrees <- PreBurn_SpringsFiretrees %>% 
-  mutate(location = 'SpringsFire')
-
-alltrees <- bind_rows(PreBurn_BMtrees, PreBurn_FMtrees , PreBurn_lakestrees, PreBurn_SlyParktrees, PreBurn_SpringsFiretrees)
-
-alltrees <- alltrees %>% 
-  select(location, plot_id, species_id, status, mean_dbh, mean_ht, total_trees_acre, location ) %>% 
-  mutate(diameter_class_cm = case_when(
-         mean_dbh < 11.5 ~ "<11.5" ,
-        mean_dbh < 25.3 ~ "11.5-25.3",
-        mean_dbh < 45.6 ~ "25.3-45.6",
-        mean_dbh < 76.2 ~ "45.6-76.2",
-        TRUE ~ ">76.2"
-  )) 
-str(alltrees)
-alltrees$diameter_class_cm <- as.character(alltrees$diameter_class_cm)
-alltrees <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/2020_AnnualReport/Data/alltrees_complete.csv")
+                     alltrees_total <- ggplot(data=alltrees, mapping = aes(x=location, y=total_trees_acre, fill= diameter_class_cm))+
+                                  geom_boxplot()+
+                                  facet_wrap(~status,scales = "free_y")+
+                                  theme_minimal()+
+                                  xlab("Location")+
+                                  ylab("Total Trees/ Acre")+
+                                  theme(axis.text.x = element_text(angle=45, hjust=1))+
+                                  theme(plot.title = element_text(hjust = 0.5))
+                     alltrees_total
+                      ggsave("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/2020_AnnualReport/results/alltrees_total.png", alltrees_total)
 
 
-
- alltrees_total <- ggplot(data=alltrees, mapping = aes(x=location, y=total_trees_acre, fill= diameter_class_cm))+
-              geom_boxplot()+
-              geom_jitter(alpha = 0.1)+
-              facet_wrap(~status,scales = "free_y")+
-              theme_minimal()+
-              xlab("Location")+
-              ylab("Total Trees/ Acre")+
-              theme(axis.text.x = element_text(angle=45, hjust=1))+
-              theme(plot.title = element_text(hjust = 0.5))
- alltrees_total
-  ggsave("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/2020_AnnualReport/results/alltrees_total.png", alltrees_total)
-
-
-
- livetrees <- alltrees %>% 
-   filter(status == "live") 
+### PLOT JUST LIVE TREES
+             livetrees <- alltrees %>% 
+               filter(status == "live") 
  
-  alltrees_live_class <- ggplot(data=livetrees, mapping = aes(x=location, y=total_trees_acre, fill= diameter_class_cm))+
-              geom_boxplot()+
-              geom_jitter(alpha = 0.1)+
-              facet_wrap(~status,scales = "free_y")+
-              theme_minimal()+
-              xlab("Location")+
-              ylab("Total Live Trees/ Acre")+
-              theme(axis.text.x = element_text(angle=45, hjust=1))+
-              theme(plot.title = element_text(hjust = 0.5))
- alltrees_live_class
-  ggsave("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/2020_AnnualReport/results/alltrees_live_class.png", alltrees_live_class)
+              alltrees_live_class <- ggplot(data=livetrees, mapping = aes(x=location, y=total_trees_acre, fill= diameter_class_cm))+
+                          geom_boxplot(width=0.75)+
+                         
+                          facet_wrap(~status,scales = "free_y")+
+                          theme_minimal()+
+                          xlab("Location")+
+                          ylab("Total Live Trees/ Acre")+
+                          theme(axis.text.x = element_text(angle=45, hjust=1))+
+                          theme(plot.title = element_text(hjust = 0.5))
+                alltrees_live_class
  
- livetrees <- alltrees %>% 
-   filter(status == "live") %>% 
-   filter(species_id == "abco" | species_id == "abma" |species_id == "cade"|species_id == "pico"|species_id == "pije"|species_id == "pila"|species_id == "pimo"|species_id == "pipo"|species_id == "psme"|species_id == "quch"|species_id == "quke")
+
  
- str(livetrees) 
  
- alltrees_live <-  ggplot(data=livetrees, mapping = aes(x=location, y=total_trees_acre, fill= species_id))+
-        scale_fill_brewer(palette = "Spectral")+
-                         geom_boxplot()+
-              geom_jitter(alpha = 0.1)+
-                           theme_minimal()+
-              xlab("Location")+
-              ylab("Initial Stand Basal Area (ft^2/acre)")+
-              theme(axis.text.x = element_text(angle=45, hjust=1))+
-              theme(plot.title = element_text(hjust = 0.5))
+ 
+         ggsave("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/2020_AnnualReport/results/alltrees_live_class.png", alltrees_live_class)
+ 
+         
+### Plot all live trees by species
+                                   
+                           livetrees <- alltrees %>% 
+                             filter(status == "live") %>% 
+                             filter(species_id == "abco" | species_id == "abma" |species_id == "cade"|species_id == "pico"|species_id == "pije"|species_id == "pila"|species_id == "pimo"|species_id == "pipo"|species_id == "psme"|species_id == "quch"|species_id == "quke")
+                           
+                           str(livetrees) 
+ 
+               alltrees_live <-  ggplot(data=livetrees, mapping = aes(x=location, y=total_trees_acre, fill=species_id))+
+                            geom_boxplot(lwd=0.5)+
+                          coord_cartesian(ylim = c(0,600))+
+                          scale_fill_brewer(palette = "Spectral")+
+                            theme_minimal()+
+                            xlab("Location")+
+                            ylab("Initial Stand Basal Area (ft^2/acre)")+
+                            theme(axis.text.x = element_text(angle=45, hjust=1))+
+                            theme(plot.title = element_text(hjust = 0.5))
 
 alltrees_live
 ggsave("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/2020_AnnualReport/results/alltrees_live.png", alltrees_live)
@@ -182,6 +241,14 @@ ggsave("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/2020_An
 BM_basalarea_complete <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Bear_Mtn/data/clean/BM_basalarea_complete.csv")
 BM_basalarea_complete <- BM_basalarea_complete %>% 
   mutate(location = 'BearMtn')
+
+#Avg basal area stand (ft^2/acre)
+                                          PreBurn_BM_livetree <- PreBurn_BMtrees %>% 
+                                            filter(status == "live") %>% 
+                                            group_by(plot_id) %>% 
+                                            summarize(total_trees_acre = sum(total_trees_acre))
+                     
+                                             mean(PreBurn_BM_livetree$total_trees_acre)
 
 FM_basalarea_complete <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/French_Meadows/data/clean/FMbasalarea_complete.csv")
 FM_basalarea_complete <- FM_basalarea_complete %>% 

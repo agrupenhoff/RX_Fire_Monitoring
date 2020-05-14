@@ -255,11 +255,11 @@ export(springsfirefuels_completeplots, "C:/Users/ashle/Documents/R/RX_Fire_Monit
 
 springs_fuels_complete_plot <- ggplot(data=springsfirefuels_completeplots, mapping = aes(x=treatment_type, y=mass, fill=time))+
               geom_boxplot()+
-              geom_jitter(alpha = 0.1)+
+              
               facet_wrap(~ fuel_size, scales = "free_y") +
               theme_minimal()+
               xlab("Prior Treatment")+
-              ylab("Mass (Ton/Acre)")+
+              ylab("Mass (Tons/Acre)")+
               scale_fill_manual(values=c("#69b3a2", "#404080"))+
               theme(axis.text.x = element_text(angle=45, hjust=1))+
              
@@ -271,20 +271,17 @@ ggsave("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs
 springs_fuels_complete2 <- ggplot(data=springsfirefuels_completeplots, mapping = aes(x=time, y=mass, fill=time))+
               geom_boxplot()+
   scale_fill_manual(values=c("#69b3a2", "#404080"))+
-              geom_jitter(alpha = 0.1)+
+              
               facet_wrap(~ fuel_size, scales = "free_y") +
               theme_minimal()+
-              xlab("Prior Treatment")+
-              ylab("Mass (Ton/Acre)")+
+              
+              ylab("Mass (Tons/Acre)")+
               theme(axis.text.x = element_text(angle=45, hjust=1))+
               theme(plot.title = element_text(hjust = 0.5))
 
 springs_fuels_complete2
 
 ggsave("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/images/springsfuelscomplete2.png", springs_fuels_complete2)
-
-
-DT::datatable(springsfirefuels_completeplots, options = list(pageLength = 10))
 
 
 
@@ -336,7 +333,7 @@ export(springsfire_litterduffall, "C:/Users/ashle/Documents/R/RX_Fire_Monitoring
 
 springs_litter_duff <- ggplot(data=springsfire_litterduffall, mapping = aes(x=litter_duff, y=depth_cm, fill=time))+
               geom_boxplot()+
-              geom_jitter(alpha = 0.1)+
+             
               theme_minimal()+
               xlab("Duff and Litter consumption")+
               ylab("Depth (cm)")+
@@ -365,26 +362,36 @@ Pre_SpringsFire_trees$ht_to_crownlive_m <- as.numeric(Pre_SpringsFire_trees$ht_t
 #live trees only
 
 
-presprings_trees_live <- Pre_SpringsFire_trees %>% 
-  filter(status == "live") %>% 
-  select(plot_id, species_id, dbm_cm, ht_m, ht_to_crownlive_m) %>% 
-  drop_na() %>% 
-  group_by(plot_id, species_id) %>% 
-  summarize(mean_dbh = mean(dbm_cm), 
-            mean_ht = mean(ht_m),
-            mean_ht2crwn = mean(ht_to_crownlive_m),
-            total_trees = length(dbm_cm)) %>% 
-  mutate(total_trees_acre = total_trees*10) 
+                    presprings_trees_live <- Pre_SpringsFire_trees %>% 
+                      filter(status == "live") %>% 
+                      select(plot_id, species_id, dbm_cm, ht_m, ht_to_crownlive_m) %>% 
+                      drop_na() %>% 
+                      group_by(plot_id, species_id) %>% 
+                      summarize(mean_dbh = mean(dbm_cm), 
+                                mean_ht = mean(ht_m),
+                                mean_ht2crwn = mean(ht_to_crownlive_m),
+                                total_trees = length(dbm_cm)) %>% 
+                      mutate(total_trees_acre = total_trees*10) 
 
 
 
-presprings_trees_live <-  left_join(presprings_trees_live, SpringsFire_treatment, by="plot_id")
+                          presprings_trees_live <-  left_join(presprings_trees_live, SpringsFire_treatment, by="plot_id")
+                          
+                          presprings_trees_live <- drop_na(presprings_trees_live)
+                          
+                          export(presprings_trees_live, "C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/data/clean/prespringstrees_complete.csv")
 
-presprings_trees_live <- drop_na(presprings_trees_live)
 
-export(presprings_trees_live, "C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/data/clean/prespringstrees_complete.csv")
-
-#adjust values to be per acre
+  #average density per plot
+                    
+                          #live      
+                     presprings_trees_live_total <- presprings_trees_live %>% 
+                       group_by(plot_id) %>% 
+                       summarize(total_trees_acre = sum(total_trees_acre))
+                     
+                     mean(presprings_trees_live_total$total_trees_acre)
+                          
+                          #adjust values to be per acre
 
 
 springstotaltrees_plot <- ggplot(data=presprings_trees_live, mapping = aes(x=treatment_type, y=total_trees_acre, fill = species_id))+
@@ -527,7 +534,7 @@ springs_basalarea <- ggplot(data=SpringsFire_ba_condense, mapping = aes(x=treatm
               theme(plot.title = element_text(hjust = 0.5))
 springs_basalarea
               
-DT::datatable(SpringsFire_ba_condense, options = list(pageLength = 10))
+mean(SpringsFire_ba_condense$stand_ba)
 
 ggsave("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/images/springs_basalarea.png", springs_basalarea)
   
