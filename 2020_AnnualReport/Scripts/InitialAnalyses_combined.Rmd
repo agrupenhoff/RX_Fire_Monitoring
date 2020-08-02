@@ -27,11 +27,9 @@ library(rio)
       
 ```
 
-
-# Pre-fire fuels comparions across sites
+#importdata
 
 ```{r}
-
 PreBurn_BMfuels <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Bear_Mtn/data/clean/PreBurn_BMfuels.csv")
 PreBurn_BMfuels <- PreBurn_BMfuels %>% 
   mutate(location = 'BearMtn')
@@ -61,6 +59,20 @@ allfuels <- allfuels %>%
   select(plot_id, location, mass, fuel_size) %>% 
   na.omit()
 
+treatment_all <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/2020_AnnualReport/data/all_location_treatment.csv")
+allfuels <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/2020_AnnualReport/data/allfuels.csv")
+allfuel_treatment <- left_join(allfuels,treatment_all, by = "plot_id")
+
+
+
+```
+
+
+# Pre-fire fuels comparions across sites
+
+```{r}
+
+
 ###CREATE TOTAL FUEL LOAD COLUMN
                         
                         allfuels_sum <- allfuels %>% 
@@ -71,32 +83,111 @@ allfuels <- allfuels %>%
                           mutate(total_fuel = sum(mass_1hr,mass_10hr,mass_100hr,mass_cwd_sound, mass_cwd_rotten)) %>% 
                             mutate(plot_id_location = paste(plot_id, location)) 
                         
-                        allfuels2 <- allfuels_sum %>% 
+                        allfuels_complete <- allfuels_sum %>% 
                             group_by(plot_id_location) %>% 
                             select(plot_id_location, mass_1hr, mass_10hr, mass_100hr, mass_cwd_sound, mass_cwd_rotten, total_fuel) %>% 
                               pivot_longer(-plot_id_location, names_to = "fuel_size", values_to = "mass") %>% 
-                              separate(plot_id_location, c("plot_id", "location"), sep=" ")
+                              separate(plot_id_location, c("plot_id", "location"), sep=" ") 
+                          allfuels_complete <-left_join(allfuels_complete,treatment_all, by = "plot_id")
+
                         
                         
-export(allfuels, "C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/2020_AnnualReport/data/allfuels.csv")
+export(allfuels_complete, "C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/2020_AnnualReport/data/allfuels_complete.csv")
 allfuels <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/2020_AnnualReport/data/allfuels.csv")
 
-
- allfuels_plot <- ggplot(data=allfuels2, mapping = aes(x=location, y=mass, fill=location))+
+bearmtn_plot_fuels <- allfuels_complete %>% 
+            filter(location.x=='BearMtn')  
+bearmtn_fuels_total <- bearmtn_plot_fuels %>% 
+  filter(fuel_size == 'total_fuel')
+mean(bearmtn_fuels_total$mass)
+bearmtn_plot_fuels <- ggplot(data=bearmtn_plot_fuels, mapping = aes(x=burnunit, y=mass, fill=burnunit))+
               geom_boxplot()+
-              
-             
               facet_wrap(~ fuel_size, scales = "free_y") +
               theme_minimal()+
-              xlab("Location")+
+              xlab("burn unit")+
               ylab("Mass(Tons/Acre)")+
+              ggtitle("Bear Mountain Stanislaus National Forest")+
               theme(axis.text.x = element_text(angle=45, hjust=1))+
-              
               theme(plot.title = element_text(hjust = 0.5))
- allfuels_plot
+ bearmtn_plot_fuels
  
- ggsave("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/2020_AnnualReport/results/preburnfuels.png", allfuels_plot)
+ ggsave("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/2020_AnnualReport/results/bearmtn_fuels.png", bearmtn_plot_fuels)
+ 
+ frenchmeadows_plot_fuels <- allfuels_complete %>% 
+            filter(location.x=='FrenchMeadows')  
+ fm_fuels_total <- frenchmeadows_plot_fuels %>% 
+  filter(fuel_size == 'total_fuel')
+mean(fm_fuels_total$mass)
+ FM_plot_fuels <- ggplot(data=frenchmeadows_plot_fuels, mapping = aes(x=burnunit, y=mass, fill=burnunit))+
+              geom_boxplot()+
+              facet_wrap(~ fuel_size, scales = "free_y") +
+              theme_minimal()+
+              xlab("burn unit")+
+              ylab("Mass(Tons/Acre)")+
+              ggtitle("French Meadows")+
+              theme(axis.text.x = element_text(angle=45, hjust=1))+
+              theme(plot.title = element_text(hjust = 0.5))
+ FM_plot_fuels
+ 
+ ggsave("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/2020_AnnualReport/results/FM_fuels.png", FM_plot_fuels)
 
+ 
+   lakes_plot_fuels <- allfuels_complete %>% 
+            filter(location.x=='LakesDistrict')  
+    lakes_fuels_total <- lakes_plot_fuels %>% 
+  filter(fuel_size == 'total_fuel')
+mean(lakes_fuels_total$mass)
+ lakes_plot_fuels <- ggplot(data=lakes_plot_fuels, mapping = aes(x=burnunit, y=mass, fill=burnunit))+
+              geom_boxplot()+
+              facet_wrap(~ fuel_size, scales = "free_y") +
+              theme_minimal()+
+              xlab("burn unit")+
+              ylab("Mass(Tons/Acre)")+
+              ggtitle("Lakes District - Bliss and Burton State Parks")+
+              theme(axis.text.x = element_text(angle=45, hjust=1))+
+              theme(plot.title = element_text(hjust = 0.5))
+ lakes_plot_fuels
+ 
+ ggsave("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/2020_AnnualReport/results/lakes_fuels.png", lakes_plot_fuels)
+
+ 
+    slypark_fuels <- allfuels_complete %>% 
+            filter(location.x=='SlyPark')  
+     slypark_fuels_total <- slypark_fuels %>% 
+  filter(fuel_size == 'total_fuel')
+mean(slypark_fuels_total$mass)
+ slypark_fuels <- ggplot(data=slypark_fuels, mapping = aes(x=burnunit, y=mass, fill=burnunit))+
+              geom_boxplot()+
+              facet_wrap(~ fuel_size, scales = "free_y") +
+              theme_minimal()+
+              xlab("burn unit")+
+              ylab("Mass(Tons/Acre)")+
+              ggtitle("Sly Park")+
+              theme(axis.text.x = element_text(angle=45, hjust=1))+
+              theme(plot.title = element_text(hjust = 0.5))
+ slypark_fuels
+ 
+ ggsave("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/2020_AnnualReport/results/slypark_fuels.png", slypark_fuels)
+ 
+ 
+  
+    springs_fuels <- allfuels_complete %>% 
+            filter(location.x=='SpringsFire')  
+     springs_fuels_total <- springs_fuels %>% 
+  filter(fuel_size == 'total_fuel')
+mean(springs_fuels_total$mass)
+ springs_fuels <- ggplot(data=springs_fuels, mapping = aes(x=burnunit, y=mass, fill=burnunit))+
+              geom_boxplot()+
+              facet_wrap(~ fuel_size, scales = "free_y") +
+              theme_minimal()+
+              xlab("burn unit")+
+              ylab("Mass(Tons/Acre)")+
+              ggtitle("Springs Fire")+
+              theme(axis.text.x = element_text(angle=45, hjust=1))+
+              theme(plot.title = element_text(hjust = 0.5))
+ springs_fuels
+ggsave("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/2020_AnnualReport/results/springs_fuels.png", springs_fuels)
+ 
 ```
 
 
@@ -239,6 +330,10 @@ allfuels <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monito
 alltrees_live
 ggsave("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/2020_AnnualReport/results/alltrees_live.png", alltrees_live)
 
+
+
+
+
 ```
 
 
@@ -335,6 +430,355 @@ allbasalarea <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Mo
 
 
 ```
+
+#LITTER AND DUFF CONSUMPTION
+
+
+```{r}
+
+PreBurn_BM_LD <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Bear_Mtn/data/clean/pre_BearMtn_litterduff.csv")
+PreBurn_BM_LD <- PreBurn_BM_LD %>% 
+  mutate(location = 'BearMtn')
+
+   BM_LD_litter <- PreBurn_BM_LD %>% 
+        filter(litter_duff == 'mean_litter') %>% 
+        na.omit()
+      mean(BM_LD_litter$depth_cm)
+      BM_LD_duff <- PreBurn_BM_LD %>% 
+        filter(litter_duff == 'mean_duff') %>% 
+        na.omit()
+      mean(BM_LD_duff$depth_cm)
+      
+
+FMfuels <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/French_Meadows/data/raw/FrenchMeadows_finefuels.csv")
+FMfuels <- FMfuels %>% 
+  mutate(location = 'FrenchMeadows')
+
+FM_LD <- FMfuels %>% 
+         mutate(litter_depth_cm = ((litter1_cm + litter2)/2)) %>% 
+        mutate(duff_depth_cm = ((duff1_cm+duff2_cm)/2)) %>% 
+                  select(plot_id, duff_depth_cm, litter_depth_cm) %>% 
+                  group_by(plot_id) %>% 
+                   summarize(mean_litter = mean(litter_depth_cm),
+                         mean_duff = mean(duff_depth_cm)) %>% 
+                  pivot_longer(-plot_id, names_to = "litter_duff", values_to = "depth_cm")
+                export(FM_LD, "C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/French_Meadows/data/clean/FM_litterduff.csv")
+                
+  FM_LD <- FM_LD %>% 
+    mutate(location = 'FrenchMeadows')
+      FM_LD_litter <- FM_LD %>% 
+        filter(litter_duff == 'mean_litter')
+      mean(FM_LD_litter$depth_cm)
+      FM_LD_duff <- FM_LD %>% 
+        filter(litter_duff == 'mean_duff')
+      mean(FM_LD_duff$depth_cm)
+      
+
+
+PreBurn_lakesfuels <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Lakes_District/data/raw/LakesDistrict_finefuels.csv")
+PreBurn_lakesfuels <- PreBurn_lakesfuels %>% 
+  mutate(location = 'LakesDistrict')
+
+Lakes_LD <- PreBurn_lakesfuels %>% 
+         mutate(litter_depth_cm = ((litter1_cm + litter2_cm)/2)) %>% 
+        mutate(duff_depth_cm = ((duff1_cm+duff2_cm)/2)) %>% 
+                  select(plot_id, duff_depth_cm, litter_depth_cm) %>% 
+                  group_by(plot_id) %>% 
+                   summarize(mean_litter = mean(litter_depth_cm),
+                         mean_duff = mean(duff_depth_cm)) %>% 
+                  pivot_longer(-plot_id, names_to = "litter_duff", values_to = "depth_cm")
+                export(FM_LD, "C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Lakes_District/data/clean/Lakes_litterduff.csv")
+                
+                 lakes_LD_litter <- Lakes_LD %>% 
+        filter(litter_duff == 'mean_litter') %>% 
+                   na.omit()
+      mean(lakes_LD_litter$depth_cm)
+      lakes_LD_duff <- Lakes_LD %>% 
+        filter(litter_duff == 'mean_duff') %>% 
+        na.omit()
+      mean(lakes_LD_duff$depth_cm)
+      
+      
+      Lakes_LD <- Lakes_LD %>% 
+        mutate(location = 'LakesDistrict')
+                
+                
+                
+PreBurn_SlyParkFuels <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Sly_Park/data/raw/SlyPark_finefuels.csv")
+PreBurn_SlyParkFuels <- PreBurn_SlyParkFuels %>% 
+  mutate(location = 'SlyPark')
+
+SlyPark_LD <- PreBurn_SlyParkFuels %>% 
+         mutate(litter_depth_cm = ((litter1_cm + litter2_cm)/2)) %>% 
+        mutate(duff_depth_cm = ((duff1_cm+duff2_cm)/2)) %>% 
+                  select(plot_id, duff_depth_cm, litter_depth_cm) %>% 
+                  group_by(plot_id) %>% 
+                   summarize(mean_litter = mean(litter_depth_cm),
+                         mean_duff = mean(duff_depth_cm)) %>% 
+                  pivot_longer(-plot_id, names_to = "litter_duff", values_to = "depth_cm")
+                export(SlyPark_LD, "C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Sly_Park/data/clean/SlyPark_litterduff.csv")
+                
+                 SlyPark_LD_litter <- SlyPark_LD %>% 
+        filter(litter_duff == 'mean_litter') %>% 
+                   na.omit()
+      mean(SlyPark_LD_litter$depth_cm)
+      SlyPark_LD_duff <- SlyPark_LD %>% 
+        filter(litter_duff == 'mean_duff') %>% 
+        na.omit()
+      mean(SlyPark_LD_duff$depth_cm)
+      
+      SlyPark_LD <- SlyPark_LD %>% 
+        mutate(location = 'SlyPark')
+
+PreSprings_LD <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/data/clean/pre_springs_litterduff.csv")
+ Springs_LD_litter <- PreSprings_LD %>% 
+        filter(litter_duff == 'mean_litter') %>% 
+                   na.omit()
+      mean(Springs_LD_litter$depth_cm)
+      Springs_LD_duff <- PreSprings_LD %>% 
+        filter(litter_duff == 'mean_duff') %>% 
+        na.omit()
+      mean(Springs_LD_duff$depth_cm)
+      
+      PreSprings_LD <- PreSprings_LD %>% 
+        mutate(location = 'SpringsFire')
+      
+      
+      all_litterduff <-   bind_rows(PreSprings_LD, SlyPark_LD, Lakes_LD, FM_LD, PreBurn_BM_LD)
+      all_litterduff <- all_litterduff %>% 
+        na.omit()
+      
+      all_LD <-   ggplot(data=all_litterduff, mapping = aes(x=location, y=depth_cm, fill=litter_duff))+
+              geom_boxplot()+
+             
+              theme_minimal()+
+              xlab("Duff and Litter consumption")+
+              ylab("Depth (cm)")+
+              scale_fill_manual(values=c("#69b3a2", "#404080"))+
+              theme(axis.text.x = element_text(angle=45, hjust=1))+
+             
+              theme(plot.title = element_text(hjust = 0.5))
+      all_LD            
+      
+      ggsave("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/2020_AnnualReport/results/all_litterduff.png", all_LD)
+      
+      all_LD <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/2020_AnnualReport/results/all_litterduff.png")
+
+      
+```
+
+
+
+
+# BASAL AREA WITH TREE DATA!!!!!
+
+```{r}
+
+#Springs BA
+
+                    PreBA_SpringsFiretrees <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/data/raw/pre_springsfire_trees.csv")
+                    
+                    PreBA_SpringsFiretrees <- PreBA_SpringsFiretrees %>% 
+                        select(plot_id, status, dbm_cm, site) %>% 
+                        filter(status =="live"|status=="dead") %>% 
+                       mutate(dbh_ft = dbm_cm*0.03281) %>% 
+                      mutate(basalarea_sqft = pi * (dbh_ft/2)^2) %>% 
+                      mutate(basalarea_sqft_acre = basalarea_sqft*10)
+                      
+                    
+                    
+                    Springs_BA_sum <- PreBA_SpringsFiretrees %>% 
+                      group_by(plot_id, status) %>% 
+                      summarise(BA_sum_sqft_acre = sum(basalarea_sqft_acre))
+                    
+                      Springs_BA_sum_live <- Springs_BA_sum %>% 
+                      filter(status=="live") 
+                    
+                    mean(Springs_BA_sum$BA_sum_sqft_acre)
+                   mean(Springs_BA_sum_live$BA_sum_sqft_acre)
+                    
+ #BM BA
+
+                    PreBA_BMtrees <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Bear_Mtn/data/raw/pre_BearMtn_Trees.csv")
+                    
+                    PreBA_BMtrees <- PreBA_BMtrees %>% 
+                        select(plot_id, status, dbh_cm, Site) %>% 
+                        rename(site = 'Site') %>% 
+                        filter(status =="live"|status=="dead") %>% 
+                       mutate(dbh_ft = dbh_cm*0.03281) %>% 
+                      mutate(basalarea_sqft = pi * (dbh_ft/2)^2) %>% 
+                      mutate(basalarea_sqft_acre = basalarea_sqft*10)
+                      
+                    
+                    
+                    BM_BA_sum <- PreBA_BMtrees %>% 
+                      group_by(plot_id, status) %>% 
+                      summarise(BA_sum_sqft_acre = sum(basalarea_sqft_acre))
+                    
+                    BM_BA_sum_live <- BM_BA_sum %>% 
+                      filter(status=="live") 
+                    
+                    mean(BM_BA_sum$BA_sum_sqft_acre)
+                   mean(BM_BA_sum_live$BA_sum_sqft_acre)
+                   
+                   
+   #FM BA
+
+                    PreBA_FMtrees <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/French_Meadows/data/raw/FrenchMeadows_Trees.csv")
+                    
+                    PreBA_FMtrees <- PreBA_FMtrees %>% 
+                        select(plot_id, status, dbh_cm, site) %>% 
+                       
+                        filter(status =="live"|status=="dead") %>% 
+                       mutate(dbh_ft = dbh_cm*0.03281) %>% 
+                      mutate(basalarea_sqft = pi * (dbh_ft/2)^2) %>% 
+                      mutate(basalarea_sqft_acre = basalarea_sqft*10)
+                      
+                    
+                    
+                    FM_BA_sum <- PreBA_FMtrees %>% 
+                      group_by(plot_id, status) %>% 
+                      summarise(BA_sum_sqft_acre = sum(basalarea_sqft_acre))
+                    
+                    FM_BA_sum_live <- FM_BA_sum %>% 
+                      filter(status=="live") 
+                    
+                    mean(FM_BA_sum$BA_sum_sqft_acre, na.rm=TRUE)
+                   mean(FM_BA_sum_live$BA_sum_sqft_acre)
+                   
+          #lakes BA
+
+                    PreBA_lakestrees <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Lakes_District/data/raw/LakesDistrict_trees.csv")
+                    
+                    PreBA_lakestrees <- PreBA_lakestrees %>% 
+                        select(plot_id, status, dbh_cm, site) %>% 
+                        filter(status =="live"|status=="dead") %>% 
+                       mutate(dbh_ft = dbh_cm*0.03281) %>% 
+                      mutate(basalarea_sqft = pi * (dbh_ft/2)^2) %>% 
+                      mutate(basalarea_sqft_acre = basalarea_sqft*10)
+                      
+                    
+                    
+                    lakes_BA_sum <- PreBA_lakestrees %>% 
+                      group_by(plot_id, status) %>% 
+                      summarise(BA_sum_sqft_acre = sum(basalarea_sqft_acre))
+                    
+                    lakes_BA_sum_live <- lakes_BA_sum %>% 
+                      filter(status=="live") 
+                    
+                    mean(lakes_BA_sum$BA_sum_sqft_acre, na.rm=TRUE)
+                   mean(lakes_BA_sum_live$BA_sum_sqft_acre, na.rm = TRUE)
+                   
+                   
+          #Sly Park BA
+                   
+                   PreBA_slyparktrees <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Sly_Park/data/raw/SlyPark_Trees.csv")
+                    
+                    PreBA_slyparktrees <- PreBA_slyparktrees %>% 
+                        select(plot_id, status, dbh_cm, Site) %>% 
+                      rename(site = 'Site') %>% 
+                        filter(status =="live"|status=="dead") %>% 
+                       mutate(dbh_ft = dbh_cm*0.03281) %>% 
+                      mutate(basalarea_sqft = pi * (dbh_ft/2)^2) %>% 
+                      mutate(basalarea_sqft_acre = basalarea_sqft*10)
+                      
+                    
+                    
+                    slypark_BA_sum <- PreBA_slyparktrees %>% 
+                      group_by(plot_id, status) %>% 
+                      summarise(BA_sum_sqft_acre = sum(basalarea_sqft_acre))
+                    
+                    slypark_BA_sum_live <- slypark_BA_sum %>% 
+                      filter(status=="live") 
+                    
+                    mean(slypark_BA_sum$BA_sum_sqft_acre, na.rm=TRUE)
+                   mean(slypark_BA_sum_live$BA_sum_sqft_acre, na.rm = TRUE)
+                   
+                   
+##PLOT ALL                   
+                   
+                   
+ allbasalarea <- bind_rows(PreBA_slyparktrees, PreBA_lakestrees , PreBA_FMtrees, PreBA_BMtrees, PreBA_SpringsFiretrees)
+
+allbasalarea <- allbasalarea %>% 
+  select(plot_id, site, basalarea_sqft_acre, status) %>% 
+  na.omit() %>% 
+  group_by(site, plot_id, status) %>% 
+  summarise(BA_sum_sqft_acre = sum(basalarea_sqft_acre))
+
+ export(allbasalarea, "C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/2020_AnnualReport/Data/allbasalarea.csv")
+
+ basalarea_bystatus <- ggplot(data=allbasalarea, mapping = aes(x=site, y=BA_sum_sqft_acre, fill= status))+
+       
+              geom_boxplot()+
+              scale_fill_manual(values=c( "#404080","#69b3a2"))+
+              theme_minimal()+
+              xlab("Location")+
+              ylab("Initial Stand Basal Area (ft^2/acre)")+
+              theme(axis.text.x = element_text(angle=45, hjust=1))+
+              
+              theme(plot.title = element_text(hjust = 0.5))
+ basalarea_bystatus
+ 
+ ggsave("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/2020_AnnualReport/results/alltrees_basalarea_status.png", basalarea_bystatus)
+
+
+ 
+ 
+ 
+
+```
+
+
+```{r}
+
+PostBearFuels <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Bear_Mtn/data/clean/post_BearMtnFuelscomplete.csv")
+BearFuels <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Bear_Mtn/data/clean/BearMtnfuelsComplete.csv")
+
+BearFuels_sum <- BearFuels %>% 
+                          pivot_wider(names_from = fuel_size,
+                                      values_from = mass) %>% 
+                                          group_by(plot_id) %>% 
+                          mutate(total_fuel = sum(mass_1hr,mass_10hr,mass_100hr,mass_cwd_sound, mass_cwd_rotten)) %>% 
+                          mutate(plot_id_time = paste(plot_id, time))
+                           
+
+BMfuels_complete <- BearFuels_sum %>% 
+                            group_by(plot_id_time) %>% 
+                            select(plot_id_time, mass_1hr, mass_10hr, mass_100hr, mass_cwd_sound, mass_cwd_rotten, total_fuel) %>% 
+                              pivot_longer(-plot_id_time, names_to = "fuel_size", values_to = "mass") %>% 
+                              separate(plot_id_time, c("plot_id", "time"), sep=" ") 
+
+BMfuels_total <- BMfuels_complete %>% 
+          filter(time == 'preburn_mass') %>% 
+          filter(fuel_size == 'total_fuel')
+mean(BMfuels_total$mass)
+
+
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -91,7 +91,7 @@ export(prespringsfuels_complete_joined, "C:/Users/ashle/Documents/R/RX_Fire_Moni
 
 #plot
 
-
+prespringsfuels_complete
      
             prespringsfuels_plot <- ggplot(data=prespringsfuels_complete_joined, mapping = aes(x=treatment_type, y=mass))+
               geom_boxplot()+
@@ -344,6 +344,40 @@ springs_litter_duff <- ggplot(data=springsfire_litterduffall, mapping = aes(x=li
 springs_litter_duff
 
 ggsave("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/images/springsfuels_litterduff.png", springs_litter_duff)
+
+
+springsfuels <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/data/clean/springsfuels_complete.csv")
+
+springsfuels_total <- springsfuels %>% 
+  pivot_wider(names_from = fuel_size, values_from = mass) %>% 
+                                          group_by(plot_id,time) %>% 
+                          mutate(total_fuel = sum(mass_1hr,mass_10hr,mass_100hr,mass_cwd_sound, mass_cwd_rotten)) %>% 
+                          mutate(plot_id_time = paste(plot_id, time)) %>% 
+                          group_by(plot_id_time) %>% 
+                            select(plot_id_time, mass_1hr, mass_10hr, mass_100hr, mass_cwd_sound, mass_cwd_rotten, total_fuel) %>% 
+                              pivot_longer(-plot_id_time, names_to = "fuel_size", values_to = "mass") %>% 
+                              separate(plot_id_time, c("plot_id", "time"), sep=" ") 
+springsfuels_total <- left_join(springsfuels_total, SpringsFire_treatment, by="plot_id")
+
+springs_control <- springsfuels_total %>% 
+  filter(treatment_type == 'control') %>% 
+  filter(fuel_size == 'total_fuel') %>% 
+  filter(time == 'postburn_mass')
+
+springs_2013 <- springsfuels_total %>% 
+  filter(treatment_type == '2013rx') %>% 
+  filter(fuel_size == 'total_fuel') %>% 
+  filter(time == 'postburn_mass') %>% 
+  na.omit()
+
+mean(springs_2013$mass) 
+2.39-.62
+
+
+
+
+
+
 
   
 ```
