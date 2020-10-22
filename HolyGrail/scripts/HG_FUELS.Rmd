@@ -1,0 +1,64 @@
+---
+title: "holygrail_fuels"
+author: "Ashley Grupenhoff"
+date: "10/22/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+  library(tinytex)
+          options(tinytex.verbose=TRUE)
+library(tibble)
+library(dplyr)
+library(ggplot2)
+library(vegan)
+library(knitr)
+library(kableExtra)
+library(rio)
+```
+
+
+
+## 2020 post Springs fire fuels
+
+Initial fuels data 
+
+0-3" = (11.64 * n * d^2 * s * a * c)/ (Nl)
+CWD = (11.64 * n * sum(d^2) * s * a * c)/ (Nl)
+
+slope correction = (1+(presprings_fuelslope/100)^2)^(1/2)
+convert sq cm to sq in: * 0.155
+
+```{r}
+#load data
+
+HG_CWD <- read_csv("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/HolyGrail/data/raw/HolyGrail_CWD.csv")
+HG_FWD <- read_csv("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/HolyGrail/data/raw/HolyGrail_FineFuels.csv")
+SpringsFire_treatment <- read_csv("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/data/raw/springsfire_treatment.csv")
+
+#CWD calculations
+post_springs_20_cwd <- na.omit(post_springs_20_cwd) 
+
+HG_CWD_sum <- HG_CWD %>% 
+                            mutate( decay_type = case_when(
+                            decay >= 4 | decay == '5-rotten' ~ "rotten",
+                            decay < 4 ~ "sound"
+                          )) %>% 
+                      mutate(diam_in_square = (intersect_cm * 0.3937)^2) %>% 
+                      mutate()
+                      group_by(plotid, decay_type) %>% 
+                      summarise(sum_diam = sum(diam_in_square)) %>% 
+                      pivot_wider(names_from = "decay_type", values_from = "sum_diam") 
+
+#replaceNAs with 0
+
+post_springs_20_cwd[is.na(post_springs_20_cwd)]=0
+                      
+
+```{r cars}
+summary(cars)
+```
+
+
