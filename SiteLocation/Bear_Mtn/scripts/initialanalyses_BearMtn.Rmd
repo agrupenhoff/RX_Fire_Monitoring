@@ -1,0 +1,517 @@
+---
+title: "Bear Mountain Data Analysis"
+author: "Ashley Grupenhoff"
+date: "4/19/2020"
+output:
+  html_document:
+    df_print: paged
+  pdf_document: default
+  word_document: default
+---
+
+
+# Prescribed Monitoring Field Crew Initial Analysis 
+
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r, include=FALSE}
+library(tidyverse)
+  library(tinytex)
+          options(tinytex.verbose=TRUE)
+library(tibble)
+library(dplyr)
+library(ggplot2)
+library(vegan)
+library(knitr)
+library(kableExtra)
+library(rio)
+          
+        
+```
+
+
+##  Description
+
+```{r}
+
+
+```
+
+
+
+
+## Pre fire fuels
+
+Initial fuels data 
+
+0-3" = (11.64 * n * d^2 * s * a * c)/ (Nl)
+CWD = (11.64 * n * sum(d^2) * s * a * c)/ (Nl)
+
+slope correction = (1+(presprings_fuelslope/100)^2)^(1/2)
+convert sq cm to sq in: * 0.155
+
+
+```{r, message=FALSE, echo=FALSE, message=FALSE, warning=FALSE, results= "asis"}
+#load data
+BearMtn_Fuels <- read_csv("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Bear_Mtn/data/raw/pre_BearMtn_finefuels.csv")
+BearMtn_CWD <- read_csv("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Bear_Mtn/data/raw/pre_BearMtn_cwd.csv")
+
+
+#combine sum CWD rotten and sound per plot
+
+                    BearMtn_CWD_combined <- BearMtn_CWD %>% 
+                          mutate( decay_type = case_when(
+                            decay >= 4 | decay == '5-rotten' ~ "rotten",
+                            decay < 4 | decay == '1-intact' ~ "sound"
+                          )) %>% 
+                      mutate(diam_in_square = (intersect_cm * 0.3937)^2)  %>% 
+                      group_by(plot_id, decay_type) %>% 
+                      summarise(sum_diam = sum(diam_in_square)) %>% 
+                      pivot_wider(names_from = "decay_type", values_from = "sum_diam") 
+             
+#combine fuels
+                    
+##Average each mass type per plot
+
+                                
+                  BearMtn_fuels_combined <- BearMtn_Fuels %>% 
+                   rename(plot_id = `Plot ID`) %>% 
+                  mutate( avg_duff = (duff1_cm + duff2_cm)/2,
+                         avg_litter = (litter1_cm +litter2_cm)/2) %>% 
+                        mutate(slopecorrection = (1+(slope_percent/100)^2)^(1/2)) %>% 
+                  group_by(plot_id) %>% 
+                  summarise_all(list(mean))  %>% 
+                  left_join(BearMtn_CWD_combined, by="plot_id") %>% 
+                     mutate_all(~replace(., is.na(.), 0))
+                    
+
+                          
+                    #Create New data frame
+                    BMfuels<-NULL
+                   BMfuels<-as.data.frame(matrix(NA, ncol=6, nrow=nrow(BearMtn_fuels_combined)))
+                    colnames(BMfuels)<-c("plot_id","mass_1hr", "mass_10hr", "mass_100hr", "mass_cwd_sound", "mass_cwd_rotten")
+                    
+                    #run a forloop to apply the equations to each row in the data frame
+                    for (i in 1:nrow(BearMtn_fuels_combined)) {
+                    	      
+                      BMfuels[i,"plot_id"]<-BearMtn_fuels_combined[i,"plot_id"]          
+                      BMfuels[i,"mass_1hr"]<- ((11.64 * BearMtn_fuels_combined[i,"1hr_count"] * 0.0151 * 	0.48 * 1.13 * BearMtn_fuels_combined [i, "slopecorrection"])/ (2*3.28))                          
+                      BMfuels[i,"mass_10hr"]<-((11.64 * BearMtn_fuels_combined[i,"10hr_count"] * 0.289 * 	0.48 * 1.13 * BearMtn_fuels_combined [i, "slopecorrection"]) / (2*3.28))                            
+                      BMfuels[i,"mass_100hr"]<-((11.64 * BearMtn_fuels_combined[i,"100hr_count"] * 2.76 * 	0.40 * 1.13 * BearMtn_fuels_combined[i, "slopecorrection"]) / (4*3.28))           
+                      BMfuels[i,"mass_cwd_sound"]<- ((11.64 * BearMtn_fuels_combined[i,"sound"] 	* 0.155 * 0.40 * BearMtn_fuels_combined [i, "slopecorrection"]) / (11.3*3.28))           
+                      BMfuels[i,"mass_cwd_rotten"]<-((11.64 * BearMtn_fuels_combined[i,"rotten"] 	* 0.155 * 0.30 * BearMtn_fuels_combined [i, "slopecorrection"]) / (11.3*3.28))    
+                            
+                    }      
+                       
+
+#pivot longer
+
+BMfuels <- BMfuels %>% 
+  select(plot_id, mass_1hr, mass_10hr, mass_100hr, mass_cwd_sound, mass_cwd_rotten) %>% 
+  pivot_longer(-plot_id, names_to = "fuel_size", values_to = "mass")
+
+
+#save completed pre fuels data frame
+export(BMfuels, "C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Bear_Mtn/data/clean/PreBurn_BMfuels.csv")
+
+
+#plot
+
+
+     
+           BMfuels_plot <-  ggplot(data=BMfuels, mapping = aes(x=fuel_size, y=mass))+
+              geom_boxplot()+
+              geom_jitter(alpha = 0.3)+
+             theme(axis.text.x = element_text(angle=45, hjust=1))+
+              xlab("Fuel Size")+
+              ylab("Mass (Tons/Acre)")+
+              ggtitle("Pre-burn Fuels")+
+              theme(plot.title = element_text(hjust = 0.5))
+           BMfuels_plot
+            
+
+ggsave("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Bear_Mtn/images/BMfuels.png", BMfuels_plot)
+
+
+#LITTER DUFF
+
+Pre_BearMtn_litter_duff <- BearMtn_Fuels %>% 
+  rename(plot_id = `Plot ID`) %>% 
+  mutate( avg_duff = (duff1_cm + duff2_cm)/2,
+                         avg_litter = (litter1_cm +litter2_cm)/2) %>% 
+  select(plot_id, avg_duff, avg_litter)  %>% 
+  group_by(plot_id) %>% 
+   summarize(mean_litter = mean(avg_litter),
+         mean_duff = mean(avg_duff)) %>% 
+  pivot_longer(-plot_id, names_to = "litter_duff", values_to = "depth_cm")
+
+export(Pre_BearMtn_litter_duff, "C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Bear_Mtn/data/clean/pre_BearMtn_litterduff.csv")
+
+  
+
+
+```
+
+
+## Post BM fire fuels
+
+Post fuels data by treatment.
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE,results= "asis"}
+#load data
+post_BearMtn_finefuels <- read_csv("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Bear_Mtn/data/raw/post_BearMtn_finefuels.csv")
+post_BearMtn_cwd <- read_csv("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Bear_Mtn/data/raw/post_BearMtn_cwd.csv")
+
+
+#CWD data clean
+
+                  
+                  post_BearMtn_cwd <- post_BearMtn_cwd %>% 
+                    mutate(sound_rotten = case_when(
+                           decay > 3 ~ "rotten",
+                           TRUE ~ "sound"))  
+                    
+                  
+                  post_BearMtn_cwd <- post_BearMtn_cwd %>% 
+                    mutate(azimuth2 = case_when(
+                          azimuth == "N" ~ 0,
+                          azimuth == "E" ~ 90,
+                          azimuth == "S" ~ 180,
+                          TRUE ~ 270
+                    )) %>% 
+                    mutate(intersect_in = intersect_cm*0.3937) %>% 
+                    mutate(intersect_in_square = intersect_in^2) 
+                  
+                  PostBearMtn_cwd_sum <- post_BearMtn_cwd %>% 
+                    group_by(plot_id, azimuth2, sound_rotten) %>% 
+                    summarize(sum_diameter_square = sum(intersect_in_square)) %>% 
+                    pivot_wider(names_from = "sound_rotten",
+                                values_from = "sum_diameter_square") %>% 
+                    mutate(plot_id_azimuth = paste(plot_id, azimuth2))
+
+
+#Clean up fine fuels
+                  
+                  post_BearMtn_finefuels <- post_BearMtn_finefuels%>% 
+                    mutate(duff_depth_cm = (duff1_cm + duff2_cm)/2,
+                           litter_depth_cm = (litter1_cm + litter2_cm)/2)%>% 
+                          mutate(slopecorrection = (1+(post_BearMtn_finefuels$slope_percent/100)^2)^(1/2)) %>% 
+                          mutate(plot_id_azimuth = paste(plot_id, azimuth))
+                  
+                  postbearmtnfuels_combine <- left_join(post_BearMtn_finefuels, PostBearMtn_cwd_sum, by="plot_id_azimuth")
+                    
+
+
+#Create New data frame
+                    post_BMfuels<-NULL
+                   post_BMfuels<-as.data.frame(matrix(NA, ncol=6, nrow=nrow(postbearmtnfuels_combine)))
+                    colnames(post_BMfuels)<-c("plot_id","mass_1hr", "mass_10hr", "mass_100hr", "mass_cwd_sound", "mass_cwd_rotten")
+                    
+                    #run a forloop to apply the equations to each row in the data frame
+                    for (i in 1:nrow(postbearmtnfuels_combine)) {
+                    	      
+                      post_BMfuels[i,"plot_id"]<-postbearmtnfuels_combine[i,"plot_id.x"]          
+                      post_BMfuels[i,"mass_1hr"]<- ((11.64 * postbearmtnfuels_combine[i,"count_x1h"] * 0.0151 * 	0.48 * 1.13 * postbearmtnfuels_combine [i, "slopecorrection"])/ (2*3.28))                          
+                      post_BMfuels[i,"mass_10hr"]<-((11.64 * postbearmtnfuels_combine[i,"count_x10h"] * 0.289 * 	0.48 * 1.13 * postbearmtnfuels_combine [i, "slopecorrection"]) / (2*3.28))                            
+                      post_BMfuels[i,"mass_100hr"]<-((11.64 * postbearmtnfuels_combine[i,"count_x100h"] * 2.76 * 	0.40 * 1.13 * postbearmtnfuels_combine[i, "slopecorrection"]) / (4*3.28))           
+                      post_BMfuels[i,"mass_cwd_sound"]<- ((11.64 * postbearmtnfuels_combine[i,"sound"] 	* 0.155 * 0.40 * postbearmtnfuels_combine [i, "slopecorrection"]) / (11.3*3.28))           
+                      post_BMfuels[i,"mass_cwd_rotten"]<-((11.64 * postbearmtnfuels_combine[i,"rotten"] 	* 0.155 * 0.30 * postbearmtnfuels_combine [i, "slopecorrection"]) / (11.3*3.28))    
+                            
+                    }      
+                       
+ 
+
+                   
+                    ##Average each mass type per plot
+              
+              postBMfuels_complete<- post_BMfuels %>% 
+                          mutate_all(~replace(., is.na(.), 0)) %>% 
+                            group_by(plot_id) %>% 
+                            summarise_all(list(mean), na.rm=TRUE) %>% 
+                            pivot_longer(cols = -plot_id, names_to = "fuel_size", values_to= "mass") 
+                        
+
+
+export(postBMfuels_complete, "C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Bear_Mtn/data/clean/post_BearMtnfuelscomplete.csv")
+
+
+
+```
+
+## pre and post burn fuel consumption
+
+
+
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE,results= "asis"}
+
+BMfuels$preburn_mass <- BMfuels$mass
+postBMfuels_complete$postburn_mass <- postBMfuels_complete$mass
+
+BMfuels <- BMfuels %>% 
+  mutate(plot_id_fuel = paste(plot_id, fuel_size))
+postBMfuels_complete <- postBMfuels_complete %>% 
+  mutate(plot_id_fuel = paste(plot_id, fuel_size))
+
+BMfuels_ALL <- BMfuels %>% 
+  left_join(postBMfuels_complete , by = "plot_id_fuel") %>% 
+  select(plot_id.x, fuel_size.x, preburn_mass, postburn_mass) 
+  
+BMfuels_completeplots <- BMfuels_ALL %>% 
+   na.omit() %>% 
+   mutate(id_fuelsize = paste(plot_id.x, fuel_size.x)) %>% 
+  select(id_fuelsize, preburn_mass, postburn_mass) %>% 
+  pivot_longer(-id_fuelsize, names_to = "time", values_to = "mass") %>% 
+  separate(id_fuelsize, c("plot_id", "fuel_size"), sep=" ") 
+
+
+#reorder so preburn comes before postburn
+BMfuels_completeplots$time <- factor(BMfuels_completeplots$time, levels=c("preburn_mass", "postburn_mass"))
+
+
+export(BMfuels_completeplots, "C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Bear_Mtn/data/clean/BearMtnfuelsComplete.csv")
+
+
+BM_fuels_complete <- ggplot(data=BMfuels_completeplots, mapping = aes(x=time, y=mass, fill=time))+
+              geom_boxplot()+
+              scale_fill_manual(values=c("#69b3a2", "#404080"))+
+              
+              facet_wrap(~ fuel_size, scales = "free_y") +
+              theme_minimal()+
+              
+              ylab("Mass (Tons/Acre)")+
+              theme(axis.text.x = element_text(angle=45, hjust=1))+
+              theme(plot.title = element_text(hjust = 0.5))
+
+BM_fuels_complete
+
+ggsave("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Bear_Mtn/images/BMfuelscomplete.png", BM_fuels_complete)
+
+
+
+##LITTER DUFF CONSUMPTION
+
+                Pre_springs_litter_duff <- Pre_SpringsFire_FUELS %>% 
+                  select(plot_id, duff_depth_cm, litter_depth_cm) %>% 
+                  group_by(plot_id) %>% 
+                   summarize(mean_litter = mean(litter_depth_cm),
+                         mean_duff = mean(duff_depth_cm)) %>% 
+                  pivot_longer(-plot_id, names_to = "litter_duff", values_to = "depth_cm")
+                export(Pre_springs_litter_duff, "C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/data/clean/pre_springs_litterduff.csv")
+                
+                  
+                Post_springs_litter_duff <- Post_SpringsFire_FUELS %>% 
+                  select(plot_id, duff_depth_cm, litter_depth_cm) %>% 
+                  group_by(plot_id) %>% 
+                   summarize(mean_litter = mean(litter_depth_cm),
+                         mean_duff = mean(duff_depth_cm)) %>% 
+                    na.omit() %>% 
+                  pivot_longer(-plot_id, names_to = "litter_duff", values_to = "depth_cm")
+                export(Post_springs_litter_duff, "C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/data/clean/post_springs_litterduff.csv")
+
+
+                Post_springs_litter_duff <- Post_springs_litter_duff %>% 
+                  mutate(plot_id_litterduff = paste(plot_id, litter_duff))
+                Pre_springs_litter_duff <- Pre_springs_litter_duff %>% 
+                  mutate(plot_id_litterduff = paste(plot_id, litter_duff))
+                
+                springsfire_litterduffall <-   left_join(Pre_springs_litter_duff, Post_springs_litter_duff, by = "plot_id_litterduff") 
+                springsfire_litterduffall$preburn_depth_cm <- springsfire_litterduffall$depth_cm.x 
+                springsfire_litterduffall$postburn_depth_cm <- springsfire_litterduffall$depth_cm.y
+                
+                springsfire_litterduffall <-  springsfire_litterduffall %>% 
+                      select(plot_id_litterduff, preburn_depth_cm, postburn_depth_cm) %>% 
+                  na.omit() %>% 
+                   pivot_longer(-plot_id_litterduff, names_to = "time", values_to = "depth_cm") 
+                
+                springsfire_litterduffall <- springsfire_litterduffall %>% 
+                 separate(plot_id_litterduff, c("plot_id", "litter_duff"), sep=" ")
+                
+
+#MAKE PRE BURN FIRST
+          springsfire_litterduffall$time <- factor(springsfire_litterduffall$time, levels=c("preburn_depth_cm", "postburn_depth_cm"))
+
+str(springsfire_litterduffall$time)
+
+export(springsfire_litterduffall, "C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/data/clean/springsfire_litterduff_consumption.csv")
+
+springs_litter_duff <- ggplot(data=springsfire_litterduffall, mapping = aes(x=litter_duff, y=depth_cm, fill=time))+
+              geom_boxplot()+
+             
+              theme_minimal()+
+              xlab("Duff and Litter consumption")+
+              ylab("Depth (cm)")+
+              scale_fill_manual(values=c("#69b3a2", "#404080"))+
+              theme(axis.text.x = element_text(angle=45, hjust=1))+
+             
+              theme(plot.title = element_text(hjust = 0.5))
+springs_litter_duff
+
+ggsave("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/images/springsfuels_litterduff.png", springs_litter_duff)
+
+
+
+
+Post_springs_litter_duff <- Post_springs_litter_duff %>% 
+  mutate(plot_id_litterduff = paste(plot_id, litter_duff))
+Pre_springs_litter_duff <- Pre_springs_litter_duff %>% 
+  mutate(plot_id_litterduff = paste(plot_id, litter_duff))
+
+springsfire_litterduffall <-   left_join(Pre_springs_litter_duff, Post_springs_litter_duff, by = "plot_id_litterduff") 
+springsfire_litterduffall$preburn_depth_cm <- springsfire_litterduffall$depth_cm.x 
+springsfire_litterduffall$postburn_depth_cm <- springsfire_litterduffall$depth_cm.y
+
+springsfire_litterduffall <-  springsfire_litterduffall %>% 
+select(plot_id.x, litter_duff.x, preburn_depth_cm, postburn_depth_cm) %>% 
+  na.omit() %>% 
+  pivot_longer(-id_litterduff, names_to = "time", values_to = "depth_cm") 
+
+springsfire_litterduffall <- springsfire_litterduffall %>% 
+  separate(id_litterduff, c("plot_id", "litter_duff"), sep=" ")
+ 
+
+
+export(springsfire_litterduffall, "C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/data/clean/springsfire_litterduff_consumption.csv")
+
+springs_litter_duff <- ggplot(data=springsfire_litterduffall, mapping = aes(x=litter_duff, y=depth_cm, fill=time))+
+              geom_boxplot()+
+              geom_jitter(alpha = 0.1)+
+            
+              theme_minimal()+
+              xlab("Duff and Litter consumption")+
+              ylab("Depth (cm)")+
+              scale_fill_manual(values=c("#69b3a2", "#404080"))+
+              theme(axis.text.x = element_text(angle=45, hjust=1))+
+             
+              theme(plot.title = element_text(hjust = 0.5))
+springs_litter_duff
+  
+```
+
+
+## Tree data
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, results= "asis"}
+BM_trees <- read_csv("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Bear_Mtn/data/raw/BearMtn_trees.csv", col_names = TRUE)
+str(BM_trees)
+
+
+#live trees only
+
+
+BM_trees_live <- BM_trees %>% 
+  filter(status == "live") %>% 
+  select(plot_id, species_id, dbh_cm, height_m, ht_to_crown_m) %>% 
+  drop_na() %>% 
+  group_by(plot_id, species_id) %>% 
+  summarize(mean_dbh = mean(dbh_cm), 
+            mean_ht = mean(height_m),
+            mean_ht2crwn = mean(ht_to_crown_m),
+            total_trees = length(dbh_cm)) %>% 
+  mutate(total_trees_acre = total_trees*10) 
+
+
+export(BM_trees_live, "C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Bear_Mtn/data/clean/BM_trees_live.csv")
+
+#adjust values to be per acre
+
+
+ggplot(data=BM_trees_live, mapping = aes(x=species_id, y=total_trees_acre))+
+              scale_fill_manual(values=c("#69b3a2", "#404080"))+
+              geom_boxplot(alpha=5)+
+              geom_jitter(alpha= 0.7)+
+              theme_minimal()+
+              xlab("Species")+
+              ylab("Total adult live trees per acre (count)")+
+   ggtitle("Total Live Trees per Acre")+
+              theme(plot.title = element_text(hjust = 0.5))
+
+ggplot(data=BM_trees_live, mapping = aes(x=species_id, y=mean_dbh))+
+              scale_fill_manual(values=c("#69b3a2", "#404080"))+
+              geom_boxplot(alpha=5)+
+              geom_jitter(alpha= 0.7)+
+              theme_minimal()+
+              xlab("Species")+
+              ylab("Average DBH (cm)")+
+     ggtitle("Average DBH (cm) Live Trees")+
+              theme(plot.title = element_text(hjust = 0.5))
+
+ggplot(data=BM_trees_live, mapping = aes(x=species_id, y=mean_ht))+
+              scale_fill_manual(values=c("#69b3a2", "#404080"))+
+              geom_boxplot(alpha=5)+
+              geom_jitter(alpha= 0.7)+
+              theme_minimal()+
+              xlab("Species")+
+              ylab("Mean Height (m)")+
+  ggtitle("Average Height (m) Live Trees")+
+              theme(plot.title = element_text(hjust = 0.5))
+
+
+
+
+#live and dead trees simple comparison
+
+
+BM_trees_standing <- BM_trees %>% 
+  filter(status == "live" | status == "dead") %>% 
+  select(plot_id, status, species_id, dbh_cm, height_m) %>% 
+  group_by(plot_id, species_id, status) %>% 
+  summarize(mean_dbh = mean(dbh_cm), 
+            mean_ht = mean(height_m),
+            total_trees = length(dbh_cm)) %>% 
+  mutate(total_trees_acre = total_trees*10) 
+
+export(BM_trees_standing, "C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Bear_Mtn/data/clean/BM_trees_standing.csv")
+
+ggplot(data=BM_trees_standing, mapping = aes(x=species_id, y=total_trees_acre))+
+              scale_fill_manual(values=c("#69b3a2", "#404080"))+
+              facet_wrap(~status,scales = "free_y")+
+              geom_boxplot(alpha=5)+
+              geom_jitter(alpha= 0.7)+
+              theme_minimal()+
+              xlab("Species")+
+              ylab("Total adult trees per acre (count)")+
+  ggtitle("Total Standing Trees per Acre")+
+              theme(plot.title = element_text(hjust = 0.5))
+
+
+
+
+  
+
+```
+
+
+## Initial basal area
+
+Basal area compared between treatment type, by species and status (live or dead).
+
+
+```{r}
+BM_ba <- read_csv("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Bear_Mtn/data/raw/BearMtn_basalarea.csv", col_names = TRUE)
+
+
+BM_ba_condense <- BM_ba %>% 
+  rename(plot_id = `Plot ID`) %>% 
+    select(plot_id, status, species_id, stand_BA_ft2acre) %>% 
+    rename(stand_ba = 'stand_BA_ft2acre' )
+
+
+export(BM_ba_condense, "C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Bear_Mtn/data/clean/BM_basalarea_complete.csv")
+
+ggplot(data=BM_ba_condense, mapping = aes(x=species_id, y=stand_ba))+
+              
+              geom_boxplot(alpha=5)+
+              geom_jitter(alpha= 0.7,aes(colour = status))+
+              scale_color_manual(values=c("#69b3a2", "#404080"))+
+              theme_minimal()+
+              xlab("Species")+
+              ylab("Initial stand basal area (ft^2/acre)")+
+  ggtitle("Stand Basal Area (ft^2/acre)")+
+              theme(plot.title = element_text(hjust = 0.5))
+```

@@ -1,0 +1,102 @@
+---
+title: "springsfuels_control_vs_burn"
+author: "Ashley Grupenhoff"
+date: "9/8/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+```{r, include=FALSE}
+library(tidyverse)
+  library(tinytex)
+          options(tinytex.verbose=TRUE)
+library(tibble)
+library(dplyr)
+library(ggplot2)
+library(vegan)
+library(knitr)
+library(kableExtra)
+library(rio)
+library(wesanderson)
+      
+```
+
+## Springs fire fuels 
+
+all together 
+
+```{r}
+springsfuels_post <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/data/clean/control_burn/postspringsfuels20_complete.csv")
+SpringsFire_treatment <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/data/raw/springsfire_treatment.csv")
+
+
+#convert to mg/ha
+
+springsfuels_post <- springsfuels_post %>% 
+  mutate(mass_mgha = mass*.446)
+
+export(springsfuels_post, "C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/data/clean/control_burn/springsfuels_post_complete.csv")
+
+
+springs_fuels_post <- ggplot(data=springsfuels_post, mapping = aes(x=treatment_type, y=mass, fill=treatment_type))+
+              geom_boxplot()+
+              scale_fill_manual(values=wes_palette("IsleofDogs1"))+
+              
+              facet_wrap(~ fuel_size, scales = "free_y") +
+              theme_minimal()+
+              xlab("PriorTreatment")+
+              ylab("Mass (Mg/Ha)")+
+              theme(axis.text.x = element_text(angle=45, hjust=1))+
+              theme(plot.title = element_text(hjust = 0.5))
+springs_fuels_post
+ggsave("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/images/springsfuels_prepost_fuels.png", springs_fuels_post)
+
+
+
+```
+
+> cwd rotten not significant between treatment
+
+```{r}
+#cwd_rotten only
+
+              springsfuels_total <- springsfuels_post %>% 
+                filter(fuel_size == "total_fuel")
+
+#graph
+
+springsfuelstotal_post_plot <-   ggplot(data=springsfuels_total, mapping = aes(x=treatment_type, y=mass_mgha, fill=treatment_type))+
+              geom_boxplot()+
+              scale_fill_manual(values=wes_palette("IsleofDogs1"))+
+              
+              theme_minimal()+
+              xlab("PriorTreatment")+
+              ylab("Mass (Mg/Ha)")+
+              theme(axis.text.x = element_text(angle=45, hjust=1))+
+              theme(plot.title = element_text(hjust = 0.5))
+springsfuelstotal_post_plot
+ggsave("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/images/springsfuelstotal_post.png", springsfuelstotal_post_plot)
+#anova
+
+group_by(springsfuels_total, treatment_type) %>% 
+  summarise(
+    count=n(),
+    mean = mean(mass_mgha, na.rm=TRUE),
+    sd=sd(mass_mgha, na.rm=TRUE)
+  )
+
+#compute analysis of variance
+
+aov_totalpost<- aov(mass_mgha ~ treatment_type, data=springsfuels_total)
+summary(aov_totalpost)
+
+#multiple comparisons using multiple pairwise-comparisons between means of groups
+TukeyHSD(aov_totalpost)
+
+
+```

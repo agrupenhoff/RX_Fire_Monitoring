@@ -60,7 +60,7 @@ allfuels <- allfuels %>%
   na.omit()
 
 treatment_all <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/2020_AnnualReport/data/all_location_treatment.csv")
-allfuels <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/2020_AnnualReport/data/allfuels.csv")
+allfuels <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/2020_AnnualReport/data/allfuels_complete.csv")
 allfuel_treatment <- left_join(allfuels,treatment_all, by = "plot_id")
 
 
@@ -171,10 +171,14 @@ mean(slypark_fuels_total$mass)
  
  
   
-    springs_fuels <- allfuels_complete %>% 
+    springs_fuels <- allfuels%>% 
             filter(location.x=='SpringsFire')  
      springs_fuels_total <- springs_fuels %>% 
-  filter(fuel_size == 'total_fuel')
+  filter(fuel_size == 'total_fuel') %>% 
+       filter(burnunit == 'control')
+     
+     
+     
 mean(springs_fuels_total$mass)
  springs_fuels <- ggplot(data=springs_fuels, mapping = aes(x=burnunit, y=mass, fill=burnunit))+
               geom_boxplot()+
@@ -186,6 +190,33 @@ mean(springs_fuels_total$mass)
               theme(axis.text.x = element_text(angle=45, hjust=1))+
               theme(plot.title = element_text(hjust = 0.5))
  springs_fuels
+ 
+ post_springs_fuels <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/data/clean/postspringsfuels_complete.csv")
+ post_springs_fuels_complete <- post_springs_fuels %>% 
+          pivot_wider(names_from = fuel_size,
+                                      values_from = mass) %>% 
+                           mutate_all(~replace(., is.na(.), 0)) %>% 
+                          group_by(plot_id) %>% 
+                          mutate(total_fuel = sum(mass_1hr,mass_10hr,mass_100hr,mass_cwd_sound, mass_cwd_rotten)) %>% 
+                          mutate(plot_id_trt = paste(plot_id, treatment_type)) 
+                        
+                        postspringsfuels_complete2<- post_springs_fuels_complete%>% 
+                                  group_by(plot_id_trt) %>% 
+                                  select(plot_id_trt, mass_1hr, mass_10hr, mass_100hr, mass_cwd_sound, mass_cwd_rotten, total_fuel) %>% 
+                              pivot_longer(-plot_id_trt, names_to = "fuel_size", values_to = "mass") %>% 
+                              separate(plot_id_trt, c("plot_id", "treatment_type"), sep=" ") 
+                           
+ 
+  springs_fuelspost <- postspringsfuels_complete2%>% 
+            
+  filter(fuel_size == 'total_fuel') %>% 
+       filter(treatment_type == '2010rx')
+     
+     
+     
+mean(springs_fuelspost$mass)
+ export(postspringsfuels_complete2,"C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/data/clean/postspringsfuels_complete.csv" )
+ 
 ggsave("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/2020_AnnualReport/results/springs_fuels.png", springs_fuels)
  
 ```
