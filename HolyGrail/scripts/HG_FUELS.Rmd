@@ -116,30 +116,19 @@ HG_CWD_FWD_plot <- HG_CWD_FWD_combine %>%
 
 HG_CWD_FWD_plot <- HG_CWD_FWD_plot %>% 
                     group_by(site_plotid_time) %>% 
-                    mutate(total_fuel = sum(mass_1hr,mass_10hr,mass_100hr,mass_cwd_sound, mass_cwd_rotten)) 
-                              
-    
-
-
-                   
-                       
-##Average each mass type per plot
-              
-              postspringsfuels20_complete<- postspringsfuels20 %>% 
-                            mutate_all(~replace(., is.na(.), 0)) %>% 
-                            group_by(plot_id) %>% 
-                            mutate(total_fuel = sum(mass_1hr,mass_10hr,mass_100hr,mass_cwd_sound, mass_cwd_rotten)) %>% 
-                              pivot_longer(cols = -plot_id, names_to = "fuel_size", values_to= "mass") 
-                            
-
-              
-                       
-
-                      #save completed post fuels data frame
-                      postspringsfuels20_complete <-   import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/data/clean/postspringsfuels20_complete.csv")
-
-
+                    mutate(total_fuel = sum(mass_1hr,mass_10hr,mass_100hr,mass_cwd_sound, mass_cwd_rotten)) %>% 
+                    pivot_longer(cols = -site_plotid_time, names_to = "fuel_type_size", values_to= "mass_ton_acre") 
                   
+
+#add column for Mg_Ha 
+
+HG_CWD_FWD_plot <- HG_CWD_FWD_plot %>% 
+  mutate(mass_mg_ha = (mass_ton_acre*2.2417023114334))
+
+#save completed post fuels data frame
+export(HG_CWD_FWD_plot, "C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/HolyGrail/data/clean/HG_CWD_FWD_final.csv")
+
+
                       
 
 ```
