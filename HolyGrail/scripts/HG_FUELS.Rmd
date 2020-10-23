@@ -17,6 +17,7 @@ library(vegan)
 library(knitr)
 library(kableExtra)
 library(rio)
+library(lme4)
 ```
 
 
@@ -34,31 +35,125 @@ convert sq cm to sq in: * 0.155
 ```{r}
 #load data
 
-HG_CWD <- read_csv("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/HolyGrail/data/raw/HolyGrail_CWD.csv")
-HG_FWD <- read_csv("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/HolyGrail/data/raw/HolyGrail_FineFuels.csv")
-SpringsFire_treatment <- read_csv("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/data/raw/springsfire_treatment.csv")
+HG_CWD <- read.csv("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/HolyGrail/data/raw/HolyGrail_CWD.csv", stringsAsFactors = FALSE)
+HG_FWD <- read.csv("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/HolyGrail/data/raw/HolyGrail_FineFuels.csv", stringsAsFactors=FALSE)
+                 HG_FWD <- HG_FWD %>% 
+                     mutate_at(vars(count_x1h, count_x10h, count_x100h, duff1_cm, duff2_cm, litter1_cm, litter2_cm, slope_percent, fuel1_cm, fuel2_cm), ~as.numeric(as.character(.)))
+location_treatment <- read_csv("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/HolyGrail/data/raw/location_treatment.csv")
 
-#CWD calculations
-post_springs_20_cwd <- na.omit(post_springs_20_cwd) 
+#change rows with no CWD (written as na, no cwd, or none) to include NA then replace with 0
 
-HG_CWD_sum <- HG_CWD %>% 
+HG_CWD_NA <- HG_CWD %>% 
+                    mutate_if(is.character, list(~na_if(.,"na"))) %>% 
+                    mutate_if(is.character, list(~na_if(.,"no cwd"))) %>% 
+                    mutate_if(is.character, list(~na_if(.,"none"))) %>% 
+                    replace_na(list(intersect_cm = 0)) 
+                    
+HG_CWD_NA$intersect_cm <- as.numeric(HG_CWD_NA$intersect_cm)
+
+#sum CWD values 
+
+HG_CWD_sum <- HG_CWD_NA %>% 
                             mutate( decay_type = case_when(
-                            decay >= 4 | decay == '5-rotten' ~ "rotten",
+                            decay >= 4  ~ "rotten",
                             decay < 4 ~ "sound"
                           )) %>% 
+                      mutate(site_plotid_time_azimuth = paste(site, plot_id, year, pre_post_fire, azimuth)) %>% 
                       mutate(diam_in_square = (intersect_cm * 0.3937)^2) %>% 
-                      mutate()
-                      group_by(plotid, decay_type) %>% 
+                      group_by(site_plotid_time_azimuth, decay_type) %>% 
                       summarise(sum_diam = sum(diam_in_square)) %>% 
-                      pivot_wider(names_from = "decay_type", values_from = "sum_diam") 
+                      replace_na(list(rotten =0, sound =0)) 
 
-#replaceNAs with 0
+##Remove NA decay type
 
-post_springs_20_cwd[is.na(post_springs_20_cwd)]=0
+HG_CWD_sum <- HG_CWD_sum[!is.na(HG_CWD_sum$decay_type),]
+HG_CWD_sum <- HG_CWD_sum %>% 
+  pivot_wider(names_from="decay_type", values_from = "sum_diam") 
+
+HG_CWD_complete <- HG_CWD_sum %>% 
+    replace_na(list(sound=0, rotten=0))
+
+# FINE FUELS: average litter, duff, fuel depth && slope correction
+HG_FWD_slope <- HG_FWD%>% 
+                   mutate( avg_duff = (duff1_cm + duff2_cm)/2,
+                          avg_litter = (litter1_cm +litter2_cm)/2,
+                          avg_fueldepth = (fuel1_cm + fuel2_cm)/2) %>% 
+                  replace_na(list(slope_percent=0)) %>% 
+                  mutate(slopecorrection = (1+(slope_percent/100)^2)^(1/2)) %>% 
+                  mutate(site_plotid_time_azimuth = paste(site, plot_id, year, pre_post_fire, azimuth))
+                  
+#compile FWD and CWD together
+HG_Fuels <- left_join(HG_CWD_complete,HG_FWD_slope, by="site_plotid_time_azimuth")
+
+
+
+#Calculate Mass for FWD
+
+HG_FWD_Mass <- HG_FWD_slope %>% 
+      mutate(mass_1hr =(11.64 * count_x1h * 0.0151 * 	0.48 * 1.13 * slopecorrection)/ (2*3.28),
+             mass_10hr=(11.64 * count_x10h * 0.289 * 	0.48 * 1.13 * slopecorrection) / (2*3.28),
+             mass_100hr=(11.64 * count_x100h * 2.76 * 	0.40 * 1.13 * slopecorrection) / (4*3.28)) %>% 
+      select(site_plotid_time_azimuth, mass_1hr, mass_10hr, mass_100hr, slopecorrection, avg_litter, avg_duff, avg_fueldepth)
+
+#Combine CWD and FWD mass 
+HG_CWD_FWD_combine <- left_join(HG_FWD_Mass, HG_CWD_complete, by="site_plotid_time_azimuth")
+  
+
+#Now calculate CWD mass with joined slope percent
+HG_CWD_FWD_combine <- HG_CWD_FWD_combine %>% 
+  replace_na(list(sound=0, rotten=0)) %>% 
+  mutate(mass_cwd_sound =(11.64 * sound * 0.155 * 0.40 * slopecorrection) / (11.3*3.28),
+         mass_cwd_rotten=(11.64 * rotten * 0.155 * 0.30 * slopecorrection) / (11.3*3.28)) %>%  
+  separate(site_plotid_time_azimuth, c("site","plotid","year", "pre_post_fire","azimuth"), sep=" ") 
+  
+#average per plot
+
+HG_CWD_FWD_plot <- HG_CWD_FWD_combine %>% 
+  mutate(site_plotid_time = paste(site, plotid, year, pre_post_fire)) %>% 
+  select(site_plotid_time, mass_1hr, mass_10hr, mass_100hr, mass_cwd_sound, mass_cwd_rotten, avg_litter, avg_duff, avg_fueldepth) %>% 
+  group_by(site_plotid_time) %>% 
+    summarise_all(mean, na.rm=TRUE)
+
+HG_CWD_FWD_plot <- HG_CWD_FWD_plot %>% 
+                    group_by(site_plotid_time) %>% 
+                    mutate(total_fuel = sum(mass_1hr,mass_10hr,mass_100hr,mass_cwd_sound, mass_cwd_rotten)) 
+                              
+    
+
+
+                   
+                       
+##Average each mass type per plot
+              
+              postspringsfuels20_complete<- postspringsfuels20 %>% 
+                            mutate_all(~replace(., is.na(.), 0)) %>% 
+                            group_by(plot_id) %>% 
+                            mutate(total_fuel = sum(mass_1hr,mass_10hr,mass_100hr,mass_cwd_sound, mass_cwd_rotten)) %>% 
+                              pivot_longer(cols = -plot_id, names_to = "fuel_size", values_to= "mass") 
+                            
+
+              
+                       
+
+                      #save completed post fuels data frame
+                      postspringsfuels20_complete <-   import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/Springs_Fire/data/clean/postspringsfuels20_complete.csv")
+
+
+                  
                       
 
-```{r cars}
-summary(cars)
 ```
 
+
+
+
+
+
+
+```{r}
+
+
+
+
+```
 
