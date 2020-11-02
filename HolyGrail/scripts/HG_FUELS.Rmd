@@ -123,18 +123,16 @@ HG_CWD_FWD_plot <- HG_CWD_FWD_plot %>%
 #add column for Mg_Ha 
 
 HG_CWD_FWD_plot <- HG_CWD_FWD_plot %>% 
-  mutate(mass_mg_ha = (mass_ton_acre*2.2417023114334))
+  mutate(mass_mg_ha = (mass_ton_acre*0.446)) %>% 
+  separate(site_plotid_time, c("site","plotid","year", "pre_post_fire"), sep=" ")
+  
 
 #save completed post fuels data frame
 export(HG_CWD_FWD_plot, "C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/HolyGrail/data/clean/HG_CWD_FWD_final.csv")
 
-
                       
 
 ```
-
-
-
 
 
 

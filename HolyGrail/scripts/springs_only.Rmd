@@ -1,0 +1,165 @@
+---
+title: "Springs_Analysis"
+author: "Ashley Grupenhoff"
+date: "10/25/2020"
+output: html_document
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+  library(tinytex)
+          options(tinytex.verbose=TRUE)
+library(tibble)
+library(dplyr)
+library(ggplot2)
+library(vegan)
+library(knitr)
+library(kableExtra)
+library(rio)
+library(lme4)
+library(wesanderson)
+```
+
+```{r}
+HG_CWD_FWD <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/HolyGrail/data/clean/HG_CWD_FWD_final.csv")
+treatment <- import("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/HolyGrail/data/raw/location_treatment.csv")
+treatment <- treatment %>% 
+  rename(plotid = plot_id)
+
+Springs_fuel_load <- HG_CWD_FWD %>% 
+          filter(site == 'springsfire') %>% 
+          filter(fuel_type_size == 'mass_1hr'|
+                  fuel_type_size == 'mass_10hr'|
+                  fuel_type_size == 'mass_100hr'|
+                  fuel_type_size == 'mass_cwd_sound'|
+                  fuel_type_size == 'mass_cwd_rotten'|
+                 fuel_type_size == 'total_fuel') %>% 
+          mutate(time_treatment = paste(year, pre_post_fire)) 
+#order through time
+Springs_fuel_load$time_treatment <- factor(Springs_fuel_load$time_treatment, levels=c("2019 prefire", "2019 postfire", "2020 postfire"))
+Springs_fuel_load$pre_post_fire <- factor(Springs_fuel_load$pre_post_fire, levels=c("prefire", "postfire"))
+
+#add prior treatment
+Springs_fuels_treatment <- left_join(Springs_fuel_load, treatment, by="plotid")
+
+
+springs_prefire <- Springs_fuels_treatment %>% 
+  filter(time_treatment=='2019 prefire')
+
+springs_2019 <- Springs_fuels_treatment %>% 
+  filter(time_treatment=='2019 prefire'|
+           time_treatment=='2020 postfire')
+
+
+```
+
+
+
+```{r}
+
+
+springs_fuels_prepost<- ggplot(data=Springs_fuels_treatment, mapping = aes(x=pre_post_fire, y=mass_mg_ha))+
+              geom_boxplot()+
+              scale_fill_manual(values=wes_palette("IsleofDogs2"))+
+              facet_wrap(~ fuel_type_size, scales = "free_y") +
+              theme_minimal()+
+            
+              ylab("Mass (Mg/Ha)")+
+              
+              theme(axis.text.x = element_text(angle=45, hjust=1))+
+                 theme(plot.title = element_text(hjust = 0.5))
+springs_fuels_prepost
+ggsave(springs_fuels_prefire, file="C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/HolyGrail/graphs/springs/springs_fuels_prefire.png")
+
+
+
+```
+
+>PREFIRE FUEL LOADING
+
+```{r}
+
+springs_fuels_prefire<- ggplot(data=springs_prefire, mapping = aes(x=treatment_type, y=mass_mg_ha, fill=treatment_type))+
+              geom_boxplot()+
+              scale_fill_manual(values=wes_palette("IsleofDogs2"))+
+              facet_wrap(~ fuel_type_size, scales = "free_y") +
+              theme_minimal()+
+              xlab("Treatment")+
+              ylab("Mass (Mg/Ha)")+
+              
+              theme(axis.text.x = element_text(angle=45, hjust=1))+
+                 theme(plot.title = element_text(hjust = 0.5))
+springs_fuels_prefire
+ggsave(springs_fuels_prefire, file="C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/HolyGrail/graphs/springs/springs_fuels_prefire.png")
+
+springs_prefire_total <- springs_prefire %>% 
+  filter(fuel_type_size == 'total_fuel')
+springs_totalfuels_prefire<- ggplot(data=springs_prefire_total, mapping = aes(x=treatment_type, y=mass_mg_ha, fill=treatment_type))+
+              geom_boxplot()+
+              scale_fill_manual(values=wes_palette("IsleofDogs2"))+
+              facet_wrap(~ fuel_type_size, scales = "free_y") +
+              theme_minimal()+
+              xlab("Treatment")+
+              ylab("Mass (Mg/Ha)")+
+              theme(axis.text.x = element_text(angle=45, hjust=1))+
+                 theme(plot.title = element_text(hjust = 0.5))
+springs_totalfuels_prefire
+ggsave(springs_totalfuels_prefire, file="C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/HolyGrail/graphs/springs/springs_totalfuels_prefire.png")
+
+group_by(springs_prefire_total, treatment_type) %>% 
+  summarise(
+    count=n(),
+    mean = mean(mass_mg_ha, na.rm=TRUE),
+    sd=sd(mass_mg_ha, na.rm=TRUE)
+  )
+
+
+#compute analysis of variance
+
+aov_totalpre<- aov(mass_mg_ha ~ treatment_type, data=springs_prefire_total)
+summary(aov_totalpre)
+
+#multiple comparisons using multiple pairwise-comparisons between means of groups
+TukeyHSD(aov_totalpre)
+```
+
+
+
+
+> FUEL CONSUMPTION
+
+```{r}
+
+springs_consumption <- Springs_fuels_treatment %>% 
+  mutate(plot_fuel = paste(plotid, fuel_type_size)) %>% 
+  select(plot_fuel, mass_mg_ha, time_treatment) %>% 
+  pivot_wider(names_from = time_treatment, values_from = mass_mg_ha) %>% 
+  rename(prefire2019 = '2019 prefire',
+         postfire2019 = '2019 postfire',
+         postfire2020 = '2020 postfire') %>% 
+  mutate(fuelconsumption2020 = (prefire2019-postfire2020)/prefire2019) %>% 
+  mutate(fuelconsumption2019 = (prefire2019-postfire2019)/prefire2019) %>% 
+  separate(plot_fuel, c("plotid", "fueltype"), sep=" ") %>% 
+  drop_na(prefire2019)
+
+springs_consumption <- left_join(treatment, springs_consumption, by = "plotid")
+
+
+springs_consumption_plot<- ggplot(data=springs_consumption, mapping = aes(x=treatment_type, y=fuelconsumption2020, fill=treatment_type))+
+              geom_boxplot()+
+              scale_fill_manual(values=wes_palette("IsleofDogs2"))+
+              facet_wrap(~ fueltype, scales = "free_y") +
+              theme_minimal()+
+              xlab("Treatment")+
+              ylab("Mass (Mg/Ha)")+
+              
+              theme(axis.text.x = element_text(angle=45, hjust=1))+
+                 theme(plot.title = element_text(hjust = 0.5))
+springs_consumption_plot
+
+
+
+```
+
