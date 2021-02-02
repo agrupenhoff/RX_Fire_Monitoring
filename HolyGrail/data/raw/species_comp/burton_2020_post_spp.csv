@@ -1,0 +1,526 @@
+site,year,plot_id,observer,pre_post_fire,postTime,species,status,lifeform,layerCode,percent,notes
+BurtonSP,2020,Burton09,km,postfire,1yr,ABCO,live,TR,TSE,0.5,
+BurtonSP,2020,Burton09,km,postfire,1yr,ABCO,live,TR,TSA,0.75,
+BurtonSP,2020,Burton09,km,postfire,1yr,ABCO,live,TR,TOV,25,
+BurtonSP,2020,Burton09,km,postfire,1yr,ABCO,dead,TR,TOV,1,
+BurtonSP,2020,Burton08,km,postfire,1yr,ABCO,live,TR,TSE,tr,
+BurtonSP,2020,Burton08,km,postfire,1yr,ABCO,dead,TR,TSE,tr,
+BurtonSP,2020,Burton08,km,postfire,1yr,ABCO,live,TR,TOV,23,
+BurtonSP,2020,Burton08,km,postfire,1yr,ABCO,dead,TR,TOV,0.25,
+BurtonSP,2020,Burton31,km,postfire,1yr,ABCO,live,TR,TSE,tr,
+BurtonSP,2020,Burton31,km,postfire,1yr,ABCO,live,TR,TSA,0.25,
+BurtonSP,2020,Burton31,km,postfire,1yr,ABCO,live,TR,TOV,53,
+BurtonSP,2020,Burton27,km,postfire,1yr,ABCO,live,TR,TSE,0.5,
+BurtonSP,2020,Burton27,km,postfire,1yr,ABCO,dead,TR,TSE,0.25,
+BurtonSP,2020,Burton27,km,postfire,1yr,ABCO,live,TR,TOV,5,
+BurtonSP,2020,Burton34,km,postfire,1yr,ABCO,live,TR,TSE,0.5,
+BurtonSP,2020,Burton34,km,postfire,1yr,ABCO,live,TR,TSA,1,
+BurtonSP,2020,Burton34,km,postfire,1yr,ABCO,live,TR,TOV,58,
+BurtonSP,2020,Burton34,km,postfire,1yr,ABCO,dead,TR,TOV,0.5,
+BurtonSP,2020,Burton45,km,postfire,1yr,ABCO,live,TR,TSE,1.5,
+BurtonSP,2020,Burton45,km,postfire,1yr,ABCO,live,TR,TSA,0.75,
+BurtonSP,2020,Burton45,km,postfire,1yr,ABCO,live,TR,TOV,30,
+BurtonSP,2020,Burton45,km,postfire,1yr,ABCO,dead,TR,TOV,2,
+BurtonSP,2020,Burton46,km,postfire,1yr,ABCO,live,TR,TSE,0.25,
+BurtonSP,2020,Burton46,km,postfire,1yr,ABCO,live,TR,TSA,0.25,
+BurtonSP,2020,Burton46,km,postfire,1yr,ABCO,live,TR,TOV,13,
+BurtonSP,2020,Burton46,km,postfire,1yr,ABCO,dead,TR,TOV,0.25,
+BurtonSP,2020,Burton40,km,postfire,1yr,ABCO,live,TR,TSE,0.25,
+BurtonSP,2020,Burton40,km,postfire,1yr,ABCO,dead,TR,TSE,tr,
+BurtonSP,2020,Burton40,km,postfire,1yr,ABCO,dead,TR,TSA,0.25,
+BurtonSP,2020,Burton40,km,postfire,1yr,ABCO,live,TR,TSA,0.5,added during QAQC using regen data
+BurtonSP,2020,Burton40,km,postfire,1yr,ABCO,live,TR,TOV,37,
+BurtonSP,2020,Burton40,km,postfire,1yr,ABCO,dead,TR,TOV,15,
+BurtonSP,2020,Burton07,"vs, mm",postfire,1yr,ABCO,live,TR,TSE,tr,
+BurtonSP,2020,Burton07,"vs, mm",postfire,1yr,ABCO,dead,TR,TSE,tr,
+BurtonSP,2020,Burton07,"vs, mm",postfire,1yr,ABCO,live,TR,TSA,tr,
+BurtonSP,2020,Burton07,"vs, mm",postfire,1yr,ABCO,dead,TR,TSA,tr,
+BurtonSP,2020,Burton07,"vs, mm",postfire,1yr,ABCO,live,TR,TOV,18,
+BurtonSP,2020,Burton07,"vs, mm",postfire,1yr,ABCO,dead,TR,TOV,tr,
+BurtonSP,2020,Burton14,"vs, mm",postfire,1yr,ABCO,live,TR,TSE,tr,
+BurtonSP,2020,Burton14,"vs, mm",postfire,1yr,ABCO,dead,TR,TSA,tr,
+BurtonSP,2020,Burton14,"vs, mm",postfire,1yr,ABCO,live,TR,TOV,19,
+BurtonSP,2020,Burton14,"vs, mm",postfire,1yr,ABCO,dead,TR,TOV,1,
+BurtonSP,2020,Burton38,"vs, mm",postfire,1yr,ABCO,live,TR,TSE,tr,
+BurtonSP,2020,Burton38,"vs, mm",postfire,1yr,ABCO,live,TR,TSA,tr,
+BurtonSP,2020,Burton38,"vs, mm",postfire,1yr,ABCO,live,TR,TOV,24,
+BurtonSP,2020,Burton39,"vs, mm",postfire,1yr,ABCO,live,TR,TSE,tr,
+BurtonSP,2020,Burton39,"vs, mm",postfire,1yr,ABCO,dead,TR,TSE,tr,
+BurtonSP,2020,Burton39,"vs, mm",postfire,1yr,ABCO,live,TR,TOV,32,
+BurtonSP,2020,Burton39,"vs, mm",postfire,1yr,ABCO,dead,TR,TOV,1,
+BurtonSP,2020,Burton32,"vs, mm",postfire,1yr,ABCO,live,TR,TSE,tr,
+BurtonSP,2020,Burton32,"vs, mm",postfire,1yr,ABCO,live,TR,TSA,tr,
+BurtonSP,2020,Burton32,"vs, mm",postfire,1yr,ABCO,live,TR,TOV,23,
+BurtonSP,2020,Burton28,"vs, mm",postfire,1yr,ABCO,live,TR,TSE,tr,
+BurtonSP,2020,Burton28,"vs, mm",postfire,1yr,ABCO,live,TR,TSA,tr,
+BurtonSP,2020,Burton28,"vs, mm",postfire,1yr,ABCO,live,TR,TOV,15,
+BurtonSP,2020,Burton28,"vs, mm",postfire,1yr,ABCO,dead,TR,TOV,tr,
+BurtonSP,2020,Burton29,"vs, mm",postfire,1yr,ABCO,live,TR,TSE,tr,
+BurtonSP,2020,Burton29,"vs, mm",postfire,1yr,ABCO,dead,TR,TSE,tr,
+BurtonSP,2020,Burton29,"vs, mm",postfire,1yr,ABCO,live,TR,TOV,40,
+BurtonSP,2020,Burton30,"vs, mm",postfire,1yr,ABCO,live,TR,TSE,tr,
+BurtonSP,2020,Burton30,"vs, mm",postfire,1yr,ABCO,live,TR,TSA,1,
+BurtonSP,2020,Burton30,"vs, mm",postfire,1yr,ABCO,dead,TR,TSA,tr,
+BurtonSP,2020,Burton30,"vs, mm",postfire,1yr,ABCO,live,TR,TOV,15,
+BurtonSP,2020,Burton25,"vs, mm",postfire,1yr,ABCO,live,TR,TSE,tr,
+BurtonSP,2020,Burton25,"vs, mm",postfire,1yr,ABCO,live,TR,TSA,0.25,added during QAQC from regen data
+BurtonSP,2020,Burton25,"vs, mm",postfire,1yr,ABCO,live,TR,TOV,,
+BurtonSP,2020,Burton25,"vs, mm",postfire,1yr,ABCO,dead,TR,TOV,tr,
+BurtonSP,2020,Burton35,"vs, mm",postfire,1yr,ABCO,live,TR,TSA,tr,added during QAQC from regen data (noted one was in macroplot)
+BurtonSP,2020,Burton35,"vs, mm",postfire,1yr,ABCO,live,TR,TOV,3,
+BurtonSP,2020,Burton35,"vs, mm",postfire,1yr,ABCO,dead,TR,TOV,1,
+BurtonSP,2020,Burton36,"vs, mm",postfire,1yr,ABCO,live,TR,TSE,tr,
+BurtonSP,2020,Burton36,"vs, mm",postfire,1yr,ABCO,live,TR,TSA,tr,
+BurtonSP,2020,Burton36,"vs, mm",postfire,1yr,ABCO,dead,TR,TSA,tr,
+BurtonSP,2020,Burton36,"vs, mm",postfire,1yr,ABCO,live,TR,TOV,,
+BurtonSP,2020,Burton36,"vs, mm",postfire,1yr,ABCO,dead,TR,TOV,3,
+BurtonSP,2020,Burton26,"vs, mm",postfire,1yr,ABCO,live,TR,TSE,tr,L
+BurtonSP,2020,Burton26,"vs, mm",postfire,1yr,ABCO,live,TR,TSA,1,M
+BurtonSP,2020,Burton26,"vs, mm",postfire,1yr,ABCO,dead,TR,TSA,tr,M
+BurtonSP,2020,Burton26,"vs, mm",postfire,1yr,ABCO,live,TR,TOV,20,H
+BurtonSP,2020,Burton43,"vs, mm",postfire,1yr,ABCO,live,TR,TSE,tr,L
+BurtonSP,2020,Burton43,"vs, mm",postfire,1yr,ABCO,live,TR,TSA,tr,M
+BurtonSP,2020,Burton43,"vs, mm",postfire,1yr,ABCO,live,TR,TOV,23,H
+BurtonSP,2020,Burton43,"vs, mm",postfire,1yr,ABCO,dead,TR,TOV,tr,H
+BurtonSP,2020,Burton43,"vs, mm",postfire,1yr,ABCO,dead,TR,TOV,tr,H
+BurtonSP,2020,Burton44,"vs, mm",postfire,1yr,ABCO,live,TR,TSE,tr,L
+BurtonSP,2020,Burton44,"vs, mm",postfire,1yr,ABCO,live,TR,TOV,29,H
+BurtonSP,2020,Burton44,"vs, mm",postfire,1yr,ABCO,dead,TR,TOV,tr,H
+BurtonSP,2020,Burton47,"vs, mm",postfire,1yr,ABCO,live,TR,TSE,tr,L
+BurtonSP,2020,Burton47,"vs, mm",postfire,1yr,ABCO,live,TR,TSA,tr,M
+BurtonSP,2020,Burton47,"vs, mm",postfire,1yr,ABCO,live,TR,TOV,25,H
+BurtonSP,2020,Burton37,km,postfire,1yr,ABCO ,live,TR,TSE,tr,
+BurtonSP,2020,Burton37,km,postfire,1yr,ABCO ,dead,TR,TSA,tr,
+BurtonSP,2020,Burton37,km,postfire,1yr,ABCO ,live,TR,TSA,1,
+BurtonSP,2020,Burton09,km,postfire,1yr,ABMA,live,TR,TSE,0.25,
+BurtonSP,2020,Burton09,km,postfire,1yr,ABMA,live,TR,TOV,7,
+BurtonSP,2020,Burton08,km,postfire,1yr,ABMA,live,TR,TSE,tr,
+BurtonSP,2020,Burton08,km,postfire,1yr,ABMA,live,TR,TOV,10,
+BurtonSP,2020,Burton31,km,postfire,1yr,ABMA,live,TR,TSE,tr,
+BurtonSP,2020,Burton31,km,postfire,1yr,ABMA,live,TR,TOV,2,
+BurtonSP,2020,Burton34,km,postfire,1yr,ABMA,live,TR,TSE,tr,
+BurtonSP,2020,Burton40,km,postfire,1yr,ABMA,live,TR,TSE,tr,added during QAQC using regen data
+BurtonSP,2020,Burton40,km,postfire,1yr,ABMA,live,TR,TOV,5,
+BurtonSP,2020,Burton40,km,postfire,1yr,ABMA,dead,TR,TOV,1.5,
+BurtonSP,2020,Burton07,"vs, mm",postfire,1yr,ABMA,live,TR,TSE,tr,
+BurtonSP,2020,Burton07,"vs, mm",postfire,1yr,ABMA,live,TR,T,3,
+BurtonSP,2020,Burton14,"vs, mm",postfire,1yr,ABMA,live,TR,TOV,4,
+BurtonSP,2020,Burton39,"vs, mm",postfire,1yr,ABMA,live,TR,TSE,tr,
+BurtonSP,2020,Burton39,"vs, mm",postfire,1yr,ABMA,dead,TR,TSE,tr,
+BurtonSP,2020,Burton39,"vs, mm",postfire,1yr,ABMA,live,TR,TOV,7,
+BurtonSP,2020,Burton29,"vs, mm",postfire,1yr,ABMA,dead,TR,TOV,40,tr
+BurtonSP,2020,Burton34,km,postfire,1yr,amut,live,SH,na,tr,
+BurtonSP,2020,Burton37,km,postfire,1yr,apoand,live,FB,na,tr,
+BurtonSP,2020,Burton14,"vs, mm",postfire,1yr,apoand,live,FB,na,2,
+BurtonSP,2020,Burton36,"vs, mm",postfire,1yr,apoand,live,FB,na,tr,
+BurtonSP,2020,Burton43,"vs, mm",postfire,1yr,apoand,live,FB,na,tr,
+BurtonSP,2020,Burton47,"vs, mm",postfire,1yr,apoand,live,FB,na,tr,
+BurtonSP,2020,Burton44,"vs, mm",postfire,1yr,ARCCAM,live,FB,na,tr,
+BurtonSP,2020,Burton47,"vs, mm",postfire,1yr,ARCCAM,live,FB,na,tr,
+BurtonSP,2020,Burton09,km,postfire,1yr,arne,live,SH,na,tr,
+BurtonSP,2020,Burton08,km,postfire,1yr,arne,live,SH,na,5,
+BurtonSP,2020,Burton08,km,postfire,1yr,arne,dead,SH,na,1.5,
+BurtonSP,2020,Burton31,km,postfire,1yr,arne,live,SH,na,0.25,
+BurtonSP,2020,Burton27,km,postfire,1yr,arne,live,SH,na,27,
+BurtonSP,2020,Burton34,km,postfire,1yr,arne,live,SH,na,0.25,
+BurtonSP,2020,Burton07,"vs, mm",postfire,1yr,arne,live,SH,na,2,L
+BurtonSP,2020,Burton33,"vs, mm",postfire,1yr,arne,live,SH,na,21,L
+BurtonSP,2020,Burton28,"vs, mm",postfire,1yr,arne,live,SH,na,tr,L
+BurtonSP,2020,Burton29,"vs, mm",postfire,1yr,arne,live,SH,na,tr,L
+BurtonSP,2020,Burton35,"vs, mm",postfire,1yr,arne,live,SH,na,2,L
+BurtonSP,2020,Burton26,"vs, mm",postfire,1yr,arne,live,SH,na,1,L
+BurtonSP,2020,Burton07,"vs, mm",postfire,1yr,arpa,live,SH,na,tr,L
+BurtonSP,2020,Burton07,"vs, mm",postfire,1yr,arpa,live,SH,na,tr,M
+BurtonSP,2020,Burton33,"vs, mm",postfire,1yr,arpa,live,SH,na,1,M
+BurtonSP,2020,Burton33,"vs, mm",postfire,1yr,arpa,live,SH,na,1,L
+BurtonSP,2020,Burton32,"vs, mm",postfire,1yr,arpa,live,SH,na,tr,L
+BurtonSP,2020,Burton32,"vs, mm",postfire,1yr,arpa,live,SH,na,tr,M
+BurtonSP,2020,Burton28,"vs, mm",postfire,1yr,arpa,live,SH,na,tr,L
+BurtonSP,2020,Burton28,"vs, mm",postfire,1yr,arpa,live,SH,na,1,M
+BurtonSP,2020,Burton25,"vs, mm",postfire,1yr,arpa,live,SH,na,tr,L
+BurtonSP,2020,Burton35,"vs, mm",postfire,1yr,arpa,live,SH,na,2,L
+BurtonSP,2020,Burton35,"vs, mm",postfire,1yr,arpa,live,SH,na,tr,L
+BurtonSP,2020,Burton35,"vs, mm",postfire,1yr,arpa,live,SH,na,3,M
+BurtonSP,2020,Burton35,"vs, mm",postfire,1yr,arpa,live,SH,na,tr,M
+BurtonSP,2020,Burton36,"vs, mm",postfire,1yr,arpa,live,SH,na,1,L
+BurtonSP,2020,Burton26,"vs, mm",postfire,1yr,arpa,live,SH,na,2,L
+BurtonSP,2020,Burton26,"vs, mm",postfire,1yr,arpa,live,SH,na,2,M
+BurtonSP,2020,Burton43,"vs, mm",postfire,1yr,arpa,live,FB,na,tr,
+BurtonSP,2020,Burton08,km,postfire,1yr,arpa,live,SH,na,0.5,
+BurtonSP,2020,Burton37,km,postfire,1yr,arpa,live,SH,na,4,
+BurtonSP,2020,Burton46,km,postfire,1yr,arpa,live,SH,na,0.25,
+BurtonSP,2020,Burton40,km,postfire,1yr,arpa,live,SH,na,tr,
+BurtonSP,2020,Burton14,"vs, mm",postfire,1yr,arpa,live,SH,na,tr,L
+BurtonSP,2020,Burton14,"vs, mm",postfire,1yr,arpa,live,SH,na,1,M
+BurtonSP,2020,Burton39,"vs, mm",postfire,1yr,arpa,live,SH,na,tr,L
+BurtonSP,2020,Burton30,"vs, mm",postfire,1yr,arpa,live,SH,na,7,L
+BurtonSP,2020,Burton30,"vs, mm",postfire,1yr,arpa,live,SH,na,25,M
+BurtonSP,2020,Burton43,"vs, mm",postfire,1yr,arpa,live,SH,na,tr,L
+BurtonSP,2020,Burton43,"vs, mm",postfire,1yr,arpa,live,SH,na,tr,M
+BurtonSP,2020,Burton47,"vs, mm",postfire,1yr,arpa,live,SH,na,25,L
+BurtonSP,2020,Burton47,"vs, mm",postfire,1yr,arpa,dead,SH,na,2,L
+BurtonSP,2020,Burton27,km,postfire,1yr,arpa,live,SH,na,5,
+BurtonSP,2020,Burton30,"vs, mm",postfire,1yr,aster,live,FB,na,tr,
+BurtonSP,2020,Burton37,km,postfire,1yr,bou3,live,FB,na,tf,or new boechera (boechera fuzzy?)
+BurtonSP,2020,Burton08,km,postfire,1yr,bou3,,FB,na,tr,
+BurtonSP,2020,Burton31,km,postfire,1yr,bou3,live,FB,na,tr,
+BurtonSP,2020,Burton34,km,postfire,1yr,bou3,live,FB,na,tr,
+BurtonSP,2020,Burton46,km,postfire,1yr,bou3,live,FB,na,tr,
+BurtonSP,2020,Burton40,km,postfire,1yr,bou3,live,FB,na,tr,
+BurtonSP,2020,Burton08,km,postfire,1yr,bou4,live,FB,na,tr,
+BurtonSP,2020,Burton27,km,postfire,1yr,bou4,live,FB,na,tr,
+BurtonSP,2020,Burton40,km,postfire,1yr,bou4,live,FB,na,0.25,
+BurtonSP,2020,Burton09,km,postfire,1yr,bou4,live,FB,na,tr,
+BurtonSP,2020,Burton07,"vs, mm",postfire,1yr,bou,live,FB,na,tr,L
+BurtonSP,2020,Burton07,"vs, mm",postfire,1yr,bou2,live,FB,na,tr,L
+BurtonSP,2020,Burton14,"vs, mm",postfire,1yr,bou2,live,FB,na,tr,
+BurtonSP,2020,Burton39,"vs, mm",postfire,1yr,bou2,live,FB,na,tr,
+BurtonSP,2020,Burton33,"vs, mm",postfire,1yr,bou2,live,FB,na,tr,
+BurtonSP,2020,Burton32,"vs, mm",postfire,1yr,bou2,live,FB,na,tr,
+BurtonSP,2020,Burton28,"vs, mm",postfire,1yr,bou2,live,FB,na,tr,
+BurtonSP,2020,Burton29,"vs, mm",postfire,1yr,bou2,live,FB,na,tr,
+BurtonSP,2020,Burton30,"vs, mm",postfire,1yr,bou2,live,FB,na,tr,
+BurtonSP,2020,Burton43,"vs, mm",postfire,1yr,bou2,live,FB,na,tr,
+BurtonSP,2020,Burton30,"vs, mm",postfire,1yr,bou3,live,FB,na,tr,
+BurtonSP,2020,Burton43,"vs, mm",postfire,1yr,bou3,live,FB,na,tr,
+BurtonSP,2020,Burton32,"vs, mm",postfire,1yr,BROCAR,live,GR,na,tr,
+BurtonSP,2020,Burton30,"vs, mm",postfire,1yr,BROCAR,live,GR,na,tr,
+BurtonSP,2020,Burton46,km,postfire,1yr,cade,live,TR,TOV,4,
+BurtonSP,2020,Burton30,"vs, mm",postfire,1yr,CADE,live,TR,TOV,1,
+BurtonSP,2020,Burton35,"vs, mm",postfire,1yr,CADE,live,TR,TSE,1,
+BurtonSP,2020,Burton26,"vs, mm",postfire,1yr,CADE,live,TR,TSA,1,M
+BurtonSP,2020,Burton26,"vs, mm",postfire,1yr,CADE,live,TR,TOV,tr,H
+BurtonSP,2020,Burton44,"vs, mm",postfire,1yr,CADE,live,TR,TSA,1,M
+BurtonSP,2020,Burton44,"vs, mm",postfire,1yr,CADE,live,TR,TSE,tr,L
+BurtonSP,2020,Burton09,km,postfire,1yr,carros,live,GR,na,tr,
+BurtonSP,2020,Burton46,km,postfire,1yr,carros,live,GR,na,tr,
+BurtonSP,2020,Burton40,km,postfire,1yr,carros,live,GR,na,tr,
+BurtonSP,2020,Burton43,"vs, mm",postfire,1yr,carex1,live,GR,na,tr,
+BurtonSP,2020,Burton27,km,postfire,1yr,carex2,live,GR,na,0.25,
+BurtonSP,2020,Burton37,km,postfire,1yr,carex2,live,GR,na,0.5,
+BurtonSP,2020,Burton46,km,postfire,1yr,carex2,live,GR,na,tr,
+BurtonSP,2020,Burton14,"vs, mm",postfire,1yr,carex2,live,GR,na,tr,
+BurtonSP,2020,Burton32,"vs, mm",postfire,1yr,carex2,live,GR,na,tr,
+BurtonSP,2020,Burton30,"vs, mm",postfire,1yr,casapp,live,fb,na,tr,
+BurtonSP,2020,Burton43,"vs, mm",postfire,1yr,casapp,live,fb,na,tr,
+BurtonSP,2020,Burton27,km,postfire,1yr,casapp,live,FB,na,tr,
+BurtonSP,2020,Burton34,km,postfire,1yr,casapp,live,FB,na,tr,
+BurtonSP,2020,Burton37,km,postfire,1yr,casapp,live,FB,na,1,
+BurtonSP,2020,Burton07,"vs, mm",postfire,1yr,ceanothus ,live,SH,na,16,L
+BurtonSP,2020,Burton07,"vs, mm",postfire,1yr,ceanothus ,live,SH,na,14,M
+BurtonSP,2020,Burton07,"vs, mm",postfire,1yr,ceanothus ,dead,SH,na,tr,M
+BurtonSP,2020,Burton14,"vs, mm",postfire,1yr,ceanothus ,live,SH,na,tr,L
+BurtonSP,2020,Burton14,"vs, mm",postfire,1yr,ceanothus ,dead,SH,na,tr,L
+BurtonSP,2020,Burton14,"vs, mm",postfire,1yr,ceanothus ,live,SH,na,tr,M
+BurtonSP,2020,Burton14,"vs, mm",postfire,1yr,ceanothus ,dead,SH,na,tr,M
+BurtonSP,2020,Burton38,"vs, mm",postfire,1yr,ceanothus ,live,SH,na,13,L
+BurtonSP,2020,Burton38,"vs, mm",postfire,1yr,ceanothus ,live,SH,na,11,M
+BurtonSP,2020,Burton39,"vs, mm",postfire,1yr,ceanothus ,live,SH,na,4,L
+BurtonSP,2020,Burton39,"vs, mm",postfire,1yr,ceanothus ,dead,SH,na,tr,L
+BurtonSP,2020,Burton39,"vs, mm",postfire,1yr,ceanothus ,live,SH,na,2,M
+BurtonSP,2020,Burton32,"vs, mm",postfire,1yr,ceanothus ,live,SH,na,2,L
+BurtonSP,2020,Burton32,"vs, mm",postfire,1yr,ceanothus ,live,SH,na,3,M
+BurtonSP,2020,Burton28,"vs, mm",postfire,1yr,ceanothus ,live,SH,na,4,L
+BurtonSP,2020,Burton28,"vs, mm",postfire,1yr,ceanothus ,live,SH,na,5,M
+BurtonSP,2020,Burton29,"vs, mm",postfire,1yr,ceanothus ,live,SH,na,7,M
+BurtonSP,2020,Burton29,"vs, mm",postfire,1yr,ceanothus ,live,SH,na,8,L
+BurtonSP,2020,Burton30,"vs, mm",postfire,1yr,ceanothus ,live,SH,na,5,L
+BurtonSP,2020,Burton25,"vs, mm",postfire,1yr,ceanothus ,live,SH,na,tr,L
+BurtonSP,2020,Burton25,"vs, mm",postfire,1yr,ceanothus ,live,SH,na,tr,M
+BurtonSP,2020,Burton36,"vs, mm",postfire,1yr,ceanothus ,live,SH,na,6,L
+BurtonSP,2020,Burton36,"vs, mm",postfire,1yr,ceanothus ,live,SH,na,3,M
+BurtonSP,2020,Burton26,"vs, mm",postfire,1yr,ceanothus ,live,SH,na,3,L
+BurtonSP,2020,Burton26,"vs, mm",postfire,1yr,ceanothus ,live,SH,na,4,M
+BurtonSP,2020,Burton43,"vs, mm",postfire,1yr,ceanothus ,live,SH,na,tr,L
+BurtonSP,2020,Burton44,"vs, mm",postfire,1yr,ceanothus ,live,SH,na,2,L
+BurtonSP,2020,Burton44,"vs, mm",postfire,1yr,ceanothus ,live,SH,na,2,L
+BurtonSP,2020,Burton47,"vs, mm",postfire,1yr,ceanothus ,live,SH,na,7,L
+BurtonSP,2020,Burton40,km,postfire,1yr,ceanothus ,live,SH,na,tr,"opposite leaves, minutely dentate, shiny leaves"
+BurtonSP,2020,Burton09,km,postfire,1yr,cepr,live,SH,na,3,
+BurtonSP,2020,Burton09,km,postfire,1yr,cepr,dead,SH,na,tr,
+BurtonSP,2020,Burton08,km,postfire,1yr,cepr,live,SH,na,1,
+BurtonSP,2020,Burton31,km,postfire,1yr,cepr,live,SH,na,tr,
+BurtonSP,2020,Burton27,km,postfire,1yr,cepr,live,SH,na,40,
+BurtonSP,2020,Burton34,km,postfire,1yr,cepr,live,SH,na,2,
+BurtonSP,2020,Burton37,km,postfire,1yr,cepr,live,SH,na,19,
+BurtonSP,2020,Burton45,km,postfire,1yr,cepr,live,SH,na,tr,
+BurtonSP,2020,Burton46,km,postfire,1yr,cepr,live,SH,na,2,
+BurtonSP,2020,Burton40,km,postfire,1yr,cepr,live,SH,na,1,
+BurtonSP,2020,Burton07,"vs, mm",postfire,1yr,cepr,live,SH,na,2,L
+BurtonSP,2020,Burton14,"vs, mm",postfire,1yr,cepr,live,SH,na,2,L
+BurtonSP,2020,Burton38,"vs, mm",postfire,1yr,cepr,live,SH,na,2,L
+BurtonSP,2020,Burton39,"vs, mm",postfire,1yr,cepr,live,SH,na,5,L
+BurtonSP,2020,Burton33,"vs, mm",postfire,1yr,cepr,live,SH,na,3,L
+BurtonSP,2020,Burton32,"vs, mm",postfire,1yr,cepr,live,SH,na,4,L
+BurtonSP,2020,Burton28,"vs, mm",postfire,1yr,cepr,live,SH,na,6,L
+BurtonSP,2020,Burton30,"vs, mm",postfire,1yr,cepr,live,SH,na,2,L
+BurtonSP,2020,Burton25,"vs, mm",postfire,1yr,cepr,live,SH,na,6,L
+BurtonSP,2020,Burton36,"vs, mm",postfire,1yr,cepr,live,SH,na,1,L
+BurtonSP,2020,Burton26,"vs, mm",postfire,1yr,cepr,live,SH,na,5,L
+BurtonSP,2020,Burton43,"vs, mm",postfire,1yr,cepr,live,SH,na,6,L
+BurtonSP,2020,Burton44,"vs, mm",postfire,1yr,cepr,live,SH,na,12,L
+BurtonSP,2020,Burton47,"vs, mm",postfire,1yr,cepr,live,SH,na,11,L
+BurtonSP,2020,Burton35,"vs, mm",postfire,1yr,cepr,live,SH,na,15,L
+BurtonSP,2020,Burton09,km,postfire,1yr,ceco,live,SH,na,6,
+BurtonSP,2020,Burton09,km,postfire,1yr,ceco,dead,SH,na,0.25,
+BurtonSP,2020,Burton08,km,postfire,1yr,ceco,live,SH,na,53,
+BurtonSP,2020,Burton08,km,postfire,1yr,ceco,dead,SH,na,4,
+BurtonSP,2020,Burton08,km,postfire,1yr,ceco,live,SH,na,0.5,resp
+BurtonSP,2020,Burton27,km,postfire,1yr,ceco,live,SH,na,3,
+BurtonSP,2020,Burton34,km,postfire,1yr,ceco,live,SH,na,2,
+BurtonSP,2020,Burton37,km,postfire,1yr,ceco,live,SH,na,tr,
+BurtonSP,2020,Burton45,km,postfire,1yr,ceco,live,SH,na,3,
+BurtonSP,2020,Burton46,km,postfire,1yr,ceco,live,SH,na,2,
+BurtonSP,2020,Burton40,km,postfire,1yr,ceco,live,SH,na,8,
+BurtonSP,2020,Burton32,"vs, mm",postfire,1yr,CHEDOU,live,FB,na,tr,
+BurtonSP,2020,Burton31,km,postfire,1yr,CHIMEN,live,FB,na,tr,
+BurtonSP,2020,Burton45,km,postfire,1yr,CHIMEN,live,FB,na,tr,
+BurtonSP,2020,Burton31,km,postfire,1yr,CHIUMB,live,FB,na,tr,
+BurtonSP,2020,Burton34,km,postfire,1yr,CHIUMB,live,FB,na,tr,
+BurtonSP,2020,Burton14,"vs, mm",postfire,1yr,CHIUMB,live,SH,na,2,L
+BurtonSP,2020,Burton14,"vs, mm",postfire,1yr,CHIUMB,live,SH,na,2,M
+BurtonSP,2020,Burton14,"vs, mm",postfire,1yr,CHIUMB,dead,SH,na,tr,M
+BurtonSP,2020,Burton33,"vs, mm",postfire,1yr,CHIUMB,live,FB,na,tr,M
+BurtonSP,2020,Burton33,"vs, mm",postfire,1yr,CHIUMB,live,FB,na,1,
+BurtonSP,2020,Burton28,"vs, mm",postfire,1yr,CHIUMB,live,FB,na,tr,
+BurtonSP,2020,Burton29,"vs, mm",postfire,1yr,CHIUMB,live,FB,na,tr,
+BurtonSP,2020,Burton25,"vs, mm",postfire,1yr,CHIUMB,live,SH,na,tr,L
+BurtonSP,2020,Burton43,"vs, mm",postfire,1yr,CIRAND,live,FB,na,tr,
+BurtonSP,2020,Burton37,km,postfire,1yr,CORTEN,live,FB,na,tr,
+BurtonSP,2020,Burton31,km,postfire,1yr,dryforb1,live,FB,na,tr,
+BurtonSP,2020,Burton43,"vs, mm",postfire,1yr,elymus,live,GR,na,tr,
+BurtonSP,2020,Burton27,km,postfire,1yr,ELYELY,live,GR,na,0.5,
+BurtonSP,2020,Burton37,km,postfire,1yr,ELYELY,live,GR,na,0.5,
+BurtonSP,2020,Burton33,"vs, mm",postfire,1yr,ELYELY,live,GR,na,7,
+BurtonSP,2020,Burton32,"vs, mm",postfire,1yr,ELYELY,live,GR,na,tr,
+BurtonSP,2020,Burton35,"vs, mm",postfire,1yr,ELYELY,live,GR,na,tr,
+BurtonSP,2020,Burton36,"vs, mm",postfire,1yr,ELYELY,live,GR,na,tr,
+BurtonSP,2020,Burton33,"vs, mm",postfire,1yr,ERIBRE,live,FB,na,1,
+BurtonSP,2020,Burton09,km,postfire,1yr,ERINUD,live,FB,na,tr,
+BurtonSP,2020,Burton37,km,postfire,1yr,ERINUD,live,FB,na,tr,
+BurtonSP,2020,Burton39,"vs, mm",postfire,1yr,ERINUD,live,FB,na,tr,
+BurtonSP,2020,Burton46,km,postfire,1yr,flatcarex,live,GR,na,0.25,
+BurtonSP,2020,Burton07,"vs, mm",postfire,1yr,gaydif,live,FB,na,tr,L
+BurtonSP,2020,Burton38,"vs, mm",postfire,1yr,gaydif,live,FB,na,tr,
+BurtonSP,2020,Burton32,"vs, mm",postfire,1yr,gaydif,live,FB,na,tr,
+BurtonSP,2020,Burton28,"vs, mm",postfire,1yr,gaydif,live,FB,na,tr,
+BurtonSP,2020,Burton29,"vs, mm",postfire,1yr,gaydif,live,FB,na,tr,
+BurtonSP,2020,Burton36,"vs, mm",postfire,1yr,gaydif,live,FB,na,tr,
+BurtonSP,2020,Burton44,"vs, mm",postfire,1yr,gaydif,live,FB,na,tr,
+BurtonSP,2020,Burton47,"vs, mm",postfire,1yr,gaydif,live,FB,na,tr,
+BurtonSP,2020,Burton09,km,postfire,1yr,gaydif,live,FB,na,tr,
+BurtonSP,2020,Burton08,km,postfire,1yr,gaydif,live,FB,na,tr,
+BurtonSP,2020,Burton31,km,postfire,1yr,gaydif,live,FB,na,tr,
+BurtonSP,2020,Burton45,km,postfire,1yr,gaydif,live,FB,na,0.5,
+BurtonSP,2020,Burton40,km,postfire,1yr,gaydif,live,FB,na,tr,
+BurtonSP,2020,Burton27,km,postfire,1yr,grass1,live,GR,na,tr,
+BurtonSP,2020,Burton37,km,postfire,1yr,grass2,live,GR,na,tr,
+BurtonSP,2020,Burton45,km,postfire,1yr,KELGAL,live,FB,na,tr,
+BurtonSP,2020,Burton40,km,postfire,1yr,KELGAL,live,FB,na,tr,
+BurtonSP,2020,Burton27,km,postfire,1yr,lepcil,live,FB,na,tr,
+BurtonSP,2020,Burton39,"vs, mm",postfire,1yr,lupine,live,FB,na,tr,
+BurtonSP,2020,Burton32,"vs, mm",postfire,1yr,lupine,live,FB,na,tr,
+BurtonSP,2020,Burton28,"vs, mm",postfire,1yr,lupine,live,FB,na,tr,
+BurtonSP,2020,Burton42,"vs, mm",postfire,1yr,missing data,,,,,
+BurtonSP,2020,Burton41,"vs, mm",postfire,1yr,missing data,,,,,
+BurtonSP,2020,Burton09,km,postfire,1yr,MONODO,live,FB,na,tr,
+BurtonSP,2020,Burton27,km,postfire,1yr,MONODO,live,FB,na,tr,
+BurtonSP,2020,Burton34,km,postfire,1yr,MONODO,live,FB,na,0.25,
+BurtonSP,2020,Burton37,km,postfire,1yr,MONODO,live,FB,na,0.5,
+BurtonSP,2020,Burton40,km,postfire,1yr,MONODO,live,FB,na,1,
+BurtonSP,2020,Burton32,"vs, mm",postfire,1yr,MONODO,live,FB,na,tr,
+BurtonSP,2020,Burton32,"vs, mm",postfire,1yr,MONODO,live,FB,na,tr,
+BurtonSP,2020,Burton28,"vs, mm",postfire,1yr,MONODO,live,FB,na,tr,
+BurtonSP,2020,Burton30,"vs, mm",postfire,1yr,MONODO,live,FB,na,tr,
+BurtonSP,2020,Burton35,"vs, mm",postfire,1yr,MONODO,live,FB,na,tr,
+BurtonSP,2020,Burton43,"vs, mm",postfire,1yr,MONODO,live,FB,na,tr,
+BurtonSP,2020,Burton37,km,postfire,1yr,pedsem,live,FB,na,tr,
+BurtonSP,2020,Burton39,"vs, mm",postfire,1yr,penstemon,live,FB,na,tr,pen1
+BurtonSP,2020,Burton33,"vs, mm",postfire,1yr,penstemon,live,FB,na,tr,pen1
+BurtonSP,2020,Burton29,"vs, mm",postfire,1yr,penstemon,live,FB,na,tr,pen1
+BurtonSP,2020,Burton30,"vs, mm",postfire,1yr,penstemon,live,FB,na,tr,pen1
+BurtonSP,2020,Burton25,"vs, mm",postfire,1yr,penstemon,live,FB,na,tr,pen1
+BurtonSP,2020,Burton36,"vs, mm",postfire,1yr,penstemon,live,FB,na,tr,pen1
+BurtonSP,2020,Burton26,"vs, mm",postfire,1yr,penstemon,live,FB,na,tr,pen1
+BurtonSP,2020,Burton43,"vs, mm",postfire,1yr,penstemon,live,FB,na,tr,pen1
+BurtonSP,2020,Burton44,"vs, mm",postfire,1yr,penstemon,live,FB,na,tr,pen1
+BurtonSP,2020,Burton27,km,postfire,1yr,penstemon annual,live,FB,na,tr,penstemon annual
+BurtonSP,2020,Burton09,km,postfire,1yr,penstemon perennial,live,FB,na,tr,penstemon perennial
+BurtonSP,2020,Burton27,km,postfire,1yr,penstemon perennial,live,FB,na,tr,penstemon perennial
+BurtonSP,2020,Burton37,km,postfire,1yr,penstemon perennial ,live,FB,na,1,penstemon perennial 
+BurtonSP,2020,Burton45,km,postfire,1yr,penstemon perennial ,live,FB,na,tr,penstemon perennial 
+BurtonSP,2020,Burton46,km,postfire,1yr,penstemon perennial ,live,FB,na,tr,penstemon perennial 
+BurtonSP,2020,Burton40,km,postfire,1yr,penstemon perennial ,live,FB,na,0.25,penstemon perennial 
+BurtonSP,2020,Burton27,km,postfire,1yr,penstemon tiny fruit,live,FB,na,tr,penstemon tiny fruit
+BurtonSP,2020,Burton34,km,postfire,1yr,penstemon tiny fruit,live,FB,na,tr,penstemon tiny fruit
+BurtonSP,2020,Burton37,km,postfire,1yr,penstemon tiny fruit,live,FB,na,tr,penstemon tiny fruit
+BurtonSP,2020,Burton45,km,postfire,1yr,penstemon tiny fruit,live,FB,na,0.25,penstemon tiny fruit
+BurtonSP,2020,Burton40,km,postfire,1yr,penstemon tiny fruit,live,FB,na,tr,penstemon tiny fruit
+BurtonSP,2020,Burton31,km,postfire,1yr,PHAHAS,live,FB,na,tr,
+BurtonSP,2020,Burton40,km,postfire,1yr,PHAHAS,live,FB,na,tr,
+BurtonSP,2020,Burton09,km,postfire,1yr,PHAHYD,live,FB,na,tr,
+BurtonSP,2020,Burton32,"vs, mm",postfire,1yr,PHAHYD,live,FB,na,tr,
+BurtonSP,2020,Burton28,"vs, mm",postfire,1yr,PHAHYD,live,FB,na,tr,
+BurtonSP,2020,Burton40,km,postfire,1yr,PICO,live,TR,TSE,tr,
+BurtonSP,2020,Burton07,"vs, mm",postfire,1yr,PICO,live,TR,TSE,tr,added during QAQC from regen data
+BurtonSP,2020,Burton31,km,postfire,1yr,PIJE,live,TR,TSE,tr,
+BurtonSP,2020,Burton27,km,postfire,1yr,PIJE,live,TR,TOV,26,
+BurtonSP,2020,Burton34,km,postfire,1yr,PIJE,live,TR,na,3,
+BurtonSP,2020,Burton37,km,postfire,1yr,PIJE,live,TR,TOV,42,
+BurtonSP,2020,Burton45,km,postfire,1yr,PIJE,live,TR,TOV,1,
+BurtonSP,2020,Burton46,km,postfire,1yr,PIJE,live,TR,TSE,tr,
+BurtonSP,2020,Burton46,km,postfire,1yr,PIJE,live,TR,TOV,24,
+BurtonSP,2020,Burton40,km,postfire,1yr,PIJE,live,TR,TSE,tr,
+BurtonSP,2020,Burton07,"vs, mm",postfire,1yr,PIJE,live,TR,TOV,tr,
+BurtonSP,2020,Burton14,"vs, mm",postfire,1yr,PIJE,dead,TR,TSA,tr,
+BurtonSP,2020,Burton14,"vs, mm",postfire,1yr,PIJE,live,TR,TOV,6,
+BurtonSP,2020,Burton38,"vs, mm",postfire,1yr,PIJE,live,TR,TOV,4,
+BurtonSP,2020,Burton39,"vs, mm",postfire,1yr,PIJE,live,TR,TSE,tr,
+BurtonSP,2020,Burton39,"vs, mm",postfire,1yr,PIJE,live,TR,TOV,8,
+BurtonSP,2020,Burton33,"vs, mm",postfire,1yr,PIJE,live,TR,TSE,tr,
+BurtonSP,2020,Burton33,"vs, mm",postfire,1yr,PIJE,live,TR,TOV,18,
+BurtonSP,2020,Burton32,"vs, mm",postfire,1yr,PIJE,live,TR,TSE,tr,
+BurtonSP,2020,Burton32,"vs, mm",postfire,1yr,PIJE,live,TR,TSA,tr,
+BurtonSP,2020,Burton28,"vs, mm",postfire,1yr,PIJE,live,TR,TOV,15,
+BurtonSP,2020,Burton28,"vs, mm",postfire,1yr,PIJE,live,TR,TSE,tr,
+BurtonSP,2020,Burton30,"vs, mm",postfire,1yr,PIJE,live,TR,TSE,tr,
+BurtonSP,2020,Burton30,"vs, mm",postfire,1yr,PIJE,live,TR,TOV,33,
+BurtonSP,2020,Burton25,"vs, mm",postfire,1yr,PIJE,live,TR,TSE,tr,
+BurtonSP,2020,Burton25,"vs, mm",postfire,1yr,PIJE,live,TR,TOV,,
+BurtonSP,2020,Burton25,"vs, mm",postfire,1yr,PIJE,dead,TR,TOV,tr,
+BurtonSP,2020,Burton35,"vs, mm",postfire,1yr,PIJE,live,TR,TSE,tr,
+BurtonSP,2020,Burton35,"vs, mm",postfire,1yr,PIJE,live,TR,TSA,tr,
+BurtonSP,2020,Burton35,"vs, mm",postfire,1yr,PIJE,live,TR,TOV,33,
+BurtonSP,2020,Burton36,"vs, mm",postfire,1yr,PIJE,live,TR,TOV,,
+BurtonSP,2020,Burton26,"vs, mm",postfire,1yr,PIJE,live,TR,TOV,16,H
+BurtonSP,2020,Burton43,"vs, mm",postfire,1yr,PIJE,live,TR,TOV,19,H
+BurtonSP,2020,Burton44,"vs, mm",postfire,1yr,PIJE,live,TR,TOV,18,H
+BurtonSP,2020,Burton47,"vs, mm",postfire,1yr,PIJE,live,TR,TSA,tr,M
+BurtonSP,2020,Burton47,"vs, mm",postfire,1yr,PIJE,live,TR,TOV,tr,H
+BurtonSP,2020,Burton45,km,postfire,1yr,PILA,live,TR,TOV,6,
+BurtonSP,2020,Burton14,"vs, mm",postfire,1yr,PILA,live,TR,TSE,tr,
+BurtonSP,2020,Burton14,"vs, mm",postfire,1yr,PILA,dead,TR,TSA,tr,
+BurtonSP,2020,Burton14,"vs, mm",postfire,1yr,PILA,live,TR,TOV,8,
+BurtonSP,2020,Burton47,"vs, mm",postfire,1yr,PILA,live,TR,TOV,3,H
+BurtonSP,2020,Burton14,"vs, mm",postfire,1yr,PRUEMA,live,SH,na,tr,L
+BurtonSP,2020,Burton14,"vs, mm",postfire,1yr,PRUEMA,live,SH,na,tr,M
+BurtonSP,2020,Burton26,"vs, mm",postfire,1yr,PRUEMA,live,SH,na,1,L
+BurtonSP,2020,Burton26,"vs, mm",postfire,1yr,PRUEMA,live,SH,na,tr,M
+BurtonSP,2020,Burton31,km,postfire,1yr,ptan,live,FB,na,tr,
+BurtonSP,2020,Burton07,"vs, mm",postfire,1yr,ptan,live,FB,na,tr,L
+BurtonSP,2020,Burton38,"vs, mm",postfire,1yr,ptan,live,SH,na,tr,L
+BurtonSP,2020,Burton39,"vs, mm",postfire,1yr,ptan,live,FB,na,tr,
+BurtonSP,2020,Burton28,"vs, mm",postfire,1yr,ptan,live,FB,na,tr,
+BurtonSP,2020,Burton25,"vs, mm",postfire,1yr,ptan,live,FB,na,tr,
+BurtonSP,2020,Burton35,"vs, mm",postfire,1yr,ptan,live,FB,na,tr,
+BurtonSP,2020,Burton26,"vs, mm",postfire,1yr,ptan,live,FB,na,tr,
+BurtonSP,2020,Burton43,"vs, mm",postfire,1yr,ptan,live,FB,na,tr,
+BurtonSP,2020,Burton44,"vs, mm",postfire,1yr,ptan,live,FB,na,tr,
+BurtonSP,2020,Burton47,"vs, mm",postfire,1yr,ptan,live,FB,na,tr,
+BurtonSP,2020,Burton34,km,postfire,1yr,PTEAQU,live,FERN ,na,tr,
+BurtonSP,2020,Burton45,km,postfire,1yr,PTEAQU,live,FERN ,na,tr,
+BurtonSP,2020,Burton46,km,postfire,1yr,PTEAQU,live,FERN ,na,tr,
+BurtonSP,2020,Burton34,km,postfire,1yr,PURTRI,live,SH,na,tr,
+BurtonSP,2020,Burton37,km,postfire,1yr,PURTRI,live,SH,na,33,
+BurtonSP,2020,Burton37,km,postfire,1yr,PURTRI,dead,SH,na,0.5,
+BurtonSP,2020,Burton45,km,postfire,1yr,PURTRI,live,SH,na,tr,
+BurtonSP,2020,Burton46,km,postfire,1yr,PURTRI,live,SH,na,tr,
+BurtonSP,2020,Burton33,"vs, mm",postfire,1yr,PURTRI,live,SH,na,3,L
+BurtonSP,2020,Burton33,"vs, mm",postfire,1yr,PURTRI,dead,SH,na,2,L
+BurtonSP,2020,Burton33,"vs, mm",postfire,1yr,PURTRI,live,SH,na,2,M
+BurtonSP,2020,Burton26,"vs, mm",postfire,1yr,PURTRI,live,SH,na,tr,L
+BurtonSP,2020,Burton47,"vs, mm",postfire,1yr,PURTRI,live,SH,na,1,L
+BurtonSP,2020,Burton47,"vs, mm",postfire,1yr,PURTRI,live,SH,na,tr,L
+BurtonSP,2020,Burton27,km,postfire,1yr,PURTRI ,live,SH,na,2,
+BurtonSP,2020,Burton30,"vs, mm",postfire,1yr,PURTRI ,live,SH,na,tr,L
+BurtonSP,2020,Burton30,"vs, mm",postfire,1yr,PURTRI ,dead,SH,na,tr,L
+BurtonSP,2020,Burton35,"vs, mm",postfire,1yr,PURTRI ,live,SH,na,2,L
+BurtonSP,2020,Burton35,"vs, mm",postfire,1yr,PURTRI ,live,SH,na,tr,M
+BurtonSP,2020,Burton36,"vs, mm",postfire,1yr,PURTRI ,live,SH,na,tr,L
+BurtonSP,2020,Burton08,km,postfire,1yr,PYRPIC,live,FB,na,tr,
+BurtonSP,2020,Burton31,km,postfire,1yr,PYRPIC,live,FB,na,tr,
+BurtonSP,2020,Burton34,km,postfire,1yr,PYRPIC,live,FB,na,tr,
+BurtonSP,2020,Burton45,km,postfire,1yr,PYRPIC,live,FB,na,tr,
+BurtonSP,2020,Burton46,km,postfire,1yr,PYRPIC,live,FB,na,tr,
+BurtonSP,2020,Burton09,km,postfire,1yr,PYRPIC,live,FB,na,tr,
+BurtonSP,2020,Burton07,"vs, mm",postfire,1yr,PYRPIC,live,FB,na,tr,L
+BurtonSP,2020,Burton14,"vs, mm",postfire,1yr,PYRPIC,live,FB,na,tr,
+BurtonSP,2020,Burton38,"vs, mm",postfire,1yr,PYRPIC,live,FB,na,tr,
+BurtonSP,2020,Burton39,"vs, mm",postfire,1yr,PYRPIC,live,FB,na,tr,
+BurtonSP,2020,Burton28,"vs, mm",postfire,1yr,PYRPIC,live,FB,na,tr,
+BurtonSP,2020,Burton29,"vs, mm",postfire,1yr,PYRPIC,live,FB,na,tr,
+BurtonSP,2020,Burton25,"vs, mm",postfire,1yr,PYRPIC,live,FB,na,tr,
+BurtonSP,2020,Burton35,"vs, mm",postfire,1yr,PYRPIC,live,FB,na,tr,
+BurtonSP,2020,Burton36,"vs, mm",postfire,1yr,PYRPIC,live,FB,na,tr,
+BurtonSP,2020,Burton09,km,postfire,1yr,quevac,live,SH,na,tr,
+BurtonSP,2020,Burton27,km,postfire,1yr,QUEVAC,live,SH,na,0.5,
+BurtonSP,2020,Burton34,km,postfire,1yr,QUEVAC,live,SH,na,4,
+BurtonSP,2020,Burton46,km,postfire,1yr,QUEVAC,live,SH,na,1,
+BurtonSP,2020,Burton14,"vs, mm",postfire,1yr,QUEVAC,live,SH,na,5,L
+BurtonSP,2020,Burton14,"vs, mm",postfire,1yr,QUEVAC,dead,SH,na,12,L
+BurtonSP,2020,Burton14,"vs, mm",postfire,1yr,QUEVAC,live,SH,na,12,M
+BurtonSP,2020,Burton14,"vs, mm",postfire,1yr,QUEVAC,dead,SH,na,tr,T
+BurtonSP,2020,Burton35,"vs, mm",postfire,1yr,QUEVAC,live,SH,na,tr,L
+BurtonSP,2020,Burton43,"vs, mm",postfire,1yr,QUEVAC,live,SH,na,5,L
+BurtonSP,2020,Burton43,"vs, mm",postfire,1yr,QUEVAC,live,SH,na,6,M
+BurtonSP,2020,Burton47,"vs, mm",postfire,1yr,QUEVAC,live,SH,na,10,L
+BurtonSP,2020,Burton47,"vs, mm",postfire,1yr,QUEVAC,live,SH,na,10,M
+BurtonSP,2020,Burton14,"vs, mm",postfire,1yr,ribes,live,SH,na,tr,L
+BurtonSP,2020,Burton38,"vs, mm",postfire,1yr,ribes,live,SH,na,tr,L
+BurtonSP,2020,Burton39,"vs, mm",postfire,1yr,ribes,live,SH,na,tr,L
+BurtonSP,2020,Burton33,"vs, mm",postfire,1yr,ribes,live,SH,na,tr,M
+BurtonSP,2020,Burton33,"vs, mm",postfire,1yr,ribes,live,SH,na,tr,L
+BurtonSP,2020,Burton32,"vs, mm",postfire,1yr,ribes,live,SH,na,tr,L
+BurtonSP,2020,Burton28,"vs, mm",postfire,1yr,ribes,live,SH,na,tr,L
+BurtonSP,2020,Burton28,"vs, mm",postfire,1yr,ribes,live,SH,na,tr,M
+BurtonSP,2020,Burton29,"vs, mm",postfire,1yr,ribes,live,SH,na,tr,M
+BurtonSP,2020,Burton29,"vs, mm",postfire,1yr,ribes,live,SH,na,tr,L
+BurtonSP,2020,Burton30,"vs, mm",postfire,1yr,ribes,live,SH,na,2,L
+BurtonSP,2020,Burton30,"vs, mm",postfire,1yr,ribes,live,SH,na,2,L
+BurtonSP,2020,Burton25,"vs, mm",postfire,1yr,ribes,live,SH,na,tr,M
+BurtonSP,2020,Burton36,"vs, mm",postfire,1yr,ribes,live,SH,na,1,L
+BurtonSP,2020,Burton32,"vs, mm",postfire,1yr,ribes,live,SH,na,3,L
+BurtonSP,2020,Burton28,"vs, mm",postfire,1yr,riro,live,SH,na,tr,L
+BurtonSP,2020,Burton29,"vs, mm",postfire,1yr,riro,live,SH,na,tr,L
+BurtonSP,2020,Burton36,"vs, mm",postfire,1yr,riro,live,SH,na,tr,L
+BurtonSP,2020,Burton26,"vs, mm",postfire,1yr,riro,live,SH,na,tr,L
+BurtonSP,2020,Burton27,km,postfire,1yr,RICE,live,SH,na,1,
+BurtonSP,2020,Burton34,km,postfire,1yr,RICE,live,SH,na,0.25,
+BurtonSP,2020,Burton45,km,postfire,1yr,RICE,live,SH,na,0.75,
+BurtonSP,2020,Burton40,km,postfire,1yr,RICE,live,SH,na,0.5,
+BurtonSP,2020,Burton40,km,postfire,1yr,RINE,live,SH,na,tr,
+BurtonSP,2020,Burton09,km,postfire,1yr,RIRO,live,SH,na,0.5,
+BurtonSP,2020,Burton08,km,postfire,1yr,RIRO,live,SH,na,tr,
+BurtonSP,2020,Burton31,km,postfire,1yr,RIRO,live,SH,na,6,
+BurtonSP,2020,Burton37,km,postfire,1yr,RIRO,live,SH,na,tr,
+BurtonSP,2020,Burton46,km,postfire,1yr,RIRO,live,SH,na,tr,
+BurtonSP,2020,Burton40,km,postfire,1yr,RIRO,live,SH,na,0.75,
+BurtonSP,2020,Burton37,km,postfire,1yr,SENINT,live,FB,na,2,
+BurtonSP,2020,Burton33,"vs, mm",postfire,1yr,SENTRI,live,FB,na,tr,
+BurtonSP,2020,Burton35,"vs, mm",postfire,1yr,SENTRI,live,FB,na,tr,
+BurtonSP,2020,Burton43,"vs, mm",postfire,1yr,SENTRI,live,FB,na,tr,
+BurtonSP,2020,Burton31,km,postfire,1yr,STETEN,live,FB,na,tr,
+BurtonSP,2020,Burton33,"vs, mm",postfire,1yr,stipa,live,GR,na,tr,
+BurtonSP,2020,Burton09,km,postfire,1yr,SYMROT,live,SH,na,0.25,
+BurtonSP,2020,Burton08,km,postfire,1yr,SYMROT,live,SH,na,tr,
+BurtonSP,2020,Burton31,km,postfire,1yr,SYMROT,live,SH,na,0.25,
+BurtonSP,2020,Burton27,km,postfire,1yr,SYMROT,live,SH,na,12,
+BurtonSP,2020,Burton34,km,postfire,1yr,SYMROT,live,SH,na,7,
+BurtonSP,2020,Burton37,km,postfire,1yr,SYMROT,live,SH,na,9,
+BurtonSP,2020,Burton46,km,postfire,1yr,SYMROT,live,SH,na,5,
+BurtonSP,2020,Burton40,km,postfire,1yr,SYMROT,live,SH,na,1,
+BurtonSP,2020,Burton14,"vs, mm",postfire,1yr,SYMROT,live,SH,na,1,L
+BurtonSP,2020,Burton38,"vs, mm",postfire,1yr,SYMROT,live,SH,na,1,L
+BurtonSP,2020,Burton32,"vs, mm",postfire,1yr,SYMROT,live,SH,na,1,L
+BurtonSP,2020,Burton29,"vs, mm",postfire,1yr,SYMROT,live,SH,na,1,L
+BurtonSP,2020,Burton35,"vs, mm",postfire,1yr,SYMROT,live,SH,na,2,L
+BurtonSP,2020,Burton36,"vs, mm",postfire,1yr,SYMROT,live,SH,na,2,L
+BurtonSP,2020,Burton26,"vs, mm",postfire,1yr,SYMROT,live,SH,na,1,L
+BurtonSP,2020,Burton43,"vs, mm",postfire,1yr,SYMROT,live,SH,na,3,L
+BurtonSP,2020,Burton47,"vs, mm",postfire,1yr,SYMROT,live,SH,na,1,L
+BurtonSP,2020,Burton44,"vs, mm",postfire,1yr,SYMROT,live,SH,na,4,L
+BurtonSP,2020,Burton08,km,postfire,1yr,viola,live,FB,na,tr,
+BurtonSP,2020,Burton27,km,postfire,1yr,WYEMOL,live,FB,na,tr,
+BurtonSP,2020,Burton34,km,postfire,1yr,WYEMOL,live,FB,na,tr,
+BurtonSP,2020,Burton37,km,postfire,1yr,WYEMOL,live,FB,na,tr,
+BurtonSP,2020,Burton43,"vs, mm",postfire,1yr,WYEMOL,live,FB,na,3,

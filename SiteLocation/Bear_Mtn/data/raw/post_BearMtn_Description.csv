@@ -1,0 +1,32 @@
+site,day,month,year,plot_id,ash%,fire_severity,shrub_torch%,shrub_scorch%,shrub_unburn%,baresoil,litter,litter_black,wood,cones,totground,history,notes
+bearmtn,3,10,2019,BM1,0.5,2,30,70,tr,1.5,62.5,35,0.5,tr,100,,some seedlings appear to have little to no scorch (pipo) 
+bearmtn,2,10,2019,BM2,10,3,99,1,0,3.5,0.5,83,0.5,tr,97.5,,
+bearmtn,4,10,2019,BM3,6,3,99.5,0.5,0,tr,0.5,93,0.5,tr,100,,100% seeeling mortality
+bearmtn,4,10,2019,BM4,1.5,2,60,39,1,1,1,96.5,tr,tr,100,,"100% scorched seedlings, tr unburnned herbs"
+bearmtn,4,10,2019,BM5,3,2,75,25,0,0.5,2,94.5,0.5,tr,100.5,,"100% seedlings scorched, some forbs unburned"
+bearmtn,2,10,2019,BM6,25,3,100,0,0,1.5,tr,72,1.5,tr,100,,
+bearmtn,2,10,2019,BM7,30,2(2.5),99,0.5,0.5,2,1,67,tr,tr,100,,"1.5%seedlings/.5%saplings (cade,pipo/pipo) mostly scorched, some unburned"
+bearmtn,3,10,2019,BM8,1.5,2,50,20,30,4.5,42,52,tr,tr,100,,
+bearmtn,3,10,2019,BM9,8.5,2,33,33,33,1.5,5.5,76.5,8,tr,100,,"BS, most seedlings scorched, some torched. not all forbs comsumed"
+bearmtn,2,10,2019,BM10,7,2(2.5),100,0,0,7,0.5,83.5,2,tr,100,,some forbs and grasses remaining unburned (.5)// BS
+bearmtn,2,10,2019,BM11,2,2,50,49,1,10,5,82,1,,100,,"scorched and torched seelings, scorched torched and unburned shrubs (chfo&arvi)"
+bearmtn,3,10,2019,BM12,25,3,95,5,tr,4.5,tr,63.5,7,tr,100,,nearly 100% seedling mortality
+bearmtn,3,10,2019,BM13,2.5,3(3.5),97,3,0,2,0.5,93.5,1.5,,100,,mortality of all seedlings
+bearmtn,3,10,2019,BM14,0.5,2,70,25,5,10,25,61.5,3,tr,100,,not all forbs and grasses consumed
+bearmtn,3,10,2019,BM15,4,3(3.5),85,15,tr,1.5,0.5,89.5,4.5,tr,100,,
+bearmtn,3,10,2019,BM16,3,3,80,10,10,1.5,2.5,92.5,0.5,tr,100,,NW quad unburned
+bearmtn,3,10,2019,BM17,30,3,50,25,25,2.5,42.5,20,5,tr,100,,
+bearmtn,3,10,2019,BM18,4.5,1,tr,15,85,tr,89.5,2,4,tr,100,,mostly unburned in plot
+bearmtn,3,10,2019,BM19,10,3,95,5,0,tr,0.5,83.5,6,tr,100,,
+bearmtn,3,10,2019,BM20,8,2,60,25,15,2,7.5,77.5,5,tr,100,,
+bearmtn,3,10,2019,BM21,3,3,90,10,0,0.5,1,94,1.5,tr,100,,
+bearmtn,3,10,2019,BM22,25,3,75,25,tr,0.5,1,63.5,10,tr,100,,nearly all of resprouts and low shrub consumed. Arvi shrub med tr unburned
+bearmtn,3,10,2019,BM23,35,2,50,25,25,1,tr,63.5,0.5,tr,100,,"most seedlings schorched, many arvi litttle scorch, lost low shurb torched"
+bearmtn,3,10,2019,BM24,20,3,85,16,0,2.5,tr,75.5,2,tr,100,,"full seedling mortality, some arvi may recover"
+bearmtn,4,10,2019,BM25,50,4,95,5,0,1,tr,39,10,tr,100,,100% understory motality. some scorched resprouts may recover
+bearmtn,4,10,2019,BM26,40,3,45,40,15,tr,2,52,6,tr,100,,gps location very off from previous gps point. not sure which is more accurate
+bearmtn,4,10,2019,BM27,15,2,25,20,55,1,30,39,15,tr,100,,"patchy burning within plot, unconsumed forbs and grasses"
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
