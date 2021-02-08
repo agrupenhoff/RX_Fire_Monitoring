@@ -1,4 +1,3 @@
-which git
 
 
 library(tidyverse)
@@ -10,21 +9,80 @@ library(kableExtra)
 library(rio)
 library(lme4)
 library(wesanderson)
+library(stringr)
 
-######JUST VALENTINE RESERVE
+###### PULL JUST VALENTINE RESERVE FROM HOLY GRAIL
 
-HG_Trees_diamclass <- read.csv("HolyGrail/data/clean/HG_Trees_diamclass.csv")
-NRV_diamclass <- read.csv("HolyGrail/data/clean/NRV_diamclass_BIN.csv")
-VR_plottype <- import("HolyGrail/data/raw/VR_plottype.csv")
+                  HG_Trees_diamclass <- read.csv("HolyGrail/data/clean/HG_Trees_diamclass.csv")
+                  HG_Trees_plot_species <- read.csv("HolyGrail/data/clean/HG_Trees_plot_species.csv")
+                  NRV_diamclass <- read.csv("HolyGrail/data/clean/NRV_diamclass_BIN.csv")
+                  
+                  VR_plottype <- import("SiteLocation/Valentine/data/clean/VR_plottype.csv")
+                  VR_trees_veg <- import("SiteLocation/Valentine/data/clean/VR_trees_veg.csv")
+                  
+                  
+                  #VR_trees_diam <- HG_Trees_diamclass %>% 
+                  #  filter(site == 'Valentine') 
+                  
+                  ##VR_trees_diam$dbh_cm <- as.numeric(VR_trees_diam$dbh_cm)
+                  #str(VR_trees_diam)
+                  #VR_trees_veg <-  left_join(VR_trees_diam, VR_plottype, by='plotid')
+                  
+                  #VR_trees_plotspp <- HG_Trees_plot_species %>% 
+                  #  filter(str_detect(plotid_time, "VR"))
+                  
+                  #export(VR_trees_veg, "SiteLocation/Valentine/data/clean/VR_trees_veg.csv")
+                  #export(VR_plottype, "SiteLocation/Valentine/data/clean/VR_plottype.csv")
+                  
+#################
+###########CHANGE BY SPECIES BY VEG TYPE                  
+      #create function to calculate basal area (m^2)
+                  
+      basal.area.fn <- function(x){ (pi*(x)^2)/40000 } # calculate basal area in m^2
+                  
+VR_trees_veg <- VR_trees_veg %>% 
+  mutate(BA_m2 = basal.area.fn(dbh_cm),
+         BA_m2_acre = BA_m2*10)
 
-VR_trees_diam <- HG_Trees_diamclass %>% 
-  filter(site == 'Valentine') 
+Val_trees_2019spp <- VR_trees_veg %>% 
+  filter(status == 'L') %>% 
+  group_by(plotid, species) %>% 
+  summarise(Prethin_BA_m2ac = sum(BA_m2_acre)) %>% 
+  mutate(plotidspp = paste(plotid, species)) %>% 
+  select(plotidspp, Prethin_BA_m2ac )
 
-VR_trees_diam$dbh_cm <- as.numeric(VR_trees_diam$dbh_cm)
-str(VR_trees_diam)
-VR_trees_veg <-  left_join(VR_trees_diam, VR_plottype, by='plotid')
+Val_trees_2020spp <- VR_trees_veg %>% 
+  filter(status == 'L',
+         presentPostThin == 'yes') %>% 
+  group_by(plotid, species) %>% 
+  summarise(Postthin_BA_m2ac = sum(BA_m2_acre)) %>% 
+  mutate(plotidspp = paste(plotid, species)) %>% 
+  select(plotidspp, Postthin_BA_m2ac )
 
-######### DBH CLASS SIZE FOR VAL - Number of Trees / ha
+Val_trees_BAspp <- left_join(Val_trees_2019spp, Val_trees_2020spp, by="plotidspp")
+
+Val_trees_BAspp <- Val_trees_BAspp %>% 
+  select(plotidspp, Prethin_BA_m2ac, Postthin_BA_m2ac) %>% 
+  pivot_longer(-plotidspp, names_to = 'PrePostThin', values_to = 'BA_m2_acre') 
+
+Val_trees_BAspp <- Val_trees_BAspp %>% 
+    separate(plotidspp, c("plotid","species"))
+
+Val_trees_BAspp <- left_join(Val_trees_BAspp, VR_plottype, by="plotid")
+
+VR_BAspp_plot <- ggplot(data=Val_trees_BAspp)+
+  geom_boxplot(aes(x=species, y=BA_m2_acre, fill=PrePostThin))+
+  facet_wrap(~ PlotType, scales = "free_y") +
+  theme_minimal()+
+  scale_fill_manual(values=wes_palette("BottleRocket1"))+
+  theme(axis.title=element_text(size=14,face="bold"),
+        axis.text=element_text(size=10))+
+  xlab("Species")+
+  ylab("Basal Area (m2/acre)")
+VR_BAspp_plot
+                  
+##################
+################## DBH CLASS SIZE FOR VAL - Number of Trees / ha
 
 #DBH class size
 Val_trees_live2019 <- VR_trees_veg %>% 
@@ -111,3 +169,12 @@ VR_diamclass_plot <- ggplot(data=val_trees_NRV_clean)+
 VR_diamclass_plot
 
 ggsave(VR_diamclass_plot, "HolyGrail/graphs/Valentine/VR_diamclassTrees.png")
+
+
+
+
+
+#################
+
+
+

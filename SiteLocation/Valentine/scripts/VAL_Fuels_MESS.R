@@ -9,30 +9,34 @@ library(kableExtra)
 library(rio)
 library(lme4)
 library(wesanderson)
+library(ggpubr)
 
 
-VR_fuels <- read.csv("HolyGrail/data/clean/Val_CWD_FWD_final.csv")
-VR_plottype <- read.csv("HolyGrail/data/raw/VR_plottype.csv")
+#VR_fuels <- read.csv("HolyGrail/data/clean/Val_CWD_FWD_final.csv")
+VR_plottype <- read.csv("SiteLocation/Valentine/data/clean/VR_plottype.csv")
+VR_fuels_plottype <- read.csv("SiteLocation/Valentine/data/clean/VR_fuels_plottype.csv")
 
-VR_fuels <- VR_fuels %>% 
-  select(plotid, fuel_type_size, mass_ton_acre) %>% 
-  pivot_wider(names_from = "fuel_type_size", values_from= "mass_ton_acre") 
+#VR_fuels <- VR_fuels %>% 
+#  select(plotid, fuel_type_size, mass_ton_acre) %>% 
+#  pivot_wider(names_from = "fuel_type_size", values_from= "mass_ton_acre") 
 
-VR_fuels_sum <- VR_fuels %>% 
-  mutate(total_fine = (mass_1hr+mass_10hr+mass_100hr),
-         total_cwd = (mass_cwd_sound+mass_cwd_rotten)) %>% 
-  select(plotid, mass_1hr, mass_10hr, mass_100hr, mass_cwd_sound, mass_cwd_rotten, total_fine, total_cwd, total_fuel) %>% 
-  pivot_longer(cols=-plotid, names_to = "fuel_type", values_to= "mass_ton_acre")
-
-
-VR_fuels_type <- left_join(VR_fuels_sum, VR_plottype, by="plotid")
-
-export(VR_fuels_type, "HolyGrail/data/clean/VR_fuels_plottype.csv")
+#VR_fuels_sum <- VR_fuels %>% 
+#  mutate(total_fine = (mass_1hr+mass_10hr+mass_100hr),
+#         total_cwd = (mass_cwd_sound+mass_cwd_rotten)) %>% 
+#  select(plotid, mass_1hr, mass_10hr, mass_100hr, mass_cwd_sound, mass_cwd_rotten, total_fine, total_cwd, total_fuel) %>% 
+#  pivot_longer(cols=-plotid, names_to = "fuel_type", values_to= "mass_ton_acre")
 
 
+#VR_fuels_type <- left_join(VR_fuels_sum, VR_plottype, by="plotid")
+
+#export(VR_fuels_type, "HolyGrail/data/clean/VR_fuels_plottype.csv")
 
 
-VR_fuelplot <- ggplot(data=VR_fuels_type, 
+VR_fuels_foresttype <- VR_fuels_plottype %>% 
+  filter(PlotType == "MixedConifer"|
+           PlotType == "UpperMontane")
+
+VR_fuelplot <- ggplot(data=VR_fuels_foresttype, 
                       aes(x=fuel_type, y=mass_ton_acre, fill=fuel_type))+
   geom_boxplot()+
   geom_jitter(alpha=0.4)+
@@ -42,6 +46,16 @@ VR_fuelplot <- ggplot(data=VR_fuels_type,
   theme(axis.title=element_text(size=14,face="bold"),
         axis.text=element_text(size=12,angle = 45, hjust=1))
 VR_fuelplot
+
+VR_fuelplot2 <- ggplot(data=VR_fuels_foresttype, 
+                      aes(x=fuel_type, y=mass_ton_acre, fill= PlotType))+
+  geom_boxplot()+
+ 
+  scale_fill_manual(values=wes_palette("BottleRocket1"))+
+  theme_minimal()+
+  theme(axis.title=element_text(size=14,face="bold"),
+        axis.text=element_text(size=12,angle = 45, hjust=1))
+VR_fuelplot2
 
 ##########################CREATING CUSTOME FUEL MODEL################################
 ############# GROUP BY VEG TYPE

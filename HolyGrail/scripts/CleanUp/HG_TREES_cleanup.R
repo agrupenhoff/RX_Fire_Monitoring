@@ -14,6 +14,7 @@ library(wesanderson)
 HG_trees <- read.csv("HolyGrail/data/raw/HolyGrail_Trees.csv")
 HG_Trees_plot_species <- read.csv("HolyGrail/data/clean/HG_Trees_plot_species.csv")
 HG_Trees_diamclass <- read.csv("HolyGrail/data/clean/HG_Trees_diamclass.csv")
+HG_Trees_totalPlot <- read.csv("HolyGrail/data/clean/HG_Trees_totalPlot.csv")
 NRV_diamclass <- read.csv("HolyGrail/data/clean/NRV_diamclass_BIN.csv")
 
 #convertvalues to numeric
@@ -94,6 +95,9 @@ NRV_diamclass <- read.csv("HolyGrail/data/clean/NRV_diamclass_BIN.csv")
 
 
 #export(HG_trees_diamclass,"HolyGrail/data/clean/HG_Trees_diamclass.csv" )
+
+
+
 
 ###############################################################################################
 ##############################################################################################
