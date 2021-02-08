@@ -1,3 +1,4 @@
+which git
 
 
 library(tidyverse)
