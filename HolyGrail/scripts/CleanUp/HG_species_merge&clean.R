@@ -37,12 +37,11 @@ HG_species <- bind_rows(bearmtn_2019_pre_spp,bliss_2019_pre_spp,burton_2019_pre_
                         burton_2020_post_spp, calaveras_2020_pre_spp, downie_2020_pre_spp ,
                         drycreek_2020_pre_spp, FM_2019_pre_spp, FM_2020_pre_spp,
                         indy_2020_pre_spp, lbw_2020_pre_spp, modoc_2020_pre_spp ,
-                        slypark_2019_pre_spp, springs_2020_post_spp, sugarpine_2020_pre_spp,
+                        slypark_2019_pre_spp,springs_2019_pre_spp, springs_2020_post_spp, sugarpine_2020_pre_spp,
                         val_2019_pre_spp)
 
 HG_species <- HG_species %>% 
-  rename(plotid = plot_id) %>% 
-  select(site, year, pre_post_fire, postTime, plotid, observer,
+  select(site, year, pre_post_fire, postTime, plot_id, observer,
          species, status, lifeform, layerCode, percent, notes) 
 
 #replace trace values
@@ -55,10 +54,17 @@ HG_species1$percent[HG_species1$percent == "tt"] <- "0.05"
 HG_species1$percent[HG_species1$percent == "tf"] <- "0.05"
 HG_species1$percent[HG_species1$percent == "t"] <- "0.05"
 HG_species1$percent[HG_species1$percent == "t4"] <- "0.05"
+HG_species1$percent[HG_species1$percent == "na"] <- "0.05"
 
+HG_species1 <- HG_species1 %>% 
+  replace_na(list(percent = 0.05))
 HG_species1$percent <- as.numeric(HG_species1$percent)
   
 glimpse(HG_species1)
 
 
 export(HG_species1, "HolyGrail/data/clean/HG_species_clean.csv")
+
+HG_species1 <- import("HolyGrail/data/clean/HG_species_clean.csv")
+
+unique(HG_species1$percent)

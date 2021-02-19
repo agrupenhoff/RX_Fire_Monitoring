@@ -19,6 +19,7 @@ library(stringr)
                   
                   VR_plottype <- import("SiteLocation/Valentine/data/clean/VR_plottype.csv")
                   VR_trees_veg <- import("SiteLocation/Valentine/data/clean/VR_trees_veg.csv")
+                  VR_trees_NRVclean <- import("SiteLocation/Valentine/data/clean/VR_trees_NRVclean.csv")
                   
                   
                   #VR_trees_diam <- HG_Trees_diamclass %>% 
@@ -30,6 +31,33 @@ library(stringr)
                   
                   #VR_trees_plotspp <- HG_Trees_plot_species %>% 
                   #  filter(str_detect(plotid_time, "VR"))
+            
+            ##FIX VALUES
+                  #VR_trees_veg$ht2crown_m[VR_trees_veg$ht2crown_m == "-"] <- "0"
+                  #VR_trees_veg$ht2crown_m[VR_trees_veg$ht2crown_m == "o.5"] <- "0.5"
+                  
+                
+                Val_trees_2019L <- VR_trees_veg %>% 
+                    filter(status == 'L') %>% 
+                    select(plotid, PlotType, dbh_cm, ht2crown_m, ht_m)
+                
+                Val_trees2020L <- VR_trees_veg %>% 
+                  filter(status == 'L',
+                         presentPostThin == 'yes') %>% 
+                  select(plotid, PlotType, dbh_cm, ht2crown_m, ht_m)
+                
+                glimpse(Val_trees_2019L)
+                Val_trees_2019L$ht2crown_m <- as.numeric(Val_trees_2019L$ht2crown_m)
+                
+              ###########CALCULATE AVERAGE TREE STRUCTURE VALUES
+      
+                  #prethin
+                  VR_trees_htc2019 <- Val_trees_2019L %>% 
+                    group_by(PlotType) %>% 
+                    summarize_all(mean, na.rm=TRUE)
+                  VR_trees_htc2020 <- Val_trees2020L %>% 
+                    group_by(PlotType) %>% 
+                    summarize_all(mean, na.rm=TRUE)
                   
                   #export(VR_trees_veg, "SiteLocation/Valentine/data/clean/VR_trees_veg.csv")
                   #export(VR_plottype, "SiteLocation/Valentine/data/clean/VR_plottype.csv")
@@ -142,6 +170,8 @@ val_trees_NRV_clean <- val_trees_NRV_clean %>%
                                                       '[80-100]',
                                                       '[>100]')))
 
+export(val_trees_NRV_clean, "SiteLocation/Valentine/data/clean/VR_trees_NRVclean.csv")
+
 ###SEPERATE OUT NRV VALUES TO SEPARATE DATA FRAME trick to make sure it has a legend
 
 NRV_val_diamclass <- val_trees_NRV_clean %>% 
@@ -168,9 +198,12 @@ VR_diamclass_plot <- ggplot(data=val_trees_NRV_clean)+
   ylab("# Trees / Ha")
 VR_diamclass_plot
 
+
 ggsave(VR_diamclass_plot, "HolyGrail/graphs/Valentine/VR_diamclassTrees.png")
 
-
+VR_trees_sum <- VR_trees_NRVclean %>% 
+  group_by(diam_class.x, plotType, condition) %>% 
+  summarise(n_trees_ha = mean(n_trees_ha, na.rm=TRUE))
 
 
 
