@@ -1,0 +1,169 @@
+plotid_time,status,species,BA_m2_sum,n_trees,mean_dbh_cm,max_dbh_cm,min_dbh_cm,mean_ht2c,mean_ht,mean_ht2d,n_trees_ha,BA_m2_ha,plotid
+springs1 postfire 1yr,live,PIJE,1.549223992,11,41.52272727,64,32.3,5.5,15.5,2.118181818,44.51546,6.269492603,springs1 postfire 1yr
+springs2 postfire 1yr,live,PIJE ,0.765639116,6,39.73333333,52,30.6,3.466666667,12.9,,24.28116,3.098434315,springs2 postfire 1yr
+springs3 postfire 1yr,live,PIJE,0.292376247,2,42.05,51.7,32.4,7,12.5,3.25,8.09372,1.18320574,springs3 postfire 1yr
+springs3 postfire 1yr,live,PIJE ,1.134568123,8,39.8875,71.3,26.9,4.9375,12.375,1.575,32.37488,4.591438353,springs3 postfire 1yr
+springs4 postfire 1yr,live,PIJE ,0.399498274,3,41.16666667,42,39.9,2.666666667,12.66666667,1,12.14058,1.616713583,springs4 postfire 1yr
+springs5 postfire 1yr,live,PIJE ,1.457141359,5,59.96,69.3,43.6,4.7,18.2,2.2,20.2343,5.896847078,springs5 postfire 1yr
+springs6 postfire 1yr,dead,PICO,0.030034411,3,10.63333333,16,7.9,,5.366666667,0.633333333,12.14058,0.121545057,springs6 postfire 1yr
+springs6 postfire 1yr,live,PICO,1.274218199,26,20.54615385,67.1,7.5,3.015384615,8.992307692,0.630769231,105.21836,5.156582662,springs6 postfire 1yr
+springs7 postfire 1yr,dead,PICO,0.010386891,1,11.5,11.5,11.5,,10.2,,4.04686,0.042034293,springs7 postfire 1yr
+springs7 postfire 1yr,live,PICO,1.873119642,17,33.07058824,72.2,14.3,4.164705882,13.38823529,,68.79662,7.580252954,springs7 postfire 1yr
+springs8 postfire 1yr,dead,PICO,0.088901574,3,17.83333333,28.7,11.8,,9.3,0.466666667,12.14058,0.359772225,springs8 postfire 1yr
+springs8 postfire 1yr,dead,PIJE,0.020631624,2,11.15,13.8,8.5,,4.1,0.55,8.09372,0.083493295,springs8 postfire 1yr
+springs8 postfire 1yr,live,PICO,0.784982688,4,48.475,59.7,28.6,5.625,15.675,0.95,16.18744,3.17671504,springs8 postfire 1yr
+springs8 postfire 1yr,live,PIJE,0.888974117,8,33.4125,58.6,10.2,5.6625,10.825,1.1125,32.37488,3.597553795,springs8 postfire 1yr
+springs9 postfire 1yr,dead,PICO,0.421770595,4,26.725,69.1,7.8,,9.25,0.45,16.18744,1.706846549,springs9 postfire 1yr
+springs9 postfire 1yr,live,PICO,0.572150781,10,25.57,44.4,14.5,2.465,10.14,0.27,40.4686,2.31541411,springs9 postfire 1yr
+springs1 prefire na,live,pije,1.511997493,11,40.99090909,63.5,31.6,4.918181818,14.19090909,,44.51546,6.118842176,springs1 prefire na
+springs1 prefire na,stump,pije,,15,,,,,,,60.7029,,springs1 prefire na
+springs10 postfire 1yr,dead,PICO,0.005026548,1,8,8,8,2,5.5,1.2,4.04686,0.020341737,springs10 postfire 1yr
+springs10 postfire 1yr,live,PICO,1.68966791,10,42.2,75.9,13.7,2.83,15.42,1.15,40.4686,6.837849477,springs10 postfire 1yr
+springs10 postfire 1yr,live,PIJE,0.111938873,2,25.15,34.1,16.2,2.95,11.55,1.8,8.09372,0.453000949,springs10 postfire 1yr
+springs10 prefire na,live,pico,1.700980785,11,39.25454545,75.3,8.1,2.618181818,13.78181818,0.731818182,44.51546,6.883631099,springs10 prefire na
+springs10 prefire na,live,pije,0.10955519,2,24.9,33.7,16.1,2.5,11.1,1.25,8.09372,0.443354515,springs10 prefire na
+springs11 postfire 1yr,live,PIJE,1.189438395,5,49.44,94.3,28.1,7,15.6,2.46,20.2343,4.813490661,springs11 postfire 1yr
+springs11 prefire na,live,pije,1.177666062,5,49.14,94,27.9,6.46,15.4,2.88,20.2343,4.765849678,springs11 prefire na
+springs11 prefire na,stump,pije,,6,,,,,,,24.28116,,springs11 prefire na
+springs12 postfire 1yr,live,PIJE,1.335638692,9,41.84444444,67.3,30.7,7.222222222,15.11111111,2.311111111,36.42174,5.405142797,springs12 postfire 1yr
+springs12 prefire na,live,pije,1.328017188,9,41.86666667,66.6,30.7,,,,36.42174,5.374299638,springs12 prefire na
+springs12 prefire na,stump,pije,,5,,,,,,,20.2343,,springs12 prefire na
+springs13 postfire 1yr,live,PIJE,0.414257476,5,29.18,41.5,8.8,2.98,8.92,0.594,20.2343,1.676442009,springs13 postfire 1yr
+springs13 prefire na,live,pije,0.40220397,5,28.92,40.9,9.6,1.79,8.33,0.95,20.2343,1.627663159,springs13 prefire na
+springs13 prefire na,stump,pije,,2,,,,,,,8.09372,,springs13 prefire na
+springs14 postfire 1yr,live,PIJE,1.282122446,10,38.31,69.9,23.8,6.9,14.1,2.57,40.4686,5.188570044,springs14 postfire 1yr
+springs14 prefire na,live,pije,1.254552615,10,37.9,69.4,23.6,7.4,13.11,3.75,40.4686,5.076998794,springs14 prefire na
+springs14 prefire na,stump,pije,,4,,,,,,,16.18744,,springs14 prefire na
+springs15 postfire 1yr,dead,PICO,0.010386891,1,11.5,11.5,11.5,,5,0,4.04686,0.042034293,springs15 postfire 1yr
+springs15 postfire 1yr,live,PICO,0.312951323,3,35.73333333,45.8,29.7,4.733333333,13,0.633333333,12.14058,1.266470191,springs15 postfire 1yr
+springs15 postfire 1yr,live,PIJE,0.53560699,3,44.6,57.6,20.8,6,13.63333333,2.466666667,12.14058,2.167526503,springs15 postfire 1yr
+springs15 prefire na,live,pije,0.870676696,7,36.31428571,57.6,10.8,3.571428571,12.15714286,1.2,28.32802,3.523506694,springs15 prefire na
+springs15 prefire na,stump,pije,,1,,,,,,,4.04686,,springs15 prefire na
+springs16 postfire 1yr,live,PIJE,1.271297304,5,55.36,74.1,35.8,5.6,14.94,2.2,20.2343,5.144762206,springs16 postfire 1yr
+springs16 prefire na,live,pije,1.06908398,5,45.36,73.3,0.5,6,14.78,2.55,20.2343,4.326433195,springs16 prefire na
+springs17 postfire 1yr,live,PIJE,0.687035683,3,53.96666667,56,51.5,3.9,15,1,12.14058,2.780337223,springs17 postfire 1yr
+springs17 prefire na,live,pije,0.702732651,3,54.56666667,57.5,52.1,3.833333333,14.66666667,2.25,12.14058,2.843860654,springs17 prefire na
+springs17 prefire na,stump,pije,,3,,,,,,,12.14058,,springs17 prefire na
+springs18 postfire 1yr,live,PIJE,1.332978548,9,42.94444444,50.1,29,4.211111111,14,1.744444444,36.42174,5.394377568,springs18 postfire 1yr
+springs18 prefire na,live,pije,1.31857199,9,42.71111111,50,28.7,4.411111111,13.34444444,2.088888889,36.42174,5.336076243,springs18 prefire na
+springs18 prefire na,stump,pije,,7,,,,,,,28.32802,,springs18 prefire na
+springs19 postfire 1yr,live,PIJE,0.254592312,2,40.25,41.1,39.4,4,14.5,1.3,8.09372,1.030299446,springs19 postfire 1yr
+springs19 postfire 1yr,live,PIJE ,0.6940917,4,46.425,58.8,39.7,3.125,13.75,1,16.18744,2.808891937,springs19 postfire 1yr
+springs19 prefire na,live,pije,0.940874013,6,44.23333333,57.9,39.5,3.666666667,14.33333333,1.566666667,24.28116,3.807585408,springs19 prefire na
+springs19 prefire na,stump,pije,,2,,,,,,,8.09372,,springs19 prefire na
+springs2 prefire na,live,pije,0.751791761,6,39.31666667,52.3,30.2,,12.76666667,,24.28116,3.042396007,springs2 prefire na
+springs2 prefire na,stump,pije,,22,,,,,,,89.03092,,springs2 prefire na
+springs20 postfire 1yr,dead,PIJE ,0.009676891,1,11.1,11.1,11.1,,4,1,4.04686,0.039161022,springs20 postfire 1yr
+springs20 postfire 1yr,live,PIJE,0.28782408,2,42.65,46.3,39,4,12.5,1.75,8.09372,1.164783755,springs20 postfire 1yr
+springs20 postfire 1yr,live,PIJE ,0.383509138,3,39.96666667,47.7,35.3,4.5,14.66666667,2,12.14058,1.552007789,springs20 postfire 1yr
+springs20 prefire na,live,pije,0.664286036,6,35.64166667,47,11.2,4.1,11.63333333,,24.28116,2.688272587,springs20 prefire na
+springs20 prefire na,stump,pije,,16,,,,,,,64.74976,,springs20 prefire na
+springs21 postfire 1yr,live,PIJE,1.13702799,8,41.9625,51.6,28.3,8.4125,14.85,1.4125,32.37488,4.601393091,springs21 postfire 1yr
+springs21 prefire na,dead,pije,,1,,,,,,,4.04686,,springs21 prefire na
+springs21 prefire na,live,pije,1.014856164,8,39.5125,51.4,28.5,3.825,13.5375,1.5,32.37488,4.106980815,springs21 prefire na
+springs21 prefire na,stump,pije,,10,,,,,,,40.4686,,springs21 prefire na
+springs22 postfire 1yr,live,PIJE,2.4072707,14,46.36071429,54.3,34.3,,,,56.65604,9.741887505,springs22 postfire 1yr
+springs22 prefire na,live,pije,1.188294855,7,46.11428571,53.5,35.2,5.457142857,15.92857143,2.328571429,28.32802,4.808862916,springs22 prefire na
+springs22 prefire na,stump,pije,,23,,,,,,,93.07778,,springs22 prefire na
+springs23 postfire 1yr,live,PIJE,0.96340473,6,43.95,57.5,24.8,3.916666667,12.5,1.533333333,24.28116,3.898764066,springs23 postfire 1yr
+springs23 prefire na,live,pije,0.772413961,5,42.88,56.5,24.5,3.8,11.4,2,20.2343,3.125851162,springs23 prefire na
+springs23 prefire na,stump,pije,,6,,,,,,,24.28116,,springs23 prefire na
+springs24 postfire 1yr,dead,PIJE ,0.041547563,1,23,23,23,,5,0.8,4.04686,0.16813717,springs24 postfire 1yr
+springs24 postfire 1yr,live,PIJE,0.328978158,2,45.3,51.8,38.8,5,13.5,1.1,8.09372,1.331328548,springs24 postfire 1yr
+springs24 postfire 1yr,live,PIJE ,0.608616032,3,50.4,59.2,43.5,7.666666667,19.33333333,3.066666667,12.14058,2.462983877,springs24 postfire 1yr
+springs24 prefire na,live,pije,0.968242783,6,44.01666667,58.5,23.9,3.883333333,16.25,,24.28116,3.918342988,springs24 prefire na
+springs24 prefire na,stump,pije,,5,,,,,,,20.2343,,springs24 prefire na
+springs25 postfire 1yr,live,PIJE,0.380032966,3,39.63333333,48.2,32.5,2.833333333,12,1.333333333,12.14058,1.537940207,springs25 postfire 1yr
+springs25 prefire na,live,pije,0.376382435,3,39.43333333,48.2,32.6,3,11.56666667,1.5,12.14058,1.52316702,springs25 prefire na
+springs25 prefire na,stump,pije,,2,,,,,,,8.09372,,springs25 prefire na
+springs26 postfire 1yr,dead,PICO,0.300037806,9,18.51111111,39,7.2,,10.77777778,1.533333333,36.42174,1.214210997,springs26 postfire 1yr
+springs26 postfire 1yr,dead,PIJE,0.068570757,7,10.64285714,16.2,7.8,,5.628571429,0.871428571,28.32802,0.277496256,springs26 postfire 1yr
+springs26 postfire 1yr,live,PICO,0.341791929,5,28.94,38.9,21.7,4.66,12.9,0.58,20.2343,1.383184086,springs26 postfire 1yr
+springs26 postfire 1yr,live,PIJE,1.03164562,10,30.94,62.5,9.2,4.93,11.61,1.78,40.4686,4.174925395,springs26 postfire 1yr
+springs26 prefire na,dead,pico,0.573882584,2,49.7,84.1,15.3,,14.5,1.5,8.09372,2.322422474,springs26 prefire na
+springs26 prefire na,live,"",0.004778362,1,7.8,7.8,7.8,4,6,0.6,4.04686,0.019337364,springs26 prefire na
+springs26 prefire na,live,pico,0.628061902,13,23.04230769,39.3,8.8,4.415384615,11.23846154,0.903846154,52.60918,2.541678588,springs26 prefire na
+springs26 prefire na,live,pije,1.106540993,17,22.72058824,61.2,8.1,3.752941176,8.829411765,1.841176471,68.79662,4.478016482,springs26 prefire na
+springs27 postfire 1yr,dead,PICO,0.079407681,2,21.35,28.4,14.3,,9.75,0,8.09372,0.321351769,springs27 postfire 1yr
+springs27 postfire 1yr,dead,PIJE,0.007697687,1,9.9,9.9,9.9,,5.2,0.5,4.04686,0.031151463,springs27 postfire 1yr
+springs27 postfire 1yr,live,PICO,0.367461883,3,39.23333333,45.5,35.1,3.433333333,14.76666667,0.433333333,12.14058,1.487066794,springs27 postfire 1yr
+springs27 postfire 1yr,live,PIJE,0.772527844,13,24.65384615,49.6,9.4,4.515384615,10.04615385,1.346153846,52.60918,3.12631203,springs27 postfire 1yr
+springs27 prefire na,dead,pico,0.09790852,2,23.95,31,16.9,,10.75,0.275,8.09372,0.396222075,springs27 prefire na
+springs27 prefire na,dead,pije,0.007853982,1,10,10,10,,5,0.8,4.04686,0.031783964,springs27 prefire na
+springs27 prefire na,live,pico,0.375856218,3,39.63333333,46.5,35.1,3,14,0.866666667,12.14058,1.521037495,springs27 prefire na
+springs27 prefire na,live,pije,0.766898895,13,24.58461538,49.7,9.2,3.692307692,9.584615385,1.219230769,52.60918,3.103532462,springs27 prefire na
+springs27 prefire na,stump,pije,,1,,,,,,,4.04686,,springs27 prefire na
+springs28 postfire 1yr,dead,PIJE,0.034659621,4,10.4,12.5,8.7,,5,1.125,16.18744,0.140262634,springs28 postfire 1yr
+springs28 postfire 1yr,live,PIJE,1.591968305,23,25.90869565,60.3,9.7,3.934782609,9.134782609,1.034782609,93.07778,6.442472855,springs28 postfire 1yr
+springs28 prefire na,live,pije,1.751670382,28,24.26428571,61.8,7.9,3.466071429,8.494642857,1.389285714,113.31208,7.088764803,springs28 prefire na
+springs29 postfire 1yr,live,PIJE,0.733244584,5,42.6,53.4,31.8,5.3,14.6,1.4,20.2343,2.967338176,springs29 postfire 1yr
+springs29 prefire na,live,pije,0.710506522,5,41.94,52.8,31.6,5.86,14.84,1.34,20.2343,2.875320422,springs29 prefire na
+springs3 prefire na,live,pije,1.455929489,10,40.65,72.2,27.2,3.6,11.88,,40.4686,5.891942813,springs3 prefire na
+springs3 prefire na,stump,pije,,5,,,,,,,20.2343,,springs3 prefire na
+springs30 postfire 1yr,dead,PIJE,0.058994398,8,9.55,12.5,7.8,,4.625,0.5625,32.37488,0.238742068,springs30 postfire 1yr
+springs30 postfire 1yr,dead,PIJE ,0.012271846,1,12.5,12.5,12.5,,5,0.5,4.04686,0.049662444,springs30 postfire 1yr
+springs30 postfire 1yr,live,PICO,0.102353874,1,36.1,36.1,36.1,7,16,1,4.04686,0.414211799,springs30 postfire 1yr
+springs30 postfire 1yr,live,PIJE,1.508083854,16,27.0875,100.7,10,5.3625,9.3125,0.7625,64.74976,6.103004226,springs30 postfire 1yr
+springs30 postfire 1yr,live,PIJE ,0.131438739,3,21.83333333,34.2,13,5,9.333333333,0.7,12.14058,0.531914175,springs30 postfire 1yr
+springs30 prefire na,live,pico,0.101222901,1,35.9,35.9,35.9,4,13.5,1.75,4.04686,0.409634908,springs30 prefire na
+springs30 prefire na,live,pije,1.776897371,32,20.10625,101,7.7,2.4640625,7.0359375,0.6753125,129.49952,7.190854896,springs30 prefire na
+springs31 postfire 1yr,dead,PIJE,0.10052154,5,15.88,18.3,12.7,,7.32,1.28,20.2343,0.4067966,springs31 postfire 1yr
+springs31 postfire 1yr,live,PICO,0.074506011,1,30.8,30.8,30.8,6.5,14.9,1.5,4.04686,0.301515397,springs31 postfire 1yr
+springs31 postfire 1yr,live,PIJE,1.48640608,15,34.48666667,50.8,18.8,6.313333333,13.84666667,2.926666667,60.7029,6.015277307,springs31 postfire 1yr
+springs33 postfire 1yr,live,PIJE,1.298659005,6,52.23333333,59.8,43.9,4.166666667,16.21666667,1.416666667,24.28116,5.25549118,springs33 postfire 1yr
+springs34 postfire 1yr,live,PIJE,0.668569401,4,43.725,61,20.4,3.025,14.5,1.2,16.18744,2.705606767,springs34 postfire 1yr
+springs35 postfire 1yr,live,PICO,0.420950639,3,41.9,49.7,37.1,1.9,11.16666667,0,12.14058,1.703528303,springs35 postfire 1yr
+springs35 postfire 1yr,live,PIJE,0.604345823,4,37.575,75.2,16.6,5.4,11.875,1.075,16.18744,2.445702936,springs35 postfire 1yr
+springs35 prefire na,live,PICO,,3,,,,2.7,12.93333333,0.7,12.14058,,springs35 prefire na
+springs35 prefire na,live,PIJE,,4,,,,2.075,9.525,0.25,16.18744,,springs35 prefire na
+springs37 postfire 1yr,dead,PIJE,0.048416655,3,13.8,18.6,9.1,,4.866666667,1.433333333,12.14058,0.195935425,springs37 postfire 1yr
+springs37 postfire 1yr,live,PICO,0.336005901,2,45.2,55,35.4,2.5,16,0.05,8.09372,1.359768839,springs37 postfire 1yr
+springs37 postfire 1yr,live,PIJE,2.296742205,11,48.51818182,87.7,17.3,5.436363636,16.33636364,1.427272727,44.51546,9.294594161,springs37 postfire 1yr
+springs37 prefire na,live,pico,0.507141804,3,45.3,59.2,36,1.2,14.73333333,0.103333333,12.14058,2.052331882,springs37 prefire na
+springs37 prefire na,live,pije,2.223508539,13,41.25384615,87.5,9.5,4.915384615,13.98461538,1.329230769,52.60918,8.998227766,springs37 prefire na
+springs37 prefire na,stump,pico,,1,,,,,,,4.04686,,springs37 prefire na
+springs37 prefire na,stump,pije,,2,,,,,,,8.09372,,springs37 prefire na
+springs38 postfire 1yr,dead,PICO,0.241922269,1,55.5,55.5,55.5,,16,1.3,4.04686,0.979025555,springs38 postfire 1yr
+springs38 postfire 1yr,live,PIJE,1.934466307,8,54.7875,65.7,44,9.3375,19.1375,3.5625,32.37488,7.828514319,springs38 postfire 1yr
+springs38 prefire na,dead,pico,0.237582944,1,55,55,55,,15,2,4.04686,0.961464914,springs38 prefire na
+springs38 prefire na,live,pije,1.923879925,8,54.625,65.3,43.8,8.25,18.7875,3.325,32.37488,7.785672714,springs38 prefire na
+springs38 prefire na,stump,pije,,18,,,,,,,72.84348,,springs38 prefire na
+springs39 postfire 1yr,dead,PICO,0.218956442,1,52.8,52.8,52.8,,13,0,4.04686,0.886086065,springs39 postfire 1yr
+springs39 postfire 1yr,live,PICO,0.137885287,1,41.9,41.9,41.9,6,12.3,1,4.04686,0.558002452,springs39 postfire 1yr
+springs39 postfire 1yr,live,PIJE,0.735091251,3,55.71666667,60,50.5,5,18.66666667,1.866666667,12.14058,2.974811381,springs39 postfire 1yr
+springs39 prefire na,dead,pico,0.238447668,1,55.1,55.1,55.1,,13.7,0.01,4.04686,0.964964329,springs39 prefire na
+springs39 prefire na,live,pico,0.141862543,1,42.5,42.5,42.5,7.4,13,0.5,4.04686,0.574097852,springs39 prefire na
+springs39 prefire na,live,pije,0.72906548,3,55.5,59.5,50.5,5.233333333,18.5,1.833333333,12.14058,2.950425929,springs39 prefire na
+springs39 prefire na,stump,pico,,1,,,,,,,4.04686,,springs39 prefire na
+springs39 prefire na,stump,pije,,3,,,,,,,12.14058,,springs39 prefire na
+springs4 prefire na,live,pije,0.389212699,3,40.63333333,41.5,39.4,3,11.86666667,,12.14058,1.575089304,springs4 prefire na
+springs4 prefire na,stump,pije,,4,,,,,,,16.18744,,springs4 prefire na
+springs40 postfire 1yr,dead,PICO,0.048695472,1,24.9,24.9,24.9,,8.9,0,4.04686,0.197063756,springs40 postfire 1yr
+springs40 postfire 1yr,dead,PIJE,0.006792909,1,9.3,9.3,9.3,,3.2,0.3,4.04686,0.027489951,springs40 postfire 1yr
+springs40 postfire 1yr,live,PICO,0.160932796,4,22.4,27.5,18.5,2.5,5.475,0.15,16.18744,0.651272495,springs40 postfire 1yr
+springs40 postfire 1yr,live,PIJE,0.239229139,2,32.7,54,11.4,3.35,9.95,0.85,8.09372,0.968126833,springs40 postfire 1yr
+springs40 prefire na,live,pico,0.213417225,5,23.07,27.4,18.2,1.2,5.98,0.17,20.2343,0.86366963,springs40 prefire na
+springs40 prefire na,live,pije,0.248021868,3,24.98333333,54.25,9.8,2.133333333,7.466666667,0.6,12.14058,1.003709776,springs40 prefire na
+springs40 prefire na,stump,pije,,3,,,,,,,12.14058,,springs40 prefire na
+springs41 prefire ,live,PIJE,1.741577427,8,51.80625,68,38.15,3.775,16.85,2.475,32.37488,7.047920025,springs41 prefire 
+springs42 prefire ,live,PIJE,0.786299015,4,49.425,58.5,38,4.975,13.9,2.45,16.18744,3.182042032,springs42 prefire 
+springs43 prefire ,live,PIJE,0.805016624,15,24.42,40.9,9.1,2.96,7.98,1.36,60.7029,3.257789575,springs43 prefire 
+springs44 prefire ,dead,PIJE,0.147934456,1,43.4,43.4,43.4,,12.9,2,4.04686,0.598670034,springs44 prefire 
+springs44 prefire ,live,PIJE,1.510239772,10,42.65,61.7,27.2,6.81,16.25,3.45,40.4686,6.111728925,springs44 prefire 
+springs45 prefire ,live,PIJE,0.89443499,4,51.4,65.4,29.2,3.075,14.4,0.45,16.18744,3.619653185,springs45 prefire 
+springs46 prefire ,live,PICO,0.25837479,2,39.75,47.8,31.7,2.85,16.05,1.25,8.09372,1.045606603,springs46 prefire 
+springs46 prefire ,live,PIJE ,0.971385946,4,54.975,65.4,45.9,3.9,18.225,1.9,16.18744,3.931062931,springs46 prefire 
+springs47 prefire ,live,PIJE,0.95135201,5,47.5,65.5,26.9,4.06,13.82,1.9,20.2343,3.849988395,springs47 prefire 
+springs48 prefire ,live,PIJE ,0.718162583,3,54.96666667,62.2,50.5,3.766666667,17.6,2.6,12.14058,2.90630343,springs48 prefire 
+springs49 prefire ,live,PIJE,1.473847563,6,54.05,72.1,36.6,7.516666667,17.6,3.116666667,24.28116,5.964454748,springs49 prefire 
+springs5 prefire na,live,pije,1.393409439,5,58.88,68.6,45.9,5.04,17.6,,20.2343,5.638932923,springs5 prefire na
+springs5 prefire na,stump,pije,,20,,,,,,,80.9372,,springs5 prefire na
+springs50 prefire ,live,PIJE,0.54417804,2,57.85,68.7,47,4,17.1,1.4,8.09372,2.202212343,springs50 prefire 
+springs51 prefire ,live,PIJE,1.896456963,8,53.425,77.2,33.7,4.8875,17.5625,1.525,32.37488,7.674695825,springs51 prefire 
+springs6 prefire na,dead,pico,0.020358306,1,16.1,16.1,16.1,,5.9,0.4,4.04686,0.082387213,springs6 prefire na
+springs6 prefire na,live,pico,1.298102157,28,19.68214286,68.9,7.7,2.382142857,8.107142857,,113.31208,5.253237697,springs6 prefire na
+springs7 prefire na,dead,pico,0.011309734,1,12,12,12,,9.4,,4.04686,0.045768908,springs7 prefire na
+springs7 prefire na,live,pico,1.887541123,17,33.17647059,72.4,13.9,3.470588235,14.12352941,,68.79662,7.638614669,springs7 prefire na
+springs7 prefire na,stump,pico,,5,,,,,,,20.2343,,springs7 prefire na
+springs8 prefire na,live,pico,0.869547293,7,35.28571429,59.6,11.8,3.285714286,12.71428571,,28.32802,3.51893616,springs8 prefire na
+springs8 prefire na,live,pije,0.904654591,10,28.8,57.7,8.2,3.28,8.84,,40.4686,3.661010479,springs8 prefire na

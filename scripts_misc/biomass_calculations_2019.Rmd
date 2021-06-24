@@ -1,0 +1,198 @@
+---
+title: "Biomass Calculations 2019"
+output: html_document
+authors: Sara Winsemius and Daniel O'Brien
+---
+
+Note to self: all biomass measures are slope corrected. Maybe don't do that? Need to look into it more.
+
+1. Load in data and source functions.
+```{r, message=FALSE, warning=FALSE}
+library(raster)
+
+source("biomass_equations_2019.R")
+
+# read in tree and cwd data
+tree_data <- read.csv("../../data/saved/tree_data_all.csv", stringsAsFactors = FALSE)
+cwd_data <- read.csv("../../data/saved/cwd_data_all.csv", stringsAsFactors = FALSE)
+
+tree_data$BA <- pi*(tree_data$DBH_cm)^2/40000
+```
+
+1.5. Extract slope data, and aspect while we're at it. NOTE: This chunk will not work because there is no plot data yet. If we have an all-plots data file we can use that, otherwise maybe this can be cut in later on in this script?
+
+```{r, warning=FALSE}
+library(raster)
+library(sf)
+library(rgdal)
+
+# load topo data
+slope <- raster("../../data/RS_data/topo/slope_mosaic.tif")
+aspect <- raster("../../data/RS_data/topo/aspect_mosaic.tif")
+# topo data is in NAD83, same as the GPS unit, so get the CRS for the plot data
+nad83 <- st_crs(slope)
+# set plot data to spatial_points_dataframe
+tree_plot_data <- tree_data[ , 1:7]
+cwd_plot_data <- cwd_data[ , 1:7]
+
+all_data <- rbind(tree_plot_data, cwd_plot_data)
+
+all_plots <- summarize(group_by(all_data, PlotID, Date, Observers, FireSev, Easting, Northing, PointAccuracy))
+
+plots <- st_as_sf(all_plots, coords = c("Easting", "Northing"), crs = nad83)
+
+# extract slope and aspect 
+stack <- stack(slope, aspect)
+topo <- extract(stack, plots)
+
+plots <- cbind(plots, topo)
+
+head(plots)
+#which(plots$slope == 72) #72% slope is max
+#plots[41,] # PAL303 slope from our plot data is 78%
+#plots[111,] # LAK304 slope is 58%
+
+plots$aspect <- plots$aspect_mosaic
+plots$slope <- plots$slope_mosaic
+del <- c("aspect_mosaic", "slope_mosaic")
+plots <- plots[, !(names(plots) %in% del)] # taking out
+head(plots)
+#st_write(plotshp, "../../plots/biomass_allplots.shp", driver = "ESRI shapefile")
+
+# change object name to maintain consistency in script
+slope_data <- data.frame(PlotID = rep(0, nrow(plots)))
+slope_data$PlotID <- plots$PlotID
+slope_data$aspect <- plots$aspect
+slope_data$slope <- plots$slope
+```
+
+2. Calculate biomass for each tree and cwd entry and group by plot.
+
+```{r, warning=FALSE}
+library(dplyr)
+library(purrr)
+library(tidyr)
+
+# apply biomass calculation to all tree entries
+tree_data$Biomass_kg <- pmap_dbl(list(species = tree_data$Species, dia = tree_data$DBH_cm, tht = tree_data$Height_m), calc_tree_biomass)
+
+# group data by plot and calculate sum of tree biomass
+tree_plot_data <- summarize(group_by(tree_data, PlotID, Date, Observers, FireSev, Northing, Easting, PointAccuracy), LiveTreeBiomass_kg = sum(Biomass_kg[which(Status == "L")]), DeadTreeBiomass_kg = sum(Biomass_kg[which(Status == "D")]), BA = sum(BA))
+
+# calculate squared diameter for cwd biomass calculation
+cwd_data$DiameterIntersectSquared_cmsq <- cwd_data$DiameterIntersect_cm^2
+
+# assign decay type to each cwd entry
+cwd_data$DecayType <- if_else(cwd_data$DecayClass %in% c(1, 2, 3), "Sound", "Rotten")
+
+# join cwd data with slope data
+cwd_data <- left_join(cwd_data, slope_data, by = "PlotID")
+
+# calculate slope factor for cwd biomass calculation
+cwd_data$SlopeFactor <- sqrt(1 + (cwd_data$slope/100)^2)
+
+# group cwd entries by plot and calculate sum of sound and rotten cwd squared diameters
+cwd_plot_data <- summarize(group_by(cwd_data, PlotID, Date, Observers, FireSev, Northing, Easting, PointAccuracy, SlopeFactor), SoundSumDiameterIntersectSquared_cmsq = sum(DiameterIntersectSquared_cmsq[which(DecayType == "Sound")]), RottenSumDiameterIntersectSquared_cmsq = sum(DiameterIntersectSquared_cmsq[which(DecayType == "Rotten")]))
+
+# assign 1 to NULL slope factor values
+cwd_plot_data$SlopeFactor[which(is.na(cwd_plot_data$SlopeFactor))] <- 1
+
+# assign 0 to NULL sound sum diameter squared values
+cwd_plot_data$SoundSumDiameterIntersectSquared_cmsq[which(is.na(cwd_plot_data$SoundSumDiameterIntersectSquared_cmsq))] <- 0
+
+# assign 0 to NULL rotten sum diameter squared values
+cwd_plot_data$RottenSumDiameterIntersectSquared_cmsq[which(is.na(cwd_plot_data$RottenSumDiameterIntersectSquared_cmsq))] <- 0
+
+# calculate sound cwd plot biomass for each plot
+cwd_plot_data$SoundCWDBiomass_MgAcre <- pmap_dbl(list(cwd_plot_data$SoundSumDiameterIntersectSquared_cmsq, "Sound", cwd_plot_data$SlopeFactor), calc_cwd_biomass)
+
+# calculate rotten cwd plot biomass for each plot
+cwd_plot_data$RottenCWDBiomass_MgAcre <- pmap_dbl(list(cwd_plot_data$RottenSumDiameterIntersectSquared_cmsq, "Rotten", cwd_plot_data$SlopeFactor), calc_cwd_biomass)
+
+# remove extra info from cwd plot data
+cwd_plot_data_trim <- cwd_plot_data[, c(1, 11, 12)]
+
+# join tree and cwd biomass data
+biomass_data <- full_join(tree_plot_data, cwd_plot_data_trim, by = "PlotID")
+
+# add plot info for SUM503 as it was lost in the join due to no tree entries present
+biomass_data[which(biomass_data$PlotID == "SUM503"), 2:9] <- c(cwd_plot_data[which(cwd_plot_data$PlotID == "SUM503"), 2:7], 0, 0)
+
+# assign 0 to NULL sound and rotten biomass values
+biomass_data$SoundCWDBiomass_MgAcre[which(is.na(biomass_data$SoundCWDBiomass_MgAcre))] <- 0
+biomass_data$RottenCWDBiomass_MgAcre[which(is.na(biomass_data$RottenCWDBiomass_MgAcre))] <- 0
+
+# join biomass and slope data
+biomass_data <- left_join(biomass_data, slope_data, by = "PlotID")
+
+# horizontal area for each plot
+area_acre = (pi*14.2^2)/4046.856 # roughly 1/6 acre (0.156)
+
+# calculate slope area for each plot
+biomass_data$SlopeArea_acre <- pmap_dbl(list(area_acre, biomass_data$slope), calc_slope_area)
+
+# calculate live tree biomass in metric tons per acre
+biomass_data$LiveTreeBiomass_MgAcre <- (biomass_data$LiveTreeBiomass_kg/1000) / biomass_data$SlopeArea_acre
+
+# calculate dead tree biomass in metric tons per acre
+biomass_data$DeadTreeBiomass_MgAcre <- (biomass_data$DeadTreeBiomass_kg/1000) / biomass_data$SlopeArea_acre
+
+# calculate BA per acre
+biomass_data$BA_m2acre <- biomass_data$BA / biomass_data$SlopeArea_acre
+
+# organzie biomass plot data
+biomass_plot_data <- biomass_data[ , c(1:7, 13:18, 11:12)]
+
+# calculate total biomass in metric tons per acre
+# FIND OUT IF CWD BIOMASS IS IN METRIC OR US TONS
+biomass_plot_data$TotalBiomass_MgAcre <- biomass_plot_data$LiveTreeBiomass_MgAcre + biomass_plot_data$DeadTreeBiomass_MgAcre + biomass_plot_data$SoundCWDBiomass_MgAcre + biomass_plot_data$RottenCWDBiomass_MgAcre
+```
+
+4. Potential Annual Heat Load
+
+```{r}
+# extract relevant variables
+pahl_data <- biomass_plot_data[c('PlotID', 'Northing', 'Easting', 'aspect', 'slope')]
+
+# convert UTM to LatLon
+coordinates(pahl_data) <- c('Easting', 'Northing')
+proj4string(pahl_data) <- CRS('+proj=utm +zone=11 +ellps=WGS84 +datum=WGS84 +units=m +no_defs')
+
+pahl_data <- spTransform(pahl_data, CRS('+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs'))
+
+pahl_data <- as.data.frame(pahl_data)
+names(pahl_data)[4:5] <- c('Lon', 'Lat')
+
+# calculate potential annual heat load
+pahl_data$folded_asp <- fold_aspect(pahl_data$aspect)
+
+pahl_data$pahl <- pahl(pahl_data$Lat, pahl_data$slope, pahl_data$folded_asp)
+
+# add pahl data to biomass_plot_data
+
+biomass_plot_data <- left_join(biomass_plot_data, pahl_data[c('PlotID', 'pahl')], by = 'PlotID')
+```
+
+
+4.5 Make some names shorter
+```{r}
+names(biomass_plot_data)
+
+colnames(biomass_plot_data)[colnames(biomass_plot_data) == "LiveTreeBiomass_MgAcre"] <- "LiveTree_MgAcre"
+colnames(biomass_plot_data)[colnames(biomass_plot_data) == "DeadTreeBiomass_MgAcre"] <- "DeadTree_MgAcre"
+colnames(biomass_plot_data)[colnames(biomass_plot_data) == "SoundCWDBiomass_MgAcre"] <- "SoundCWD_MgAcre"
+colnames(biomass_plot_data)[colnames(biomass_plot_data) == "RottenCWDBiomass_MgAcre"] <- "RottenCWD_MgAcre"
+
+
+```
+
+
+5. Export to csv and shapefile.
+
+```{r}
+write.csv(tree_data, "../../data/saved/tree_data_with_biomass_all.csv")
+write.csv(biomass_plot_data, "../../data/saved/biomass_data_all.csv")
+
+#st_write(plotshp, "../../plots/biomass_allplots.shp", driver = "ESRI shapefile")
+```
+

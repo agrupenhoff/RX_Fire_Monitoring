@@ -150,7 +150,9 @@ springs_div_shan <- ddply(springs_species,~plotid_time,function(x) {
   data.frame(SHANNON=diversity(x[-1], index="shannon"))})
 
 springs_div_shan <- springs_div_shan %>% 
-  separate(plotid_time, c("plotid","pre_post_fire"))
+  separate(plotid_time, c("plotid","pre_post_fire")) %>% 
+  mutate(pre_post_fire = factor(pre_post_fire, levels=c('prefire',
+                                                        'postfire')))
 
 springs_div_shan <- left_join(springs_div_shan, springs_trt, by="plotid")
 
@@ -166,15 +168,14 @@ springs_divShan_burnplot <- ggplot(data=springs_divShan_burn,
   
   scale_fill_manual(values=wes_palette("BottleRocket1"))+
   theme_minimal()+
- 
   theme(axis.title=element_text(size=14,face="bold"),
-        axis.text=element_text(size=12,angle = 45, hjust=1))
+        axis.text=element_text(size=12,angle = 45, hjust=1))+
+  stat_compare_means(aes(label = ..p.signif..))
 springs_divShan_burnplot 
 
 springs_divShan_burnplot2 <- ggplot(data=springs_divShan_burn, 
                                    aes(x=PriorBurn, y=SHANNON, fill=pre_post_fire))+
   geom_boxplot()+
-  geom_jitter()+
   scale_fill_manual(values=wes_palette("BottleRocket1"))+
   theme_minimal()+
   stat_compare_means(aes(label = ..p.signif..))+

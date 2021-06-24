@@ -3,12 +3,11 @@ library(tibble)
 library(dplyr)
 library(ggplot2)
 library(vegan)
-library(knitr)
 library(kableExtra)
 library(rio)
 library(lme4)
-library(wesanderson)
 library(ggpubr)
+library(wesanderson)
 
 springs_trt <- import("SiteLocation/Springs_Fire/data/clean/springs_trt.csv")
 Springs_fuels_byunit <- read.csv("SiteLocation/Springs_Fire/data/clean/Springsfuels_byunit.csv")
@@ -25,6 +24,7 @@ Springs_fuels_byunit <- read.csv("SiteLocation/Springs_Fire/data/clean/Springsfu
               #export(Springs_fuels_byunit, "SiteLocation/Springs_Fire/data/clean/Springsfuels_byunit.csv")
 
 #########################################
+
 
 
 
@@ -62,15 +62,34 @@ springs_fuels_preburn <-  Springs_fuels_byunit %>%
            fuel_type_size == "total_fuel") 
 
 springs_fuelplot_preburn <- ggplot(data=springs_fuels_preburn, 
-                                  aes(x=burn_unit, y=mass_ton_acre, 
-                                      fill=burn_unit))+
+                                  aes(x=priorburn_rx, y=mass_ton_acre, 
+                                      fill=priorburn_rx))+
   geom_boxplot()+
   facet_wrap(~ fuel_type_size, scales = "free_y") +
   scale_fill_manual(values=wes_palette("BottleRocket1"))+
   theme_minimal()+
   theme(axis.title=element_text(size=14,face="bold"),
-        axis.text=element_text(size=12,angle = 45, hjust=1))
+        axis.text.x=element_text(size=12,angle = 45, hjust=1))
 springs_fuelplot_preburn
+
+springs_fuels_preburn_summarize <- springs_fuels_preburn %>% 
+  group_by(priorburn_rx, fuel_type_size) %>% 
+  summarize(N    = length(mass_ton_acre),
+            mean = mean(mass_ton_acre),
+            sd   = sd(mass_ton_acre),
+            se   = sd / sqrt(N))
+springs_fuels_preburn_summarize
+
+sumFuels <- springs_fuels_burned %>% 
+  filter(year_prepostfire == "2019 prefire"|
+           year_prepostfire == "2019 postfire") %>% 
+  group_by(fuel_type_size, PriorBurn, year_prepostfire) %>% 
+  summarise(
+    count=n(),
+    mean = mean(mass_ton_acre, na.rm=TRUE))
+
+
+
 
 #################
 #COMPARE PRE AND POST SPRINGS FIRE BETWEEN TSLF
@@ -89,12 +108,29 @@ springs_fuels_burned <- Springs_fuels_byunit %>%
 springs_fuelplot_burned <- ggplot(data=springs_fuels_burned, 
                            aes(x=priorburn_rx, y=mass_ton_acre, fill=pre_post_fire))+
   geom_boxplot()+
-  geom_jitter(alpha=0.4)+
   facet_wrap(~ fuel_type_size, scales = "free_y") +
   scale_fill_manual(values=wes_palette("BottleRocket1"))+
-  theme_minimal()+
-  stat_compare_means(aes(label = ..p.signif..))
+  theme_minimal()
 springs_fuelplot_burned
+
+springs_fuelplot_burned <- ggplot(data=springs_fuels_burned, 
+                                  aes(x=PriorBurn, y=mass_ton_acre, fill=pre_post_fire))+
+  geom_boxplot()+
+  facet_wrap(~ fuel_type_size, scales = "free_y") +
+  scale_fill_manual(values=wes_palette("BottleRocket1"))+
+  theme_minimal()
+springs_fuelplot_burned
+
+sumFuels <- springs_fuels_burned %>% 
+  filter(year_prepostfire == "2019 prefire"|
+           year_prepostfire == "2019 postfire") %>% 
+  group_by(fuel_type_size, PriorBurn, year_prepostfire) %>% 
+  summarise(
+    count=n(),
+    mean = mean(mass_ton_acre, na.rm=TRUE))
+
+
+
 
 #Just total Fuel
 springs_totalfuels_burned <- springs_fuels_burned %>% 
@@ -103,17 +139,16 @@ springs_totalfuels_burned <- springs_fuels_burned %>%
 springs_TOTplot_burned <- ggplot(data=springs_totalfuels_burned, 
                                   aes(x=priorburn_rx, y=mass_ton_acre, fill=pre_post_fire))+
   geom_boxplot()+
-  geom_jitter(alpha=0.4)+
-  facet_wrap(~ fuel_type_size, scales = "free_y") +
   scale_fill_manual(values=wes_palette("BottleRocket1"))+
   theme_minimal()+
+  theme(axis.title=element_text(size=14,face="bold"),
+        axis.text=element_text(size=12,angle = 45, hjust=1))+
   stat_compare_means(aes(label = ..p.signif..))
 springs_TOTplot_burned
 
 springs_TOTplot_burned2 <- ggplot(data=springs_totalfuels_burned, 
                                  aes(x=PriorBurn, y=mass_ton_acre, fill=pre_post_fire))+
   geom_boxplot()+
-  geom_jitter(alpha=0.4)+
   facet_wrap(~ fuel_type_size, scales = "free_y") +
   scale_fill_manual(values=wes_palette("BottleRocket1"))+
   theme_minimal()+

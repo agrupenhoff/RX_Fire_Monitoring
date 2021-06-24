@@ -1,6 +1,3 @@
-library(dplyr)
-
-
 # 1. Calculation for biomass
 
 calc_cwd_biomass <- function(sum_dia, type, slope_factor) {
@@ -37,10 +34,17 @@ calc_slope_area <- function(horz_area, slope_percent) {
 
 ####### Calculations:
 
-fuels_data <- read.csv("R/SpringsFire/Pre_SpringsFire_FUELS.csv", stringsAsFactors = FALSE)
+cwd_data <- read.csv("../../data/saved/cwd_data_all.csv", stringsAsFactors = FALSE)
 
-# join fuels data with slope data
-fuels_data <- left_join(fuels_data, 
+# calculate squared diameter for cwd biomass calculation
+cwd_data$DiameterIntersectSquared_cmsq <- cwd_data$DiameterIntersect_cm^2
+
+# assign decay type to each cwd entry
+cwd_data$DecayType <- if_else(cwd_data$DecayClass %in% c(1, 2, 3), "Sound", "Rotten")
+
+# join cwd data with slope data
+cwd_data <- left_join(cwd_data, slope_data, by = "PlotID")
+
 # calculate slope factor for cwd biomass calculation
 cwd_data$SlopeFactor <- sqrt(1 + (cwd_data$slope/100)^2)
 
