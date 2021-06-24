@@ -1,0 +1,40 @@
+﻿category,location,mean,sd,reference
+canopycover_%,Tahoe Basin - east shore,16.6,,Taylor (2004)
+canopycover_%,Lassen NF - ponderosa pine,43.7,1.5,Taylor (2010)
+canopycover_%,Sierra San Pedro Martir,25.3,3.8,Stephens and Gill (2005)
+canopycover_%,Sierra Nevada,43.1,17.9,Lyderson and North (2012)
+canopycover_%,Yosemite NP - Illilouette,25,,Collins et al. (2015)
+canopycover_%,Sequoia NF - mixed conifer,25.2,7.1,Stephens et al. (2015)
+canopycover_%,Sequoia NF - ponderosa pine,12.1,5.1,Stephens et al. (2015)
+canopycover_%,Sierra Juarez,35.8,7.6,Safford (in prep)
+canopycover_%,Sierra NF - ponderosa pine,22.1,,Meyer et al. (2013)
+canopycover_%,Sierra San Pedro Martir,25,2.5,Dunbar-Irwin & Safford (2016)
+canopycover_%,grandmean,27.4,10.4,Stephenet al. (2015)
+density_#ha,Tahoe Basin,68.0,22.2,Taylor (2004) >10 cm dbh
+density_#ha,Sierra San Pedro Martir,145.3,79.8,Stephens and Gill (2005) all sizes
+density_#ha,Sequoia NF - mixed conifer,75,26.9,Stephens et al. (2015)
+density_#ha,Sequoia NF - ponderosa pine,25.2,12.1,Stephens et al. (2015)
+density_#ha,Yosemite NP - Illilouette,215,,Collins et al. (2016) - all plots combined
+density_#ha,Sierra Nevada,219.9,59.2,Lyderson and North (2012)
+density_#ha,Yosemite NP  ,48.1,,Collins et al. (2015) - YNP/STF
+density_#ha,Sierra NF - mixed conifer,67.0,,North et al. (2007)
+density_#ha,Sierra NF - ponderosa pine,81.1,,Meyer et al. (2013) >10 cm dbh
+density_#ha,Yosemite NP - mixed conifer,159.5,117.3,Scholl & Taylor (2010)
+density_#ha,Lassen NF,135.0,,Taylor (2010)
+density_#ha,Sierra San Pedro Martir,188.0,15.1,Dunbar-Irwin & Safford (2016)
+density_#ha,grandmean,118.9,39.6,
+density_#ha,yellowpine_mean,122.5,59.5,
+basalarea_m2ha,Tahoe Basin - YPMC,27.0,5.3,Taylor et al. (2014)
+basalarea_m2ha,Sierra San Pedro Martir,19.9,6.0,Stephens and Gill (2005)
+basalarea_m2ha,Yosemite NP,16.1,12.6,Collins et al. (2015)
+basalarea_m2ha,Sequoia NF - mixed conifer,29.5,9.9,Stephens et al. (2015)
+basalarea_m2ha,Sequoia NF - ponderosa pine,11.2,5.1,Stephens et al. (2015)
+basalarea_m2ha,Sierra Nevada,54.0,29.0,Lyderson and North (2012) -Yellow pine only (N = 86)
+basalarea_m2ha,Sierra San Pedro Martir,20.4,,Safford (in prep)
+basalarea_m2ha,Beaver Creek Pinery,27.1,,Taylor (2010)
+basalarea_m2ha,Yosemite NP - mixed conifer,29.9,19.6,Scholl & Taylor (2010)
+basalarea_m2ha,Sierra NF - mixed conifer,51.5,,North et al. (2007)
+basalarea_m2ha,Sierra NF,29.6,,Meyer et al. (2013)
+basalarea_m2ha,Tahoe Basin,27.0,,Barbour et al. (2002)
+basalarea_m2ha,Sierra San Pedro Martir,22.5,1.5,Dunbar-Irwin & Safford (2016)
+basalarea_m2ha,Grand Mean:,28.1,9.1,

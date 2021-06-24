@@ -1,0 +1,7 @@
+diam_class,PlotType,NRV,NRV_upper,NRV_lower
+[<20],MixedConifer,31.7,10.6,52.8
+[20-40],MixedConifer,41.1,23.5,58.7
+[40-60],MixedConifer,29.2,23.6,34.8
+[60-80],MixedConifer,18.3,15.3,21.3
+[80-100],MixedConifer,10.1,7.7,12.9
+[>100],MixedConifer,7.7,0,17.6

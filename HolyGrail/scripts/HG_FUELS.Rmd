@@ -6,18 +6,18 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-library(tidyverse)
-  library(tinytex)
-          options(tinytex.verbose=TRUE)
-library(tibble)
-library(dplyr)
-library(ggplot2)
-library(vegan)
-library(knitr)
-library(kableExtra)
-library(rio)
-library(lme4)
+
+  ### merge fine fuels, cwd, and average litter/duff
+  
+
+
+  ###Merged fine fuels & CWD data
+  HG_finefuels <- read.csv("HolyGrail/data/raw/CPFMP_HolyGrail_FineFuels_Merge.csv")
+  HG_CWD <- read.csv("HolyGrail/data/raw/CPFMP_HolyGrail_CWD_Merge.csv")  
+
+```
+```{r}
+
 ```
 
 
@@ -34,56 +34,15 @@ convert sq cm to sq in: * 0.155
 
 ```{r}
 #load data
-
+getwd()
 HG_CWD <- read.csv("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/HolyGrail/data/raw/HolyGrail_CWD.csv", stringsAsFactors = FALSE)
 HG_FWD <- read.csv("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/HolyGrail/data/raw/HolyGrail_FineFuels.csv", stringsAsFactors=FALSE)
                  HG_FWD <- HG_FWD %>% 
                      mutate_at(vars(count_x1h, count_x10h, count_x100h, duff1_cm, duff2_cm, litter1_cm, litter2_cm, slope_percent, fuel1_cm, fuel2_cm), ~as.numeric(as.character(.)))
 location_treatment <- read_csv("C:/Users/ashle/Documents/R/RX_Fire_Monitoring/RX_Fire_Monitoring/HolyGrail/data/raw/location_treatment.csv")
 
-#change rows with no CWD (written as na, no cwd, or none) to include NA then replace with 0
 
-HG_CWD_NA <- HG_CWD %>% 
-                    mutate_if(is.character, list(~na_if(.,"na"))) %>% 
-                    mutate_if(is.character, list(~na_if(.,"no cwd"))) %>% 
-                    mutate_if(is.character, list(~na_if(.,"none"))) %>% 
-                    replace_na(list(intersect_cm = 0)) 
-                    
-HG_CWD_NA$intersect_cm <- as.numeric(HG_CWD_NA$intersect_cm)
 
-#sum CWD values 
-
-HG_CWD_sum <- HG_CWD_NA %>% 
-                            mutate( decay_type = case_when(
-                            decay >= 4  ~ "rotten",
-                            decay < 4 ~ "sound"
-                          )) %>% 
-                      mutate(site_plotid_time_azimuth = paste(site, plot_id, year, pre_post_fire, azimuth)) %>% 
-                      mutate(diam_in_square = (intersect_cm * 0.3937)^2) %>% 
-                      group_by(site_plotid_time_azimuth, decay_type) %>% 
-                      summarise(sum_diam = sum(diam_in_square)) %>% 
-                      replace_na(list(rotten =0, sound =0)) 
-
-##Remove NA decay type
-
-HG_CWD_sum <- HG_CWD_sum[!is.na(HG_CWD_sum$decay_type),]
-HG_CWD_sum <- HG_CWD_sum %>% 
-  pivot_wider(names_from="decay_type", values_from = "sum_diam") 
-
-HG_CWD_complete <- HG_CWD_sum %>% 
-    replace_na(list(sound=0, rotten=0))
-
-# FINE FUELS: average litter, duff, fuel depth && slope correction
-HG_FWD_slope <- HG_FWD%>% 
-                   mutate( avg_duff = (duff1_cm + duff2_cm)/2,
-                          avg_litter = (litter1_cm +litter2_cm)/2,
-                          avg_fueldepth = (fuel1_cm + fuel2_cm)/2) %>% 
-                  replace_na(list(slope_percent=0)) %>% 
-                  mutate(slopecorrection = (1+(slope_percent/100)^2)^(1/2)) %>% 
-                  mutate(site_plotid_time_azimuth = paste(site, plot_id, year, pre_post_fire, azimuth))
-                  
-#compile FWD and CWD together
-HG_Fuels <- left_join(HG_CWD_complete,HG_FWD_slope, by="site_plotid_time_azimuth")
 
 
 
