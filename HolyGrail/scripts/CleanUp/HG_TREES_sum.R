@@ -4,7 +4,7 @@ library(dplyr)
 library(rio)
 
 
-HG_trees_data <- read.csv("HolyGrail/data/clean/HolyGrail_Trees_final.csv")
+HG_trees_data <- read.csv("HolyGrail/data/clean/HG_Trees_final.csv")
 
 #create function to calculate basal area (m^2)
 
@@ -25,12 +25,12 @@ str(HG_trees_basal)
 ##Aggregate by plot live/dead by species
 HG_trees_aggregate_plotspecies <- HG_trees_basal %>% 
   group_by(plotid_time, species, status) %>% 
-  summarise(BA_m2_sum = sum(BA_m2_acre, na.rm=TRUE),
+  summarise(BA_m2_acre_sum = sum(BA_m2_acre, na.rm=TRUE),
             n_trees = mean(n_trees_by_plot),
             mean_dbh_cm=mean(dbh_cm),
             mean_ht=mean(ht_m)) %>% 
   mutate(n_trees_ha = n_trees*4.04686,
-         BA_m2_ha = BA_m2_sum*4.04686) %>%    # 10 acres = 4.04686 ha
+         BA_m2_ha = BA_m2_acre_sum*4.04686) %>%    # 10 acres = 4.04686 ha
   separate(plotid_time, c("site","plotid","pre_post_fire","year"), sep="_",
            remove=TRUE,extra="merge")
 
@@ -80,7 +80,7 @@ export(HG_trees_diamclass,"HolyGrail/data/clean/HG_Trees_diamclass.csv" )
 
 
 
-              
+    #SCORCH & TORCH POST FIRE SUMMARY
               
               
               ###############################################################################################

@@ -46,7 +46,7 @@ HG_CWD_sum <- HG_CWD_NA %>%
   mutate(decay_type = case_when(
     decay >= 4  ~ "rotten",
     decay < 4 ~ "sound")) %>% 
-  mutate(site_plotid_time_azimuth = paste(site, plotid, year, pre_post_fire, postTime, azimuth, sep="_")) %>% 
+  mutate(site_plotid_time_azimuth = paste(site, plotid, year, pre_post_fire, postTime, azimuth, sep="_")) %>%
   mutate(diam_cm_square = (intersect_cm)^2) %>% 
   group_by(site_plotid_time_azimuth, decay_type) %>% 
   summarise(sum_d2_1000_cm2 = sum(diam_cm_square)) %>% 
@@ -123,7 +123,8 @@ export(HG_FWD_clean, "HolyGrail/data/raw/CPFMP_HolyGrail_FWD_clean.csv")
 HG_Fuels_ALL <- left_join(HG_FWD_clean, HG_CWD_clean, by="site_plotid_time_azimuth")
 
 HG_FWD_CWD_final <- HG_Fuels_ALL %>% 
-  replace_na(list(sum_d2_1000r_cm2=0, sum_d2_1000s_cm2=0)) 
+  replace_na(list(sum_d2_1000r_cm2=0, sum_d2_1000s_cm2=0)) %>% 
+  mutate(plot_id_time = paste(plotid, pre_post_fire, postTime))
 
 
 export(HG_FWD_CWD_final, "HolyGrail/data/clean/HG_FWD_CWD_final.csv") 

@@ -3,12 +3,6 @@
 library(tidyverse)
 library(tibble)
 library(dplyr)
-library(ggplot2)
-library(vegan)
-library(knitr)
-library(kableExtra)
-library(rio)
-library(plyr)
 
 HG_trees <- read.csv("HolyGrail/data/raw/CPFMP_HolyGrail_Trees.csv")
 
@@ -61,4 +55,4 @@ HG_trees_FINAL <- HG_trees_new %>%
 
 
 #export & save new Trees file
-export(HG_trees_FINAL, "HolyGrail/data/clean/HolyGrail_Trees_final.csv")
+export(HG_trees_FINAL, "HolyGrail/data/clean/HG_Trees_final.csv")

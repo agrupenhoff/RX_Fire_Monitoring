@@ -2,14 +2,9 @@
 library(tidyverse)
 library(tibble)
 library(dplyr)
-library(ggplot2)
-library(vegan)
-library(knitr)
-library(kableExtra)
-library(rio)
-library(plyr)
 
-HG_trees <- read.csv("HolyGrail/data/clean/HolyGrail_Trees_final.csv")
+
+HG_trees <- read.csv("HolyGrail/data/clean/HG_Trees_final.csv")
 
 ##MAKE SURE ALL TREE SPECIES CODES ARE CORRECT
 HG_trees$species <- toupper(HG_trees$species) #make all codes uppercase
@@ -56,8 +51,8 @@ HG_trees_clean$status <- recode(HG_trees_clean$status, "DEAD " = "DEAD",
                                 "LIVE "= "LIVE",
                                 "LUVE"= "LIVE")
 
-unique(HG_trees_clean$species)
+unique(HG_trees_clean$status)
 
 
-export(HG_trees_clean, "HolyGrail/data/clean/HolyGrail_Trees_final.csv")
+export(HG_trees_clean, "HolyGrail/data/clean/HG_Trees_final.csv")
 
