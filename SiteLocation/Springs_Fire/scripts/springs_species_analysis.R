@@ -1,26 +1,6 @@
-
-library(vegan)
-library(ggplot2)
-library(grid)
-library(phyloseq)
 library(dplyr)
-library(corpcor)
-library(tidyverse)
-library(tibble)
-library(dplyr)
-library(ggplot2)
-library(vegan)
-library(knitr)
-library(kableExtra)
-library(rio)
-library(ape)
-library(devtools)
-library(Hotelling)
-library(corpcor)
-library(ggpubr)
 library(plyr)
-library(wesanderson)
-library(emmeans)
+library(vegan)
 
 
 HG_species <- import("HolyGrail/data/clean/HG_species_clean.csv")
@@ -43,34 +23,38 @@ springs_species <- import("SiteLocation/Springs_Fire/data/clean/springs_species.
 
 ###pull out springs data 
                       ##UNDERSTORY and SHRUB SPECIES ONLY NO TREES 
-                      #springs_species <- HG_species %>% 
-                      #  filter(site == "springsfire") %>% 
-                      #  filter(status == "live") %>% 
-                      #  filter(lifeform =="SH"|
-                      #           lifeform =="FB"|
-                      #           lifeform=="GR") %>% 
-                      #  mutate(plot_id = tolower(plot_id)) %>% 
-                      #  mutate(plotid_time=paste(plot_id, pre_post_fire)) %>% 
-                      #  select(plotid_time, species, percent) %>% 
-                      #  pivot_wider(id_cols="plotid_time", names_from="species",
-                      #              values_from="percent",
-                      #              values_fill = 0,
-                      #              values_fn=sum)
+HG_species$plot_id <- recode(HG_species$plot_id, "springs1" = "springs01",
+                                        "springs2"= "springs02",
+                                        "springs3" ="springs03",
+                                        "springs4"= "springs04",
+                                        "springs5"= "springs05",
+                                        "springs6"= "springs06",
+                                        "springs7"= "springs07",
+                                        "springs8"= "springs08",
+                                        "springs9"= "springs09")
+
+unique(HG_species$plot_id)
+
+
+
+                       springs_species <- HG_species %>% 
+                        filter(site == "springsfire") %>% 
+                        filter(status == "live") %>% 
+                        filter(lifeform =="SH"|
+                                 lifeform =="FB"|
+                                 lifeform=="GR") %>% 
+                        mutate(plot_id = tolower(plot_id)) %>% 
+                        mutate(plotid_time=paste(plot_id, pre_post_fire)) %>% 
+                        select(plotid_time, species, percent) %>% 
+                        pivot_wider(id_cols="plotid_time", names_from="species",
+                                    values_from="percent",
+                                    values_fill = 0,
+                                    values_fn=sum)
                       
-                      #glimpse(springs_species)
+                      glimpse(springs_species)
                       
-                      #springs_species$plotid_time[springs_species$plotid_time == "springs01 postfire"] <- "springs1 postfire"
-                      #springs_species$plotid_time[springs_species$plotid_time == "springs02 postfire"] <- "springs2 postfire"
-                      #springs_species$plotid_time[springs_species$plotid_time == "springs03 postfire"] <- "springs3 postfire"
-                      #springs_species$plotid_time[springs_species$plotid_time == "springs04 postfire"] <- "springs4 postfire"
-                      #springs_species$plotid_time[springs_species$plotid_time == "springs05 postfire"] <- "springs5 postfire"
-                      #springs_species$plotid_time[springs_species$plotid_time == "springs06 postfire"] <- "springs6 postfire"
-                      #springs_species$plotid_time[springs_species$plotid_time == "springs07 postfire"] <- "springs7 postfire"
-                      #springs_species$plotid_time[springs_species$plotid_time == "springs08 postfire"] <- "springs8 postfire"
-                      #springs_species$plotid_time[springs_species$plotid_time == "springs09 postfire"] <- "springs9 postfire"
-                      #springs_species$plotid_time[springs_species$plotid_time == "spring26 prefire"] <- "springs26 prefire"
-                      
-                      #export(springs_species,"SiteLocation/Springs_Fire/data/clean/springs_species.csv" )
+                   export(springs_species,"SiteLocation/Springs_Fire/data/clean/springs_species.csv" )
+
 
 
 ######RICHNESS
@@ -84,6 +68,20 @@ springs_richness <- springs_richness %>%
 
 springs_richness <- left_join(springs_richness, springs_trt, by="plotid")
 
+#MAKE LOGICAL SENSE
+springs_richness <- springs_richness %>% 
+  mutate(pre_post_fire = factor(pre_post_fire, levels=c('prefire',
+                                                        'postfire'))) %>% 
+  mutate(TSLF = factor(TSLF, levels= c("nopriorburn",
+                                       "2007rx",
+                                       "2010rx",
+                                       "2013rx"))) %>% 
+  mutate(PriorBurn = case_when(
+    TSLF == '2007rx' ~ "priorburn",
+    TSLF == '2010rx' ~ "priorburn",
+    TSLF == '2013rx' ~ "priorburn",
+    TSLF == 'nopriorburn' ~ "nopriorburn"))
+
 ###############################
 ####SPECIES RICHNESS IN BURNED PLOTS ONLY
 
@@ -91,11 +89,10 @@ springs_rich_burn <- springs_richness %>%
   filter(burn=="yes")
 
 springs_species_burned <- ggplot(data=springs_rich_burn, 
-                                   aes(x=priorburn_rx, y=RICHNESS, fill=pre_post_fire))+
+                                   aes(x=TSLF, y=RICHNESS, fill=pre_post_fire))+
   geom_boxplot()+
-  scale_fill_manual(values=wes_palette("BottleRocket1"))+
+  scale_fill_brewer(palette = "Dark2")+
   theme_minimal()+
-
   theme(axis.title=element_text(size=14,face="bold"),
         axis.text=element_text(size=12,angle = 45, hjust=1))
 springs_species_burned
@@ -103,9 +100,8 @@ springs_species_burned
 springs_species_burned2 <- ggplot(data=springs_rich_burn, 
                                  aes(x=PriorBurn, y=RICHNESS, fill=pre_post_fire))+
   geom_boxplot()+
-  scale_fill_manual(values=wes_palette("BottleRocket1"))+
+  scale_fill_brewer(palette = "Dark2")+
   theme_minimal()+
-  stat_compare_means(aes(label = ..p.signif..))+
   theme(axis.title=element_text(size=14,face="bold"),
         axis.text=element_text(size=12,angle = 45, hjust=1))
 springs_species_burned2
@@ -135,9 +131,8 @@ springs_species_controlplot <- ggplot(data=springs_rich_control,
                                  aes(x=burn, y=RICHNESS))+
   geom_boxplot()+
   geom_jitter()+
-  scale_fill_manual(values=wes_palette("BottleRocket1"))+
+  scale_fill_brewer(palette = "Dark2")+
   theme_minimal()+
-
   theme(axis.title=element_text(size=14,face="bold"),
         axis.text=element_text(size=12,angle = 45, hjust=1))
 springs_species_controlplot
@@ -156,6 +151,18 @@ springs_div_shan <- springs_div_shan %>%
 
 springs_div_shan <- left_join(springs_div_shan, springs_trt, by="plotid")
 
+
+springs_div_shan <- springs_div_shan %>% 
+  mutate(TSLF = factor(TSLF, levels= c("nopriorburn",
+                                       "2007rx",
+                                       "2010rx",
+                                       "2013rx"))) %>% 
+  mutate(PriorBurn = case_when(
+    TSLF == '2007rx' ~ "priorburn",
+    TSLF == '2010rx' ~ "priorburn",
+    TSLF == '2013rx' ~ "priorburn",
+    TSLF == 'nopriorburn' ~ "nopriorburn"))
+
 ##########################
 #COMPARE DIVERSITY BY BETWEEN BURN SITES
 
@@ -163,25 +170,30 @@ springs_divShan_burn <- springs_div_shan %>%
   filter(burn=="yes")
 
 springs_divShan_burnplot <- ggplot(data=springs_divShan_burn, 
-                                 aes(x=priorburn_rx, y=SHANNON, fill=pre_post_fire))+
+                                 aes(x=TSLF, y=SHANNON, fill=pre_post_fire))+
   geom_boxplot()+
-  
-  scale_fill_manual(values=wes_palette("BottleRocket1"))+
+  scale_fill_brewer(palette = "Dark2")+
   theme_minimal()+
   theme(axis.title=element_text(size=14,face="bold"),
-        axis.text=element_text(size=12,angle = 45, hjust=1))+
-  stat_compare_means(aes(label = ..p.signif..))
+        axis.text=element_text(size=12,angle = 45, hjust=1))
 springs_divShan_burnplot 
 
 springs_divShan_burnplot2 <- ggplot(data=springs_divShan_burn, 
                                    aes(x=PriorBurn, y=SHANNON, fill=pre_post_fire))+
   geom_boxplot()+
-  scale_fill_manual(values=wes_palette("BottleRocket1"))+
+  scale_fill_brewer(palette = "Dark2")+
   theme_minimal()+
-  stat_compare_means(aes(label = ..p.signif..))+
   theme(axis.title=element_text(size=14,face="bold"),
-        axis.text=element_text(size=12,angle = 45, hjust=1))
+        axis.text=element_text(size=12,angle = 45, hjust=1),
+        axis.title.x = element_blank(),
+        plot.title = element_blank(),        #remove plot title
+        strip.text.x = element_blank(),      #remove facet wrap title
+        legend.title = element_blank())+     #remove legend title
+  ylab("Species Diversity")
 springs_divShan_burnplot2 
+
+ggsave(plot=springs_divShan_burnplot2, "HolyGrail/figures/springs/springs_divShan_burned_trtBASIC.png")
+
 
                 #BASICALLY THE BURN HELPED INCREASE SHAN DIVERSITY FOR 
                 #PLOTS THAT DIDNT BURN

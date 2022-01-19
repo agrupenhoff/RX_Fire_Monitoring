@@ -23,6 +23,7 @@ HG_CWD <- read.csv("HolyGrail/data/raw/CPFMP_HolyGrail_CWD_Merge.csv")
                 mutate_if(is.character, list(~na_if(.,"none"))) %>% 
                 mutate_if(is.character, list(~na_if(.,""))) %>% 
                 mutate_if(is.character, list(~na_if(.,"no cwd"))) %>% 
+                mutate_if(is.character, list(~na_if(.,"-"))) %>% 
                 replace_na(list(intersect_cm = 0)) %>% 
                 drop_na(azimuth)
               
@@ -32,6 +33,8 @@ HG_CWD <- read.csv("HolyGrail/data/raw/CPFMP_HolyGrail_CWD_Merge.csv")
                                  "E"= "90",
                                  "W" ="270",
                                  "S"= "180")
+              
+             
               HG_CWD_NA$intersect_cm <- as.numeric(HG_CWD_NA$intersect_cm)
               
               str(HG_CWD_NA)
@@ -46,7 +49,7 @@ HG_CWD_sum <- HG_CWD_NA %>%
   mutate(decay_type = case_when(
     decay >= 4  ~ "rotten",
     decay < 4 ~ "sound")) %>% 
-  mutate(site_plotid_time_azimuth = paste(site, plotid, year, pre_post_fire, postTime, azimuth, sep="_")) %>%
+  mutate(site_plotid_time_azimuth = paste(site, plot_id, year, pre_post_fire, postTime, azimuth, sep="_")) %>%
   mutate(diam_cm_square = (intersect_cm)^2) %>% 
   group_by(site_plotid_time_azimuth, decay_type) %>% 
   summarise(sum_d2_1000_cm2 = sum(diam_cm_square)) %>% 
@@ -127,4 +130,4 @@ HG_FWD_CWD_final <- HG_Fuels_ALL %>%
   mutate(plot_id_time = paste(plotid, pre_post_fire, postTime))
 
 
-export(HG_FWD_CWD_final, "HolyGrail/data/clean/HG_FWD_CWD_final.csv") 
+export(HG_FWD_CWD_final, "HolyGrail/data/clean/fuels/HG_FWD_CWD_final.csv") 

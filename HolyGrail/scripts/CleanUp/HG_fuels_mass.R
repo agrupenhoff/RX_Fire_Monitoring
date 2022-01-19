@@ -49,7 +49,7 @@ HG_fuels_MassFWD_tonsHA <- HG_fuels_MassFWD_tonsAcre %>%
          total_cwd = total_cwd/2.47,
          total_fuel = total_fuel/2.47)
 
-#Average across each plot
+#Average across each plot (Acre)
 HG_fuels_tonsAcre_plot <- HG_fuels_MassFWD_tonsAcre %>% 
   group_by(site_plotid_time) %>% 
   summarize(mass_1hr = mean(mass_1hr),
@@ -64,10 +64,26 @@ HG_fuels_tonsAcre_plot <- HG_fuels_MassFWD_tonsAcre %>%
   pivot_longer(-site_plotid_time, names_to="fuelType", values_to="mass_tonAcre") %>% 
   separate(site_plotid_time, c("site","plotid", "pre_post_fire", "postTime"), 
            sep=" ")
+#Average across each plot (Ha)
+HG_fuels_tonsHA_plot <- HG_fuels_MassFWD_tonsHA %>% 
+  group_by(site_plotid_time) %>% 
+  summarize(mass_1hr = mean(mass_1hr),
+            mass_10hr = mean(mass_10hr),
+            mass_100hr = mean(mass_100hr),
+            total_fine = mean(total_fine),
+            total_cwd = mean(total_cwd),
+            total_fuel = mean(total_fuel),
+            litter_depth_cm = mean(litter_depth_cm),
+            duff_depth_cm = mean(duff_depth_cm),
+            fuel_depth_cm = mean(fuel_depth_cm)) %>% 
+  pivot_longer(-site_plotid_time, names_to="fuelType", values_to="mass_tonAcre") %>% 
+  separate(site_plotid_time, c("site","plotid", "pre_post_fire", "postTime"), 
+           sep=" ")
 
-export(HG_fuels_MassFWD_tonsAcre, "HolyGrail/data/clean/HG_FuelMass_tonAcre.csv")
-export(HG_fuels_tonsAcre_plot, "HolyGrail/data/clean/HG_FuelMass_tonAcre_plot.csv")
-export(HG_fuels_MassFWD_tonsHA, "HolyGrail/data/clean/HG_FuelMass_tonHectare.csv")
+export(HG_fuels_MassFWD_tonsAcre, "HolyGrail/data/clean/fuels/HG_FuelMass_tonAcre.csv")
+export(HG_fuels_tonsAcre_plot, "HolyGrail/data/clean/fuels/HG_FuelMass_tonAcre_plot.csv")
+export(HG_fuels_MassFWD_tonsHA, "HolyGrail/data/clean/fuels/HG_FuelMass_tonHectare.csv")
+export(HG_fuels_tonsHA_plot, "HolyGrail/data/clean/fuels/HG_FuelMass_tonHA_plot.csv")
 
          
          

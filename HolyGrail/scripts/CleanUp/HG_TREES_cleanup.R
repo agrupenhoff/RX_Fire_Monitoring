@@ -13,7 +13,6 @@ HG_trees$species <- toupper(HG_trees$species) #make all codes uppercase
 unique(HG_trees$species)
 str(HG_trees)
 
-
 HG_trees$species <- recode(HG_trees$species, "PIMONO" = "PIMO", 
                                               "CADE" = "CADE27",
                                              "QBMA" = "ABMA",
@@ -52,6 +51,8 @@ HG_trees_clean$status <- recode(HG_trees_clean$status, "DEAD " = "DEAD",
                                 "LUVE"= "LIVE")
 
 unique(HG_trees_clean$status)
+
+#change plotid stuff (if need be) HERE
 
 
 export(HG_trees_clean, "HolyGrail/data/clean/HG_Trees_final.csv")

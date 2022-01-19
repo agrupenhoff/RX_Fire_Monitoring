@@ -8,6 +8,15 @@ library(gtsummary)
 library(ggplot2)
 library(RColorBrewer)
 
+library(data.table)
+
+outlierReplace = function(dataframe, cols, rows, newValue = NA) {
+  if (any(rows)) {
+    set(dataframe, rows, cols, newValue)
+  }
+}
+
+
 HG_fuelMass_tonAcre <- read.csv("HolyGrail/data/clean/HG_FuelMass_tonAcre_plot.csv")
 trt_utm <- read.csv("HolyGrail/data/raw/CPFMP_HolyGrail_trt_utm.csv")
 
@@ -27,12 +36,13 @@ springs_fuel_totalPlot$plotid <- recode(springs_fuel_totalPlot$plotid, "springs1
                                   "springs8"= "springs08",
                                   "springs9"= "springs09")
 
+
 unique(springs_fuel_totalPlot$plotid)
 
 ##Add burn unit HERE
 str(trt_utm)
 springs_trt <- trt_utm %>% 
-  filter(ï..site == "springsfire") %>% 
+  filter(site == "springsfire") %>% 
   select(plotid, TSLF, burn_unit, burn)
 export(springs_trt, "SiteLocation/Springs_Fire/data/clean/springs_trt.csv")
 unique(springs_trt$plotid)
@@ -42,6 +52,7 @@ springs_fuel_totalPlot <- left_join(springs_fuel_totalPlot, springs_trt,
 
 #reorder fuel type to make logical sense
 springs_fuels_byunit <- springs_fuel_totalPlot %>% 
+  filter(TSLF != "2013rx") %>% 
   mutate(fuelType = factor(fuelType, levels=c('mass_1hr',
                                                           'mass_10hr',
                                                           'mass_100hr',
@@ -66,6 +77,7 @@ springs_fuels_byunit <- springs_fuel_totalPlot %>%
                 TSLF == 'nopriorburn' ~ "nopriorburn",
   ))
 
+
 #########################
 #PRE FIRE ONLY
 
@@ -83,15 +95,21 @@ springs_fuelplot_preburn <- ggplot(data=springs_fuels_preburn,
                                        fill=TSLF))+
   geom_boxplot()+
   facet_wrap(~ fuelType, scales = "free_y") +
-  scale_fill_viridis_d()+
+  scale_fill_brewer(palette = "Dark2")+
   theme_minimal()+
   theme(axis.title=element_text(size=14,face="bold"),
-        axis.text.x=element_text(size=12,angle = 45, hjust=1))+
+        axis.text.x=element_text(size=16,angle = 45, hjust=1),
+        axis.title.x = element_blank(),
+        strip.text.x = element_text(
+          size = 14, face = "bold.italic"))+
   xlab("Prior Treatment")+
-  ylab("Mass (Ton/Acre)")
+  ylab("Fuel Mass (Tons/Acre)")
 springs_fuelplot_preburn
 
 ggsave(plot=springs_fuelplot_preburn, "HolyGrail/figures/springs/springs_fuels_preburn_ALL.png")
+
+compare_means(mass_tonAcre ~ TSLF, data = springs_fuels_preburn, 
+                         group.by = "fuelType")
 
 springs_fuels_preburn_summarize <- springs_fuels_preburn %>% 
   group_by(TSLF, fuelType) %>% 
@@ -110,9 +128,26 @@ springs_fuels_burned <- springs_fuels_byunit %>%
   filter(burn == "yes") %>% 
   filter(fuelType == "total_fuel") %>% 
   filter(pre_post_fire== "prefire"|
-          pre_post_fire=="postfire"&postTime=="immediate")
+          pre_post_fire=="postfire"&postTime=="1yr")
 
-display.brewer.all(colorblindFriendly = TRUE)
+outlierReplace(springs_fuels_burned, "mass_tonAcre", 
+               which(springs_fuels_burned$mass_tonAcre > 
+                                        15), NA)
+
+qplot(data = springs_fuels_burned, x = mass_tonAcre) 
+
+springs_fuels_burned <- springs_fuels_burned %>% 
+  drop_na(mass_tonAcre)
+
+springs_fuels_burn_summarize <- springs_fuels_burned  %>% 
+  group_by(pre_post_fire, TSLF, fuelType) %>% 
+  summarize(N    = length(mass_tonAcre),
+            mean = mean(mass_tonAcre),
+            sd   = sd(mass_tonAcre),
+            se   = sd / sqrt(N))
+springs_fuels_burn_summarize
+
+
 
 ###PLOT ALL BURNED FUELS 
 springs_fuelplot_burned <- ggplot(data=springs_fuels_burned, 
@@ -121,48 +156,26 @@ springs_fuelplot_burned <- ggplot(data=springs_fuels_burned,
   facet_wrap(~ fuelType, scales = "free_y") +
   scale_fill_brewer(palette = "Dark2")+
   theme_minimal()+
-  theme(axis.title=element_text(size=14,face="bold"),
-        axis.text.x=element_text(size=12,angle = 45, hjust=1),
+  theme(axis.title=element_text(size=20,face="bold"),
+        axis.text.x=element_text(size=18, hjust=1),
         axis.title.x = element_blank(),
         plot.title = element_blank(),        #remove plot title
         strip.text.x = element_blank(),      #remove facet wrap title
-        legend.title = element_blank())+     #remove legend title
-  ylab("Surface Fuel Load (Ton/Acre)")
+        legend.title = element_blank(),
+        legend.text = element_text(size=16))+     #remove legend title
+  ylab("Fuel Mass (Tons/Acre)")
 springs_fuelplot_burned
 
-ggsave(plot=springs_fuelplot_burned, "HolyGrail/figures/springs/springs_fuels_burned_trtBASIC.png")
+compare_means(mass_tonAcre ~ pre_post_fire, data = springs_fuels_burned, 
+              group.by = "TSLF")
 
-#summarize
-springs_fuels_burned_summarize <- springs_fuels_burned %>% 
-  group_by(TSLF, pre_post_fire) %>%
-  drop_na(mass_tonAcre) %>% 
-  summarize(N    = length(mass_tonAcre),
-            mean = mean(mass_tonAcre),
-            sd   = sd(mass_tonAcre),
-            se   = sd / sqrt(N))
-springs_fuels_burned_summarize
+ggsave(plot=springs_fuelplot_burned, "HolyGrail/figures/springs/springs_fuels_burned_trtBASIC.tiff", dpi=600)
 
 
 
-#### STATSSSSS
 
-##BY TSLF
-totalfuels_burn <- lmer(mass_ton_acre ~ priorburn_rx+pre_post_fire +
-                          (1|burn_unit),  data = springs_totalfuels_burned)
-summary(totalfuels_burn)
 
-TOTfuels_burn.emm <- emmeans(totalfuels_burn, 
-                             specs = pairwise ~ priorburn_rx:pre_post_fire)
-plot(TOTfuels_burn.emm)
 
-##BY BURN OR NO BURN
-totalfuels_burn_basic <- lmer(mass_ton_acre ~ PriorBurn+pre_post_fire +
-                                (1|burn_unit),  data = springs_totalfuels_burned)
-summary(totalfuels_burn_basic)
-
-TOTfuels_burnBASIC.emm <- emmeans(totalfuels_burn_basic, 
-                                  specs = pairwise ~ PriorBurn:pre_post_fire)
-plot(TOTfuels_burnBASIC.emm)
 
 ####################################
 #######COMPARE CONTROL AND BURNED PLOTS
@@ -188,11 +201,20 @@ springs_fuelplot_control <- ggplot(data=springs_fuels_control,
   facet_wrap(~ fuelType, scales = "free_y") +
   scale_fill_brewer(palette = "Dark2")+
   theme_minimal()+
-  theme(axis.title=element_text(size=14,face="bold"),
-        axis.text=element_text(size=12,angle = 45, hjust=1))+
+  theme(axis.title=element_text(size=16,face="bold"),
+        axis.text=element_text(size=16,angle = 45, hjust=1),
+        axis.title.x = element_blank(),
+        strip.text.x = element_text(
+          size = 14, face = "bold.italic"))+
   xlab("Burned by Springs Fire")+
-  ylab("Mass (Ton/Acre)")
+  ylab("Fuel Mass (Tons/Acre)")
 springs_fuelplot_control
+
+compare_means(mass_tonAcre ~ burn, data = springs_fuels_control, 
+              group.by = "fuelType")
+
+
+ggsave(plot=springs_fuelplot_control, "HolyGrail/figures/springs/springs_fuels_control_BASIC.png")
 
 #summarize
 springs_fuels_control_summarize <- springs_fuels_control %>% 

@@ -1,13 +1,5 @@
 plotid,TSLF,burn_unit,burn
-springs01,nopriorburn,alpha,yes
-springs02,nopriorburn,bravo,yes
-springs03,nopriorburn,bravo,yes
-springs04,nopriorburn,bravo,yes
-springs05,nopriorburn,echo,yes
-springs06,nopriorburn,foxtrot,yes
-springs07,nopriorburn,foxtrot,yes
-springs08,nopriorburn,foxtrot,yes
-springs09,nopriorburn,foxtrot,yes
+springs1,nopriorburn,alpha,yes
 springs10,nopriorburn,foxtrot,yes
 springs11,2007rx,charlie,yes
 springs12,2007rx,charlie,yes
@@ -18,6 +10,7 @@ springs16,2007rx,delta,yes
 springs17,2007rx,delta,yes
 springs18,nopriorburn,alpha,yes
 springs19,nopriorburn,alpha,yes
+springs2,nopriorburn,bravo,yes
 springs20,nopriorburn,alpha,yes
 springs21,nopriorburn,alpha,yes
 springs22,nopriorburn,alpha,yes
@@ -28,10 +21,12 @@ springs26,2010rx,golf,yes
 springs27,2010rx,golf,yes
 springs28,2010rx,golf,yes
 springs29,2010rx,golf,yes
+springs3,nopriorburn,bravo,yes
 springs30,2010rx,golf,yes
 springs37,nopriorburn,hotel,yes
 springs38,2013rx,hotel,yes
 springs39,2013rx,hotel,yes
+springs4,nopriorburn,bravo,yes
 springs40,nopriorburn,hotel,yes
 springs41,control,controlA,no
 springs42,control,controlA,no
@@ -42,5 +37,10 @@ springs46,control,controlB,no
 springs47,control,controlB,no
 springs48,control,controlB,no
 springs49,control,controlB,no
+springs5,nopriorburn,echo,yes
 springs50,control,controlB,no
 springs51,control,controlB,no
+springs6,nopriorburn,foxtrot,yes
+springs7,nopriorburn,foxtrot,yes
+springs8,nopriorburn,foxtrot,yes
+springs9,nopriorburn,foxtrot,yes

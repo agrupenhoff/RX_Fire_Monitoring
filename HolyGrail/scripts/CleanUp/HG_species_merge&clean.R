@@ -12,6 +12,7 @@ library(ggpubr)
 
 ###Pull together species comp data and merge to compiled file
 
+
 bearmtn_2019_pre_spp <- read_csv("HolyGrail/data/raw/species_comp/bearmtn_2019_pre_spp.csv")
 bearmtn_2019_pre_spp <- bearmtn_2019_pre_spp %>% 
   rename(observer = obs)
@@ -31,6 +32,7 @@ springs_2019_pre_spp <- read_csv("HolyGrail/data/raw/species_comp/springs_2019_p
 springs_2020_post_spp <- read_csv("HolyGrail/data/raw/species_comp/springs_2020_post_spp.csv")
 sugarpine_2020_pre_spp <- read_csv("HolyGrail/data/raw/species_comp/sugarpine_2020_pre_spp.csv")
 val_2019_pre_spp <- read_csv("HolyGrail/data/raw/species_comp/val_2019_pre_spp.csv")
+val_2021_pre_spp <- read_csv("HolyGrail/data/raw/species_comp/val_2021_pre_spp.csv")
 
 
 HG_species <- bind_rows(bearmtn_2019_pre_spp,bliss_2019_pre_spp,burton_2019_pre_spp,
@@ -38,10 +40,10 @@ HG_species <- bind_rows(bearmtn_2019_pre_spp,bliss_2019_pre_spp,burton_2019_pre_
                         drycreek_2020_pre_spp, FM_2019_pre_spp, FM_2020_pre_spp,
                         indy_2020_pre_spp, lbw_2020_pre_spp, modoc_2020_pre_spp ,
                         slypark_2019_pre_spp,springs_2019_pre_spp, springs_2020_post_spp, sugarpine_2020_pre_spp,
-                        val_2019_pre_spp)
+                        val_2019_pre_spp, val_2021_pre_spp)
 
 HG_species <- HG_species %>% 
-  select(site, year, pre_post_fire, postTime, plot_id, observer,
+  select(site, year, pre_post_fire, pre_post_thin, postTime, plot_id, observer,
          species, status, lifeform, layerCode, percent, notes) 
 
 #replace trace values
@@ -56,6 +58,18 @@ HG_species1$percent[HG_species1$percent == "t"] <- "0.05"
 HG_species1$percent[HG_species1$percent == "t4"] <- "0.05"
 HG_species1$percent[HG_species1$percent == "na"] <- "0.05"
 
+HG_species1$plot_id <- recode(HG_species1$plot_id, "springs1" = "springs01",
+                             "springs2"= "springs02",
+                             "springs3" ="springs03",
+                             "springs4"= "springs04",
+                             "springs5"= "springs05",
+                             "springs6"= "springs06",
+                             "springs7"= "springs07",
+                             "springs8"= "springs08",
+                             "springs9"= "springs09",
+                             "spring26" = "springs26")
+
+
 HG_species1 <- HG_species1 %>% 
   replace_na(list(percent = 0.05))
 HG_species1$percent <- as.numeric(HG_species1$percent)
@@ -65,6 +79,3 @@ glimpse(HG_species1)
 
 export(HG_species1, "HolyGrail/data/clean/HG_species_clean.csv")
 
-HG_species1 <- import("HolyGrail/data/clean/HG_species_clean.csv")
-
-unique(HG_species1$percent)

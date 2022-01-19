@@ -6,14 +6,20 @@ library(rio)
 library(lme4)
 library(wesanderson)
 library(gtsummary)
+library(ggpubr)
 
 
+HG_Trees_final <- read.csv("HolyGrail/data/clean/HG_Trees_final.csv")
 HG_Trees_totalPlot <- read.csv("HolyGrail/data/clean/HG_Trees_totalPlot.csv")
-HG_Trees_diamclass <- read.csv("HolyGrail/data/clean/HG_Trees_diamclass.csv")
-HG_Trees_diamclass_species <- read.csv("HolyGrail/data/clean/HG_Trees_diamclass_species.csv")
+HG_Trees_diamclass <- read.csv("HolyGrail/data/clean/HG_Trees_diamclass_SUM.csv")
 HG_Trees_plot_species <- read.csv("HolyGrail/data/clean/HG_Trees_plot_species.csv")
 NRV_diamclass <- read.csv("HolyGrail/data/clean/NRV_diamclass_BIN_youngetal.csv")
+HG_trees_severityIndicies <- read.csv("HolyGrail/data/clean/HG_Trees_severityIndicies.csv") 
 trt_utm <- read.csv("HolyGrail/data/raw/CPFMP_HolyGrail_trt_utm.csv")
+
+str(trt_utm$ï..site)
+unique(trt_utm$ï..site)
+
 
 #############FILTER SITE & CLEAN HER UP
 ########
@@ -25,12 +31,16 @@ trt_utm <- read.csv("HolyGrail/data/raw/CPFMP_HolyGrail_trt_utm.csv")
               filter(site == "springsfire")
         springs_trees_plot_species <- HG_Trees_plot_species %>% 
               filter(site == "springsfire")
-        springs_trees_diamclass_species <- HG_Trees_diamclass_species %>% 
+        springs_trees_severityIndicies <- HG_trees_severityIndicies %>% 
                 filter(site == "springsfire")
+        springs_trees_all <- HG_Trees_final %>% 
+            filter(site == "springsfire")
+        
         
 ##Add burn unit HERE
+        str(trt_utm)
         springs_trt <- trt_utm %>% 
-                filter(site == "springsfire") %>% 
+                filter(ï..site  == "springsfire") %>% 
                 select(plotid, TSLF, burn_unit, burn)
         springs_trees_totalPlot <- left_join(springs_trees_totalPlot, springs_trt,
                                              by="plotid")
@@ -38,22 +48,45 @@ trt_utm <- read.csv("HolyGrail/data/raw/CPFMP_HolyGrail_trt_utm.csv")
                                              by="plotid")
         springs_trees_plot_species <- left_join(springs_trees_plot_species, springs_trt,
                                              by="plotid")
-        springs_trees_diamclass_species <- left_join(springs_trees_diamclass_species, springs_trt,
+        springs_trees_severityIndicies <- left_join(springs_trees_severityIndicies, springs_trt,
                                              by="plotid")
-
+        springs_trees_all <- left_join(springs_trees_all, springs_trt,
+                                                    by="plotid")
+        
+        
+#remove all plots in 2013rx burn unit
+        
+        springs_trees_totalPlot <- springs_trees_totalPlot %>% 
+                filter(TSLF != "2013rx")
+        springs_trees_diamclass <- springs_trees_diamclass %>% 
+                filter(TSLF != "2013rx")
+        springs_trees_plot_species <- springs_trees_plot_species %>% 
+                 filter(TSLF != "2013rx")
+        springs_trees_severityIndicies <- springs_trees_severityIndicies %>% 
+          filter(TSLF != "2013rx")
+        springs_trees_all <- springs_trees_all %>% 
+          filter(TSLF != "2013rx")
        
-       
+###################################
+        ############# TIME FOR FIGURES!!!
+        
+        
 ##################BY WHOLE DIAM CLASS      
         
 #match springs to NRV
         NRV_diamclass_YPMC <- NRV_diamclass %>% 
           rename(diamclass = diam_class) %>% 
           distinct() %>%  #justs gives unique values for diamclass & plotTYpe
-          mutate(NRV = 'range')
+          mutate(NRV = 'range') %>% 
+        #2.47 acre to 1 hectare 
+          mutate(NRV_upper_acre = NRV_upper*2.47,
+                 NRV_lower_acre = NRV_lower*2.47)
+        
+       
         
         
         springs_trees_NRV_clean <- springs_trees_diamclass %>% 
-          filter(status == "LIVE") %>%
+
           filter(burn == "yes") %>%                 
           mutate(diamclass = factor(diamclass, levels=c('[<20]',
                                                         '[20-40]',
@@ -67,157 +100,274 @@ trt_utm <- read.csv("HolyGrail/data/raw/CPFMP_HolyGrail_trt_utm.csv")
         #CREATE SUMMARY 
         
         springs_diamclass_TPA <- springs_trees_NRV_clean %>%
-                filter(status == "LIVE") %>% 
                 group_by(pre_post_fire, diamclass) %>% 
-                summarise(n_trees_ha = mean(n_trees_ha),
-                          BA_m2_ha = mean(BA_m2_ha)) 
+                summarise(n_trees_diam_acre = mean(n_trees_diamclass_acre))
         springs_diamclass_TPA
         
+        #STATS
+        
+        NRVMEAN <- compare_means(n_trees_diamclass_acre ~ pre_post_fire, data = springs_trees_NRV_clean, 
+                                 group.by = "diamclass")
+        NRVMEAN
+        
+        
+        
         #Create PLOT
+       
+        
         springs_diamclass_plot <- ggplot(data=springs_trees_NRV_clean)+
-          geom_boxplot(aes(x=diamclass, y=n_trees_ha, fill=pre_post_fire))+
+          geom_boxplot(aes(x=diamclass, y=n_trees_diamclass_acre, fill=pre_post_fire))+
           geom_errorbar(data= NRV_diamclass_YPMC,
-                        aes(x=diamclass, ymin= NRV_lower, ymax=NRV_upper,
+                        aes(x=diamclass, ymin= NRV_lower_acre, ymax=NRV_upper_acre,
                             group = diamclass,
                             color= NRV), #link to group in NRV dataframe
                         width=0.2,
                         size = 1.5)+
-          facet_wrap(~ site, scales = "free_y") +
           theme_minimal()+
-          scale_fill_manual(values=wes_palette("BottleRocket1"))+
-          theme(axis.title=element_text(size=14,face="bold"),
-                axis.text=element_text(size=10))+
+          scale_fill_brewer(palette = "Dark2")+
+          theme(axis.title=element_text(size=16,face="bold"),
+                axis.text=element_text(size=14),
+                axis.title.x = element_blank(),
+                plot.title = element_blank())+
           xlab("Diameter Class")+
-          ylab("# Trees / Ha")
+          ylab("# Trees / Acre")
         springs_diamclass_plot
         
+        
+        ggsave(plot=springs_diamclass_plot, "HolyGrail/figures/springs/springs_diamclass_NRV_prepost.png")
 
-######## BY DIAMCLASS PER SPECIES
-        
-        diamclass_spp <- springs_trees_diamclass_species %>% 
-                filter(status == "LIVE") %>% 
-                filter(burn == "yes") %>% 
-                mutate(diamclass = factor(diamclass, levels=c('[<20]',
-                                                              '[20-40]',
-                                                              '[40-60]',
-                                                              '[60-80]',
-                                                              '[80-100]',
-                                                              '[>100]'))) %>% 
-                mutate(pre_post_fire = factor(pre_post_fire, levels = c("prefire",
-                                                                        "postfire")))
-        
-        #CREATE SUMMARY 
-        
-        diamclass_spp_sum <- diamclass_spp %>%
-                filter(status == "LIVE") %>% 
-                group_by(pre_post_fire, diamclass, species) %>% 
-                summarise(n_trees_ha = mean(n_trees_ha),
-                          BA_m2_ha = mean(BA_m2_ha)) 
-        diamclass_spp_sum
-        
-        #Create PLOT
-        springs_diamclass_plot2 <- ggplot(data=diamclass_spp)+
-                geom_boxplot(aes(x=diamclass, y=n_trees_ha, fill=pre_post_fire))+
-                geom_errorbar(data= NRV_diamclass_YPMC,
-                              aes(x=diamclass, ymin= NRV_lower, ymax=NRV_upper,
-                                  group = diamclass,
-                                  color= NRV), #link to group in NRV dataframe
-                              width=0.2,
-                              size = 1.5)+
-                facet_wrap(~ species, scales = "free_y") +
-                theme_minimal()+
-                scale_fill_manual(values=wes_palette("BottleRocket1"))+
-                theme(axis.title=element_text(size=14,face="bold"),
-                      axis.text=element_text(size=10))+
-                xlab("Diameter Class")+
-                ylab("# Trees / Ha")
-        springs_diamclass_plot2
-        
-        
-        springs_BAspp_live <- Springs_Trees_plot_species %>% 
-          filter(status == "LIVE") %>% 
-          mutate(pre_post_fire = factor(pre_post_fire, levels = c("prefire",
-                                                                  "postfire"))) %>% 
-          filter(species == "PICO"|
-                   species =="PIJE")
-        springs_BAspp_plot <- ggplot(data=springs_BAspp_live)+
-          geom_boxplot(aes(x=species, y=BA_m2_ha, fill=pre_post_fire))+
-          facet_wrap(~ status, scales = "free_y") +
-          theme_minimal()+
-          scale_fill_manual(values=wes_palette("BottleRocket1"))+
-          theme(axis.title=element_text(size=14,face="bold"),
-                axis.text=element_text(size=10))+
-          xlab("Species")+
-          ylab("Basal Area (m2/acre)")
-        springs_BAspp_plot
-        
-
-##BY PRIOR TREATMENT
-        springs_diamclasstrt <- springs_trees_NRV_clean %>% 
-                filter(burn=="yes")
-        springs_diamclasstrt_plot <- ggplot(data=springs_diamclasstrt)+
-                geom_boxplot(aes(x=diamclass, y=n_trees_ha, fill=pre_post_fire))+
-                geom_errorbar(data= NRV_diamclass_YPMC,
-                              aes(x=diamclass, ymin= NRV_lower, ymax=NRV_upper,
-                                  group = diamclass,
-                                  color= NRV), #link to group in NRV dataframe
-                              width=0.2,
-                              size = 1.5)+
-                facet_wrap(~ TSLF, scales = "free_y") +
-                theme_minimal()+
-                scale_fill_manual(values=wes_palette("BottleRocket1"))+
-                theme(axis.title=element_text(size=14,face="bold"),
-                      axis.text=element_text(size=10))+
-                xlab("Diameter Class")+
-                ylab("# Trees / Ha")
-        springs_diamclasstrt_plot
 
         
-        ############################
+        
+        
+ #####################       ############################
 ##COMPARE POST FIRE STRUCTURE BETWEEN BURNED AND UNBURNED PLOTS
-
-        #select burned plots post fire & unburned control plots to compare
-        springs_trees_control <- springs_trees_diamclass %>% 
-                filter(status == "LIVE") %>%
-                filter(burn =="yes" & pre_post_fire=="postfire"| burn =="no") %>%                  
-                mutate(diamclass = factor(diamclass, levels=c('[<20]',
-                                                              '[20-40]',
-                                                              '[40-60]',
-                                                              '[60-80]',
-                                                              '[80-100]',
-                                                              '[>100]'))) %>% 
-                mutate(pre_post_fire = factor(pre_post_fire, levels = c("prefire",
-                                                                        "postfire")))
         
-        springs_trees_control2 <- springs_trees_plot_species %>% 
-                filter(status == "LIVE") %>%
-                filter(burn =="yes" & pre_post_fire=="postfire"| burn =="no") 
+        ### TOTAL PLOT VALUES
         
-        #CREATE SUMMARY 
+        springs_trees_PLOT <- springs_trees_totalPlot %>% 
+          filter(status == "LIVE") %>%
+          filter(burn =="yes" | burn =="no") %>% 
+          mutate(trt_burn = paste(burn, pre_post_fire)) %>% 
+          mutate(BA_ft2_acre = BA_m2_acre_plot*10.76,
+                 n_trees_acre = n_trees_totalPlot*10) 
         
-        trees_control <- springs_trees_control2 %>%
-                group_by(pre_post_fire, burn) %>% 
-                summarise(n_trees_ha = mean(n_trees_ha),
-                          BA_m2_ha = mean(BA_m2_ha)) 
-        trees_control
+        springs_trees_PLOT$trt_burn <-  recode(springs_trees_PLOT$trt_burn, 
+                                                  "no prefire" = "control",
+                                                  "yes postfire" = "post Springs Fire",
+                                                  "yes prefire" = "pre Springs Fire") 
+        
+        springs_trees_PLOT$trt_burn <-  factor(springs_trees_PLOT$trt_burn,
+                                                  levels = c("control",
+                                                             "pre Springs Fire",
+                                                             "post Springs Fire"))
+          
+        
+        #total change
+        trees_summary <- springs_trees_PLOT %>%
+          group_by(trt_burn) %>% 
+          summarise(n_trees_acre = mean(n_trees_acre),
+                    BA_m2_acre = mean(BA_m2_acre_plot),
+                    BA_ft2_acre = mean(BA_ft2_acre)) 
+        trees_summary
+        
+        #by treatment
+        trees_summary_byTRT <- springs_trees_PLOT %>%
+          group_by(burn, year, pre_post_fire, TSLF) %>% 
+          summarise(n_trees_acre = mean(n_trees_acre),
+                    BA_m2_acre = mean(BA_m2_acre_plot),
+                    BA_ft2_acre = mean(BA_ft2_acre)) 
+        trees_summary_byTRT 
+        
+        compare_means(n_trees_acre ~ trt_burn, data = springs_trees_PLOT)
+        compare_means(BA_ft2_acre ~ trt_burn, data = springs_trees_PLOT)
         
         #Create PLOT
-        diamclass_control_plot <- ggplot(data=springs_trees_control2)+
-                geom_boxplot(aes(x=burn, y=n_trees_ha, fill=burn))+
+    
+        
+        springs_trees_control_plot <- ggplot(data=springs_trees_PLOT)+
+                geom_boxplot(aes(x=trt_burn, y=n_trees_acre, fill=trt_burn))+
                 theme_minimal()+
-                scale_fill_manual(values=wes_palette("BottleRocket1"))+
-                theme(axis.title=element_text(size=14,face="bold"),
-                      axis.text=element_text(size=10))+
+          scale_fill_brewer(palette = "Dark2")+
+                theme(axis.title=element_text(size=16,face="bold"),
+                      axis.text=element_text(size=14),
+                      axis.title.x = element_blank(),
+                      legend.title = element_blank(),
+                      legend.text = element_text(size =14))+
                 xlab("Burned by Springs Fire")+
-                ylab("# Trees / Ha")
-       diamclass_control_plot
+                ylab("# Trees / Acre")
+         springs_trees_control_plot
        
-       diamclass_control_plot2 <- ggplot(data=springs_trees_control2)+
-               geom_boxplot(aes(x=burn, y=BA_m2_ha, fill=burn))+
+       ggsave(plot=springs_trees_control_plot, "HolyGrail/figures/springs/springs_trees_control_TPA.png")
+       
+       
+       springs_trees_control_plotBA <- ggplot(data=springs_trees_PLOT)+
+               geom_boxplot(aes(x=trt_burn, y=BA_ft2_acre, fill=trt_burn))+
                theme_minimal()+
-               scale_fill_manual(values=wes_palette("BottleRocket1"))+
-               theme(axis.title=element_text(size=14,face="bold"),
-                     axis.text=element_text(size=10))+
+         scale_fill_brewer(palette = "Dark2")+
+               theme(axis.title=element_text(size=16,face="bold"),
+                     axis.text=element_text(size=14),
+                     axis.title.x = element_blank(),
+                     legend.title = element_blank(),
+                     legend.text = element_text(size =14))+
                xlab("Burned by Springs Fire")+
-               ylab("# Basal Area m2 / Ha")
-       diamclass_control_plot2
+               ylab("# Basal Area ft2 / Acre")
+       springs_trees_control_plotBA
+       
+       ggsave(plot=springs_trees_control_plotBA, "HolyGrail/figures/springs/springs_trees_control_BA.png")
+       
+       
+ ## COMPARE SEVERITY INDICIES
+       
+       tree_scorch_torch <- springs_trees_severityIndicies %>%
+               drop_na(TSLF)  %>% 
+               group_by(TSLF, species) %>% 
+               summarise(scorch_ht_m = mean(avg_scorch_ht_m, na.rm=TRUE),
+                         scorch_percent= mean(avg_scorch_percent, na.rm=TRUE),
+                         torch_ht_m = mean(avg_torch_ht_m, na.rm=TRUE),
+                         torch_percent= mean(avg_torch_percent,, na.rm=TRUE)) 
+       tree_scorch_torch
+  
+####SCORCH TORCH HEIGHT
+       springs_trees_scorchtorch_ht <- springs_trees_severityIndicies %>% 
+           mutate(plotid_trt =paste(plotid, species, TSLF)) %>% 
+           select(plotid_trt, avg_scorch_ht_m, avg_torch_ht_m) %>% 
+           pivot_longer(-plotid_trt, names_to= "severity_type", values_to = "ht_m") %>% 
+           separate(plotid_trt, c("plotid", "species", "TSLF")) %>% 
+           drop_na(ht_m) %>% 
+           filter(TSLF != "NA") %>% 
+           mutate(TSLF = factor(TSLF, levels= c("nopriorburn",
+                                                "2007rx",
+                                                "2010rx",
+                                                "2013rx"))) %>% 
+         mutate(ht_ft = ht_m*3.28)
+       
+       springs_trees_scorchtorch_ht$severity_type <-  recode(springs_trees_scorchtorch_ht$severity_type, 
+                                                  "avg_scorch_ht_m"= "scorch",
+                                                  "avg_torch_ht_m"= "torch")
+                                                  
+       
+       springs_trees_scorchtorchht_plot <- ggplot(data=springs_trees_scorchtorch_ht)+
+           geom_boxplot(aes(x=severity_type, y=ht_ft, fill=TSLF))+
+           theme_minimal()+
+         scale_fill_brewer(palette = "Dark2")+
+           theme(axis.title=element_text(size=16,face="bold"),
+                 axis.text=element_text(size=16),
+                 axis.title.x = element_blank(),
+                 legend.title = element_blank(),
+                 legend.text = element_text(size =14))+
+           ylab("Height (ft)")
+       springs_trees_scorchtorchht_plot
+       
+       ggsave(plot= springs_trees_scorchtorchht_plot, "HolyGrail/figures/springs/springs_trees_scorchtorch.png")
+       
+       compare_means(ht_ft ~ TSLF, data = springs_trees_scorchtorch_ht, 
+                     group.by = "severity_type")
+       
+####SCORCH TORCH PERCENT
+       springs_trees_scorchtorch_percent <- springs_trees_severityIndicies %>% 
+           mutate(plotid_trt =paste(plotid, species, TSLF)) %>% 
+           select(plotid_trt, avg_scorch_percent, avg_torch_percent) %>% 
+           pivot_longer(-plotid_trt, names_to= "severity_type", values_to = "percent") %>% 
+           separate(plotid_trt, c("plotid", "species", "TSLF")) %>% 
+           drop_na(percent) %>% 
+           filter(TSLF != "NA") %>% 
+           mutate(TSLF = factor(TSLF, levels= c("nopriorburn",
+                                                "2007rx",
+                                                "2010rx",
+                                                "2013rx"))) 
+       
+       springs_trees_scorchtorch_percent$severity_type <-  recode(springs_trees_scorchtorch_percent$severity_type, 
+                                                             "avg_scorch_percent"= "scorch",
+                                                             "avg_torch_percent"= "torch")
+       
+       
+       springs_trees_scorchtorchpercent_plot <- ggplot(data=springs_trees_scorchtorch_percent)+
+           geom_boxplot(aes(x=severity_type, y=percent, fill=TSLF))+
+           theme_minimal()+
+         scale_fill_brewer(palette = "Dark2")+
+           theme(axis.title=element_text(size=16,face="bold"),
+                 axis.text=element_text(size=16),
+                 axis.title.x = element_blank(),
+                 legend.title = element_blank(),
+                 legend.text = element_text(size =14))+
+           ylab("Percent (%)")
+       springs_trees_scorchtorchpercent_plot
+       
+       ggsave(plot= springs_trees_scorchtorchpercent_plot, "HolyGrail/figures/springs/springs_trees_scorchtorch_percent.png")
+       
+       compare_means(percent ~ TSLF, data = springs_trees_scorchtorch_percent, 
+                     group.by = "severity_type")
+       
+####BOLE CHAR
+       springs_trees_bolechar <- springs_trees_severityIndicies %>% 
+           select(plotid, TSLF, avg_bolechar_m) %>% 
+           drop_na(avg_bolechar_m) %>% 
+           filter(TSLF != "NA") %>% 
+           mutate(TSLF = factor(TSLF, levels= c("nopriorburn",
+                                                "2007rx",
+                                                "2010rx",
+                                                "2013rx"))) %>% 
+           rename(BoleChar = avg_bolechar_m ) %>% 
+            mutate(bolechar_ft = BoleChar*3.28)
+       
+   
+       
+       
+       springs_trees_bolechar_plot <- ggplot(data=springs_trees_bolechar)+
+           geom_boxplot(aes(x=TSLF, y=bolechar_ft, fill=TSLF))+
+           theme_minimal()+
+         scale_fill_brewer(palette = "Dark2")+
+           theme(axis.title=element_text(size=16,face="bold"),
+                 axis.text=element_text(size=16),
+                 axis.title.x = element_blank(),
+                 legend.position = 'none')+
+           ylab("Bole Char Height (ft)")
+       springs_trees_bolechar_plot
+       
+       ggsave(plot= springs_trees_bolechar_plot, "HolyGrail/figures/springs/springs_trees_bolechar.png")
+       
+       compare_means(bolechar_ft ~ TSLF, data = springs_trees_bolechar)
+       
+##### HEIGHT TO CROWN 
+       
+       
+       springs_trees_ht2crown <- springs_trees_all %>% 
+           select(plotid, pre_post_fire, postFire, TSLF, burn,
+                  status, species, ht2crown_m)
+       
+       springs_trees_ht2crown_burn <- springs_trees_ht2crown %>% 
+           filter(burn == "yes") %>% 
+           mutate(TSLF = factor(TSLF, levels= c("nopriorburn",
+                                                "2007rx",
+                                                "2010rx",
+                                                "2013rx"))) %>% 
+         mutate(pre_post_fire = factor(pre_post_fire, levels = c("prefire",
+                                                                 "postfire"))) %>% 
+         mutate(ht2crown_ft = ht2crown_m*3.28)
+         
+         
+           
+       
+       springs_trees_ht2crownBurn_plot <- ggplot(data=springs_trees_ht2crown_burn)+
+           geom_boxplot(aes(x=TSLF, y=ht2crown_ft, fill=pre_post_fire))+
+           theme_minimal()+
+           scale_fill_brewer(palette = "Dark2")+
+           theme(axis.title=element_text(size=16,face="bold"),
+                 axis.text=element_text(size=16),
+                 axis.title.x = element_blank(),
+                 legend.title = element_blank(),
+                 legend.text = element_text(size=14))+
+           ylab("Height to Live Crown (ft)")
+       springs_trees_ht2crownBurn_plot
+       
+       ggsave(plot= springs_trees_ht2crownBurn_plot, "HolyGrail/figures/springs/springs_trees_ht2crownBURN.png")
+       
+       #STATS
+       
+       compare_means(ht2crown_ft ~ pre_post_fire, data = springs_trees_ht2crown_burn, 
+                     group.by = "TSLF")
+      
+       
+
+       
