@@ -18,7 +18,7 @@ HG_finefuels <- read.csv("HolyGrail/data/raw/CPFMP_HolyGrail_FineFuels.csv")
                 SamplingTime == 2 ~ "1yr")) %>% 
               mutate(pre_post_fire = case_when(
                 SamplingTime == 0 ~ "prefire",
-                SamplingTime == 1 ~ "prefire",
+                SamplingTime == 1 ~ "postfire",
                 SamplingTime == 2 ~ "postfire")) %>% 
               mutate(year = case_when(
                 SamplingTime == 0 ~ "2013-2018",
@@ -60,7 +60,7 @@ HG_CWD <- read.csv("HolyGrail/data/raw/CPFMP_HolyGrail_CWD.csv")
                     SamplingTime == 2 ~ "1yr")) %>% 
                   mutate(pre_post_fire = case_when(
                     SamplingTime == 0 ~ "prefire",
-                    SamplingTime == 1 ~ "prefire",
+                    SamplingTime == 1 ~ "postfire",
                     SamplingTime == 2 ~ "postfire")) %>% 
                   mutate(year = case_when(
                     SamplingTime == 0 ~ "2013-2018",

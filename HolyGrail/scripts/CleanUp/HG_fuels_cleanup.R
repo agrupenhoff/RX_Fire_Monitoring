@@ -118,12 +118,19 @@ HG_FWD_clean <- HG_finefuels_NA %>%
   mutate( duff_depth_cm = rowMeans(select(.,starts_with("duff")), na.rm=TRUE),
           litter_depth_cm = rowMeans(select(.,starts_with("litter")), na.rm=TRUE),
           fuel_depth_cm = rowMeans(select(.,starts_with("fuel")), na.rm=TRUE)) %>% 
-  mutate(site_plotid_time_azimuth = paste(site, plotid, year, pre_post_fire, postTime, azimuth, sep="_")) 
+  mutate(site_plotid_time_azimuth = paste(site, plotid, year, pre_post_fire, postTime, azimuth, sep="_")) %>% 
+  drop_na(count_x1h)
 
 export(HG_FWD_clean, "HolyGrail/data/raw/CPFMP_HolyGrail_FWD_clean.csv") 
 
 #compile FWD and CWD together
 HG_Fuels_ALL <- left_join(HG_FWD_clean, HG_CWD_clean, by="site_plotid_time_azimuth")
+
+#fix postTime values
+unique(HG_Fuels_ALL$postTime)
+HG_Fuels_ALL$postTime <- recode(HG_Fuels_ALL$postTime,
+                            "1year" = "1yr")
+
 
 HG_FWD_CWD_final <- HG_Fuels_ALL %>% 
   replace_na(list(sum_d2_1000r_cm2=0, sum_d2_1000s_cm2=0)) %>% 
