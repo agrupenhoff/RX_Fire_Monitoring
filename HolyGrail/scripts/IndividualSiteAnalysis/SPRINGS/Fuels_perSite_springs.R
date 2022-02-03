@@ -7,7 +7,6 @@ library(viridis)
 library(gtsummary)
 library(ggplot2)
 library(RColorBrewer)
-
 library(data.table)
 
 outlierReplace = function(dataframe, cols, rows, newValue = NA) {
@@ -17,14 +16,18 @@ outlierReplace = function(dataframe, cols, rows, newValue = NA) {
 }
 
 
-HG_fuelMass_tonAcre <- read.csv("HolyGrail/data/clean/HG_FuelMass_tonAcre_plot.csv")
+HG_fuelMass_tonsHA_plot <- read.csv("HolyGrail/data/clean/fuels/HG_FuelMass_tonHA_plot.csv")
+HG_fuelMass_tonsHA_plot$site <- tolower(HG_fuelMass_tonsHA_plot$site)
+HG_fuel_consumption_HA <- read.csv("HolyGrail/data/clean/fuels/HG_FuelMass_tonHA_consumption.csv")
+HG_fuel_consumption_HA$site <- tolower(HG_fuel_consumption_HA$site)
 trt_utm <- read.csv("HolyGrail/data/raw/CPFMP_HolyGrail_trt_utm.csv")
+trt_utm$site <- tolower(trt_utm$site)
 
 #############FILTER SITE & CLEAN HER UP
 ########
 
 #Filter out site that you are interested in HERE#########
-springs_fuel_totalPlot <- HG_fuelMass_tonAcre %>% 
+springs_fuel_totalPlot <- HG_fuelMass_tonsHA_plot %>% 
   filter(site == "springsfire")
 springs_fuel_totalPlot$plotid <- recode(springs_fuel_totalPlot$plotid, "springs1" = "springs01",
                                   "springs2"= "springs02",
@@ -43,7 +46,7 @@ unique(springs_fuel_totalPlot$plotid)
 str(trt_utm)
 springs_trt <- trt_utm %>% 
   filter(site == "springsfire") %>% 
-  select(plotid, TSLF, burn_unit, burn)
+  select(plotid, burn_unit, burn, TSLF_rx_only, num_prior_rx)
 export(springs_trt, "SiteLocation/Springs_Fire/data/clean/springs_trt.csv")
 unique(springs_trt$plotid)
 springs_fuel_totalPlot <- left_join(springs_fuel_totalPlot, springs_trt,
