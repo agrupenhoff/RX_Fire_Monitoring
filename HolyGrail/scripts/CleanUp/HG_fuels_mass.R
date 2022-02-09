@@ -41,7 +41,7 @@ HG_fuels_MassFWD_tonsAcre <- HG_fuels_data %>%
   mutate(total_fine = mass_1hr+mass_10hr+mass_100hr,
          total_cwd = mass_cwd_rotten+mass_cwd_sound,
          total_fuel = mass_1hr+mass_10hr+mass_100hr+mass_cwd_sound+mass_cwd_rotten,
-         site_plotid_time = paste(site, plot_id_time))
+         site_plotid_time = paste(site, plotid, pre_post_fire, postTime))
 
 
 #1 acre= 2.47 Ha
@@ -104,7 +104,7 @@ HG_fuels_tonHA_consumption <- HG_fuels_tonsHA_plot %>%
   pivot_wider( names_from = "time", values_from = "mass_tonHA") 
 
 HG_fuels_tonHA_consumption <- HG_fuels_tonHA_consumption %>% 
-    mutate(consumption_immediate = prefire_NA - postfire_immediate) %>% 
+    mutate(consumption_immediate = prefire_ - postfire_immediate) %>% 
     drop_na(consumption_immediate) %>% 
     separate(plotID_mass, c("site","plotid", "fuelType"), 
            sep=" ")

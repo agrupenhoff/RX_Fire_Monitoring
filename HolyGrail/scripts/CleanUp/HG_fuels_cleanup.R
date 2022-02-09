@@ -132,9 +132,22 @@ HG_Fuels_ALL$postTime <- recode(HG_Fuels_ALL$postTime,
                             "1year" = "1yr")
 
 
+
 HG_FWD_CWD_final <- HG_Fuels_ALL %>% 
   replace_na(list(sum_d2_1000r_cm2=0, sum_d2_1000s_cm2=0)) %>% 
   mutate(plot_id_time = paste(plotid, pre_post_fire, postTime))
+
+###RANDOM FIXES  
+HG_FWD_CWD_final$plotid <- recode(HG_FWD_CWD_final$plotid, "springs1" = "springs01",
+                                          "springs2"= "springs02",
+                                          "springs3" ="springs03",
+                                          "springs4"= "springs04",
+                                          "springs5"= "springs05",
+                                          "springs6"= "springs06",
+                                          "springs7"= "springs07",
+                                          "springs8"= "springs08",
+                                          "springs9"= "springs09")
+
 
 
 export(HG_FWD_CWD_final, "HolyGrail/data/clean/fuels/HG_FWD_CWD_final.csv") 
