@@ -13,15 +13,14 @@ HG_trees$species <- toupper(HG_trees$species) #make all codes uppercase
 unique(HG_trees$species)
 str(HG_trees)
 
-HG_trees$species <- recode(HG_trees$species, "PIMONO" = "PIMO", 
-                                              "CADE" = "CADE27",
+HG_trees$species <- recode(HG_trees$species, "PIMONO" = "PIMO1", 
                                              "QBMA" = "ABMA",
                                              "UNK" = "UNKNOWN",
                                              "ADCO" = "ABCO",
                               "ACEMAC" = "ACMA3",
                               "CONU" = "CONU4",
                               "POTR" = "POTR5",
-                              "PIMO" = "PIMO3",
+                              "PIMO" = "PIMO2",
                               "DEAD " = "UNKDEAD",
                               "AMBA" = "ABMA",
                               "POTR" = "POTR5",
@@ -48,7 +47,10 @@ HG_trees_clean$status <- recode(HG_trees_clean$status, "DEAD " = "DEAD",
                                 "D2"= "DEAD",
                                 "D1"= "DEAD",
                                 "LIVE "= "LIVE",
-                                "LUVE"= "LIVE")
+                                "LUVE"= "LIVE",
+                                "I" = "LIVE",     #infested but live, caples
+                                "M" = "LIVE",     #marginal crown but live, caples
+                                )
 
 unique(HG_trees_clean$status)
 

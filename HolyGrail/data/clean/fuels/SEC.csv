@@ -1,0 +1,22 @@
+species,spp,x1h,x10h,x100h,x1000h
+Abies concolor,ABCO,1.03,1.02,1.02,1.01
+Abies magnifica,ABMA,1.03,1.02,1.01,1
+Calocedrus decurrens,CADE,1.02,1.02,1.03,1.06
+Juniperus occidentalis,JUOC,1.03,1.04,1.04,1.04
+Pinus albicaulis,PIAL,1.02,1.02,1.02,1.02
+Pinus attenuata,PIAT,1.03,1.02,1,1.02
+Pinus balfouriana,PIBA,1.02,1.02,1.01,1.02
+Pinus contorta,PICO,1.02,1.02,1.01,1.05
+Pinus flexilis,PIFL,1.02,1.02,1.01,1.01
+Pinus jeffreyi,PIJE,1.03,1.03,1.04,1.05
+Pinus lambertiana,PILA,1.04,1.04,1.03,1.03
+Pinus monophylla,PIMO1,1.02,1.01,1.01,1.05
+Pinus monticola,PIMO2,1.03,1.02,1.06,1.02
+Pinus ponderosa,PIPO,1.02,1.03,1.02,1.01
+Pinus sabiniana,PISA,1.05,1.03,1.02,1.02
+Pinus washoensis,PIWA,1.02,1.02,1.01,1.05
+Pseudotsuga menziesii,PSME,1.03,1.02,1.03,1.04
+Seguoiadendron giganteum,SEGI,1.02,1.02,1.02,1.01
+Tsuga mertensiana,TSME,1.04,1.02,1.02,1
+All Species,ALLSPP,1.03,1.02,1.02,1.02
+Other,OTHER,1.03,1.02,1.02,1.02
