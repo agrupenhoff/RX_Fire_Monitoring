@@ -10,8 +10,8 @@ Scripts:
 
 FUELS:
 
-1/18/2021
+1/18/2022
 basic fuels mass
 
-TODO:
-get tree species covers & update QMD and fuel coefficients
+2/21/2022
+added coefficients for basal area proportions 
