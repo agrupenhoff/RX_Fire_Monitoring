@@ -1,4 +1,4 @@
-pre_post_fire,year,site,plot_id,observer,species,status,lifeform,layerCode,percent,notes
+pre_post_fire,year,site,plotid,obs,species,status,lifeform,layer_code,percent,notes
 prefire,2019,slypark,hcp1,ag,abco,live,TR,TOV,10,
 prefire,2019,slypark,hcp1,ag,abco,live,TR,TSE,tr,
 prefire,2019,slypark,hcp10,ag,abco,live,TR,TOV,tr,

@@ -1,4 +1,4 @@
-site,year,pre_post_fire,plot_id,observer,species,status,lifeform,layerCode,percent,notes,
+site,year,pre_post_fire,plotid,obs,species,status,lifeform,layer_code,percent,notes,
 calaveras,2020,prefire,BigTrees22,"ag, lh",ABCO,live,TR,TOV,20,,
 calaveras,2020,prefire,BigTrees22,"ag, lh",ABCO,live,TR,TSA,tr,,
 calaveras,2020,prefire,BigTrees22,"ag, lh",ABCO,live,TR,TSE,5,,

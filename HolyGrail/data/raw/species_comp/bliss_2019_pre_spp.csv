@@ -1,4 +1,4 @@
-site,year,plot_id,observer,pre_post_fire,postTime,species,status,lifeform,layerCode,percent,notes
+site,year,plot_id,obs,pre_post_fire,postTime,species,status,lifeform,layer_code,percent,notes
 BlissSP,2019,bliss1,ag,prefire,,abco,live,TR,TOV,33,
 BlissSP,2019,bliss1,ag,prefire,,abco,dead,TR,TOV,1,
 BlissSP,2019,bliss10,ms,prefire,,abco,live,TR,TOV,20,

@@ -1,4 +1,4 @@
-site,pre_post_fire,pre_post_thin,year,plot_id,lifeform,layerCode,species,percent,notes
+site,pre_post_fire,pre_post_thin,year,plotid,lifeform,layer_code,species,percent,notes
 Valentine,prefire,prethin,2019,VR1,TR,TOV,ABMA,20,
 Valentine,prefire,prethin,2019,VR1,TR,TSA,ABMA,0.5,
 Valentine,prefire,prethin,2019,VR1,FB,TOF,ARAHOL,0.5,

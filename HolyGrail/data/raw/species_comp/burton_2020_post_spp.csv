@@ -1,4 +1,4 @@
-site,year,plot_id,observer,pre_post_fire,postTime,species,status,lifeform,layerCode,percent,notes
+site,year,plotid,obs,pre_post_fire,postTime,species,status,lifeform,layer_code,percent,notes
 BurtonSP,2020,Burton09,km,postfire,1yr,ABCO,live,TR,TSE,0.5,
 BurtonSP,2020,Burton09,km,postfire,1yr,ABCO,live,TR,TSA,0.75,
 BurtonSP,2020,Burton09,km,postfire,1yr,ABCO,live,TR,TOV,25,

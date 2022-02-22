@@ -1,0 +1,22 @@
+species,spp,x1h,x10h,x100h,x1000s
+Abies concolor,ABCO,0.53,0.54,0.57,0.32
+Abies magnifica,ABMA,0.57,0.56,0.47,0.38
+Calocedrus decurrens,CADE,0.59,0.54,0.55,0.41
+Juniperus occidentalis,JUOC,0.67,0.65,0.62,0.47
+Pinus albicaulis,PIAL,0.55,0.49,0.48,0.42
+Pinus attenuata,PIAT,0.59,0.55,0.39,0.47
+Pinus balfouriana,PIBA,0.59,0.61,0.53,0.47
+Pinus contorta,PICO,0.53,0.48,0.54,0.58
+Pinus flexilis,PIFL,0.57,0.57,0.54,0.63
+Pinus jeffreyi,PIJE,0.53,0.55,0.55,0.47
+Pinus lambertiana,PILA,0.59,0.59,0.52,0.43
+Pinus monophylla,PIMO1,0.65,0.64,0.53,0.47
+Pinus monticola,PIMO2,0.56,0.56,0.49,0.47
+Pinus ponderosa,PIPO,0.55,0.56,0.48,0.4
+Pinus sabiniana,PISA,0.64,0.61,0.43,0.47
+Pinus washoensis,PIWA,0.53,0.52,0.44,0.35
+Pseudotsuga menziesii,PSME,0.6,0.61,0.59,0.35
+Seguoiadendron giganteum,SEGI,0.57,0.57,0.56,0.54
+Tsuga mertensiana,TSME,0.67,0.65,0.62,0.66
+All Species,ALLSPP,0.58,0.57,0.53,0.47
+Other,OTHER,0.58,0.57,0.53,0.47

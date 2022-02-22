@@ -1,4 +1,4 @@
-year,pre_post_fire,site,plot_id,observer,species,status,lifeform,layerCode,percent,notes
+year,pre_post_fire,site,plotid,obs,species,status,lifeform,layer_code,percent,notes
 2019,prefire,frenchmeadows,fm10-1,ag,abco,live,TR,TOV,7,
 2019,prefire,frenchmeadows,fm10-1,ag,abco,live,TR,TSE,tr,
 2019,prefire,frenchmeadows,fm10-1,ag,abco,dead,TR,TOV,1,

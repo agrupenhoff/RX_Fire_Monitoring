@@ -1,4 +1,4 @@
-year,pre_post_fire,site,plot_id,observer,species,status,lifeform,layerCode,percent,notes
+year,pre_post_fire,site,plotid,obs,species,status,lifeform,layer_code,percent,notes
 2020,prefire,SugarPineSP,sugarpine1,ag,abco,live,TR,TOV,18,
 2020,prefire,SugarPineSP,sugarpine1,ag,abco,dead,TR,TOV,3.5,
 2020,prefire,SugarPineSP,sugarpine1,ag,abco,live,TR,TSA,tr,

@@ -1,4 +1,4 @@
-﻿site,pre_post_fire,pre_post_thin,year,plot_id,obs,species,status,lifeform,layer,percent,NOTES,,
+﻿site,pre_post_fire,pre_post_thin,year,plotid,obs,species,status,lifeform,layer,percent,NOTES,,
 Valentine,prefire,postthin,2021,VR1,km,abma,live,tr,tsa,0.25,,,
 Valentine,prefire,postthin,2021,VR1,km,abma,live,tr,tse,0.25,,,
 Valentine,prefire,postthin,2021,VR1,km,pico,live,tr,tov,1,,,

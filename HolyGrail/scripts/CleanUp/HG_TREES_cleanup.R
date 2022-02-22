@@ -57,5 +57,5 @@ unique(HG_trees_clean$status)
 #change plotid stuff (if need be) HERE
 
 
-export(HG_trees_clean, "HolyGrail/data/clean/HG_Trees_final.csv")
+export(HG_trees_clean, "HolyGrail/data/clean/trees/HG_Trees_final.csv")
 

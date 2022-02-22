@@ -1,4 +1,4 @@
-site,year,pre_post_fire,plot_id,observer,species,status,lifeform,layerCode,percent,notes
+site,year,pre_post_fire,plotid,obs,species,status,lifeform,layer_code,percent,notes
 lonebobcatwoods,2020,prefire,lbw2,ag,arbmen,live,TR,TOV,2,
 lonebobcatwoods,2020,prefire,lbw2,ag,arbmen,live,TR,TSE,3,
 lonebobcatwoods,2020,prefire,lbw5,ag,arbmen,live,TR,TRE,tr,

@@ -1,4 +1,4 @@
-site,year,pre_post_fire,postTime,plot_id,obs,species,status,lifeform,layerCode,percent,notes
+site,year,pre_post_fire,postTime,plotid,obs,species,status,lifeform,layer_code,percent,notes
 bearmountain,2019,prefire,,BM7,nr,3petalcompound,live,FB,,tr,
 bearmountain,2019,prefire,,BM8,nr,3petalcompound,live,FB,,tr,
 bearmountain,2019,prefire,,BM9,nr,3petalcompound,live,FB,,tr,

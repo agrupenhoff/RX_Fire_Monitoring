@@ -2,10 +2,13 @@ library(dplyr)
 library(plyr)
 library(vegan)
 library(ggplot2)
+library(tidyverse)
+library(tibble)
+library(ggpubr)
 
 
-HG_species <- import("HolyGrail/data/clean/HG_species_clean.csv")
-VR_plottype <- import("SiteLocation/Valentine/data/clean/VR_plottype.csv")
+HG_species <- read.csv("HolyGrail/data/clean/HG_species_clean.csv")
+VR_plottype <- read.csv("SiteLocation/Valentine/data/clean/VR_plottype.csv")
 
 
 ##UNDERSTORY and SHRUB SPECIES ONLY NO TREES 
@@ -24,7 +27,6 @@ val_species <- HG_species %>%
               values_fill = 0,
               values_fn=sum)
 
-glimpse(springs_species)
 
 export(val_species,"SiteLocation/Valentine/data/clean/val_species2021.csv" )
 
@@ -63,7 +65,11 @@ val_species_thin
 
 ggsave(plot=val_species_thin, "HolyGrail/figures/valentine/val_richness_thinned.png")
 
-
+thinSum <- val_richness %>% 
+  drop_na(RICHNESS) %>% 
+  group_by(pre_post_thin, PlotType) %>% 
+  dplyr::summarise(mean=mean(RICHNESS),
+                   std = sd(RICHNESS))
 
 compare_means(RICHNESS ~ pre_post_thin, data = val_richness)
 
@@ -86,24 +92,9 @@ ggsave(plot=val_rich_plottype, "HolyGrail/figures/valentine/val_richness_plottyp
 
 compare_means(RICHNESS ~ pre_post_thin, data = val_richness,
               group.by = "PlotType")
+compare_means(RICHNESS ~ pre_post_thin, data = val_richness)
 
 
-###############################
-################################
-###########################
-############################
-
-rich_burn <- lmer(RICHNESS ~ PriorBurn*pre_post_fire + 
-                    (1|burn_unit) , data = springs_rich_burn)
-summary(rich_burn)
-anova(rich_burn)
-##Potentially block by burn unit? But burn unit is basically correlated TSLF, 
-##might already be taken into account 
-
-#multiple comparisons using multiple pairwise-comparisons between means of groups
-rich_burn.emm <- emmeans(rich_burn, 
-                         specs = pairwise ~ PriorBurn:pre_post_fire)
-plot(rich_burn.emm)
 
 
 
