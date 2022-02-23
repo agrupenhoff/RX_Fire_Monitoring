@@ -176,8 +176,8 @@ HG_fuels_Mass_tonsHA <- HG_fuels_mass_coef %>%
          mass_10hr=(1.234 * count_x10h * qmd_plot_x10h * sec_plot_x10h * slopecorrection * SG_plot_x10h)/ (x10h_length_m),
          mass_100hr=(1.234 * count_x100h * qmd_plot_x100h * sec_plot_x100h * slopecorrection * SG_plot_x100h)/ (x100h_length_m), 
          #no QMD since i have diameter measurements
-         mass_cwd_sound =(1.234 * sum_d2_1000s_cm2 * sec_plot_x1000h * slopecorrection * SG_plot_x1000s) / (x1000h_length_m),   
-         mass_cwd_rotten=(1.234 * sum_d2_1000r_cm2 * sec_plot_x1000h * slopecorrection * 0.36) / (x1000h_length_m),
+         mass_cwd_sound =(1.234 * sum_d2_1000s_cm2 * sec_plot_x1000h * slopecorrection * SG_plot_x1000s) / (x1000h_length_m*4),   
+         mass_cwd_rotten=(1.234 * sum_d2_1000r_cm2 * sec_plot_x1000h * slopecorrection * 0.36) / (x1000h_length_m*4),
          duff_load_kgm2 = (coef_plot_duff * duff_depth_cm),
          litter_load_kgm2 = (coef_plot_litter * litter_depth_cm)) %>% 
   #convert litter duff from kg/m2 to mg/ha

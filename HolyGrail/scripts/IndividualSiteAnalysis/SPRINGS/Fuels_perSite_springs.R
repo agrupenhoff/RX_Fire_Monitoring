@@ -16,29 +16,21 @@ outlierReplace = function(dataframe, cols, rows, newValue = NA) {
 }
 
 
-HG_fuelMass_tonsHA_plot <- read.csv("HolyGrail/data/clean/fuels/HG_FuelMass_tonHA_plot.csv")
-HG_fuelMass_tonsHA_plot$site <- tolower(HG_fuelMass_tonsHA_plot$site)
-HG_fuel_consumption_HA <- read.csv("HolyGrail/data/clean/fuels/HG_FuelMass_tonHA_consumption.csv")
-HG_fuel_consumption_HA$site <- tolower(HG_fuel_consumption_HA$site)
-trt_utm <- read.csv("HolyGrail/data/raw/CPFMP_HolyGrail_trt_utm.csv")
+HG_fuelMass_MgHA_plot <- read.csv("data/raw/fuels/HG_FuelMass_mgHA.csv")
+HG_fuelMass_MgHA_plot$site <- tolower(HG_fuelMass_MgHA_plot$site)
+HG_fuel_consumption_MgHA <- read.csv("data/raw/fuels/HG_FuelMass_mgHA_consumption.csv")
+HG_fuel_consumption_MgHA$site <- tolower(HG_fuel_consumption_MgHA$site)
+trt_utm <- read.csv("data/raw/CPFMP_HolyGrail_trt_utm.csv")
 trt_utm$site <- tolower(trt_utm$site)
+trt_utm$plotid <- tolower(trt_utm$plotid)
+NRV <- read.csv("data/raw/NRV/NRV_YPMC_all.csv")
 
 #############FILTER SITE & CLEAN HER UP
 ########
 
 #Filter out site that you are interested in HERE#########
-springs_fuel_totalPlot <- HG_fuelMass_tonsHA_plot %>% 
+springs_fuel_totalPlot <- HG_fuelMass_MgHA_plot %>% 
   filter(site == "springsfire")
-springs_fuel_totalPlot$plotid <- recode(springs_fuel_totalPlot$plotid, "springs1" = "springs01",
-                                  "springs2"= "springs02",
-                                  "springs3" ="springs03",
-                                  "springs4"= "springs04",
-                                  "springs5"= "springs05",
-                                  "springs6"= "springs06",
-                                  "springs7"= "springs07",
-                                  "springs8"= "springs08",
-                                  "springs9"= "springs09")
-
 
 unique(springs_fuel_totalPlot$plotid)
 
@@ -55,7 +47,7 @@ springs_fuel_totalPlot <- left_join(springs_fuel_totalPlot, springs_trt,
 
 #reorder fuel type to make logical sense
 springs_fuels_byunit <- springs_fuel_totalPlot %>% 
-  filter(TSLF != "2013rx") %>% 
+  filter(TSLF_rx_only != "6") %>% 
   mutate(fuelType = factor(fuelType, levels=c('mass_1hr',
                                                           'mass_10hr',
                                                           'mass_100hr',
@@ -64,22 +56,14 @@ springs_fuels_byunit <- springs_fuel_totalPlot %>%
                                                           'total_fine',
                                                           'total_cwd',
                                                           'total_fuel',
-                                                          'duff_depth_cm',
-                                                          'litter_depth_cm'
+                                                          'duff_load',
+                                                          'litter_load'
   ))) %>% 
   mutate(pre_post_fire = factor(pre_post_fire, levels=c('prefire',
                                                         'postfire'))) %>% 
-  mutate(TSLF = factor(TSLF, levels= c("nopriorburn",
-                                       "2007rx",
-                                       "2010rx",
-                                       "2013rx"))) %>% 
-  mutate(PriorBurn = case_when(
-                TSLF == '2007rx' ~ "priorburn",
-                TSLF == '2010rx' ~ "priorburn",
-                TSLF == '2013rx' ~ "priorburn",
-                TSLF == 'nopriorburn' ~ "nopriorburn",
-  ))
-
+  mutate(TSLF_rx_only = factor(TSLF_rx_only, levels=c('9',
+                                                      '12',
+                                                      '>50')))
 
 #########################
 #PRE FIRE ONLY
@@ -94,8 +78,8 @@ springs_fuels_preburn <-  springs_fuels_byunit %>%
            fuelType == "total_fuel") 
 
 springs_fuelplot_preburn <- ggplot(data=springs_fuels_preburn, 
-                                   aes(x=TSLF, y=mass_tonAcre, 
-                                       fill=TSLF))+
+                                   aes(x=TSLF_rx_only, y=mass_mgha, 
+                                       fill=TSLF_rx_only))+
   geom_boxplot()+
   facet_wrap(~ fuelType, scales = "free_y") +
   scale_fill_brewer(palette = "Dark2")+
@@ -109,18 +93,10 @@ springs_fuelplot_preburn <- ggplot(data=springs_fuels_preburn,
   ylab("Fuel Mass (Tons/Acre)")
 springs_fuelplot_preburn
 
-ggsave(plot=springs_fuelplot_preburn, "HolyGrail/figures/springs/springs_fuels_preburn_ALL.png")
 
-compare_means(mass_tonAcre ~ TSLF, data = springs_fuels_preburn, 
+
+compare_means(mass_mgha ~ TSLF_rx_only, data = springs_fuels_preburn, 
                          group.by = "fuelType")
-
-springs_fuels_preburn_summarize <- springs_fuels_preburn %>% 
-  group_by(TSLF, fuelType) %>% 
-  summarize(N    = length(mass_tonAcre),
-            mean = mean(mass_tonAcre),
-            sd   = sd(mass_tonAcre),
-            se   = sd / sqrt(N))
-springs_fuels_preburn_summarize
 
 
 
@@ -133,28 +109,21 @@ springs_fuels_burned <- springs_fuels_byunit %>%
   filter(pre_post_fire== "prefire"|
           pre_post_fire=="postfire"&postTime=="1yr")
 
-outlierReplace(springs_fuels_burned, "mass_tonAcre", 
+outlierReplace(springs_fuels_burned, "mass_mgha", 
                which(springs_fuels_burned$mass_tonAcre > 
                                         15), NA)
 
-qplot(data = springs_fuels_burned, x = mass_tonAcre) 
+qplot(data = springs_fuels_burned, x = mass_mgha) 
 
 springs_fuels_burned <- springs_fuels_burned %>% 
-  drop_na(mass_tonAcre)
+  drop_na(mass_mgha)
 
-springs_fuels_burn_summarize <- springs_fuels_burned  %>% 
-  group_by(pre_post_fire, TSLF, fuelType) %>% 
-  summarize(N    = length(mass_tonAcre),
-            mean = mean(mass_tonAcre),
-            sd   = sd(mass_tonAcre),
-            se   = sd / sqrt(N))
-springs_fuels_burn_summarize
 
 
 
 ###PLOT ALL BURNED FUELS 
 springs_fuelplot_burned <- ggplot(data=springs_fuels_burned, 
-                                  aes(x=PriorBurn, y=mass_tonAcre, fill=pre_post_fire))+
+                                  aes(x=TSLF_rx_only, y=mass_mgha, fill=pre_post_fire))+
   geom_boxplot()+
   facet_wrap(~ fuelType, scales = "free_y") +
   scale_fill_brewer(palette = "Dark2")+
