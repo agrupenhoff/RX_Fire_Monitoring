@@ -16,14 +16,16 @@ outlierReplace = function(dataframe, cols, rows, newValue = NA) {
 }
 
 
-HG_fuelMass_MgHA_plot <- read.csv("data/raw/fuels/HG_FuelMass_mgHA.csv")
+HG_fuelMass_MgHA_plot <- read.csv("HolyGrail/data/clean/fuels/HG_FuelMass_mgHA.csv")
 HG_fuelMass_MgHA_plot$site <- tolower(HG_fuelMass_MgHA_plot$site)
-HG_fuel_consumption_MgHA <- read.csv("data/raw/fuels/HG_FuelMass_mgHA_consumption.csv")
+HG_fuel_consumption_MgHA <- read.csv("HolyGrail/data/clean/fuels/HG_FuelMass_mgHA_consumption.csv")
 HG_fuel_consumption_MgHA$site <- tolower(HG_fuel_consumption_MgHA$site)
 trt_utm <- read.csv("data/raw/CPFMP_HolyGrail_trt_utm.csv")
 trt_utm$site <- tolower(trt_utm$site)
 trt_utm$plotid <- tolower(trt_utm$plotid)
 NRV <- read.csv("data/raw/NRV/NRV_YPMC_all.csv")
+
+unique(HG_fuelMass_MgHA_plot$site)
 
 #############FILTER SITE & CLEAN HER UP
 ########
