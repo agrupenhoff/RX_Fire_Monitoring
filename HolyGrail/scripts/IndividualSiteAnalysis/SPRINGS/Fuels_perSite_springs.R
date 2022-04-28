@@ -20,12 +20,13 @@ HG_fuelMass_MgHA_plot <- read.csv("HolyGrail/data/clean/fuels/HG_FuelMass_mgHA.c
 HG_fuelMass_MgHA_plot$site <- tolower(HG_fuelMass_MgHA_plot$site)
 HG_fuel_consumption_MgHA <- read.csv("HolyGrail/data/clean/fuels/HG_FuelMass_mgHA_consumption.csv")
 HG_fuel_consumption_MgHA$site <- tolower(HG_fuel_consumption_MgHA$site)
-trt_utm <- read.csv("data/raw/CPFMP_HolyGrail_trt_utm.csv")
+trt_utm <- read.csv("HolyGrail/data/raw/CPFMP_HolyGrail_trt_utm.csv")
 trt_utm$site <- tolower(trt_utm$site)
 trt_utm$plotid <- tolower(trt_utm$plotid)
-NRV <- read.csv("data/raw/NRV/NRV_YPMC_all.csv")
+NRV <- read.csv("HolyGrail/data/clean/NRV_YPMC_data.csv")
 
 unique(HG_fuelMass_MgHA_plot$site)
+
 
 #############FILTER SITE & CLEAN HER UP
 ########
