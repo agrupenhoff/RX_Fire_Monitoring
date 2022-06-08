@@ -41,6 +41,7 @@ indy_2020_pre_spp <- read_csv("HolyGrail/data/raw/species_comp/indy_2020_pre_spp
 klamath_2021_pre_spp <- read_csv("HolyGrail/data/raw/species_comp/klamath_2021_pre_spp.csv")
 lbw_2020_pre_spp <- read_csv("HolyGrail/data/raw/species_comp/lbw_2020_pre_spp.csv")
 modoc_2020_pre_spp <- read_csv("HolyGrail/data/raw/species_comp/modoc_2020_pre_spp.csv")
+odell_2022_pre_spp <- read_csv("HolyGrail/data/raw/species_comp/odell_2022_pre_spp.csv")
 shaver_2021_pre_spp <- read_csv("HolyGrail/data/raw/species_comp/shaver_2021_pre_spp.csv")
 slypark_2019_pre_spp <- read_csv("HolyGrail/data/raw/species_comp/slypark_2019_pre_spp.csv")
 slypark_2021_post_spp <- read_csv("HolyGrail/data/raw/species_comp/slypark_2021_post_spp.csv")
@@ -85,7 +86,7 @@ HG_species <- bind_rows(antelope_drycreek_2020_pre_spp, bearmtn_2019_pre_spp, be
                         burton_2020_post_spp, calaveras_2020_pre_spp, caples_2021_post_spp_subset,
                         concow_2021_pre_spp, downie_2020_pre_spp, FM_2019_pre_spp, FM_2020_pre_spp,
                         henrycoe_2021_pre_spp, indy_2020_pre_spp, klamath_2021_pre_spp, 
-                        lbw_2020_pre_spp, modoc_2020_pre_spp , shaver_2021_pre_spp,
+                        lbw_2020_pre_spp, modoc_2020_pre_spp , odell_2022_pre_spp,  shaver_2021_pre_spp,
                         slypark_2019_pre_spp, slypark_2021_post_spp, springs_2019_pre_spp, 
                         springs_2020_post_spp, sugarpine_2020_pre_spp,
                         val_2019_pre_spp, val_2021_pre_spp, wilderRanch_2021_pre_spp)
@@ -93,8 +94,8 @@ HG_species <- bind_rows(antelope_drycreek_2020_pre_spp, bearmtn_2019_pre_spp, be
 HG_species <- HG_species %>% 
   select(site, year, pre_post_fire, pre_post_thin, postTime, plotid, obs,
          species, status, lifeform, layer_code, percent, notes) %>% 
-  drop_na(percent)
-
+  drop_na(percent) 
+HG_species$species <- toupper(HG_species$species)
 #replace trace values
 HG_species1 <- HG_species
 HG_species1$percent[HG_species1$percent == "-"] <- "0"
@@ -128,5 +129,8 @@ HG_species1$percent <- as.numeric(HG_species1$percent)
 glimpse(HG_species1)
 
 
+
 export(HG_species1, "HolyGrail/data/clean/HG_species_clean.csv")
+
+
 

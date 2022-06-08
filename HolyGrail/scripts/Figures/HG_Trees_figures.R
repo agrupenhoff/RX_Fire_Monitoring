@@ -12,10 +12,12 @@ library(stringr)
 
 
 
+getwd()
 
-HG_Trees_totalPlot <- read.csv("HolyGrail/data/clean/HG_Trees_totalPlot.csv")
-HG_Trees_diamclass <- read.csv("HolyGrail/data/clean/HG_Trees_diamclass.csv")
-HG_Trees_plot_species <- read.csv("HolyGrail/data/clean/HG_Trees_plot_species.csv")
+HG_Trees_totalPlot <- read.csv("HolyGrail/data/clean/trees/HG_trees_totalPlot.csv")
+HG_Trees_diamclassD <- read.csv("HolyGrail/data/clean/trees/HG_trees_diamclass_sumDEAD.csv")
+HG_Trees_diamclassL <- read.csv("HolyGrail/data/clean/trees/HG_trees_diamclass_sumLIVE.csv")
+HG_Trees_plot_species <- read.csv("HolyGrail/data/clean/trees/HG_trees_PlotSpeciesStatus.csv")
 NRV_diamclass <- read.csv("HolyGrail/data/clean/NRV_diamclass_BIN_youngetal.csv")
 
 str(NRV_diamclass)

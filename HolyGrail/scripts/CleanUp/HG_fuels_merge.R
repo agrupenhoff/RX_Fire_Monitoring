@@ -9,7 +9,7 @@ HG_finefuels <- read.csv("HolyGrail/data/raw/CPFMP_HolyGrail_FineFuels.csv")
 #ADD NEW FUELS DATA HERE
 
             #enter Caples Data here
-            caples_finefuels <- read.csv("HolyGrail/data/raw/RAW_data_ALL/CaplesFineFuels.csv")
+            caples_finefuels <- read.csv("HolyGrail/data/raw/RAW_data_ALL/Fuels/CaplesFineFuels.csv")
             
             #change sampling time to pre_post_fire & postFire (aka time post fire)
             caples_finefuels_clean <- caples_finefuels %>% 
@@ -51,7 +51,7 @@ HG_CWD <- read.csv("HolyGrail/data/raw/CPFMP_HolyGrail_CWD.csv")
                 #ADD NEW FUELS DATA HERE
                 
                 #enter Caples Data here
-                caples_CWD <- read.csv("HolyGrail/data/raw/RAW_data_ALL/Caples_CWD.csv")
+                caples_CWD <- read.csv("HolyGrail/data/raw/RAW_data_ALL/Fuels/Caples_CWD.csv")
                 
                 #change sampling time to pre_post_fire & postFire (aka time post fire)
                 caples_CWD_clean <- caples_CWD %>% 

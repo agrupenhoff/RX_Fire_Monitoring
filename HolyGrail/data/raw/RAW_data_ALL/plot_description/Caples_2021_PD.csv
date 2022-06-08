@@ -1,0 +1,241 @@
+ID,PlotID,Easting,Northing,Date1,SamplingTime,Treatment,Control,RXPlanArea,Observers,Datum/Zone,Slope,Aspect,Horiz Shape,Vert Shape,Slope Posit,CGA,SB_Fuel Model,Andersons_FuelModel,Exist Veg1,Exist Veg2,Exist Veg3,Fire Burn Severity,Plot Notes
+257,36,,,7/15/2020,2,T,N,Y,"TRP, HEP, ZTC",,,,,,,100,GR2,,CADE,PICO,PIJE,3,Plot center rebar buried in meadow -- needed metal detector. No seedlings in sub plot.
+258,37,,,7/13/2020,2,T,N,Y,"TRP, HEP, ZTC",,,,,,,45,TL1,,CADE,ABCO,QUKE,4,No seedlings in subplot plot
+259,40,,,8/24/2020,2,UT,Y,N,"TRP, HEP",,,,,,,100,TL1,,ABMA,PIJE,JUCO,0,
+260,65,,,7/21/2020,2,T,N,Y,ZTC TRP HEP,,,,,,,100,TL1,,ABCO,CADE,PILA,2,7.6 pit on N offset 30 cm
+261,82,,,8/18/2020,2,UT,Y,Y,"TRP, HEP, ZTC",,,,,,,70,TU1,,CADE,PIJE,ABCO,0,No intolerant seedlings nearby
+262,99,,,7/20/2020,2,T,N,Y,"TRP, ZTC, HEP",,,,,,,95,TU1,,CADE,ABCO,PIJE,3,No nearby seedlings
+263,100,,,7/6/2020,2,T,N,Y,"TRP, HEP, ZTC",,,,,,,100,TU1,,PIJE,ABCO,CADE,3,No seedlings nearby
+264,101,,,7/20/2020,2,T,N,Y,"TRP, ZTC, HEP",,,,,,,55,TU1,,QUKE,PIPO,ABCO,4,"Reestablished plot center, no nearby seedlings for nearest regenerated tree."
+265,102,,,7/16/2020,2,T,N,Y,ZTC HEP TRP,,,,,,,50,TU1,,CADE,PIJE,ABCO,3,No seedlings located nearby. Established new plot center based on standing dead witness trees from 2017 (tree 327 is still alive). Two new live witness trees established in addition to tree 327.
+266,103,,,7/15/2020,2,T,N,Y,"TRP, HEP, ZTC",,,,,,,100,TL1,,CADE,ABCO,PIJE,3,"Plot center likely off, no rebar, just a chaining pin. Probably was 1 meter to west. Restablished with wooden stake."
+267,105,,,7/21/2020,2,T,N,Y,"TRP, HEP, ZTC",,,,,,,90,TU1,,CADE,ABCO,PIJE,1,No tolerant seedlings
+268,111,,,7/21/2020,2,T,N,Y,"TRP, ZTC, HEP",,,,,,,90,TU1,,PILA,CADE,ABCO,3,Restablished plot center. No seedlings nearby
+269,117,,,7/23/2020,2,T,N,Y,"TRP, ZTC, HEP",,,,,,,75,TU1,,CADE,PIJE,ABCO,1,Reestablished plot center. No intolerant seedlings nearby.
+270,118,,,7/23/2020,2,T,N,Y,"TRP, HEP, ZTC",,,,,,,97,TU1,,CADE,ABCO,PIJE,2,No seedlings nearby
+271,119,,,8/18/2020,2,T,N,Y,"TRP, ZTC, HEP",,,,,,,80,TU1,,CADE,ABCO,,3,No intolerant seed tree nearby.
+272,121,,,7/23/2020,2,T,N,Y,ZTC TRP HEP,,,,,,,50,TU1,,PIJE,CADE,ABCO,1,South and west fuel transects mostly over bedrock. Restablished plot center.
+273,129,,,8/19/2020,2,T,N,Y,"TRP, HEP",,,,,,,65,TU1,,CADE,ABCO,PIJE,1,No nearby seedlings. 7.6 on W offset 30cm due to log.
+274,2,,,7/21/2020,2,T,N,Y,"km, vs, pm",,,,,,,,,,,,,,
+275,3,,,7/21/2020,2,T,N,Y,"vs, mm",,,,,,,,,,,,,,
+276,4,,,7/21/2020,2,T,N,Y,"ag, vs, pm, mm, km",,,,,,,,,,,,,,
+277,13,,,7/21/2020,2,T,N,Y,"ag, mm",,,,,,,,,,,,,,
+278,14,,,7/21/2020,2,T,N,Y,"vs, mm",,,,,,,,,,,,,,
+279,15,,,7/23/2020,2,T,N,Y,"ag, mm, pm",,,,,,,,,,,,,,
+280,16,,,7/26/2020,2,UT,Y,Y,"ag, pm, km, vs, mm",,,,,,,,,,,,,,
+281,17,,,7/26/2020,2,UT,Y,Y,"vs, mm",,,,,,,,,,,,,,
+282,18,,,7/23/2020,2,T,N,Y,"ag, mm, pm",,,,,,,,,,,,,,
+283,19,,,7/25/2020,2,T,N,Y,"ag, pm, km",,,,,,,,,,,,,,
+284,20,,,7/24/2020,2,T,N,Y,"ag, pm, km",,,,,,,,,,,,,,
+285,21,,,7/22/2020,2,UT,Y,Y,"ag, vs, pm, mm, km",,,,,,,,,,,,,,
+286,27,,,7/24/2020,2,T,N,Y,"ag, pm, km",,,,,,,,,,,,,,
+287,28,,,7/24/2020,2,T,N,Y,"vs, mm",,,,,,,,,,,,,,
+288,29,,,7/24/2020,2,T,N,Y,"vs, mm",,,,,,,,,,,,,,
+289,30,,,7/24/2020,2,T,N,Y,"ag, pm, km",,,,,,,,,,,,,,
+290,32,,,7/24/2020,2,T,N,Y,"vs, mm",,,,,,,,,,,,,,
+291,75,,,7/22/2020,2,T,N,Y,"ag, km, pm",,,,,,,,,,,,,,
+292,76,,,7/22/2020,2,T,N,Y,"ag, km, pm",,,,,,,,,,,,,,
+293,77,,,7/22/2020,2,T,N,Y,"km, vs, pm",,,,,,,,,,,,,,
+294,115,,,7/21/2020,2,T,N,Y,"ag, vs, pm, mm, km",,,,,,,,,,,,,,
+295,122,,,7/24/2020,2,T,N,Y,"ag, pm, km",,,,,,,,,,,,,,
+296,125,,,7/24/2020,2,UT,Y,Y,vs,,,,,,,,,,,,,,
+297,126,,,7/25/2020,2,UT,N,Y,"ag, pm, km",,,,,,,,,,,,,,
+298,127,,,7/26/2020,2,UT,Y,Y,"ag, pm, km",,,,,,,,,,,,,,
+299,128,,,7/22/2020,2,UT,Y,Y,vs,,,,,,,,,,,,,,
+1,1,745326,4286622,7/29/2013,0,UT,N,Y,"CR,AP,BE",10N,8,292,LL,UN,TS,100,"TUS
+GS1
+GR2
+TUS
+TL4
+TU3
+TL6
+TL4
+SH7
+SH3
+TU5
+TL3
+TU1
+SH2
+SH7
+TU3
+TU1
+SH2
+GS2
+SH1
+TL4
+SH2
+TU2
+TL7
+SH1
+TUS",,ABCO,CADE,PIJE,1,
+2,2,745762,4287036,7/30/2013,0,UT,N,Y,"CR,AP,BE",10N,12,20,CC,UN,TS,85,GS1,,PIJE,PICO,CADE,1,Fuel model different than idicated by LF
+3,3,746162,4287028,7/30/2013,0,UT,N,Y,"CR,AP,BE",10N,8,258,UN,UN,HS,75,GR2,,CADE,PIJE,QUKE,1,Fuel model is different than LF designation.
+4,4,746539,4287406,7/30/2013,0,UT,N,Y,"CR,AP,BE",10N,16,172,LL,UN,TS,100,TUS,,PICO,CADE,ABCO,1,About 20% of plot in dry meadow
+5,5,746561,4287813,7/31/2013,0,UT,N,Y,"CR,AP",10N,5,190,LL,LL,HS,100,TL4,,CADE,ABCO,PIJE,1,"Fuel model different than LF. Plot near Jake Schneider Meadow, just off trail."
+6,6,746162,4287798,7/31/2013,0,UT,N,Y,"CR,AP",10N,9,150,UN,CC,HS,98,TU3,,PIJE,ABCO,CADE,1,Fuel model different than that of LF. Lots of cows grazing nearby. Bear scat in plot.
+7,7,746162,4287398,7/31/2013,0,UT,N,Y,"CR,AP",10N,6,142,LL,UN,UB,100,TL6,,POTR,CADE,PIJE,1,Aspen!
+8,8,745777,4287413,7/31/2013,0,UT,N,Y,"CR,AP",10N,15,128,LL,LL,HS,100,TL4,,CADE,PIJE,ABCO,1,Fuel model different than LF
+9,9,746162,4288227,8/1/2013,0,UT,N,Y,"CR,AP",10N,35,104,LL,LL,SH,100,TU3,,ABCO,PIJE,QUKE,1,Fuel model different than LF
+10,10,745348,4287783,8/1/2013,0,UT,N,Y,"CR,AP",10N,9,130,CV,LL,SH,100,TL6,,PIJE,ABCO,QUKE,1,Fuel model different than LF; lots of evidence of bear.
+11,11,744956,4287413,8/1/2013,0,UT,N,Y,"CR,AP",10N,3,128,LL,CC,BS,100,TL4,,PIJE,ABCO,CADE,1,Bear scat in plot
+12,12,746961,4287343,8/5/2013,0,UT,N,Y,"CR,AP",10N,17,52,LL,CV,TS,100,TL3,,ABCO,PICO,CADE,1,"Near dispersed campsite, near Caples Creek"
+13,13,746590,4286928,8/5/2013,0,UT,N,Y,"CR,AP",10N,22,54,UN,UN,HS,100,TU1,,PIJE,CADE,ABCO,1,Fuel model different than LF
+14,14,746961,4288959,8/6/2013,0,UT,N,Y,"CR,AP",10N,25,172,LL,UN,SH,100,SH2,,ABCO,PIJE,PILA,1,Fuel model different than LF. Near an old trail.
+15,15,747267,4288959,8/6/2013,0,UT,N,Y,"CR,AP",10N,49,168,LL,CV,BS,100,SH7,,QUKE,CADE,ABCO,1,Fuel model different than LF; plot was extremely shrubby and steep.
+16,16,746939,4289767,8/6/2013,0,UT,Y,Y,"CR,AP",10N,27,284,CV,CV,FS,100,TU3,,ABCO,CADE,PIJE,1,Control plot (well without the proposed fire boundary); fuel model different than LF.
+17,17,746202,4289862,8/6/2013,0,UT,Y,Y,"CR,AP",10N,5,178,UN,UN,FS,100,TU1,,ABCO,PIJE,ABMA,1,Fuel model different than LF; control plot.
+18,18,747529,4289221,8/6/2013,0,UT,N,Y,"CR,AP",10N,28,178,UN,UN,BS,100,SH2,,ABCO,PIJE,,1,Fuel model different than LF; plot placed equi-distance from four other grid points.
+19,19,746961,4288544,8/7/2013,0,UT,N,Y,"CR,AP",10N,27,202,CV,LL,BS,98,GS2,,JUOC,PIJE,QUKE,1,
+20,20,747310,4288566,8/7/2013,0,UT,N,Y,"CR,AP",10N,23,122,UN,LL,FS,80,SH1,,CADE,JUOC,PIJE,1,Fuel model different than LF
+21,21,746944,4290208,8/7/2013,0,UT,Y,Y,"CR,AP",10N,37,160,LL,LL,SH,100,TL4,,ABCO,CADE,PIJE,1,Control plot (well without the proposed fire boundary)
+22,22,745774,4286206,8/8/2013,0,UT,N,Y,"CR,AP,BE",10N,30,196,CC,CC,SH,100,SH2,,ABCO,PIJE,CADE,1,Fuel model different than LF; needs rebar
+23,23,746186,4286601,8/8/2013,0,UT,N,Y,"CR,AP,BE",10N,26,180,LL,CV,BS,100,TU2,,ABCO,PIJE,CADE,1,Fuel model different than LF; needs rebar
+24,24,745807,4286601,8/8/2013,0,UT,N,Y,"CR,AP,BE",10N,45,0,UN,LL,BS,100,TL7,,ABCO,PIJE,PIJA,1,Fuel model different than LF
+25,25,748525,4288199,8/12/2013,0,UT,N,Y,"CR,AP",10N,6,254,UN,UN,VB,90,SH1,,PICO,JUOC,PIJE,1,Fuel model different than LF; near a very old(seemingly) fire ring.
+26,26,748212,4288199,8/12/2013,0,UT,N,Y,"CR,AP",10N,23,208,BR,BR,VB,75,GS1,,JUOC,PIJE,CADE,1,Fuel model different than LF
+27,27,748555,4288588,8/13/2013,0,UT,N,Y,"CR,AP",10N,45,126,BR,UN,VB,98,SH2,,PIJE,CADE,JUOC,1,Fuel model different than LF
+28,28,748621,4288959,8/13/2013,0,UT,N,Y,"CR,AP",10N,22,148,LL,LL,TS,100,TU5,,CADE,PIJE,QUKE,1,
+29,29,748118,4288959,8/13/2013,0,UT,N,Y,"CR,AP",10N,2,220,UN,CC,TS,100,SH2,,CADE,PIJE,ABCO,1,Fuel model different than LF
+30,30,748179,4288627,8/13/2013,0,UT,N,Y,"CR,AP",10N,29,156,BR,UN,VB,85,SH2,,PIJE,CADE,JUOC,1,Fuel model different than LF
+31,31,747913,4288284,8/14/2013,0,UT,N,Y,"CR,AP",10N,0,162,LL,LL,VB,100,GR5,,PICO,ABCO,CADE,1,Fuel model different than LF; plot in wet meadow
+32,32,747763,4288637,8/14/2013,0,UT,N,Y,"CR,AP,BE",10N,10,368,CV,UN,VB,100,TU5,,CADE,ABCO,POTR,1,
+33,33,747359,4288218,8/14/2013,0,UT,N,Y,"CR,AP,BE",10N,3,218,LL,LL,VB,100,TL3,,PICO,CADE,ABCO,1,
+34,34,747354,4287825,8/14/2013,0,UT,N,Y,"CR,AP,BE",10N,27,234,UN,UN,VB,85,TU2,,CADE,PIJE,ABCO,1,Fuel model different than LF
+35,35,746948,4288235,8/15/2013,0,UT,N,Y,"CR,AP,BE",10N,19,286,CV,UN,UB,95,TU2,,CADE,PIJE,QUKE,1,Fuel model different than LF
+36,36,746290,4287648,8/15/2013,0,UT,N,Y,"CR,AP,BE",10N,2,134,LL,LL,VB,100,GR1,,PICO,CADE,PIJE,1,"Fuel model different than LF; plot is in Jake Schneider meadow, heavily grazed by cattle."
+37,37,745353,4287022,8/15/2013,0,UT,N,Y,"CR,AP,BE",10N,22,158,UN,UN,FS,98,TL3,,CADE,ABCO,QUKE,1,
+38,38,748949,4287287,8/19/2013,0,UT,Y,Y,"CR,AP",10N,6,196,LL,LL,SU,100,GR2,,ABCO,PIJE,POTR,1,Plot was shifted > 50% slope ~100m S of grid point.
+39,39,748522,4287006,8/19/2013,0,UT,Y,Y,"CR,AP",10N,18,156,UN,LL,SH,100,TL1,,ABCO,PIJE,,3,"Small, burned area, possibly from lightning strike; still smells like smoke, but none present; lots of cut woody debris, likely due to fire containment."
+40,40,750547,4287411,8/20/2013,0,UT,Y,N,"CR,AP",10N,16,142,LL,LL,SH,100,TU4,,JUOC,AMBA,PIJE,1,
+41,41,750559,4288727,8/20/2013,0,UT,Y,N,"CR,AP",10N,28,156,LL,LL,SH,100,TU1,,JUOC,PIJE,ABMA,1,Near Castle Point
+42,42,750907,4287996,8/20/2013,0,UT,Y,N,"CR,AP",10N,28,340,LL,CV,SU,100,TU4,,JUOC,PIJE,ABMA,1,Western white pine!
+43,43,751493,4288210,8/20/2013,0,UT,Y,N,"CR,AP",10N,22,166,LL,LL,SU,100,GS1,,JUOC,ABMA,PIJE,1,"Plot moved off of trail, similar Wyethia spp. Cover; trail nearby."
+44,44,754934,4288603,8/21/2013,0,UT,Y,N,"CR,AP",10N,17,352,LL,CC,VB,100,TU3,,PICO,ABMA,,1,Plot placed off of grid because plot was directly on Lake Margarent trail.
+45,45,754062,4289482,8/21/2013,0,UT,Y,N,"CR,AP",10N,21,74,CC,UN,VB,100,TU1,,PIMO,ABMA,PICO,1,
+46,46,753318,4289802,8/21/2013,0,UT,Y,N,"CR,AP",10N,2,250,LL,LL,VB,100,TL6,,POTR,PICO,ABCO,1,Very wet area
+47,47,753612,4289633,8/21/2013,0,UT,Y,N,"CR,AP",10N,3,328,CC,LL,VB,100,GR5,,PICO,POTR,ABMA,1,"Dry meadow, could be wet during spring melts."
+48,48,754535,4289037,8/21/2013,0,UT,Y,N,"CR,AP",10N,25,68,UN,UN,SH,75,SH1,,PICO,JUOC,PIMO,1,
+49,49,752919,4288270,8/22/2013,0,UT,Y,N,"CR,AP,BE",10N,15,226,UN,UN,VB,90,TU1,,PICO,JUOC,PIMO,1,Moved grid off of bedrock
+50,50,754184,4288234,8/22/2013,0,UT,Y,N,"CR,AP,BE",10N,6,276,CC,UN,SH,80,TU1,,PICO,JUOC,PIMO,1,
+51,51,753751,4287823,8/22/2013,0,UT,Y,N,"CR,AP,BE",10N,23,70,UN,LL,BS,45,TU1,,PIMO,PICO,ABMA,1,
+52,52,753296,4288153,8/22/2013,0,UT,Y,N,"CR,AP,BE",10N,6,280,CC,LL,BS,98,TU1,,PIMO,TSME,PICO,1,
+53,53,757335,4289021,8/28/2013,0,UT,Y,N,"HW,AP",10N,19,195,LL,UN,SU,100,GR3,,PICO,ABMA,POTR,1,Evidence of pest damage to Red Firs; plot in dried up stream bed
+54,54,756949,4289422,8/28/2013,0,UT,Y,N,"HW,AP",10N,21,150,LL,LL,BS,100,TU3,,PICO,ABMA,JUOC,1,Evidence of pest damage to Red Firs; cow pies in plot.
+55,55,756542,4289835,8/29/2013,0,UT,Y,N,"HW,AP",10N,17,213,UN,LL,SH,100,TU1,,PICO,ABMA,JUOC,1,
+56,56,756154,4289845,8/29/2013,0,UT,Y,N,"HW,AP",10N,10,192,LL,UN,SH,95,TU3,,ABMA,PILO,JUOC,1,
+57,57,756161,4290177,8/29/2013,0,UT,Y,N,"HW,AP",10N,11,332,UN,LL,SU,90,TL3,,ABMA,PICO,,1,
+58,58,760561,4286239,10/22/2013,0,UT,Y,N,"BE,AJ,AP",10N,19,252,LL,CV,FS,100,TU1,,ABMA,PIMO,PICO,1,
+59,59,760951,4286235,10/22/2013,0,UT,Y,N,"BE,AJ,AP",10N,19,344,CC,CC,SH,100,TU1,,TSME,ABMA,PICO,1,Tiny patches of snow in plot when sampled.
+60,60,760953,4285837,10/22/2013,0,UT,Y,N,"BE,AJ,AP",10N,16,260,LL,LL,SH,100,GS1,,PICO,ABMA,PIMO,1,
+222,99,744546,4287044,10/2/2017,0,UT,N,Y,"AB, TP",10N,34,212,LL,LL,SH,100,,6,CADE,PIJE,ABCO,0,
+223,100,744142,4287042,10/2/2017,0,UT,N,Y,"AB, TP",10N,30,232,LL,LL,BS,100,,11,CADE,PIJE,ABCO,0,
+224,83,744546,4287443,10/3/2017,0,UT,N,Y,"AB, TP",10N,25,228,LL,LL,BS,100,,11,CADE,PIJE,,0,
+225,84,744148,4287439,10/3/2017,0,UT,N,Y,"AB, TP",10N,7,270,LL,LL,SH,100,,11,CADE,ABCO,PIJE,0,
+226,101,743740,4287046,10/3/2017,0,UT,N,Y,"AB, TP",10N,55,276,BR,BR,BS,40,,6,QUKE,PIPO,ABCO,0,
+227,94,745762,4288653,10/4/2017,0,UT,Y,Y,"AB, TP",10N,27,272,LL,LL,BS,100,,11,ABCO,PIJE,CADE,0,
+61,15,,,11/11/2019,1,T,N,Y,"AR, MP",,,,,,,,,,,,,,
+62,18,,,11/12/2019,1,T,N,Y,"NH, AR",,,,,,,,,,,,,,
+228,93,745346,4288646,10/4/2017,0,UT,Y,Y,"AB, TP",10N,22,332,LL,LL,BS,100,,11,ABCO,ABMA,CADE,0,
+229,98,744548,4287841,10/6/2017,0,UT,Y,Y,"AB, TP",10N,45,188,LL,LL,BS,100,,6,CADE,PIJE,ABCO,0,
+230,92,745754,4288230,10/6/2017,0,UT,Y,Y,"AB, TP",10N,48,350,LL,LL,BS,100,,11,ABCO,CADE,,0,
+231,95,745346,4289040,10/9/2017,0,UT,Y,Y,"AB, TP",10N,11,180,LL,LL,BS,100,,2,ABCO,PIJE,CADE,0,
+232,82,742949,4287836,10/9/2017,0,UT,Y,Y,"AB, TP",10N,22,162,CC,LL,SU,80,,9,PIJE,CADE,ABCO,0,Pines smell like Jeffery but the cones look like ponderosa
+233,85,742943,4287441,10/9/2017,0,UT,Y,Y,"AB, TP",10N,20,224,LL,LL,BS,93,,12,ABCO,CADE,PIJE,0,
+234,65,747751,4287454,10/10/2017,0,UT,N,Y,"AB, TP, AW",10N,12,304,LL,LL,BS,100,,10,ABCO,CADE,PILA,0,"Single burnt tree, and cutting of down tree for trail"
+235,102,744137,4286638,10/11/2017,0,UT,N,Y,"AB, TP, AW",10N,47,240,LL,LL,BS,100,,6,CADE,ABCO,,0,
+236,77,748543,4290235,10/12/2017,0,UT,N,Y,"AB, TP, AW",10N,22,168,LL,LL,BS,100,,10,ABCO,ABMA,,0,
+237,76,748547,4289843,10/12/2017,0,UT,N,Y,"AB, TP, AW",10N,17,300,LL,LL,BS,100,,10,ABCO,ABMA,,0,
+238,75,748161,4289835,10/12/2017,0,UT,N,Y,"AB, TP, AW",10N,18,200,LL,LL,BS,100,,2,ABMA,ABCO,,0,
+94,103,744958,4286254,7/26/2018,0,UT,N,Y,CS EE,10N,15,347,CC,LL,TS,70,TL5,,CADE,PIJE,PILA,0,really old cutting
+95,104,749346,4286241,8/20/2018,0,UT,Y,Y,CS EE,10N,10,170,LL,CV,TS,65,TL3,,PIJE,ABCO,JUOC,0,
+96,105,746546,4286641,7/31/2018,0,UT,N,Y,CS EE,10N,16,303,UN,CV,FS,65,TL4,,ABCO,CADE,,0,
+97,106,745346,4288241,8/21/2018,0,UT,Y,Y,CS EE,10N,43,234,UN,CC,BS,40,TL3,,CADE,ABCO,PIJE,0,
+98,107,748946,4286641,8/21/2018,0,UT,Y,Y,EE CS,10N,14,246,LL,CC,BS,85,TL3,,ABCO,PIJE,,0,"large, old tree has old fire scar- possible lightning fire"
+99,108,749346,4286641,8/20/2018,0,UT,Y,Y,EE CS,10N,18,,CC,CC,BS,80,TL4,,ABCO,PIJE,,0,
+100,109,749745,4286641,8/23/2018,0,UT,Y,Y,CS EE,10N,14,190,LL,LL,TS,50,TL7,,ABCO,,,0,"javad not working, waypoint averaged, in utm blanks here"
+101,110,750146,4286641,8/23/2018,0,UT,Y,Y,EE CS,10N,24,266,CC,LL,FS,80,TL3,,ABMA,ABCO,PICO,0,Started plot on 8/22 for 30 minutes. Finished plot on 8/23. Unable to use Javad to take gps point. Used waypoint averaging on Garmin unit instead.
+102,111,746946,4287041,7/31/2018,0,UT,N,Y,EE CS,10N,45,10,CV,LL,BS,90,TL4,,PILA,CADE,ABCO,0,"possible lightning firedid not use tree tags 568, 571, 572, 574, 578"
+63,20,,,11/11/2019,1,T,N,Y,"CM, AM",,,,,,,,,,,,,,
+103,112,748936,4287048,8/22/2018,0,UT,Y,Y,CS EE,10N,10,224,CC,LL,TS,50,TL3,,ABCO,ABMA,,0,"javad not working so took an average waypoint at center, value recorded in utms blanks here"
+104,113,749344,4287040,8/22/2018,0,UT,Y,Y,CS EE,10N,25,232,LL,LL,SH,100,TL3,,PIJE,ABCO,JUOC,0,"javad not working, gps pioint averaged, filled into utms here"
+105,114,749746,4287041,8/23/2018,0,UT,Y,Y,EE CS,10N,15,208,LL,LL,SH,98,TL1,,PIJE,JUOC,ABCO,0,Javad point not taken- see averaged GPS point in Garmin GPS unit.
+106,115,747347,4287443,8/29/2018,0,UT,N,Y,CS BE,10N,24,276,LL,CC,SH,50,TU1,,PIPO,CADE,ABCO,0,
+107,116,749343,4287438,8/22/2018,0,UT,Y,Y,EE CS,10N,15,205,LL,LL,SH,95,TL3,,ABCO,PIJE,ABMA,0,Javad was not working at this plot. Used Garmin GPS to get plot UTMs.
+108,117,748143,4287843,7/17/2018,0,UT,N,Y,EE CS BE,10N,26,28,PA,CV,TS,70,TL3,,CADE,PIJE,ABCO,0,
+109,118,748555,4287817,8/29/2018,0,UT,N,Y,CS BE,10N,13,310,LL,CC,TS,80,TL3,,PIJE,CADE,ABCO,0,"north transect crosses old use trail, south transect offset by massive PIJE"
+110,119,748942,4287841,8/28/2018,0,UT,N,Y,"BE, CS",10N,46,314,CC,CC,BS,100,TL5,,ABCO,CADE,,0,
+111,120,745346,4288241,8/2/2018,0,UT,Y,Y,EE CS,10N,36,333,CC,LL,BS,95,TL4,,ABCO,CADE,,0,after tree #61 only trees over 15 cm dbh were given tree tags
+112,121,748942,4288243,8/28/2018,0,UT,N,Y,"CS, BE",10N,10,242,BR,BR,FS,20,TL2,,CADE,,,0,gps average point taken and written in here
+113,122,748948,4288634,8/28/2018,0,UT,N,Y,CS BE,10N,33,12,LL,CC,TS,50,TL3,,ABCO,CADE,,0,"no javad point, average gps point recorded in utm blank here"
+114,123,749743,4288637,8/28/2018,0,UT,N,Y,CS BE,10N,29,266,UN,BR,TS,45,TL2,,PICO,PIJE,CADE,0,"gps average taken, utms here"
+115,124,746146,4289041,7/25/2018,0,UT,Y,Y,EE CS,10N,11,248,CV,CC,SU,90,TL3,,PIJE,ABCO,ABMA,0,Closed road bed in eastern half of plot
+116,125,746951,4289438,8/2/2018,0,UT,Y,Y,CS EE,10N,25,298,UN,CV,FS,80,TL3,,PILA,ABMA,PIJE,0,old skid trail runs in plot
+117,126,747746,4289841,7/30/2018,0,UT,N,Y,EE CS,10N,26,197,CV,CV,SU,95,TL4,,ABCO,PIJE,,0,
+118,127,746547,4290242,7/25/2018,0,UT,Y,Y,CS EE,10N,21,300,LL,CC,TS,80,TL3,,ABCO,ABMA,CADE,0,old tree cutting
+119,128,748146,4290241,7/30/2018,0,UT,Y,Y,CS EE,10N,35,310,LL,LL,FS,95,TL4,,ABCO,ABMA,,0,blow down of many old trees to NE
+120,129,749745,4290244,8/1/2018,0,UT,N,Y,Cs EE,10N,26,150,UN,CC,FS,45,TL3,,ABCO,CADE,PIJE,0,
+121,130,749745,4290641,8/1/2018,0,UT,N,Y,CS EE,10N,46,150,LL,LL,BS,80,TL3,,ABCO,JUOC,,0,
+122,131,750146,4290641,8/1/2018,0,UT,N,Y,EE CS,10N,33,208,CC,LL,BS,98,TL4,,ABCO,,,0,
+123,132,748946,4291041,7/30/2018,0,UT,Y,Y,EE CS,10N,22,233,LL,LL,SH,95,TU1,,ABCO,JUOC,ABMA,0,
+124,133,750144,4291039,8/1/2018,0,UT,N,Y,EE CS,10N,23,222,CC,CV,SH,98,TL1,,ABMA,PIJE,,3,prescribed fire in plot earlier this year; tree tags go from 275-300 and 1-10
+64,22,,,11/12/2019,1,T,N,Y,"AM, SD",,,,,,,,,,,,,,"Large snag, pije fell into plot, not crossing transects. Approx 20m long, 65 dbm. Only 1 tree in plot. Hlc 0.7, scor 0.2m, 7.2m torch 0.4, 5.4, char 1.4. Odd patch of live canopy low that was protected by rock."
+65,23,,,11/9/2019,1,T,N,Y,"CM, AR, AM, MP",,,,,,,,,,,,,,No rebar found. Photos taken far away of fuels transect to  match previous photos
+66,24,,,11/9/2019,1,T,N,Y,"CM, MP, AR, AM",,,,,,,,,,,,,,Rebar not found. Plot center determined using photos. Candy cane stake left. Photos taken far away to match previous
+67,26,,,11/11/2019,1,T,N,Y,"CM, AM",,,,,,,,,,,,,,One burn patch
+68,28,,,11/11/2019,1,T,N,Y,"CM, AM",,,,,,,,,,,,,,
+69,29,,,11/11/2019,1,T,N,Y,"AR, MP",,,,,,,,,,,,,,Giant catfaced pije fell after fire creating fuels on e teansect
+70,30,,,11/11/2019,1,T,N,Y,"MP, AR",,,,,,,,,,,,,,Rebar fiund.
+71,32,,,11/11/2019,1,T,N,Y,"AR, MP",,,,,,,,,,,,,,"Seems to have smoldered duff off at night, veg severuty moderate,low"
+72,33,,,11/13/2019,1,T,N,Y,"AM, AR, NH, K",,,,,,,,,,,,,,
+73,34,,,11/14/2019,1,T,N,Y,"KB,MR",,,,,,,,,,,,,,
+74,35,,,11/13/2019,1,T,N,Y,"NH, AR",,,,,,,,,,,,,,
+75,36,,,11/13/2019,1,T,N,Y,"NH, AR",,,,,,,,,,,,,,Meadow edge
+76,37,,,11/13/2019,1,T,N,Y,"NH, AR",,,,,,,,,,,,,,
+77,65,,,11/14/2019,1,T,N,Y,"KB,MP",,,,,,,,,,,,,,
+78,75,,,11/12/2019,1,T,N,Y,"AM, SD, AR, NH",,,,,,,,,,,,,,Sparse grass throughout plot
+79,99,,,11/7/2019,1,T,N,Y,"CM, MP, AM",,,,,,,,,,,,,,
+80,100,,,11/7/2019,1,T,N,Y,"CM, MP, AM, SD",,,,,,,,,,,,,,
+81,101,,,11/6/2019,1,T,N,Y,"SD, AM, MP",,,,,,,,,,,,,,"east transect stops and starts around boulder. Did best to lay tape close to ground. Center rebar not found, used photos, tapes and azmeth to find center. South transect countinued line through medium boulders. North transect ends ontop of lg boulder."
+82,102,,,11/9/2019,1,T,N,Y,"CM,AM,AR,MP",,,,,,,,,,,,,,No rebar found. Made rock carin and flagged rock.
+83,103,,,11/8/2019,1,T,N,Y,"AM, MP",,,,,,,,,,,,,,"Photos taken from center, no center stake found. No to minimal vegetation present pre burn"
+84,105,,,11/10/2019,1,T,N,Y,"AR, MP",,,,,,,,,,,,,,
+85,111,,,11/10/2019,1,T,N,Y,"AR, MP",,,,,,,,,,,,,,"Photos taken inside looking out, missing centee stake & a lot of tree tags"
+86,115,,,11/14/2019,1,T,N,Y,"KB,MP",,,,,,,,,,,,,,
+87,117,,,11/14/2019,1,T,N,Y,"MP, KB",,,,,,,,,,,,,,"Photos taken from center, flagged CADE27 is center marker"
+88,118,,,11/14/2019,1,T,N,Y,"NH, SD",,,,,,,,,,,,,,
+89,119,,,11/14/2019,1,T,N,Y,"NH, SD",,,,,,,,,,,,,,"North azmiuth is 13 degrees, west is 298, east is 80"
+90,121,,,11/14/2019,1,T,N,Y,"NH, SD",,,,,,,,,,,,,,West transect azmuth is 284 degrees
+91,122,,,11/14/2019,1,T,N,Y,"CM, AM",,,,,,,,,,,,,,Capped wire found at center. Photos taken from center
+92,129,,,11/12/2019,1,T,N,Y,"NH, AR",,,,,,,,,,,,,,
+124,1,,,11/8/2019,1,T,N,Y,"CM, SD",,,,,,,,,,,,,,"Consumption of most CWD, Also much recruitment"
+125,2,,,11/8/2019,1,T,N,Y,"CM, SD",,,,,,,,,,,,,,Rebar present. Also present at Plot 1
+126,3,,,11/9/2019,1,T,N,Y,"CM, AR, MP, AM",,,,,,,,,,,,,,Rebar found!
+127,4,,,11/10/2019,1,T,N,Y,"CM, AM",,,,,,,,,,,,,,"Rebar found. Partially in meadow, grasses composed the bulk of vegetation"
+128,5,,,11/13/2019,1,T,N,Y,"KB,AM",,,,,,,,,,,,,,
+129,6,,,11/13/2019,1,T,N,Y,"KB,AM",,,,,,,,,,,,,,
+130,7,,,11/10/2019,1,T,N,Y,"CM, AM",,,,,,,,,,,,,,
+131,8,,,11/13/2019,1,T,N,Y,"NH, AR",,,,,,,,,,,,,,"Consumption of duff and litter, white ash, altered soil structure. A few young conifer torched"
+132,9,,,11/15/2019,1,T,N,Y,"KB,MP",,,,,,,,,,,,,,
+133,10,,,11/15/2019,1,T,N,Y,"KB,MP",,,,,,,,,,,,,,
+134,11,,,11/15/2019,1,T,N,Y,"MP, KB",,,,,,,,,,,,,,Previous labled E photo is really looking S. Previous photo S is really looking E. Previous photos show tape syretched too far. No tree tags.
+135,12,,,11/10/2019,1,T,N,Y,"AR, MP",,,,,,,,,,,,,,"Photos taken outside looking in, rebar present, many tags melted"
+136,13,,,11/10/2019,1,T,N,Y,"CM, AM",,,,,,,,,,,,,,"No tree tags, but rebar found."
+137,14,,,11/15/2019,1,T,N,Y,"MP, KB",,,,,,,,,,,,,,
+239,1,,,7/16/2020,2,T,N,Y,ZTC TRP HEP,,,,,,,70,TL1,,PIJE,ABCO,CADE,3,No seedlings present within or nearby plot.
+240,5,,,7/9/2020,2,T,N,Y,"HEP, ZTC, TRP",,,,,,,100,TL3,,CADE,ABCO,PIJE,2,"Trail dissects plot; 495, 629, 630, 640, 641 dead and down -- added to overstory but didn't note decay class in field"
+241,6,,,7/15/2020,2,T,N,Y,"TRP, HEP, ZTC",,,,,,,70,TU1,,CADE,PIJE,ABCO,3,No seedlings nearby besides Oak seedling 4.5 m away
+242,7,,,7/8/2020,2,T,N,Y,"TRP, HEP, ZTC",,,,,,,90,TU1,,CADE,ABCO,PIJE,3,
+243,8,,,7/13/2020,2,T,N,Y,"TRP, HEP, ZTC",,,,,,,100,TL1,,PIJE,CADE,ABCO,3,No nearby regenerated intolant seedling
+244,9,,,7/28/2020,2,T,N,Y,"HEP, ZTC, TRP",,,,,,,65,SH1,,PIJE,ABCO,CADE,4,No seedlings nearby
+245,10,,,7/28/2020,2,T,N,Y,"TRP, ZTC, HEP",,,,,,,75,TU1,,PIJE,ABCO,CADE,4,No tolerant seedlings nearby
+246,11,,,7/28/2020,2,T,N,Y,"HEP, TRP, ZTC",,,,,,,85,TL3,,CADE,PIJE,ABCO,3,0.0m dig on N transect offset because of rock to 10cm to left. No tolerant seedlings nearby
+247,12,,,7/24/2020,2,T,N,Y,"TRP, ZTC, HEP",,,,,,,95,TU1,,ABCO,CADE,PIJE,4,No nearby intolerant seedlings.
+248,22,,,7/27/2020,2,T,N,Y,"TRP, ZTC, HEP",,,,,,,90,TU1,,ABCO,PIJE,,5,No nearby seedlings. Reestablished plot center based on the one tagged tree.
+249,23,,,7/27/2020,2,T,N,Y,"TRP, ZTC, HEP",,,,,,,65,TU1,,ABCO,CADE,PIJE,2,No tolerant seedlings nearby
+250,24,,,7/27/2020,2,T,N,Y,"TRP, ZTC, HEP",,,,,,,50,TU1,,ABCO,CADE,PILA,3,No nearby intolerant seedlings.
+251,25,,,7/14/2020,2,T,N,Y,ZTC TRP HEP,,,,,,,50,SH1,,JUOC,PICO,PIJE,0,East transect consists of rock and sand. West transect is mainly live manzanita; low occurance of loose woody fuels.
+252,26,,,7/14/2020,2,T,N,Y,ZTC TRP HEP,,,,,,,30,GS1,,PIJE,CADE,JUCO,1,No tolerant seedling present near plot. East fuel transect is all rock.
+253,31,,,7/22/2020,2,T,N,Y,"TRP, ZTC, HEP,",,,,,,,100,GR2,,CADE,ABCO,PIJE,0,"Meadow plot: added more rebar, needed metal detector. No seedlings in plot, closest seedling on edge of meadow."
+254,33,,,7/22/2020,2,T,N,Y,"TRP, ZTC, HEP",,,,,,,100,TU1,,PICO,CADE,ABCO,2,
+255,34,,,7/22/2020,2,T,N,Y,"TRP, ZTC, HEP",,,,,,,40,TU1,,PIJE,CADE,,2,
+256,35,,,7/29/2020,2,T,N,Y,"HEP, ZTC",,,,,,,3,TU1,,CADE,PIJE,ABCO,3,No seedlings in subplot

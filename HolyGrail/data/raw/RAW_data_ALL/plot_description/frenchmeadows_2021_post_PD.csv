@@ -1,0 +1,11 @@
+Site,Date,Plot ID,Observers,year,X,Y,fire severity,Burn (y/n),% SHRUB TORCHED,% SHRUB SCORCHED,% SHRUB UNBURNED,BARESOIL,LITTER,BLACK LITTER,CWD,CONES% / dom spp.,bedrock,ROCK (>600mm),SMROCK (2-600mm),ASH,BASALVEG,MOSS/LICHEN,RD,Total Ground Cover (%) ,History,NOTES
+FrenchMeadows,7/5/2021,FM40,"km, mm, mv",2021,723618,4340577,1,y,15,35,65,0.5,70,12,3,tr,0,tr,6,7,1.5,tr,0,100,,
+FrenchMeadows,7/6/2021,FM48,"km, mm, mv",2021,723258,4340218,3,y,77,100,0,tr,1.5,69,4,0,0,0,0.25,24,1.25,tr,0,100,,
+FrenchMeadows,7/6/2021,FM19-6,"km, mm, mv",2021,723481,4340558,1,y,30,85,15,tr,64.25,7,0.5,tr,7,0,20,0.25,1,tr,0,100,,
+FrenchMeadows,7/6/2021,FM38,"km, mm, mv",2021,723172,4340558,1,y,5,20,80,tr,63.5,28,2,tr,0.25,0,2,3,1.25,tr,0,100,,
+FrenchMeadows,7/5/2021,FM19-20,"km, mm, mv",2021,724057,4340010,3,y,na,na,na,tr,3,65.5,8,0,5,0.5,0,15,3,0,0,100,,
+FrenchMeadows,7/5/2021,FM47,"km, mm, mv",2021,723805,4340029,3,y,30,100,0,0.5,3,26.25,8,tr,tr,0.25,0,60,2,tr,0,100,,
+FrenchMeadows,7/5/2021,FM46,"km, mm, mv",2021,723670,4340165,3,y,6,55,45,1,23,40,3,0,3,0,0.5,27.25,2.25,tr,0,100,,
+FrenchMeadows,7/5/2021,FM19-3,"km, mm, mv",2021,723639,4340371,3,y,95,98,2,tr,3,74.5,5,0,0.25,0,0,16,1.25,tr,0,100,,
+FrenchMeadows,7/6/2021,FM19-7,"km,mm,mv",2021,723254,4340475,1,y,3,10,90,0.25,64.5,10,15,0,8,0.25,0,0.75,1.25,tr,0,100,,
+FrenchMeadows,7/6/2021,FM39,"km,mm,mv",2021,723480,4340401,1,y,1,10,90,tr,91,3,2,0,2,0,0,1,1,tr,0,100,,

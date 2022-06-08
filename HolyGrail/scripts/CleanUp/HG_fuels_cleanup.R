@@ -24,8 +24,10 @@ HG_CWD <- read.csv("HolyGrail/data/raw/CPFMP_HolyGrail_CWD_Merge.csv")
                 mutate_if(is.character, list(~na_if(.,""))) %>% 
                 mutate_if(is.character, list(~na_if(.,"no cwd"))) %>% 
                 mutate_if(is.character, list(~na_if(.,"-"))) %>% 
-                replace_na(list(intersect_cm = 0)) %>% 
+                mutate(intersect_cm = ifelse(is.na(intersect_cm), 0, intersect_cm)) %>% 
                 drop_na(azimuth)
+              
+            
               
               #get azimuth the same
               HG_CWD_NA$azimuth <- toupper(HG_CWD_NA$azimuth) #make all codes uppercase
