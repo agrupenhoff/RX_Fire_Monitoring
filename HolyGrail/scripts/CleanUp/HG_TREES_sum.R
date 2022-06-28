@@ -3,8 +3,9 @@ library(tibble)
 library(dplyr)
 library(rio)
 
-
+getwd()
 HG_trees_data <- read.csv("HolyGrail/data/clean/trees/HG_Trees_final.csv")
+unique(HG_trees_data$status)
 HG_trees_data$site <- tolower(HG_trees_data$site)
 HG_trees_data$plotid <- tolower(HG_trees_data$plotid)
 
@@ -156,5 +157,5 @@ export(HG_trees_severityIndicies,"HolyGrail/data/clean/trees/HG_Trees_severityIn
               
               ###############################################################################################
               ##############################################################################################
-              
+
 

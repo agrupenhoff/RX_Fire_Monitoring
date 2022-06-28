@@ -191,6 +191,41 @@ HG_fuels_Mass_tonsHA <- HG_fuels_mass_coef %>%
          total_fuel = mass_1hr+mass_10hr+mass_100hr+mass_cwd_sound+mass_cwd_rotten+litter_load+duff_load) %>% 
   mutate(site_plotid_time = paste(site, plotid, year, pre_post_fire, postTime, sep="_"))
 
+#1 ton/HA = 0.404686 ton/ACRE
+HG_fuels_Mass_tonAcre <- HG_fuels_Mass_tonsHA %>% 
+  mutate(mass_1hr = mass_1hr/2.471,
+         mass_10hr = mass_10hr/2.471,
+         mass_100hr = mass_100hr/2.471,
+         mass_cwd_sound = mass_cwd_sound/2.471,
+         mass_cwd_rotten = mass_cwd_rotten/2.471,
+         duff_load = duff_load/2.471,
+         litter_load = litter_load/2.471,
+         total_fine = total_fine/2.471,
+         total_cwd = total_cwd/2.471,
+         total_fuel = total_fuel/2.471)
+#Average across each plot (Ton/HA)
+HG_fuels_tonAcre_plot <- HG_fuels_Mass_tonAcre %>% 
+  group_by(site_plotid_time) %>% 
+  summarize(mass_1hr = mean(mass_1hr),
+            mass_10hr = mean(mass_10hr),
+            mass_100hr = mean(mass_100hr),
+            mass_cwd_sound = mean(mass_cwd_sound),
+            mass_cwd_rotten = mean(mass_cwd_rotten),
+            total_fine = mean(total_fine),
+            total_cwd = mean(total_cwd),
+            total_fuel = mean(total_fuel),
+            duff_load = mean(duff_load),
+            litter_load = mean(litter_load),
+            litter_depth_cm = mean(litter_depth_cm),
+            duff_depth_cm = mean(duff_depth_cm),
+            fuel_depth_cm = mean(fuel_depth_cm)) %>% 
+  pivot_longer(-site_plotid_time, names_to="fuelType", values_to="mass_tonsAcre") %>% 
+  separate(site_plotid_time, c("site","plotid", "year", "pre_post_fire", "postTime"), 
+           sep="_") %>% 
+  drop_na(mass_tonsAcre)
+
+
+export(HG_fuels_tonAcre_plot, "HolyGrail/data/clean/fuels/HG_FuelMass_tonAcre_coef.csv")
 
 #1 ton (US) = 0.907 megagram
 HG_fuels_Mass_mgha <- HG_fuels_Mass_tonsHA %>% 
