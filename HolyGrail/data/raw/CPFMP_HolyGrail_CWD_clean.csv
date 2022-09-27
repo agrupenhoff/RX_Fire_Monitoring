@@ -1172,6 +1172,7 @@ Modoc_Modoc09_2020_prefire_NA_90,0,156.25
 modoc_Modoc09_2021_postfire_immediate_180,0,196
 modoc_Modoc09_2021_postfire_immediate_270,0,169
 modoc_Modoc10_2021_postfire_immediate_0,0,1325
+Modoc_Modoc12_2020_prefire_NA_0,0,1024
 modoc_Modoc12_2021_postfire_immediate_0,0,961
 modoc_Modoc12_2021_postfire_immediate_90,0,90.25
 Modoc_Modoc15_2020_prefire_NA_270,0,240.25
@@ -1190,6 +1191,10 @@ Modoc_Modoc25_2020_prefire_NA_270,870.49,0
 Modoc_Modoc25_2020_prefire_NA_90,12.25,0
 Modoc_Modoc26_2020_prefire_NA_180,0,100
 Modoc_Modoc26_2020_prefire_NA_270,0,81
+Modoc_Modoc27_2020_prefire_NA_0,36,67.24
+Modoc_Modoc27_2020_prefire_NA_180,16,69.89
+Modoc_Modoc27_2020_prefire_NA_270,17.64,0
+Modoc_Modoc27_2020_prefire_NA_90,16,39.69
 modoc_Modoc29_2021_control_NA_0,0,77.44
 modoc_Modoc29_2021_control_NA_270,0,163.84
 modoc_Modoc31_2021_control_NA_0,0,64

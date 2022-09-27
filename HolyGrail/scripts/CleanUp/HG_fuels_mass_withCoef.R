@@ -327,14 +327,5 @@ HG_fuels_tonHA_consumption <- HG_fuels_tonHA_plot %>%
   select(plotID_fuel, time_fire, mass_tonsHA) 
 
 
-HG_fuels_tonHA_consumption_wider <- HG_fuels_tonHA_consumption %>% 
-  pivot_wider(names_from = "time_fire", values_from = "mass_tonsHA")  %>% 
-  unnest(cols= c(prefire_, postfire_immediate)) %>% 
-  mutate(consumption_immediate = prefire_ - postfire_immediate) %>% 
-  drop_na(consumption_immediate) %>% 
-  separate(plotID_fuel, c("site","plotid", "fuelType"), 
-           sep=" ")
 
-
-
-export(HG_fuels_tonHA_consumption_wider, "HolyGrail/data/clean/fuels/HG_FuelMass_tonHA_consumption_coef.csv" )
+export(HG_fuels_tonHA_consumption, "HolyGrail/data/clean/fuels/HG_FuelMass_tonHA_consumption_coef.csv" )

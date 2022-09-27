@@ -12,11 +12,9 @@ HG_trt <- read.csv("HolyGrail/data/raw/CPFMP_HolyGrail_trt_utm.csv")
 HG_trt_short <- HG_trt %>% 
   select(site, plotid, burn_unit)
 
+str(HG_fuels_data)
+
 ##fuels data 
-
-
-#for fuels equations 
-QMD <- read.csv("HolyGrail/data/BrownsTransect_coef/QMD_diam_cm2.csv")
 
 
 ## fuel analysis
@@ -34,11 +32,11 @@ QMD <- read.csv("HolyGrail/data/BrownsTransect_coef/QMD_diam_cm2.csv")
 
 HG_fuels_MassFWD_tonsAcre <- HG_fuels_data %>% 
   mutate(slopecorrection = (1+(slope_percent/100)^2)^(1/2)) %>% 
-  mutate(mass_1hr =(11.64 * count_x1h * 0.0151 * 	0.48 * 1.13 * slopecorrection)/ (2*3.28),
-         mass_10hr=(11.64 * count_x10h * 0.289 * 	0.48 * 1.13 * slopecorrection) / (2*3.28),
-         mass_100hr=(11.64 * count_x100h * 2.76 * 	0.40 * 1.13 * slopecorrection) / (4*3.28), 
-         mass_cwd_sound =(11.64 * sum_d2_1000s_cm2 * 0.155 * 0.40 * slopecorrection) / (11.3*4*3.28),
-         mass_cwd_rotten=(11.64 * sum_d2_1000r_cm2 * 0.155 * 0.30 * slopecorrection) / (11.3*4*3.28)) %>% 
+  mutate(mass_1hr =(11.64 * count_x1h * 0.0151 * 	0.48 * 1.13 * slopecorrection)/ (x1h_length_m*3.28),
+         mass_10hr=(11.64 * count_x10h * 0.289 * 	0.48 * 1.13 * slopecorrection) / (x10h_length_m*3.28),
+         mass_100hr=(11.64 * count_x100h * 2.76 * 	0.40 * 1.13 * slopecorrection) / (x100h_length_m*3.28), 
+         mass_cwd_sound =(11.64 * sum_d2_1000s_cm2 * 0.155 * 0.40 * slopecorrection) / (x1000h_length_m*3.28),
+         mass_cwd_rotten=(11.64 * sum_d2_1000r_cm2 * 0.155 * 0.30 * slopecorrection) / (x1h_length_m*3.28)) %>% 
   select(site, plotid, year, pre_post_fire, postTime, plot_id_time, azimuth, 
          duff_depth_cm, litter_depth_cm, fuel_depth_cm,
          mass_1hr, mass_10hr, mass_100hr, mass_cwd_sound, mass_cwd_rotten) %>% 
@@ -99,7 +97,7 @@ HG_fuels_tonsHA_plot <- HG_fuels_MassFWD_tonsHA %>%
 
 
 #Average across each burn unit
-HG_fuels_tonsAC_byunit <- HG_fuels_tonsAcre_burnunit %>% 
+HG_fuels_tonsAcre_byunit <- HG_fuels_tonsAcre_burnunit %>% 
   group_by(site_plotid_time, burn_unit) %>% 
   summarize(mass_1hr = mean(mass_1hr),
             mass_10hr = mean(mass_10hr),
@@ -114,17 +112,6 @@ HG_fuels_tonsAC_byunit <- HG_fuels_tonsAcre_burnunit %>%
              sep=" ") %>% 
   mutate(postFire_time = paste(pre_post_fire, postTime, sep = " "))
 
-HG_fuels_tonsAC_byunit <- HG_fuels_tonsAC_byunit %>% 
-  group_by(site, postFire_time, burn_unit) %>% 
-  summarize(mass_1hr = mean(mass_1hr),
-            mass_10hr = mean(mass_10hr),
-            mass_100hr = mean(mass_100hr),
-            total_fine = mean(total_fine),
-            total_cwd = mean(total_cwd),
-            total_fuel = mean(total_fuel),
-            litter_depth_cm = mean(litter_depth_cm),
-            duff_depth_cm = mean(duff_depth_cm),
-            fuel_depth_cm = mean(fuel_depth_cm)) 
 
 export(HG_fuels_MassFWD_tonsAcre, "HolyGrail/data/clean/fuels/HG_FuelMass_tonAcre.csv")
 export(HG_fuels_tonsAcre_plot, "HolyGrail/data/clean/fuels/HG_FuelMass_tonAcre_plot.csv")

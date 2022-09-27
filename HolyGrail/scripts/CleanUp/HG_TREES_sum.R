@@ -9,6 +9,7 @@ unique(HG_trees_data$status)
 HG_trees_data$site <- tolower(HG_trees_data$site)
 HG_trees_data$plotid <- tolower(HG_trees_data$plotid)
 
+
 #create function to calculate basal area (m^2)
 
 basal.area.fn <- function(x){ (pi*(x)^2)/40000 } # calculate basal area in m^2
@@ -32,8 +33,8 @@ HG_trees_PlotSpeciesStatus <- HG_trees_basal %>%
             n_trees = mean(n_trees_by_plot)) %>% 
   mutate(n_trees_acre = n_trees*10,
          BA_m2_acre = BA_m2_sum*10,
-         n_trees_ha = n_trees*4.04686,
-         BA_m2_ha = BA_m2_sum*4.04686) %>%   
+         n_trees_ha = n_trees_acre*2.47105,
+         BA_m2_ha = BA_m2_acre*2.47105) %>%   
   separate(plotid_time, c("site","plotid","pre_post_fire","year"), sep="_",
            remove=TRUE,extra="merge")
 
@@ -45,7 +46,9 @@ HG_trees_totalPlot <- HG_trees_PlotSpeciesStatus %>%
                 group_by(plotid_time, status) %>% 
                 add_count(plotid_time,status, name="n_trees_total_plot") %>%
                 summarise(BA_m2_ha_plot = sum(BA_m2_ha),
-                          n_trees_totalPlot = sum(n_trees)) %>% 
+                          n_trees_totalPlot = sum(n_trees),
+                          n_trees_acre = n_trees_totalPlot*10,
+                          n_trees_ha = n_trees_acre*2.47105) %>% 
                 separate(plotid_time, c("site","plotid","pre_post_fire","year"), sep="_",
                        remove=TRUE,extra="merge")
       
@@ -119,7 +122,8 @@ HG_trees_diamclass_sumLIVE <- HG_trees_diamclass %>%
         pivot_wider(names_from = diamclass, values_from = n_trees_diamclass,
                     values_fill = 0) %>% 
         pivot_longer(-plotid_time, names_to= "diamclass", values_to = "n_trees_diamclass") %>% 
-        mutate(n_trees_diamclass_acre = n_trees_diamclass*10) %>% 
+        mutate(n_trees_diamclass_acre = n_trees_diamclass*10,
+               n_trees_diamclass_ha = n_trees_diamclass_acre*2.47105) %>% 
         separate(plotid_time, c("site","plotid","pre_post_fire","year"), sep="_",
                remove=TRUE,extra="merge")
 #DEAD ONLY
@@ -129,7 +133,8 @@ HG_trees_diamclass_sumDEAD <- HG_trees_diamclass %>%
   pivot_wider(names_from = diamclass, values_from = n_trees_diamclass,
               values_fill = 0) %>% 
   pivot_longer(-plotid_time, names_to= "diamclass", values_to = "n_trees_diamclass") %>% 
-  mutate(n_trees_diamclass_acre = n_trees_diamclass*10) %>% 
+  mutate(n_trees_diamclass_acre = n_trees_diamclass*10,
+         n_trees_diamclass_ha = n_trees_diamclass_acre*2.47105) %>% 
   separate(plotid_time, c("site","plotid","pre_post_fire","year"), sep="_",
            remove=TRUE,extra="merge")
     
@@ -157,5 +162,4 @@ export(HG_trees_severityIndicies,"HolyGrail/data/clean/trees/HG_Trees_severityIn
               
               ###############################################################################################
               ##############################################################################################
-
 
