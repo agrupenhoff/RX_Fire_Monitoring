@@ -7,12 +7,12 @@ library(rio)
 HG_fuels_data <- read.csv("HolyGrail/data/clean/fuels/HG_FWD_CWD_final.csv",
                           stringsAsFactors = TRUE)
 HG_fuels_data$site <- tolower(HG_fuels_data$site)
-HG_fuels_data$plotid <- tolower(HG_fuels_data$plotid)
+HG_fuels_data$plotid <- toupper(HG_fuels_data$plotid)
 unique(HG_fuels_data$plotid)
 
 HGtrees_basalareaSpeciesProportion <- read.csv("HolyGrail/data/clean/trees/HGtrees_basalareaSpeciesProportion.csv")
 unique(HGtrees_basalareaSpeciesProportion$spp)
-
+unique(HGtrees_basalareaSpeciesProportion$plotid_time)
 
 ##############################
 #####PLOT SPECIFIC COEFF!!
@@ -52,7 +52,7 @@ unique(litter_duff_coef$spp)
                        site_plotid = paste(site, plotid, sep="_")) %>% 
                 select(site_plotid, coef_plot_litter, coef_plot_duff, coef_plot_litterduff)
               
-              export(HGtrees_BAcoef_litterduffSUM, "HolyGrail/data/clean/fuels/HGtrees_BAcoef_litterduff_sum.csv")
+              write_csv(HGtrees_BAcoef_litterduffSUM, "HolyGrail/data/clean/fuels/HGtrees_BAcoef_litterduff_sum.csv")
 
               #QMD: QUADRATIC MEAN DIAMETER
               HGtrees_BAcoef_QMD <- left_join(HGtrees_basalareaSpeciesProportion, QMD,
@@ -76,7 +76,7 @@ unique(litter_duff_coef$spp)
                        site_plotid = paste(site, plotid, sep="_")) %>% 
                 select(site_plotid, qmd_plot_x1h, qmd_plot_x10h, qmd_plot_x100h, qmd_plot_x1000h)
               
-              export(HGtrees_BAcoef_QMDsum, "HolyGrail/data/clean/fuels/HGtrees_BAcoef_QMD_sum.csv")
+              write_csv(HGtrees_BAcoef_QMDsum, "HolyGrail/data/clean/fuels/HGtrees_BAcoef_QMD_sum.csv")
               
               #SEC: secant of acute angle
               HGtrees_BAcoef_SEC <- left_join(HGtrees_basalareaSpeciesProportion, SEC,
@@ -100,7 +100,7 @@ unique(litter_duff_coef$spp)
                        site_plotid = paste(site, plotid, sep="_")) %>% 
                 select(site_plotid, sec_plot_x1h, sec_plot_x10h, sec_plot_x100h, sec_plot_x1000h)
               
-              export(HGtrees_BAcoef_SECsum, "HolyGrail/data/clean/fuels/HGtrees_BAcoef_SEC_sum.csv")
+              write_csv(HGtrees_BAcoef_SECsum, "HolyGrail/data/clean/fuels/HGtrees_BAcoef_SEC_sum.csv")
               
               #SG: specific gravity 
               HGtrees_BAcoef_SG <- left_join(HGtrees_basalareaSpeciesProportion, SG,
@@ -124,7 +124,7 @@ unique(litter_duff_coef$spp)
                        site_plotid = paste(site, plotid, sep="_")) %>% 
                 select(site_plotid, SG_plot_x1h, SG_plot_x10h, SG_plot_x100h, SG_plot_x1000s)
               
-              export(HGtrees_BAcoef_SGsum, "HolyGrail/data/clean/fuels/HGtrees_BAcoef_SG_sum.csv")
+              write_csv(HGtrees_BAcoef_SGsum, "HolyGrail/data/clean/fuels/HGtrees_BAcoef_SG_sum.csv")
 
 ## fuel analysis
 
@@ -166,12 +166,13 @@ HG_fuels_mass_coef <- HG_fuels_mass_coef %>%
          SG_plot_x100h = replace_na(SG_plot_x100h, 0.53),
          SG_plot_x1000s = replace_na(SG_plot_x1000s, 0.47))
 
-export(HG_fuels_mass_coef, "HolyGrail/data/clean/fuels/HG_FuelMass_withCoefficient.csv")
+write_csv(HG_fuels_mass_coef, "HolyGrail/data/clean/fuels/HG_FuelMass_withCoefficient.csv")
 
 ######################
 ####### CALCULATE FUEL MASS TONS/HA
 HG_fuels_Mass_tonsHA <- HG_fuels_mass_coef %>% 
   mutate(slopecorrection = (1+(slope_percent/100)^2)^(1/2)) %>% 
+  mutate(count_x100h = ifelse(is.na(count_x100h), 0, count_x100h)) %>% 
   mutate(mass_1hr =(1.234 * count_x1h * qmd_plot_x1h * sec_plot_x1h * slopecorrection * SG_plot_x1h)/ (x1h_length_m),
          mass_10hr=(1.234 * count_x10h * qmd_plot_x10h * sec_plot_x10h * slopecorrection * SG_plot_x10h)/ (x10h_length_m),
          mass_100hr=(1.234 * count_x100h * qmd_plot_x100h * sec_plot_x100h * slopecorrection * SG_plot_x100h)/ (x100h_length_m), 
@@ -189,7 +190,7 @@ HG_fuels_Mass_tonsHA <- HG_fuels_mass_coef %>%
   mutate(total_fine = mass_1hr+mass_10hr+mass_100hr,
          total_cwd = mass_cwd_rotten+mass_cwd_sound,
          total_fuel = mass_1hr+mass_10hr+mass_100hr+mass_cwd_sound+mass_cwd_rotten+litter_load+duff_load) %>% 
-  mutate(site_plotid_time = paste(site, plotid, year, pre_post_fire, postTime, sep="_"))
+  mutate(site_plotid_time = paste(site, plotid, year, pre_post_fire, postTime, sep="_")) 
 
 #1 ton/HA = 0.404686 ton/ACRE
 HG_fuels_Mass_tonAcre <- HG_fuels_Mass_tonsHA %>% 
@@ -225,7 +226,7 @@ HG_fuels_tonAcre_plot <- HG_fuels_Mass_tonAcre %>%
   drop_na(mass_tonsAcre)
 
 
-export(HG_fuels_tonAcre_plot, "HolyGrail/data/clean/fuels/HG_FuelMass_tonAcre_coef.csv")
+write_csv(HG_fuels_tonAcre_plot, "HolyGrail/data/clean/fuels/HG_FuelMass_tonAcre_coef.csv")
 
 #1 ton (US) = 0.907 megagram
 HG_fuels_Mass_mgha <- HG_fuels_Mass_tonsHA %>% 
@@ -239,32 +240,6 @@ HG_fuels_Mass_mgha <- HG_fuels_Mass_tonsHA %>%
          total_fine = total_fine/1.102,
          total_cwd = total_cwd/1.102,
          total_fuel = total_fuel/1.102)
-
-
-#Average across each plot (Ton/HA)
-HG_fuels_tonHA_plot <- HG_fuels_Mass_tonsHA %>% 
-  group_by(site_plotid_time) %>% 
-  summarize(mass_1hr = mean(mass_1hr),
-            mass_10hr = mean(mass_10hr),
-            mass_100hr = mean(mass_100hr),
-            mass_cwd_sound = mean(mass_cwd_sound),
-            mass_cwd_rotten = mean(mass_cwd_rotten),
-            total_fine = mean(total_fine),
-            total_cwd = mean(total_cwd),
-            total_fuel = mean(total_fuel),
-            duff_load = mean(duff_load),
-            litter_load = mean(litter_load),
-            litter_depth_cm = mean(litter_depth_cm),
-            duff_depth_cm = mean(duff_depth_cm),
-            fuel_depth_cm = mean(fuel_depth_cm)) %>% 
-  pivot_longer(-site_plotid_time, names_to="fuelType", values_to="mass_tonsHA") %>% 
-  separate(site_plotid_time, c("site","plotid", "year", "pre_post_fire", "postTime"), 
-           sep="_") %>% 
-  drop_na(mass_tonsHA)
-
-
-export(HG_fuels_tonHA_plot, "HolyGrail/data/clean/fuels/HG_FuelMass_tonHA_coef.csv")
-
 
 #Average across each plot (megagram/HA)
 HG_fuels_mgha_plot <- HG_fuels_Mass_mgha %>% 
@@ -288,7 +263,7 @@ HG_fuels_mgha_plot <- HG_fuels_Mass_mgha %>%
   drop_na(mass_mgha)
 
 
-export(HG_fuels_mgha_plot, "HolyGrail/data/clean/fuels/HG_FuelMass_mgHA_coef.csv")
+write_csv(HG_fuels_mgha_plot, "HolyGrail/data/clean/fuels/HG_FuelMass_mgHA_coef.csv")
 
 ############################
 ###############CONSUMPTION
@@ -304,28 +279,24 @@ HG_fuels_mgha_consumption <- HG_fuels_mgha_plot %>%
   select(plotID_fuel, time_fire, mass_mgha) 
 
 
+str(HG_fuels_mgha_consumption)
+#HG_fuels_mgha_consumption$duplicated = duplicated(paste0(HG_fuels_mgha_consumption$plotID_fuel, 
+#                                                         HG_fuels_mgha_consumption$time_fire ))
+
 HG_fuels_mgha_consumption_wider <- HG_fuels_mgha_consumption %>% 
-  pivot_wider(names_from = "time_fire", values_from = "mass_mgha")  %>% 
-  unnest(cols= c(prefire_, postfire_immediate)) %>% 
-  mutate(consumption_immediate = prefire_ - postfire_immediate) %>% 
+  pivot_wider(names_from = "time_fire", 
+              values_from = "mass_mgha",
+              values_fn = max)  %>% 
+  unnest(cols= c(prefire_NA, postfire_immediate)) %>% 
+  mutate(consumption_immediate = prefire_NA - postfire_immediate) %>% 
   drop_na(consumption_immediate) %>% 
   separate(plotID_fuel, c("site","plotid", "fuelType"), 
            sep=" ")
 
 
 
-export(HG_fuels_mgha_consumption_wider, "HolyGrail/data/clean/fuels/HG_FuelMass_mgha_consumption_coef.csv" )
-
-str(HG_fuels_tonHA_plot)
-HG_fuels_tonHA_plot$mass_tonsHA <- as.numeric(HG_fuels_tonHA_plot$mass_tonsHA)
-
-HG_fuels_tonHA_consumption <- HG_fuels_tonHA_plot %>% 
-  filter (pre_post_fire == "prefire"|
-            pre_post_fire == "postfire" & postTime == "immediate") %>% 
-  mutate(time_fire = paste(pre_post_fire, postTime, sep = "_")) %>% 
-  mutate(plotID_fuel = paste(site, plotid, fuelType, sep=" ")) %>% 
-  select(plotID_fuel, time_fire, mass_tonsHA) 
+write_csv(HG_fuels_mgha_consumption_wider, "HolyGrail/data/clean/fuels/HG_FuelMass_mgha_consumption_coef.csv" )
 
 
 
-export(HG_fuels_tonHA_consumption, "HolyGrail/data/clean/fuels/HG_FuelMass_tonHA_consumption_coef.csv" )
+

@@ -1,0 +1,31 @@
+plotid,obs,species,status,lifeform,layer_code,percent,modal_ht_m,notes,site,pre_post_fire,postTime,year
+LBW006,"TRP, ZMZ",chafol,live,FB,,25,,,lonebobcatwoods,postfire,1yr,2022
+LBW006,"TRP, ZMZ",toxdiv,live,SH,,20,,,lonebobcatwoods,postfire,1yr,2022
+LBW006,"TRP, ZMZ",ceanothus,live,SH,,tr,,i think integerrimus ,lonebobcatwoods,postfire,1yr,2022
+LBW006,"TRP, ZMZ",ribes sp,live,SH,,tr,,,lonebobcatwoods,postfire,1yr,2022
+LBW006,"TRP, ZMZ",rubocc,live,SH,,tr,,rubus? maybe rubus leucodermis,lonebobcatwoods,postfire,1yr,2022
+LBW006,"TRP, ZMZ",galapa,live,FB,,tr,,,lonebobcatwoods,postfire,1yr,2022
+LBW006,"TRP, ZMZ",claper,live,FB,,tr,,,lonebobcatwoods,postfire,1yr,2022
+LBW006,"TRP, ZMZ",torarv,live,FB,,2,,,lonebobcatwoods,postfire,1yr,2022
+LBW006,"TRP, ZMZ",lbwfb1,live,FB,,tr,,polygala vibes leaf,lonebobcatwoods,postfire,1yr,2022
+LBW006,"TRP, ZMZ",cyngra,live,FB,,tr,,,lonebobcatwoods,postfire,1yr,2022
+LBW006,"TRP, ZMZ",iris sp,live,FB,,tr,,,lonebobcatwoods,postfire,1yr,2022
+LBW006,"TRP, ZMZ",lbwfb2,live,FB,,2,,possibly cardamine,lonebobcatwoods,postfire,1yr,2022
+LBW006,"TRP, ZMZ",madia,live,FB,,tr,,,lonebobcatwoods,postfire,1yr,2022
+LBW006,"TRP, ZMZ",fabaceae,live,FB,,tr,,collected,lonebobcatwoods,postfire,1yr,2022
+LBW006,"TRP, ZMZ",caprifoliaceae,live,FB,,tr,,collected,lonebobcatwoods,postfire,1yr,2022
+LBW006,"TRP, ZMZ",lbwfb3,live,FB,,tr,,vetch like pea,lonebobcatwoods,postfire,1yr,2022
+LBW006,"TRP, ZMZ",dicfor,live,FB,,tr,,,lonebobcatwoods,postfire,1yr,2022
+LBW006,"TRP, ZMZ",lbwfb4,live,FB,,tr,,other apiaceae forb,lonebobcatwoods,postfire,1yr,2022
+LBW006,"TRP, ZMZ",lbwcarex,live,GR,,tr,,,lonebobcatwoods,postfire,1yr,2022
+LBW006,"TRP, ZMZ",lbwrush,live,GR,,tr,,has fruits,lonebobcatwoods,postfire,1yr,2022
+LBW006,"TRP, ZMZ",lbwgrass1,live,GR,,tr,,"annual, collected specimen",lonebobcatwoods,postfire,1yr,2022
+LBW006,"TRP, ZMZ",psme,live,TR,TSE,tr,,,lonebobcatwoods,postfire,1yr,2022
+LBW006,"TRP, ZMZ",cade,live,TR,TOV,30,,,lonebobcatwoods,postfire,1yr,2022
+LBW006,"TRP, ZMZ",cade,dead,TR,TSA,tr,,,lonebobcatwoods,postfire,1yr,2022
+LBW006,"TRP, ZMZ",quke,live,TR,TOV,25,,,lonebobcatwoods,postfire,1yr,2022
+LBW006,"TRP, ZMZ",quke,live,TR,other,tr,,resp,lonebobcatwoods,postfire,1yr,2022
+LBW006,"TRP, ZMZ",quke,dead,TR,other,tr,,resp,lonebobcatwoods,postfire,1yr,2022
+LBW006,"TRP, ZMZ",quch,live,TR,TOV,1,,,lonebobcatwoods,postfire,1yr,2022
+LBW006,"TRP, ZMZ",quch,live,TR,other,tr,,resp,lonebobcatwoods,postfire,1yr,2022
+LBW006,"TRP, ZMZ",quch,dead,TR,other,tr,,resp,lonebobcatwoods,postfire,1yr,2022

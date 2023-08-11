@@ -1,0 +1,570 @@
+plotid,obs,species,status,lifeform,layer_code,percent,modal_ht_m,notes,site,pre_post_fire,postTime,year
+MOD009,zmz,abco,dead,TR,TOV,3,na,,modoc,postfire,1yr,2022
+MOD009,zmz,abco,live,TR,TOV,9,na,,modoc,postfire,1yr,2022
+MOD009,zmz,abco,dead,TR,TSA,tr,na,,modoc,postfire,1yr,2022
+MOD009,zmz,abco,dead,TR,TSE,tr,na,,modoc,postfire,1yr,2022
+MOD009,zmz,abco,live,TR,TSE,tr,na,,modoc,postfire,1yr,2022
+MOD010,TP,abco,dead,TR,TOV,10,na,,modoc,postfire,1yr,2022
+MOD010,TP,abco,dead,TR,TSA,tr,na,,modoc,postfire,1yr,2022
+MOD010,TP,abco,live,TR,TSE,tr,na,,modoc,postfire,1yr,2022
+MOD010,TP,abco,live,TR,TOV,3,na,,modoc,postfire,1yr,2022
+MOD011,TP,abco,live,TR,TSE,tr,na,,modoc,postfire,1yr,2022
+MOD011,TP,abco,live,TR,TOV,10,na,,modoc,postfire,1yr,2022
+MOD012,zmz,abco,dead,TR,TOV,tr,na,,modoc,postfire,1yr,2022
+MOD012,zmz,abco,live,TR,TOV,30,na,,modoc,postfire,1yr,2022
+MOD012,zmz,abco,live,TR,TSE,tr,na,,modoc,postfire,1yr,2022
+MOD012,zmz,abco,dead,TR,TSA,tr,na,,modoc,postfire,1yr,2022
+MOD012,zmz,abco,dead,TR,TSE,tr,na,,modoc,postfire,1yr,2022
+MOD013,"TP, ZMZ",abco,live,TR,TOV,35,27,,modoc,postfire,1yr,2022
+MOD013,"TP, ZMZ",abco,live,TR,TSE,tr,0.1,,modoc,postfire,1yr,2022
+MOD013,"TP, ZMZ",abco,live,TR,TSA,tr,1.75,,modoc,postfire,1yr,2022
+MOD013,"TP, ZMZ",abco,dead,TR,TSE,tr,0.2,,modoc,postfire,1yr,2022
+MOD013,"TP, ZMZ",abco,dead,TR,TOV,tr,na,,modoc,postfire,1yr,2022
+MOD014,"tp,zmz",abco,dead,TR,TSA,tr,2.5,,modoc,postfire,1yr,2022
+MOD014,"tp,zmz",abco,dead,TR,TSE,tr,0.5,,modoc,postfire,1yr,2022
+MOD014,"tp,zmz",abco,live,TR,TSA,tr,3.6,,modoc,postfire,1yr,2022
+MOD014,"tp,zmz",abco,live,TR,TSE,tr,0.08,,modoc,postfire,1yr,2022
+MOD014,"tp,zmz",abco,live,TR,TOV,35,34,,modoc,postfire,1yr,2022
+MOD014,"tp,zmz",abco,dead,TR,TOV,tr,27,,modoc,postfire,1yr,2022
+MOD015,"ZMZ, TP, MM",abco,live,TR,TOV,5,19,,modoc,postfire,1yr,2022
+MOD015,"ZMZ, TP, MM",abco,live,TR,TSE,tr,na,,modoc,postfire,1yr,2022
+MOD018,"tp, bk,kw",abco,live,TR,TSE,tr,na,,modoc,postfire,1yr,2022
+MOD018,"tp, bk,kw",abco,dead,TR,TOV,2,na,,modoc,postfire,1yr,2022
+MOD019,ZMZ,Abco,live,TR,TOV,2,na,,modoc,postfire,1yr,2022
+MOD020,"tp,zmz",abco,live,TR,TSE,tr,na,,modoc,postfire,1yr,2022
+MOD020,"tp,zmz",abco,live,TR,TSA,tr,na,,modoc,postfire,1yr,2022
+MOD021,ZMZ,abco,live,TR,TSE,tr,na,,modoc,postfire,1yr,2022
+MOD022,ZMZ,abco,live,TR,TOV,8,na,,modoc,postfire,1yr,2022
+MOD022,ZMZ,abco,dead,TR,TSE,tr,na,,modoc,postfire,1yr,2022
+MOD022,ZMZ,abco,live,TR,TSE,tr,na,,modoc,postfire,1yr,2022
+MOD023,"TP, ZMZ",ABCO,live,TR,TOV,10,na,,modoc,postfire,1yr,2022
+MOD023,"TP, ZMZ",ABCO,live,TR,TSE,tr,0.1,,modoc,postfire,1yr,2022
+MOD024,"TP, ZMZ",ABCO,live,TR,TOV,3,22,,modoc,postfire,1yr,2022
+MOD024,"TP, ZMZ",ABCO,live,TR,TSE,tr,0.05,,modoc,postfire,1yr,2022
+MOD016,"TP, ZMZ",agapar,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD020,"tp,zmz",agapar,live,FB,na,tr,na,sp list says urticifolia,modoc,postfire,1yr,2022
+MOD010,TP,agoseris,live,FB,na,tr,na,TRP: removed question mark,modoc,postfire,1yr,2022
+MOD016,"TP, ZMZ",agoseris,live,FB,na,tr,na,TRP: removed question mark,modoc,postfire,1yr,2022
+MOD018,"tp, bk,kw",agoseris,live,FB,na,tr,na,"hawkweed leaf, chickory tribe",modoc,postfire,1yr,2022
+MOD020,"tp,zmz",agoseris,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD011,TP,ameuta,live,SH,na,tr,0.15,,modoc,postfire,1yr,2022
+MOD013,"TP, ZMZ",ameuta,live,SH,na,tr,0.2,,modoc,postfire,1yr,2022
+MOD016,"TP, ZMZ",ameuta,live,SH,na,tr,0.4,,modoc,postfire,1yr,2022
+MOD019,ZMZ,ameuta,live,SH,na,tr,0.12,,modoc,postfire,1yr,2022
+MOD020,"tp,zmz",ameuta,live,SH,na,tr,0.4,,modoc,postfire,1yr,2022
+MOD017,zmz,antarg,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD021,ZMZ,antarg,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD022,ZMZ,antarg,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD019,zmz,APOAND,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD019,ZMZ,APOAND,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD023,"TP, ZMZ",APOAND,Live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD009,zmz,arcpat,live,SH,na,tr,0.12,,modoc,postfire,1yr,2022
+MOD010,TP,arcpat,live,SH,na,tr,0.1,,modoc,postfire,1yr,2022
+MOD012,zmz,arcpat,dead,SH,na,tr,0.6,,modoc,postfire,1yr,2022
+MOD012,zmz,arcpat,live,SH,na,tr,0.15,,modoc,postfire,1yr,2022
+MOD013,"TP, ZMZ",arcpat,live,SH,na,tr,0.1,TRP: dead shrub in PD not noted here,modoc,postfire,1yr,2022
+MOD014,"tp,zmz",arcpat,dead,SH,na,tr,0.25,,modoc,postfire,1yr,2022
+MOD014,"tp,zmz",arcpat,live,SH,na,tr,0.1,,modoc,postfire,1yr,2022
+MOD015,"ZMZ, TP, MM",arcpat,dead,SH,na,tr,0.6,,modoc,postfire,1yr,2022
+MOD015,"ZMZ, TP, MM",arcpat,live,SH,na,tr,0.7,,modoc,postfire,1yr,2022
+MOD016,"TP, ZMZ",arcpat,live,SH,na,tr,0.9,,modoc,postfire,1yr,2022
+MOD016,"TP, ZMZ",arcpat,dead,SH,na,tr,0.3,,modoc,postfire,1yr,2022
+MOD017,zmz,arcpat,live,SH,na,5,1.3,,modoc,postfire,1yr,2022
+MOD017,zmz,arcpat,dead,SH,na,1,0.8,,modoc,postfire,1yr,2022
+MOD018,"tp, bk,kw",arcpat,live,SH,na,tr,0.3,,modoc,postfire,1yr,2022
+MOD018,"tp, bk,kw",arcpat,dead,SH,na,tr,0.4,,modoc,postfire,1yr,2022
+MOD019,ZMZ,arcpat,dead,SH,na,tr,1.45,,modoc,postfire,1yr,2022
+MOD020,"tp,zmz",arcpat,live,SH,na,15,0.65,,modoc,postfire,1yr,2022
+MOD020,"tp,zmz",arcpat,dead,SH,na,tr,0.5,,modoc,postfire,1yr,2022
+MOD021,ZMZ,arcpat,live,SH,na,tr,na,,modoc,postfire,1yr,2022
+MOD022,ZMZ,arcpat,dead,SH,na,tr,0.75,,modoc,postfire,1yr,2022
+MOD023,"TP, ZMZ",arcpat,dead,SH,na,tr,0.5,,modoc,postfire,1yr,2022
+MOD024,"TP, ZMZ",arcpat,dead,SH,na,tr,0.4,,modoc,postfire,1yr,2022
+MOD018,"tp, bk,kw",brocar,live,GR,na,tr,na,,modoc,postfire,1yr,2022
+MOD019,ZMZ,brocar,live,GR,na,tr,na,,modoc,postfire,1yr,2022
+MOD020,"tp,zmz",brocar,live,GR,na,tr,na,,modoc,postfire,1yr,2022
+MOD022,ZMZ,brocar,live,GR,na,tr,na,,modoc,postfire,1yr,2022
+MOD010,TP,bromus,live,GR,na,tr,na,TRP: removed question mark,modoc,postfire,1yr,2022
+MOD018,"tp, bk,kw",brotec,live,GR,na,tr,na,or other bromus,modoc,postfire,1yr,2022
+MOD009,zmz,cade,live,TR,TSE,tr,na,,modoc,postfire,1yr,2022
+MOD009,zmz,cade,dead,TR,TSA,tr,na,,modoc,postfire,1yr,2022
+MOD010,TP,cade,live,TR,TOV,3,na,,modoc,postfire,1yr,2022
+MOD010,TP,cade,live,TR,TSE,tr,na,,modoc,postfire,1yr,2022
+MOD010,TP,cade,dead,TR,TSA,tr,na,,modoc,postfire,1yr,2022
+MOD010,TP,cade,dead,TR,TSE,tr,na,,modoc,postfire,1yr,2022
+MOD012,zmz,cade,dead,TR,TSE,tr,na,,modoc,postfire,1yr,2022
+MOD012,zmz,cade,live,TR,TSE,tr,na,,modoc,postfire,1yr,2022
+MOD012,zmz,cade,live,TR,TOV,10,na,,modoc,postfire,1yr,2022
+MOD013,"TP, ZMZ",cade,live,TR,TSE,tr,0.1,,modoc,postfire,1yr,2022
+MOD014,"tp,zmz",cade,dead,TR,TSA,tr,2.1,,modoc,postfire,1yr,2022
+MOD014,"tp,zmz",cade,dead,TR,TSE,tr,1.2,,modoc,postfire,1yr,2022
+MOD014,"tp,zmz",cade,live,TR,TSE,tr,0.05,,modoc,postfire,1yr,2022
+MOD016,"TP, ZMZ",cade,live,TR,TOV,2,21,,modoc,postfire,1yr,2022
+MOD017,zmz,cade,live,TR,TOV,15,na,,modoc,postfire,1yr,2022
+MOD017,zmz,cade,live,TR,TSE,tr,na,,modoc,postfire,1yr,2022
+MOD018,"tp, bk,kw",cade,live,TR,TOV,25,na,,modoc,postfire,1yr,2022
+MOD018,"tp, bk,kw",cade,live,TR,TSE,tr,na,,modoc,postfire,1yr,2022
+MOD018,"tp, bk,kw",cade,dead,TR,TOV,tr,na,,modoc,postfire,1yr,2022
+MOD018,"tp, bk,kw",cade,dead,TR,TSE,tr,na,,modoc,postfire,1yr,2022
+MOD019,ZMZ,Cade,live,TR,TOV,15,na,,modoc,postfire,1yr,2022
+MOD019,ZMZ,Cade,live,TR,TSE,tr,na,,modoc,postfire,1yr,2022
+MOD020,"tp,zmz",cade,live,TR,TOV,,na,raining - lost in notebooks?,modoc,postfire,1yr,2022
+MOD020,"tp,zmz",cade,dead,TR,TOV,,na,,modoc,postfire,1yr,2022
+MOD020,"tp,zmz",cade,live,TR,TSE,tr,na,,modoc,postfire,1yr,2022
+MOD010,TP,calcoe,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD011,TP,calcoe,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD013,"TP, ZMZ",calcoe,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD015,"ZMZ, TP, MM",calcoe,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD020,"tp,zmz",calcoe,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD021,ZMZ,calcoe,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD022,ZMZ,calcoe,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD009,zmz,calcoe,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD019,ZMZ,calmon,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD009,zmz,carex1,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD010,TP,carex1,live,GR,na,tr,na,,modoc,postfire,1yr,2022
+MOD011,TP,carex1,live,GR,na,tr,na,,modoc,postfire,1yr,2022
+MOD014,"tp,zmz",carex1,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD019,ZMZ,carex1,live,GR,na,tr,na,,modoc,postfire,1yr,2022
+MOD021,ZMZ,carex1,live,FB,na,tr,na,( more than 1? little and big),modoc,postfire,1yr,2022
+MOD010,TP,carex2,live,GR,na,tr,na,bunchgrass/carex,modoc,postfire,1yr,2022
+MOD011,TP,carex2,live,GR,na,tr,na,bunchgrass/carex,modoc,postfire,1yr,2022
+MOD012,zmz,carex2,live,GR,na,tr,na,bunchgrass/carex,modoc,postfire,1yr,2022
+MOD013,"TP, ZMZ",carex2,live,GR,na,tr,na,bunchgrass/carex,modoc,postfire,1yr,2022
+MOD014,"tp,zmz",carex2,live,FB,na,tr,na,bunchgrass/carex,modoc,postfire,1yr,2022
+MOD016,"TP, ZMZ",carex2,live,GR,na,tr,na,bunchgrass/carex,modoc,postfire,1yr,2022
+MOD017,zmz,carex2,live,GR,na,tr,na,bunchgrass/carex,modoc,postfire,1yr,2022
+MOD018,"tp, bk,kw",carex2,live,GR,na,tr,na,bunchgrass/carex,modoc,postfire,1yr,2022
+MOD020,"tp,zmz",carex2,live,GR,na,tr,na,bunchgrass/carex,modoc,postfire,1yr,2022
+MOD023,"TP, ZMZ",carex2,Live,GR,na,tr,na,bunchgrass/carex,modoc,postfire,1yr,2022
+MOD024,"TP, ZMZ",carex2,live,GR,na,tr,na,bunchgrass/carex,modoc,postfire,1yr,2022
+MOD022,ZMZ,carex3,live,FB,na,tr,na,teeny,modoc,postfire,1yr,2022
+MOD009,zmz,castelleja sp,live,FB,na,tr,na,owl clover group,modoc,postfire,1yr,2022
+MOD015,"ZMZ, TP, MM",castelleja sp,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD016,"TP, ZMZ",castelleja sp,live,FB,na,tr,na,owl clover group,modoc,postfire,1yr,2022
+MOD017,zmz,castelleja sp,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD018,"tp, bk,kw",castilleja sp,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD020,"tp,zmz",castilleja sp,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD009,zmz,ceapro,live,SH,na,tr,0.05,,modoc,postfire,1yr,2022
+MOD010,TP,ceapro,live,SH,na,1,0.8,,modoc,postfire,1yr,2022
+MOD011,TP,ceapro,live,SH,na,tr,0.05,,modoc,postfire,1yr,2022
+MOD012,zmz,ceapro,live,SH,na,tr,0.06,,modoc,postfire,1yr,2022
+MOD016,"TP, ZMZ",ceapro,live,SH,na,tr,0.1,,modoc,postfire,1yr,2022
+MOD017,zmz,ceapro,live,SH,na,tr,0.04,,modoc,postfire,1yr,2022
+MOD017,zmz,ceapro,dead,SH,na,tr,0.03,,modoc,postfire,1yr,2022
+MOD018,"tp, bk,kw",ceapro,live,SH,na,10,0.08,,modoc,postfire,1yr,2022
+MOD020,"tp,zmz",ceapro,live,SH,na,20,0.04,,modoc,postfire,1yr,2022
+MOD021,ZMZ,ceapro,live,SH,na,7,0.04,,modoc,postfire,1yr,2022
+MOD022,ZMZ,ceapro,live,SH,na,1,0.04,,modoc,postfire,1yr,2022
+MOD023,"TP, ZMZ",ceapro,live,SH,na,tr,0.1,,modoc,postfire,1yr,2022
+MOD019,ZMZ,Ceapro ,live,SH,na,tr,0.05,,modoc,postfire,1yr,2022
+MOD009,zmz,ceavel,live,SH,na,tr,0.08,,modoc,postfire,1yr,2022
+MOD010,TP,ceavel,live,SH,na,tr,0.15,,modoc,postfire,1yr,2022
+MOD011,TP,ceavel,live,SH,na,tr,0.2,,modoc,postfire,1yr,2022
+MOD011,TP,ceavel,dead,SH,na,tr,0.5,,modoc,postfire,1yr,2022
+MOD012,zmz,ceavel,live,SH,na,tr,0.12,,modoc,postfire,1yr,2022
+MOD013,"TP, ZMZ",ceavel,live,SH,na,tr,0.1,,modoc,postfire,1yr,2022
+MOD014,"tp,zmz",ceavel,live,SH,na,tr,0.3,,modoc,postfire,1yr,2022
+MOD015,"ZMZ, TP, MM",ceavel,live,SH,na,tr,0.5,,modoc,postfire,1yr,2022
+MOD016,"TP, ZMZ",ceavel,live,SH,na,tr,0.5,,modoc,postfire,1yr,2022
+MOD016,"TP, ZMZ",ceavel,live,SH,na,1,0.5,,modoc,postfire,1yr,2022
+MOD017,zmz,ceavel,live,SH,na,1,1.5,,modoc,postfire,1yr,2022
+MOD017,zmz,ceavel,live,SH,na,tr,0.25,resprout,modoc,postfire,1yr,2022
+MOD018,"tp, bk,kw",ceavel,live,SH,na,tr,0.25,,modoc,postfire,1yr,2022
+MOD020,"tp,zmz",ceavel,live,SH,na,tr,0.5,,modoc,postfire,1yr,2022
+MOD021,ZMZ,ceavel,live,SH,na,tr,0.5,resp,modoc,postfire,1yr,2022
+MOD021,ZMZ,ceavel,dead,SH,na,tr,0.5,,modoc,postfire,1yr,2022
+MOD022,ZMZ,ceavel,live,SH,na,tr,0.2,resprout,modoc,postfire,1yr,2022
+MOD023,"TP, ZMZ",ceavel,live,SH,na,10,0.3,resprout,modoc,postfire,1yr,2022
+MOD024,"TP, ZMZ",ceavel,live,SH,na,tr,0.35,resp,modoc,postfire,1yr,2022
+MOD019,ZMZ,Ceavel ,live,SH,na,tr,0.45,resprout,modoc,postfire,1yr,2022
+MOD009,zmz,cirsium sp,live,FB,na,tr,na,"TRP: removed question mark, thistley guy, thin leaves, downy white leaf bottom",modoc,postfire,1yr,2022
+MOD018,"tp, bk,kw",claytonia sp,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD012,zmz,collinsia sp,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD015,"ZMZ, TP, MM",collinsia sp,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD016,"TP, ZMZ",collinsia sp,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD018,"tp, bk,kw",collinsia sp,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD020,"tp,zmz",collinsia sp,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD022,ZMZ,collinsia sp,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD024,"TP, ZMZ",collinsia sp,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD010,TP,different wide leaf,live,GR,na,tr,na,,modoc,postfire,1yr,2022
+MOD016,"TP, ZMZ",dipnan,live,FB,na,tr,na,monkey flower,modoc,postfire,1yr,2022
+MOD016,"TP, ZMZ",drygla,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD018,"tp, bk,kw",drymocallis sp,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD009,zmz,elyely,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD010,TP,elyely,live,GR,na,tr,na,,modoc,postfire,1yr,2022
+MOD011,TP,elyely,live,GR,na,tr,na,,modoc,postfire,1yr,2022
+MOD012,zmz,elyely,live,GR,na,tr,na,,modoc,postfire,1yr,2022
+MOD013,"TP, ZMZ",elyely,live,GR,na,tr,na,,modoc,postfire,1yr,2022
+MOD014,"tp,zmz",elyely,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD015,"ZMZ, TP, MM",elyely,live,GR,na,tr,na,,modoc,postfire,1yr,2022
+MOD016,"TP, ZMZ",elyely,live,GR,na,23,na,,modoc,postfire,1yr,2022
+MOD017,zmz,elyely,live,GR,na,tr,na,,modoc,postfire,1yr,2022
+MOD018,"tp, bk,kw",Elyely,live,GR,na,tr,na,,modoc,postfire,1yr,2022
+MOD020,"tp,zmz",elyely,live,GR,na,tr,na,,modoc,postfire,1yr,2022
+MOD021,ZMZ,elyely,live,GR,na,tr,na,,modoc,postfire,1yr,2022
+MOD022,ZMZ,elyely,live,GR,na,tr,na,,modoc,postfire,1yr,2022
+MOD023,"TP, ZMZ",elyely,Live,GR,na,tr,na,,modoc,postfire,1yr,2022
+MOD024,"TP, ZMZ",elyely,live,GR,na,tr,na,,modoc,postfire,1yr,2022
+MOD019,ZMZ,Elyely ,live,GR,na,tr,na,,modoc,postfire,1yr,2022
+MOD016,"TP, ZMZ",erigonium sp,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD017,zmz,erinau,live,SH,na,tr,0.27,,modoc,postfire,1yr,2022
+MOD018,"tp, bk,kw",erinau,live,SH,na,tr,0.1,,modoc,postfire,1yr,2022
+MOD019,ZMZ,erinau,live,SH,na,tr,0.1,,modoc,postfire,1yr,2022
+MOD021,ZMZ,erinau,live,SH,na,tr,0.5,,modoc,postfire,1yr,2022
+MOD023,"TP, ZMZ",erinau,live,SH,na,tr,0.2,,modoc,postfire,1yr,2022
+MOD018,"tp, bk,kw",eriogonum sp,live,FB,na,tr,na,red,modoc,postfire,1yr,2022
+MOD020,"tp,zmz",eriogonum sp,live,FB,na,tr,na,red,modoc,postfire,1yr,2022
+MOD020,"tp,zmz",eriumb,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD017,zmz,frangula sp,live,SH,na,tr,1.1,,modoc,postfire,1yr,2022
+MOD020,"tp,zmz",frarub,live,SH,na,tr,0.4,,modoc,postfire,1yr,2022
+MOD009,zmz,fravir,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD010,TP,fravir,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD011,TP,fravir,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD012,zmz,fravir,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD013,"TP, ZMZ",fravir,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD014,"tp,zmz",fravir,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD015,"ZMZ, TP, MM",fravir,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD017,zmz,fravir,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD018,"tp, bk,kw",fravir,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD020,"tp,zmz",fravir,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD021,ZMZ,fravir,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD022,ZMZ,fravir,live,FB,na,0.5,na,,modoc,postfire,1yr,2022
+MOD023,"TP, ZMZ",fravir,Live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD024,"TP, ZMZ",fravir,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD009,zmz,hiealb,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD010,TP,hiealb,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD011,TP,hiealb,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD012,zmz,hiealb,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD013,"TP, ZMZ",hiealb,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD014,"tp,zmz",hiealb,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD015,"ZMZ, TP, MM",hiealb,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD016,"TP, ZMZ",hiealb,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD017,zmz,hiealb,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD019,zmz,hiealb,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD021,ZMZ,hiealb,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD023,"TP, ZMZ",hiealb,Live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD024,"TP, ZMZ",hiealb,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD019,ZMZ,Hiealb ,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD022,ZMZ,hiealb ,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD009,zmz,horfus,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD011,TP,horfus,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD012,zmz,horfus,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD013,"TP, ZMZ",horfus,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD014,"tp,zmz",horfus,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD015,"ZMZ, TP, MM",horfus,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD020,"tp,zmz",horfus,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD021,ZMZ,horfus,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD022,ZMZ,horfus,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD024,"TP, ZMZ",horfus,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD015,"ZMZ, TP, MM",ipoagg,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD022,ZMZ,ipoagg,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD009,zmz,kelgal,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD010,TP,kelgal,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD011,TP,kelgal,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD014,"tp,zmz",kelgal,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD015,"ZMZ, TP, MM",kelgal,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD016,"TP, ZMZ",kelgal,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD017,zmz,kelgal,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD018,"tp, bk,kw",kelgal,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD019,zmz,kelgal,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD019,ZMZ,Kelgal,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD020,"tp,zmz",kelgal,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD021,ZMZ,kelgal,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD022,ZMZ,kelgal,live,FB,na,1,na,,modoc,postfire,1yr,2022
+MOD023,"TP, ZMZ",kelgal,Live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD024,"TP, ZMZ",kelgal,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD020,"tp,zmz",lathyrus,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD010,TP,lathyrus sp,live,FB,na,tr,na,purple fl fab,modoc,postfire,1yr,2022
+MOD013,"TP, ZMZ",lathyrus sp,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD015,"ZMZ, TP, MM",lathyrus sp,live,FB,na,6,na,"mucronate tip,pale purple",modoc,postfire,1yr,2022
+MOD016,"TP, ZMZ",lathyrus sp,live,FB,na,tr,na,"mucronate tip,pale purple",modoc,postfire,1yr,2022
+MOD017,zmz,lathyrus sp,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD021,ZMZ,lathyrus sp,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD023,"TP, ZMZ",lathyrus sp,Live,FB,na,tr,na,"mucronate tip,pale purple",modoc,postfire,1yr,2022
+MOD010,TP,lilium sp,live,FB,na,tr,na,TRP: removed question mark,modoc,postfire,1yr,2022
+MOD022,ZMZ,lilium sp,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD017,zmz,litrud,live,FB,na,tr,na,lithospermum ruderale,modoc,postfire,1yr,2022
+MOD023,"TP, ZMZ",litrud,Live,FB,na,tr,na,big!,modoc,postfire,1yr,2022
+MOD013,"TP, ZMZ",maianthemum sp,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD014,"tp,zmz",maianthemum sp,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD022,ZMZ,maianthemum sp,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD012,zmz,modasteraceae1,live,FB,na,tr,na,super skinny long leaf dyc,modoc,postfire,1yr,2022
+MOD017,zmz,modasteraceae2,live,FB,na,tr,na,toothed fake dandy,modoc,postfire,1yr,2022
+MOD021,ZMZ,modasteraceae3,live,FB,na,tr,na,"skinny long leaf dyc, all ray fl",modoc,postfire,1yr,2022
+MOD022,ZMZ,modasteraceae3,live,FB,na,tr,na,long skinny lf dyc (all ray flower),modoc,postfire,1yr,2022
+MOD011,TP,modasteraceae4,live,FB,na,tr,na,extra skinny long leaf dyc,modoc,postfire,1yr,2022
+MOD013,"TP, ZMZ",modasteraceae4,live,FB,na,tr,na,extra skinny long leaf dyc,modoc,postfire,1yr,2022
+MOD020,"tp,zmz",modasteraceae4,live,FB,na,tr,na,extra skinny long leaf dyc,modoc,postfire,1yr,2022
+MOD021,ZMZ,modasteraceae5,live,FB,na,tr,na,"chicory tribe long skinny toothed leaf, white midvein, a little hairy",modoc,postfire,1yr,2022
+MOD013,"TP, ZMZ",modasteraceae6,live,FB,na,tr,na,sagey fuzzy entire lf...dyc from two plots ago? antenaria??,modoc,postfire,1yr,2022
+MOD016,"TP, ZMZ",modasteraceae6,live,FB,na,tr,na,"sample looks like mat fuzzy, but dyc def in plot -FLOWERS",modoc,postfire,1yr,2022
+MOD020,"tp,zmz",modasteraceae8,live,FB,na,tr,na,dyc - sunflower,modoc,postfire,1yr,2022
+MOD021,ZMZ,modasteraceae9,live,FB,na,tr,na,deeply toothed dyc,modoc,postfire,1yr,2022
+MOD015,"ZMZ, TP, MM",modasteraeae7,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD017,zmz,modasteraeae7,live,FB,na,tr,na,dyc cute lil sunflower with sagey lobed leaves,modoc,postfire,1yr,2022
+MOD009,zmz,modfabaceae1,live,FB,na,tr,na,lathryus? purple fl,modoc,postfire,1yr,2022
+MOD012,zmz,modforb1,live,FB,na,tr,na,bigger hairy not so sagey green... asteraceae? ,modoc,postfire,1yr,2022
+MOD010,TP,modforb10,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD014,"tp,zmz",modforb10,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD016,"TP, ZMZ",modforb10,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD018,"tp, bk,kw",modforb10,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD018,"tp, bk,kw",modforb10,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD020,"tp,zmz",modforb10,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD021,ZMZ,modforb10,live,FB,na,tr,na,"alt leaf, red stem, white midvein",modoc,postfire,1yr,2022
+MOD022,ZMZ,modforb10,live,FB,na,tr,na,"alt leaf, red stem, white midvein",modoc,postfire,1yr,2022
+MOD023,"TP, ZMZ",modforb10,Live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD010,TP,modforb11,live,FB,na,tr,na,"full red stem skinny leaves, stipules",modoc,postfire,1yr,2022
+MOD016,"TP, ZMZ",modforb11,live,FB,na,tr,na,"full red stem skinny leaves, stipules",modoc,postfire,1yr,2022
+MOD018,"tp, bk,kw",modforb11,live,FB,na,tr,na,"full red stem skinny leaves, stipules",modoc,postfire,1yr,2022
+MOD016,"TP, ZMZ",modforb12,live,FB,na,tr,na,"tiny skinny leaves, red stem",modoc,postfire,1yr,2022
+MOD021,ZMZ,modforb13,live,FB,na,tr,na,"phloxy opposite leaf reddish stem, white fl bud",modoc,postfire,1yr,2022
+MOD018,"tp, bk,kw",modforb14,live,FB,na,tr,na,"fuzzy rosette clump, found specimen with flower",modoc,postfire,1yr,2022
+MOD020,"tp,zmz",modforb14,live,FB,na,tr,na,fuzzy rosette clump,modoc,postfire,1yr,2022
+MOD011,TP,modforb16,live,FB,na,tr,na,"sagey fuzzy mat, antennaria??",modoc,postfire,1yr,2022
+MOD018,"tp, bk,kw",modforb16,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD020,"tp,zmz",modforb16,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD011,TP,modforb17,live,FB,na,tr,na,small mult bud,modoc,postfire,1yr,2022
+MOD018,"tp, bk,kw",modforb18,live,FB,na,tr,na,"small fuzzy, shiny round buds",modoc,postfire,1yr,2022
+MOD010,TP,modforb19,live,FB,na,tr,na,sagey fuzzy big,modoc,postfire,1yr,2022
+MOD009,zmz,modforb2,live,FB,na,tr,na,purpleish tooth leaf asteraceae (?),modoc,postfire,1yr,2022
+MOD010,TP,modforb2,live,FB,na,tr,na,asteraceae? toothed lanceolate purpleish leaf,modoc,postfire,1yr,2022
+MOD011,TP,modforb2,live,FB,na,tr,na,asteraceae? toothed lanceolate purpleish leaf,modoc,postfire,1yr,2022
+MOD012,zmz,modforb2,live,FB,na,tr,na,asteraceae? toothed lanceolate purpleish leaf,modoc,postfire,1yr,2022
+MOD013,"TP, ZMZ",modforb2,live,FB,na,tr,na,asteraceae? toothed lanceolate purpleish leaf,modoc,postfire,1yr,2022
+MOD014,"tp,zmz",modforb2,live,FB,na,tr,na,asteraceae? toothed lanceolate purpleish leaf,modoc,postfire,1yr,2022
+MOD015,"ZMZ, TP, MM",modforb2,live,FB,na,tr,na,asteraceae? toothed lanceolate purpleish leaf,modoc,postfire,1yr,2022
+MOD018,"tp, bk,kw",modforb2,live,FB,na,tr,na,asteraceae? toothed lanceolate purpleish leaf,modoc,postfire,1yr,2022
+MOD020,"tp,zmz",modforb2,live,FB,na,tr,na,asteraceae? toothed lanceolate purpleish leaf,modoc,postfire,1yr,2022
+MOD021,ZMZ,modforb2,live,FB,na,tr,na,purpleish toothed asteraceae ?,modoc,postfire,1yr,2022
+MOD023,"TP, ZMZ",modforb2,Live,FB,na,tr,na,asteraceae? toothed lanceolate purpleish leaf,modoc,postfire,1yr,2022
+MOD024,"TP, ZMZ",modforb2,live,FB,na,tr,na,asteraceae? toothed lanceolate purpleish leaf,modoc,postfire,1yr,2022
+MOD018,"tp, bk,kw",modforb20,live,FB,na,tr,na,droopy flower,modoc,postfire,1yr,2022
+MOD012,zmz,modforb3,live,FB,na,tr,na,phlox fam,modoc,postfire,1yr,2022
+MOD009,zmz,modforb4,live,FB,na,tr,na,thistle--carduus?,modoc,postfire,1yr,2022
+MOD012,zmz,modforb5,live,FB,na,tr,na,seedlings...collinsia?,modoc,postfire,1yr,2022
+MOD009,zmz,modforb6,live,FB,na,tr,na,"unk eudicot seedling, entire pointy leaves, little fuzzy",modoc,postfire,1yr,2022
+MOD017,zmz,modforb7,live,FB,na,tr,na,alt leaf red stem--asteraceae?,modoc,postfire,1yr,2022
+MOD024,"TP, ZMZ",modforb7,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD013,"TP, ZMZ",modforb8,live,FB,na,tr,na,woody at base spoon shape lf...aster?,modoc,postfire,1yr,2022
+MOD010,TP,modforb9,live,FB,na,tr,na,bigger pointier hairy ...aster? cauline lf,modoc,postfire,1yr,2022
+MOD011,TP,modforb9,live,FB,na,tr,na,bigger pointier hairy ...aster? cauline lf,modoc,postfire,1yr,2022
+MOD013,"TP, ZMZ",modforb9,live,FB,na,tr,na,bigger pointier hairy ...aster? cauline lf,modoc,postfire,1yr,2022
+MOD014,"tp,zmz",modforb9,live,FB,na,tr,na,bigger pointier hairy ...aster? cauline lf,modoc,postfire,1yr,2022
+MOD018,"tp, bk,kw",modforb9,live,FB,na,tr,na,bigger pointier hairy ...aster? cauline lf,modoc,postfire,1yr,2022
+MOD009,zmz,modgrass1,live,FB,na,tr,na,big seed tall floppy,modoc,postfire,1yr,2022
+MOD010,TP,modgrass1,live,GR,na,tr,na,big seed tall floppy,modoc,postfire,1yr,2022
+MOD011,TP,modgrass1,live,GR,na,2,na,big seed tall floppy,modoc,postfire,1yr,2022
+MOD012,zmz,modgrass1,live,GR,na,tr,na,big seed tall floppy,modoc,postfire,1yr,2022
+MOD013,"TP, ZMZ",modgrass1,live,GR,na,tr,na,"big seed tall floppy, melica or poa?poa pratensis?",modoc,postfire,1yr,2022
+MOD014,"tp,zmz",modgrass1,live,FB,na,tr,na,big seed tall floppy,modoc,postfire,1yr,2022
+MOD015,"ZMZ, TP, MM",modgrass1,live,GR,na,tr,na,"big seed, long floppy",modoc,postfire,1yr,2022
+MOD016,"TP, ZMZ",modgrass1,live,GR,na,tr,na,big seed tall floppy,modoc,postfire,1yr,2022
+MOD018,"tp, bk,kw",modgrass1,live,GR,na,tr,na,big seed tall floppy,modoc,postfire,1yr,2022
+MOD021,ZMZ,modgrass1,live,GR,na,tr,na,big seed tall floppy,modoc,postfire,1yr,2022
+MOD017,zmz,modgrass2,live,GR,na,tr,na,small bunch big seed (broader leaf),modoc,postfire,1yr,2022
+MOD010,TP,modgrass3,live,GR,na,tr,na,,modoc,postfire,1yr,2022
+MOD014,"tp,zmz",modgrass3,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD015,"ZMZ, TP, MM",modgrass3,live,GR,na,5,na,,modoc,postfire,1yr,2022
+MOD016,"TP, ZMZ",modgrass3,live,GR,na,2,na,,modoc,postfire,1yr,2022
+MOD018,"tp, bk,kw",modgrass3,live,GR,na,tr,na,,modoc,postfire,1yr,2022
+MOD024,"TP, ZMZ",modgrass4,live,GR,na,tr,na,other small grass,modoc,postfire,1yr,2022
+MOD018,"tp, bk,kw",modgrass5,live,GR,na,tr,na,new poa,modoc,postfire,1yr,2022
+MOD016,"TP, ZMZ",modgrass6,live,GR,na,tr,na,iris grass,modoc,postfire,1yr,2022
+MOD009,zmz,modpenstemon1,live,FB,na,tr,na,"~keys out to gracilentus in weedon, leaves are longer with shorter petiole than indicated tho",modoc,postfire,1yr,2022
+MOD010,TP,modpenstemon1,live,FB,na,tr,na,fireweed penstemon,modoc,postfire,1yr,2022
+MOD011,TP,modpenstemon1,live,FB,na,tr,na,penstemon/fireweed?,modoc,postfire,1yr,2022
+MOD012,zmz,modpenstemon1,live,FB,na,tr,na,purple lil fl penstemon...gracilentus?,modoc,postfire,1yr,2022
+MOD013,"TP, ZMZ",modpenstemon1,live,FB,na,tr,na,fireweed penstemon,modoc,postfire,1yr,2022
+MOD014,"tp,zmz",modpenstemon1,live,FB,na,tr,na,fireweed penstemon,modoc,postfire,1yr,2022
+MOD015,"ZMZ, TP, MM",modpenstemon1,live,FB,na,tr,na,fireweed penstemon,modoc,postfire,1yr,2022
+MOD016,"TP, ZMZ",modpenstemon1,live,FB,na,tr,na,fireweed penstemon,modoc,postfire,1yr,2022
+MOD017,zmz,modpenstemon1,live,FB,na,tr,na,fireweed penstem...gracilentus?,modoc,postfire,1yr,2022
+MOD019,zmz,modpenstemon1,live,FB,na,tr,na,"""fireweed penstemon""",modoc,postfire,1yr,2022
+MOD019,ZMZ,modpenstemon1,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD020,"tp,zmz",modpenstemon1,live,FB,na,Tr,na,fireweed penstemon,modoc,postfire,1yr,2022
+MOD021,ZMZ,modpenstemon1,live,FB,na,tr,na,"""fireweed penstemon""",modoc,postfire,1yr,2022
+MOD022,ZMZ,modpenstemon1,live,FB,na,tr,na,"penstemon ""fireweed""",modoc,postfire,1yr,2022
+MOD023,"TP, ZMZ",modpenstemon1,Live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD024,"TP, ZMZ",modpenstemon1,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD009,zmz,modpenstemon2,live,FB,na,tr,na,"bigger penstemon, fleshier leaves",modoc,postfire,1yr,2022
+MOD011,TP,modpenstemon2,live,FB,na,tr,na,"last plot, and yesterday?",modoc,postfire,1yr,2022
+MOD016,"TP, ZMZ",modpenstemon2,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD019,zmz,modpenstemon2,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD019,ZMZ,modpenstemon2,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD010,TP,modpenstemon3,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD015,"ZMZ, TP, MM",modphlox1,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD015,"ZMZ, TP, MM",modphlox2,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD014,"tp,zmz",modphlox3,live,FB,na,tr,na,"single white flower phlox, collected, two diff?",modoc,postfire,1yr,2022
+MOD022,ZMZ,modphlox4,live,FB,na,tr,na,stipules phlox fam,modoc,postfire,1yr,2022
+MOD011,TP,modphlox5,live,FB,na,tr,na,single white flower phlox,modoc,postfire,1yr,2022
+MOD015,"ZMZ, TP, MM",modplagiobothryus1,live,FB,na,tr,na,popcorn flower,modoc,postfire,1yr,2022
+MOD016,"TP, ZMZ",modplagiobothryus1,live,FB,na,tr,na,popcorn flower,modoc,postfire,1yr,2022
+MOD017,zmz,modplagiobothryus1,live,FB,na,tr,na,popcorn flower,modoc,postfire,1yr,2022
+MOD018,"tp, bk,kw",modplagiobothryus1,live,FB,na,tr,na,popcorn flower,modoc,postfire,1yr,2022
+MOD018,"tp, bk,kw",modplagiobothryus1,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD020,"tp,zmz",modplagiobothryus1,live,FB,na,tr,na,popcorn flower,modoc,postfire,1yr,2022
+MOD024,"TP, ZMZ",modplagiobothryus1,live,FB,na,tr,na,"small fuzzy w white flowers, popcorn flower?",modoc,postfire,1yr,2022
+MOD018,"tp, bk,kw",modplagiobothryus2,live,FB,na,tr,na,yellow popcorn flower,modoc,postfire,1yr,2022
+MOD016,"TP, ZMZ",modpolemoniaceae1,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD016,"TP, ZMZ",modsedge1,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD014,"tp,zmz",modshrub1,live,SH,na,tr,na,red stem unk?,modoc,postfire,1yr,2022
+MOD017,zmz,modshrub1,live,SH,na,tr,0.5,"mystery prunus red stem, cordateish leaf",modoc,postfire,1yr,2022
+MOD020,"tp,zmz",modshrub1,live,SH,na,tr,0.5,red stem unk,modoc,postfire,1yr,2022
+MOD021,ZMZ,modshrub2,dead,SH,na,tr,0.7,,modoc,postfire,1yr,2022
+MOD016,"TP, ZMZ",modthemidaceae1,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD018,"tp, bk,kw",modthemidaceae1,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD020,"tp,zmz",modthemidaceae1,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD021,ZMZ,modthemidaceae1,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD009,zmz,monodo,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD010,TP,monodo,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD011,TP,monodo,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD012,zmz,monodo,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD013,"TP, ZMZ",monodo,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD014,"tp,zmz",monodo,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD015,"ZMZ, TP, MM",MONODO,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD016,"TP, ZMZ",MONODO,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD017,zmz,monodo,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD018,"tp, bk,kw",monodo,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD019,zmz,monodo,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD020,"tp,zmz",monodo,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD021,ZMZ,monodo,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD023,"TP, ZMZ",MONODO,Live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD024,"TP, ZMZ",MONODO,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD019,ZMZ,Monodo ,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD013,"TP, ZMZ",osmber,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD014,"tp,zmz",pedicularis,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD011,TP,pedsem,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD012,zmz,pedsem,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD019,zmz,pedsem,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD019,ZMZ,Pedsem,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD021,ZMZ,pedsem,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD022,ZMZ,pedsem,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD017,zmz,pendeu,live,FB,na,tr,na,penstemon deustus,modoc,postfire,1yr,2022
+MOD018,"tp, bk,kw",penstemon sp,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD021,ZMZ,penstemon sp,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD022,ZMZ,penstemon sp,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD009,zmz,phacelia sp,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD011,TP,phacelia sp,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD014,"tp,zmz",phacelia sp,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD016,"TP, ZMZ",phacelia sp,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD017,zmz,phacelia sp,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD018,"tp, bk,kw",phacelia sp,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD020,"tp,zmz",phacelia sp,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD021,ZMZ,phacelia sp,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD012,zmz,phahyd,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD022,ZMZ,phahyd,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD010,TP,phldif,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD015,"ZMZ, TP, MM",phldif,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD016,"TP, ZMZ",phldif,live,FB,na,tr,na,phlox,modoc,postfire,1yr,2022
+MOD020,"tp,zmz",phldif,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD023,"TP, ZMZ",phldif,Live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD009,zmz,phldiv,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD017,zmz,phldiv,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD019,zmz,phldiv,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD019,ZMZ,Phldiv ,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD018,"tp, bk,kw",phloxdif,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD021,ZMZ,pila,dead,TR,TOV,1,na,,modoc,postfire,1yr,2022
+MOD009,zmz,pipo,live,TR,TOV,8,na,,modoc,postfire,1yr,2022
+MOD009,zmz,pipo,live,TR,TSE,tr,na,,modoc,postfire,1yr,2022
+MOD010,TP,pipo,dead,TR,TOV,7,na,,modoc,postfire,1yr,2022
+MOD010,TP,pipo,live,TR,TSE,tr,na,,modoc,postfire,1yr,2022
+MOD011,TP,pipo,live,TR,TOV,30,na,,modoc,postfire,1yr,2022
+MOD011,TP,pipo,live,TR,TSE,tr,na,,modoc,postfire,1yr,2022
+MOD011,TP,pipo,dead,TR,TOV,tr,na,,modoc,postfire,1yr,2022
+MOD011,TP,pipo,dead,TR,TSA,tr,na,,modoc,postfire,1yr,2022
+MOD012,zmz,pipo,live,TR,TOV,5,na,,modoc,postfire,1yr,2022
+MOD012,zmz,pipo,dead,TR,TOV,10,na,"broken at 4m, cover at ground level",modoc,postfire,1yr,2022
+MOD012,zmz,pipo,live,TR,TSE,tr,na,,modoc,postfire,1yr,2022
+MOD013,"TP, ZMZ",pipo,live,TR,TOV,6,34,,modoc,postfire,1yr,2022
+MOD013,"TP, ZMZ",pipo,dead,TR,TOV,tr,na,,modoc,postfire,1yr,2022
+MOD013,"TP, ZMZ",pipo,live,TR,TSE,tr,0.05,,modoc,postfire,1yr,2022
+MOD014,"tp,zmz",pipo,live,TR,TOV,12,na,,modoc,postfire,1yr,2022
+MOD014,"tp,zmz",pipo,dead,TR,TSA,tr,3,,modoc,postfire,1yr,2022
+MOD014,"tp,zmz",pipo,live,TR,TSE,tr,0.07,,modoc,postfire,1yr,2022
+MOD015,"ZMZ, TP, MM",pipo,live,TR,TOV,35,38,,modoc,postfire,1yr,2022
+MOD015,"ZMZ, TP, MM",pipo,live,TR,TSE,0,na,,modoc,postfire,1yr,2022
+MOD016,"TP, ZMZ",pipo,live,TR,TOV,2,22,,modoc,postfire,1yr,2022
+MOD016,"TP, ZMZ",pipo,live,TR,TSE,tr,0.05,,modoc,postfire,1yr,2022
+MOD017,zmz,pipo,live,TR,TOV,25,na,,modoc,postfire,1yr,2022
+MOD017,zmz,pipo,live,TR,TSE,tr,na,,modoc,postfire,1yr,2022
+MOD018,"tp, bk,kw",pipo,dead,TR,TOV,tr,na,,modoc,postfire,1yr,2022
+MOD018,"tp, bk,kw",pipo,dead,TR,TSE,tr,na,,modoc,postfire,1yr,2022
+MOD018,"tp, bk,kw",pipo,live,TR,TOV,10,na,,modoc,postfire,1yr,2022
+MOD018,"tp, bk,kw",pipo,live,TR,TSE,tr,na,,modoc,postfire,1yr,2022
+MOD019,ZMZ,Pipo,live,TR,TOV,35,na,,modoc,postfire,1yr,2022
+MOD019,ZMZ,Pipo,live,TR,TSE,tr,na,,modoc,postfire,1yr,2022
+MOD020,"tp,zmz",pipo,live,TR,TOV,,na,,modoc,postfire,1yr,2022
+MOD020,"tp,zmz",pipo,live,TR,TSE,tr,na,,modoc,postfire,1yr,2022
+MOD021,ZMZ,pipo,live,TR,TOV,32,na,,modoc,postfire,1yr,2022
+MOD021,ZMZ,pipo,live,TR,TSE,tr,na,,modoc,postfire,1yr,2022
+MOD022,ZMZ,pipo,live,TR,TOV,12,na,,modoc,postfire,1yr,2022
+MOD022,ZMZ,pipo,dead,TR,TSA,tr,na,,modoc,postfire,1yr,2022
+MOD022,ZMZ,pipo,live,TR,TSE,tr,na,,modoc,postfire,1yr,2022
+MOD023,"TP, ZMZ",PIPO,live,TR,TOV,25,na,,modoc,postfire,1yr,2022
+MOD023,"TP, ZMZ",PIPO,live,TR,TSE,tr,0.1,,modoc,postfire,1yr,2022
+MOD024,"TP, ZMZ",PIPO,live,TR,TOV,18,25,,modoc,postfire,1yr,2022
+MOD024,"TP, ZMZ",PIPO,live,TR,TSE,tr,0.1,,modoc,postfire,1yr,2022
+MOD013,"TP, ZMZ",prunus,live,SH,na,tr,0.1,,modoc,postfire,1yr,2022
+MOD018,"tp, bk,kw",prunus,live,SH,na,tr,0.25,,modoc,postfire,1yr,2022
+MOD019,ZMZ,Prunus,live,SH,na,tr,0.4,resprout ,modoc,postfire,1yr,2022
+MOD024,"TP, ZMZ",prunus,dead,SH,na,tr,0.6,,modoc,postfire,1yr,2022
+MOD024,"TP, ZMZ",prunus,live,SH,na,tr,0.25,resprout,modoc,postfire,1yr,2022
+MOD016,"TP, ZMZ",prunus sp,live,SH,na,tr,0.25,,modoc,postfire,1yr,2022
+MOD022,ZMZ,prunus sp,live,SH,na,tr,0.25,,modoc,postfire,1yr,2022
+MOD020,"tp,zmz",prunus1,live,SH,na,tr,0.15,,modoc,postfire,1yr,2022
+MOD014,"tp,zmz",purti,dead,SH,na,tr,0.55,,modoc,postfire,1yr,2022
+MOD014,"tp,zmz",purti,live,SH,na,tr,0.13,,modoc,postfire,1yr,2022
+MOD015,"ZMZ, TP, MM",purtri,live,SH,na,tr,0.25,,modoc,postfire,1yr,2022
+MOD015,"ZMZ, TP, MM",purtri,dead,SH,na,tr,0.7,,modoc,postfire,1yr,2022
+MOD016,"TP, ZMZ",purtri,live,SH,na,tr,0.25,,modoc,postfire,1yr,2022
+MOD017,zmz,purtri,live,SH,na,tr,0.6,,modoc,postfire,1yr,2022
+MOD020,"tp,zmz",purtri,live,SH,na,2,0.8,,modoc,postfire,1yr,2022
+MOD020,"tp,zmz",purtri,dead,SH,na,tr,0.8,,modoc,postfire,1yr,2022
+MOD021,ZMZ,purtri,live,SH,na,tr,0.6,,modoc,postfire,1yr,2022
+MOD023,"TP, ZMZ",purtri,live,SH,na,tr,0.6,,modoc,postfire,1yr,2022
+MOD023,"TP, ZMZ",purtri,live,SH,na,tr,0.2,resprout,modoc,postfire,1yr,2022
+MOD024,"TP, ZMZ",purtri,live,SH,na,tr,0.1,,modoc,postfire,1yr,2022
+MOD019,ZMZ,Purtri ,dead,SH,na,tr,0.7,,modoc,postfire,1yr,2022
+MOD018,"tp, bk,kw",putri,live,SH,na,tr,0.2,,modoc,postfire,1yr,2022
+MOD019,zmz,pyrola,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD012,zmz,pyrpic,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD014,"tp,zmz",pyrpic,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD019,ZMZ,pyrpic,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD022,ZMZ,pyrpic,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD024,"TP, ZMZ",pyrpic,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD018,"tp, bk,kw",ribes,live,SH,na,tr,0.2,,modoc,postfire,1yr,2022
+MOD010,TP,ribes sp,live,SH,na,tr,0.15,,modoc,postfire,1yr,2022
+MOD011,TP,ribes sp,live,SH,na,tr,0.2,,modoc,postfire,1yr,2022
+MOD012,zmz,ribro,live,SH,na,tr,0.15,,modoc,postfire,1yr,2022
+MOD015,"ZMZ, TP, MM",ribro,live,SH,na,tr,0.5,,modoc,postfire,1yr,2022
+MOD009,zmz,ribroe,live,SH,na,tr,0.09,,modoc,postfire,1yr,2022
+MOD013,"TP, ZMZ",ribroe,live,SH,na,tr,0.1,,modoc,postfire,1yr,2022
+MOD014,"tp,zmz",ribroe,live,SH,na,tr,0.27,resprout,modoc,postfire,1yr,2022
+MOD016,"TP, ZMZ",ribroe,live,SH,na,tr,0.2,,modoc,postfire,1yr,2022
+MOD022,ZMZ,ribroe,live,SH,na,tr,0.17,resprout,modoc,postfire,1yr,2022
+MOD024,"TP, ZMZ",ribroe,live,SH,na,tr,0.2,resprout,modoc,postfire,1yr,2022
+MOD009,zmz,senecio sp,live,FB,na,tr,na,aronicoides in weedon,modoc,postfire,1yr,2022
+MOD011,TP,senecio sp,live,FB,na,tr,na,similar to one in diverse plot?,modoc,postfire,1yr,2022
+MOD015,"ZMZ, TP, MM",senecio sp,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD016,"TP, ZMZ",senecio sp,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD018,"tp, bk,kw",senecio sp,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD020,"tp,zmz",senecio sp,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD010,TP,symmol,live,SH,na,tr,0.2,,modoc,postfire,1yr,2022
+MOD014,"tp,zmz",symmol,live,SH,na,tr,0.14,,modoc,postfire,1yr,2022
+MOD016,"TP, ZMZ",symmol,live,SH,na,tr,0.2,,modoc,postfire,1yr,2022
+MOD018,"tp, bk,kw",symmol,live,SH,na,tr,0.2,,modoc,postfire,1yr,2022
+MOD020,"tp,zmz",symmol,live,SH,na,tr,0.3,,modoc,postfire,1yr,2022
+MOD023,"TP, ZMZ",symmol,live,SH,na,tr,0.2,,modoc,postfire,1yr,2022
+MOD016,"TP, ZMZ",vertha,live,FB,na,tr,na,mullein,modoc,postfire,1yr,2022
+MOD009,zmz,viopur,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD010,TP,viopur,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD011,TP,viopur,live,FB,na,tr,na,also phlox?,modoc,postfire,1yr,2022
+MOD012,zmz,viopur,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD015,"ZMZ, TP, MM",viopur,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD016,"TP, ZMZ",viopur,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD017,zmz,viopur,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD018,"tp, bk,kw",viopur,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD020,"tp,zmz",viopur,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD021,ZMZ,viopur,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD022,ZMZ,viopur,live,FB,na,tr,na,,modoc,postfire,1yr,2022
+MOD011,TP,wyemol,live,FB,na,tr,na,,modoc,postfire,1yr,2022

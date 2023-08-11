@@ -6,6 +6,7 @@ library(rio)
 ###FINE FUELS FIRST
 HG_finefuels <- read.csv("HolyGrail/data/raw/CPFMP_HolyGrail_FineFuels.csv")
 
+unique(HG_finefuels$site)
 #ADD NEW FUELS DATA HERE
 
             #enter Caples Data here
@@ -38,7 +39,7 @@ HG_finefuels <- read.csv("HolyGrail/data/raw/CPFMP_HolyGrail_FineFuels.csv")
     drop_na(year)
 
   #export & save new finefuels file
-  export(HG_finefuels_merge, "HolyGrail/data/raw/CPFMP_HolyGrail_FineFuels_Merge.csv")  
+  write_csv(HG_finefuels_merge, "HolyGrail/data/raw/CPFMP_HolyGrail_FineFuels_Merge.csv")  
 
   
 ####################################################
@@ -79,5 +80,5 @@ HG_CWD <- read.csv("HolyGrail/data/raw/CPFMP_HolyGrail_CWD.csv")
   HG_CWD_merge <- merge(HG_CWD, caples_CWD_subset, all=TRUE)
   
   #export & save new finefuels file
-  export(HG_CWD_merge, "HolyGrail/data/raw/CPFMP_HolyGrail_CWD_Merge.csv")  
+  write_csv(HG_CWD_merge, "HolyGrail/data/raw/CPFMP_HolyGrail_CWD_Merge.csv")  
   

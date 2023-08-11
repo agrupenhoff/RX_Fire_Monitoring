@@ -1,0 +1,46 @@
+plotid,obs,species,status,lifeform,layer_code,percent,modal_ht_m,notes,site,year,pre_post_fire,postTime
+DryCreek27,zmz,carez,live,GR,na,tr,na,"carex, previously called grass, is a forb",DryCreek,2022,postfire,1yr
+DryCreek27,zmz,aster,live,FB,na,tr,na,chicory tribe aster...possibly purpleish toothed leaf we saw in modoc,DryCreek,2022,postfire,1yr
+DryCreek27,zmz,elymus,live,GR,na,tr,na,"skinny, TRP: labeled with question mark",DryCreek,2022,postfire,1yr
+DryCreek27,zmz,elyely,live,GR,na,tr,na,?,DryCreek,2022,postfire,1yr
+DryCreek27,zmz,pije,live,TR,TOV,35,26,,DryCreek,2022,postfire,1yr
+DryCreek30,mm,symrot,live,SH,na,tr,0.3,,DryCreek,2022,postfire,1yr
+DryCreek30,mm,pije,live,TR,TOV,40,21,,DryCreek,2022,postfire,1yr
+DryCreek28,mm,pije,live,TR,TOV,30,na,,DryCreek,2022,postfire,1yr
+DryCreek28,mm,carros,live,FB,na,tr,na,,DryCreek,2022,postfire,1yr
+DryCreek28,mm,elyely,live,GR,na,tr,na,,DryCreek,2022,postfire,1yr
+DryCreek23,mm,pije,live,TR,TOV,30,na,,DryCreek,2022,postfire,1yr
+DryCreek23,mm,pije,dead,TR,TOV,tr,na,,DryCreek,2022,postfire,1yr
+DryCreek23,mm,carros,live,FB,na,tr,na,,DryCreek,2022,postfire,1yr
+DryCreek23,mm,elyely,live,GR,na,tr,na,,DryCreek,2022,postfire,1yr
+DryCreek26,mm,pije,live,TR,TOV,25,na,,DryCreek,2022,postfire,1yr
+DryCreek26,mm,carros,live,FB,na,tr,na,,DryCreek,2022,postfire,1yr
+DryCreek26,mm,elyely,live,GR,na,tr,na,,DryCreek,2022,postfire,1yr
+DryCreek26,mm,gayophytum sp,live,FB,na,tr,na,,DryCreek,2022,postfire,1yr
+DryCreek26,mm,purtri,live,SH,na,tr,0.5,,DryCreek,2022,postfire,1yr
+DryCreek26,mm,purtri,dead,SH,na,tr,0.3,,DryCreek,2022,postfire,1yr
+DryCreek26,mm,luplep,live,FB,na,tr,na,,DryCreek,2022,postfire,1yr
+DryCreek26,mm,pije,live,TR,TSE,tr,na,,DryCreek,2022,postfire,1yr
+DryCreek29,zmz,carros,live,FB,na,tr,na,,DryCreek,2022,postfire,1yr
+DryCreek29,zmz,gayophytum sp,live,FB,na,tr,na,,DryCreek,2022,postfire,1yr
+DryCreek29,zmz,boepla,live,FB,na,tr,na,boechera platysperma,DryCreek,2022,postfire,1yr
+DryCreek29,zmz,lupbre,live,FB,na,tr,na,,DryCreek,2022,postfire,1yr
+DryCreek29,zmz,dryelymus1,live,GR,na,tr,na,longer leaf ely,DryCreek,2022,postfire,1yr
+DryCreek29,zmz,elyely,live,GR,na,tr,na,,DryCreek,2022,postfire,1yr
+DryCreek29,zmz,ericamerica sp,live,SH,na,tr,,resprout,DryCreek,2022,postfire,1yr
+DryCreek29,zmz,ericamerica sp,live,SH,na,tr,0.25,,DryCreek,2022,postfire,1yr
+DryCreek29,zmz,purtri,live,SH,na,tr,0.4,,DryCreek,2022,postfire,1yr
+DryCreek29,zmz,purtri,live,SH,na,tr,0.05,resprout,DryCreek,2022,postfire,1yr
+DryCreek29,zmz,purtri,dead,SH,na,tr,na,,DryCreek,2022,postfire,1yr
+DryCreek29,zmz,ribes,live,SH,na,tr,0.12,resprout,DryCreek,2022,postfire,1yr
+DryCreek29,zmz,ribes,dead,SH,na,tr,0.3,,DryCreek,2022,postfire,1yr
+DryCreek29,zmz,ribes,live,SH,na,tr,0.5,resprouting but also has live foliage on older plant,DryCreek,2022,postfire,1yr
+DryCreek29,zmz,pije,live,TR,TOV,45,na,,DryCreek,2022,postfire,1yr
+DryCreek29,zmz,pije,live,TR,TSA,tr,na,,DryCreek,2022,postfire,1yr
+DryCreek29,zmz,pije,dead,TR,TSA,tr,na,,DryCreek,2022,postfire,1yr
+DryCreek31,mm,pije,live,TR,TOV,40,na,,DryCreek,2022,postfire,1yr
+DryCreek31,mm,pije,live,TR,TSE,tr,na,,DryCreek,2022,postfire,1yr
+DryCreek31,mm,pije,live,TR,TSA,tr,na,,DryCreek,2022,postfire,1yr
+DryCreek31,mm,purtri,dead,SH,na,tr,0.3,,DryCreek,2022,postfire,1yr
+DryCreek31,mm,purtri,live,SH,na,tr,0.3,,DryCreek,2022,postfire,1yr
+DryCreek31,mm,symrot,live,SH,na,tr,0.3,,DryCreek,2022,postfire,1yr

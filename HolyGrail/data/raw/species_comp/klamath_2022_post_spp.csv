@@ -1,0 +1,32 @@
+plotid,obs,species,status,lifeform,layer_code,percent,modal_ht_m,notes,site,pre_post_fire,postTime,year
+KLAMATH008,zmz,antcau,live,FB,na,2,,anthriscus caucalis,klamath,postfire,1yr,2022
+KLAMATH008,zmz,isatin,live,FB,na,tr,,isatis tinctoria,klamath,postfire,1yr,2022
+KLAMATH008,zmz,cirsium sp,live,FB,na,tr,,1.3m tall,klamath,postfire,1yr,2022
+KLAMATH008,zmz,vinmaj,live,FB,na,1,,,klamath,postfire,1yr,2022
+KLAMATH008,zmz,brocal,live,GR,na,90,,?,klamath,postfire,1yr,2022
+KLAMATH008,zmz,brodia,live,GR,na,10,,,klamath,postfire,1yr,2022
+KLAMATH008,zmz,klmbromus1,live,GR,na,1,,new green grass...could be the same bromus?,klamath,postfire,1yr,2022
+KLAMATH008,zmz,rubarm,live,SH,na,15,0.5,,klamath,postfire,1yr,2022
+KLAMATH008,zmz,rops,live,tr,tre,2,,,klamath,postfire,1yr,2022
+KLAMATH008,zmz,rops,live,tr,tov,75,,,klamath,postfire,1yr,2022
+KLAMATH008,zmz,rops,dead,tr,tsa,tr,,,klamath,postfire,1yr,2022
+KLAMATH008,zmz,rops,dead,tr,tov,2,,,klamath,postfire,1yr,2022
+KLAMATH008,zmz,rops,dead,tr,tre,tr,,,klamath,postfire,1yr,2022
+KLAMATH006,zmz,artdou,live,FB,na,30,,,klamath,postfire,1yr,2022
+KLAMATH006,zmz,branig,live,FB,na,tr,,,klamath,postfire,1yr,2022
+KLAMATH006,zmz,vicia sp,live,FB,na,5,,,klamath,postfire,1yr,2022
+KLAMATH006,zmz,klmforb1,live,FB,na,1,,mares tail? erican,klamath,postfire,1yr,2022
+KLAMATH006,zmz,vitcal,live,FB,na,1,,,klamath,postfire,1yr,2022
+KLAMATH006,zmz,daupus,live,FB,na,tr,,,klamath,postfire,1yr,2022
+KLAMATH006,zmz,conmac,live,FB,na,tr,,,klamath,postfire,1yr,2022
+KLAMATH006,zmz,triarv,live,FB,na,tr,,,klamath,postfire,1yr,2022
+KLAMATH006,zmz,clarkia,live,FB,na,tr,?,,klamath,postfire,1yr,2022
+KLAMATH006,zmz,censol,live,FB,na,tr,,centauria solstitialis,klamath,postfire,1yr,2022
+KLAMATH006,zmz,melilotus alba? 3 parted leaf,live,FB,na,tr,,? 3 parted leaf,klamath,postfire,1yr,2022
+KLAMATH006,zmz,brodia,live,GR,na,10,,,klamath,postfire,1yr,2022
+KLAMATH006,zmz,klmgrass1,live,GR,na,tr,,"""opposite leaf"" rhizomatous seeming grass",klamath,postfire,1yr,2022
+KLAMATH006,zmz,poa sp,live,GR,na,tr,,,klamath,postfire,1yr,2022
+KLAMATH006,zmz,equhye,live,FERN,na,tr,,,klamath,postfire,1yr,2022
+KLAMATH006,zmz,rubarm,live,SH,na,tr,,,klamath,postfire,1yr,2022
+KLAMATH006,zmz,salexi,live,SH,na,2.5,,,klamath,postfire,1yr,2022
+KLAMATH006,zmz,salix2,live,SH,na,20,,,klamath,postfire,1yr,2022

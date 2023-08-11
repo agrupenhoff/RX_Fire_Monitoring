@@ -4,10 +4,21 @@ library(dplyr)
 library(rio)
 
 getwd()
-HG_trees_data <- read.csv("HolyGrail/data/clean/trees/HG_Trees_final.csv")
+HG_trees_data <- read.csv("HolyGrail/data/clean/trees/HG_Trees_final_clean.csv")
 unique(HG_trees_data$status)
 HG_trees_data$site <- tolower(HG_trees_data$site)
-HG_trees_data$plotid <- tolower(HG_trees_data$plotid)
+HG_trees_data$plotid <- toupper(HG_trees_data$plotid)
+
+unique(HG_trees_data$site)
+str(HG_trees_data)
+
+HG_trees_data$dbh_cm <- as.numeric(HG_trees_data$dbh_cm)
+HG_trees_data$ht_m <- as.numeric(HG_trees_data$ht_m)
+HG_trees_data$ht2crown_m <- as.numeric(HG_trees_data$ht2crown_m)
+HG_trees_data$scorch_ht_m <- as.numeric(HG_trees_data$scorch_ht_m)
+HG_trees_data$torch_ht_m <- as.numeric(HG_trees_data$torch_ht_m)
+HG_trees_data$scorch_percent <- as.numeric(HG_trees_data$scorch_percent)
+HG_trees_data$torch_percent <- as.numeric(HG_trees_data$torch_percent)
 
 
 #create function to calculate basal area (m^2)
@@ -38,7 +49,7 @@ HG_trees_PlotSpeciesStatus <- HG_trees_basal %>%
   separate(plotid_time, c("site","plotid","pre_post_fire","year"), sep="_",
            remove=TRUE,extra="merge")
 
-export(HG_trees_PlotSpeciesStatus,"HolyGrail/data/clean/trees/HG_trees_PlotSpeciesStatus.csv" )
+write_csv(HG_trees_PlotSpeciesStatus,"HolyGrail/data/clean/trees/HG_trees_PlotSpeciesStatus.csv" )
               
 #Aggregate by plot TOTAL live/dead
 HG_trees_totalPlot <- HG_trees_PlotSpeciesStatus %>% 
@@ -52,7 +63,7 @@ HG_trees_totalPlot <- HG_trees_PlotSpeciesStatus %>%
                 separate(plotid_time, c("site","plotid","pre_post_fire","year"), sep="_",
                        remove=TRUE,extra="merge")
       
-export(HG_trees_totalPlot,"HolyGrail/data/clean/trees/HG_Trees_totalPlot.csv" )
+write.csv(HG_trees_totalPlot,"HolyGrail/data/clean/trees/HG_Trees_totalPlot.csv" )
 
 ##########################
 ########BASAL AREA PROPORTION
@@ -70,18 +81,17 @@ HGtrees_basalareaSpecies <- HG_trees_PlotSpeciesStatus %>%
                   species == "PISA" ~ "PISA",
                   species == "SEGI" ~ "SEGI",
                   species == "CADE27" ~ "CADE",
-                  species == "CADE" ~ "CADE",
-                  species == "CADE" ~ "CADE ",
                   species == "PIJE" ~ "PIJE",
                   species == "PIAT" ~ "PIAT",
                   species == "PICO" ~ "PICO",
                   species == "PIPO" ~ "PIPO",
                   species == "ABMA" ~ "ABMA",
-                  species == "PIMO1"~"PIMO1",
+                  species == "PIMONO"~"PIMO1",
                   species == "PILA" ~ "PILA",
                   species == "PIPOW" ~ "PIWA",
                   species == "JUOC" ~ "JUOC",
                   species == "PIMO2" ~ "PIMO2",
+                  species == "PIMO" ~ "PIMO2",
                   species == "ABCO" ~ "ABCO",
                   species == "PIAL" ~ "PIAL",
                   TRUE ~ "ALLSPP"
@@ -99,7 +109,7 @@ HGtrees_basalareaSpeciesTotal <- left_join(HGtrees_BAspecies, HGtrees_basalareaT
 HGtrees_basalareaSpeciesProportion <- HGtrees_basalareaSpeciesTotal %>% 
   mutate(pBA_m2_ha = BA_m2_ha_spp/BA_m2_ha_plot) 
 
-export(HGtrees_basalareaSpeciesProportion, "HolyGrail/data/clean/trees/HGtrees_basalareaSpeciesProportion.csv")
+write.csv(HGtrees_basalareaSpeciesProportion, "HolyGrail/data/clean/trees/HGtrees_basalareaSpeciesProportion.csv")
 
 #by diameter class
 HG_trees_diamclass <- HG_trees_basal %>% 
@@ -139,26 +149,26 @@ HG_trees_diamclass_sumDEAD <- HG_trees_diamclass %>%
            remove=TRUE,extra="merge")
     
 
-export(HG_trees_diamclass_sumLIVE,"HolyGrail/data/clean/trees/HG_trees_diamclass_sumLIVE.csv" )
-export(HG_trees_diamclass_sumDEAD,"HolyGrail/data/clean/trees/HG_trees_diamclass_sumDEAD.csv" )
+write.csv(HG_trees_diamclass_sumLIVE,"HolyGrail/data/clean/trees/HG_trees_diamclass_sumLIVE.csv" )
+write.csv(HG_trees_diamclass_sumDEAD,"HolyGrail/data/clean/trees/HG_trees_diamclass_sumDEAD.csv" )
 
 
 
     #SCORCH & TORCH POST FIRE SUMMARY
+unique(HG_trees_basal$status)
+str(HG_trees_severityIndicies)
+
+HG_trees_basal$bolechar_m <- as.numeric(HG_trees_basal$bolechar_m)
+
 HG_trees_severityIndicies <- HG_trees_basal %>% 
-    filter(pre_post_fire == "postfire",
-           status == 'LIVE') %>% 
-    mutate(plotid_time = paste(site, plotid, year, postFire, sep = "_")) %>%
-    group_by(plotid_time, species, status) %>% 
-    summarise(avg_scorch_ht_m = mean(scorch_ht_m),
-              avg_scorch_percent = mean(scorch_percent),
-              avg_torch_ht_m = mean(torch_ht_m),
-              avg_torch_percent = mean(torch_percent),
-              avg_bolechar_m = mean(bolechar_m)) %>% 
-  separate(plotid_time, c("site","plotid","year","postFire"), sep="_",
-           remove=TRUE,extra="merge")
+    filter(pre_post_fire == "postfire" &
+             status == "LIVE") %>% 
+    dplyr::select(site, plotid, year, postFire, species, dbh_cm, ht_m,
+                  bolechar_m, scorch_ht_m, scorch_percent, torch_ht_m, torch_percent) %>% 
+  mutate_at(c('bolechar_m','scorch_ht_m',"scorch_percent","torch_ht_m", "torch_percent"), ~replace_na(.,0))
+
   
-export(HG_trees_severityIndicies,"HolyGrail/data/clean/trees/HG_Trees_severityIndicies.csv" ) 
+write.csv(HG_trees_severityIndicies,"HolyGrail/data/clean/trees/HG_Trees_severityIndicies.csv" ) 
               
               ###############################################################################################
               ##############################################################################################

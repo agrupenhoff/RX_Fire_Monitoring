@@ -4,14 +4,23 @@ library(dplyr)
 library(ggplot2)
 library(vegan)
 library(knitr)
-library(kableExtra)
 library(rio)
-library(lme4)
-library(ggpubr)
+library(broom)
+library(tidyr)
 
 ###Pull together species comp data and merge to compiled file
 
+#2022 postfire 1 yr
 
+FM_2022_post_spp <- read_csv("HolyGrail/data/raw/species_comp/FM_2022_post_spp.csv")
+henrycoe_2022_post_spp <- read_csv("HolyGrail/data/raw/species_comp/HenryCoe_2022_post_spp.csv")
+klamath_2022_post_spp <- read_csv("HolyGrail/data/raw/species_comp/klamath_2022_post_spp.csv")
+LBW_2022_post_spp <- read_csv("HolyGrail/data/raw/species_comp/LBW_2022_post_spp.csv")
+modoc_2022_post_spp <- read_csv("HolyGrail/data/raw/species_comp/Modoc_2022_post_spp.csv")
+odell_2022_post_spp <- read_csv("HolyGrail/data/raw/species_comp/Odell_2022_post_spp.csv")
+drycreek_2022_post_spp <- read_csv("HolyGrail/data/raw/species_comp/drycreek_2022_post_spp.csv")
+
+#2019-2022
 antelope_drycreek_2020_pre_spp <- read_csv("HolyGrail/data/raw/species_comp/antelope_drycreek_2020_pre_spp.csv")
 bearmtn_2019_pre_spp <- read_csv("HolyGrail/data/raw/species_comp/bearmtn_2019_pre_spp.csv",
                                  col_types = cols(postTime = col_character()))
@@ -88,12 +97,17 @@ HG_species <- bind_rows(antelope_drycreek_2020_pre_spp, bearmtn_2019_pre_spp, be
                         lbw_2020_pre_spp, modoc_2020_pre_spp , odell_2022_pre_spp,  shaver_2021_pre_spp,
                         slypark_2019_pre_spp, slypark_2021_post_spp, springs_2019_pre_spp, 
                         springs_2020_post_spp, sugarpine_2020_pre_spp,
-                        val_2019_pre_spp, val_2021_pre_spp, wilderRanch_2021_pre_spp)
+                        val_2019_pre_spp, val_2021_pre_spp, wilderRanch_2021_pre_spp,
+                        drycreek_2022_post_spp, FM_2022_post_spp, henrycoe_2022_post_spp,
+                        klamath_2022_post_spp, LBW_2022_post_spp, modoc_2022_post_spp,
+                        odell_2022_post_spp
+                        )
 
 HG_species <- HG_species %>% 
-  select(site, year, pre_post_fire, pre_post_thin, postTime, plotid, obs,
+  dplyr::select(site, year, pre_post_fire, pre_post_thin, postTime, plotid, obs,
          species, status, lifeform, layer_code, percent, notes) %>% 
-  drop_na(percent) 
+  drop_na(percent)
+
 HG_species$species <- toupper(HG_species$species)
 #replace trace values
 HG_species1 <- HG_species
@@ -110,8 +124,10 @@ HG_species1$percent[HG_species1$percent == "3?"] <- "3"
 HG_species1$percent[HG_species1$percent == "5?"] <- "5"
 HG_species1$percent[HG_species1$percent == "1?"] <- "1"
 HG_species1$percent[HG_species1$percent == ".0.75"] <- ".75"
+HG_species1$percent[HG_species1$percent == ".0.75"] <- ".75"
+HG_species1$percent[HG_species1$percent == "Tr"] <- "0.05"
 
-
+unique(HG_species1$plotid)
 HG_species1$plotid <- recode(HG_species1$plotid, "springs1" = "springs01",
                              "springs2"= "springs02",
                              "springs3" ="springs03",

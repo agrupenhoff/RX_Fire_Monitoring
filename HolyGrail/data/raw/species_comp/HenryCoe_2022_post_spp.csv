@@ -1,0 +1,415 @@
+plotid,obs,species,status,lifeform,layer_code,percent,modal_ht_m,notes,site,pre_post_fire,postTime,year
+HCM014,zmz,torarv,live,FB,na,1,na,,henrycoe,postfire,1yr,2022
+HCM014,zmz,hcmgalium1,live,FB,na,tr,na,hcmgalium1,henrycoe,postfire,1yr,2022
+HCM014,zmz,iris sp,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM014,zmz,lathyrus sp,live,FB,na,tr,na,lathyrus?,henrycoe,postfire,1yr,2022
+HCM014,zmz,carpyn,live,FB,na,tr,na,"called prickly aster 2021, pretty sure it's carduus pyncocephalus",henrycoe,postfire,1yr,2022
+HCM014,zmz,agoseris sp,live,FB,na,tr,na,"agoseris? dandelionish, no cauline lf, long toothy basal lf",henrycoe,postfire,1yr,2022
+HCM014,zmz,trilax,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM014,zmz,tarweed ,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM014,zmz,cynech,live,GR,na,5,na,,henrycoe,postfire,1yr,2022
+HCM014,zmz,brodia,live,GR,na,10,na,,henrycoe,postfire,1yr,2022
+HCM014,zmz,avefat,live,GR,na,10,na,,henrycoe,postfire,1yr,2022
+HCM014,zmz,elygla,live,GR,na,1,na,,henrycoe,postfire,1yr,2022
+HCM014,zmz,hcmgrass1,live,GR,na,4,na,another bromus?,henrycoe,postfire,1yr,2022
+HCM014,zmz,hcmgrass2,live,GR,na,tr,na,delicate skinny lf grass,henrycoe,postfire,1yr,2022
+HCM014,zmz,pentri,live,FERN ,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM014,zmz,toxdiv,live,SH,na,1,1.2,,henrycoe,postfire,1yr,2022
+HCM014,zmz,arctostaphylos sp,live,SH,na,5,4.5,,henrycoe,postfire,1yr,2022
+HCM014,zmz,symphoricarpos sp,live,SH,na,tr,0.6,,henrycoe,postfire,1yr,2022
+HCM014,zmz,bacpil,live,SH,na,tr,1.5,,henrycoe,postfire,1yr,2022
+HCM014,zmz,umca,live,TR,TSE,tr,na,,henrycoe,postfire,1yr,2022
+HCM014,zmz,qudo,live,TR,TOV,25,na,,henrycoe,postfire,1yr,2022
+HCM014,zmz,quke,live,TR,TOV,50,na,,henrycoe,postfire,1yr,2022
+HCM014,zmz,quke,dead,TR,TOV,tr,na,,henrycoe,postfire,1yr,2022
+HCM014,zmz,quke,live,TR,TSE,tr,na,,henrycoe,postfire,1yr,2022
+HCM014,zmz,quag,live,TR,TSE,tr,na,,henrycoe,postfire,1yr,2022
+HCM014,zmz,umca,live,TR,tre,tr,na,,henrycoe,postfire,1yr,2022
+HCM008,zmz,hcmasteraceae1,live,FB,na,tr,na,fuzzy aster 3cm oblanceolate lf,henrycoe,postfire,1yr,2022
+HCM008,zmz,acmispon sp,live,FB,na,tr,na,acmispon sp? tiny fab,henrycoe,postfire,1yr,2022
+HCM008,zmz,torarv,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM008,zmz,iris sp,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM008,zmz,hcmgalium1,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM008,zmz,sisyrinchium sp,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM008,zmz,hcmasteraceae2,live,FB,na,tr,na,many layer involucre bunchy asteraceae,henrycoe,postfire,1yr,2022
+HCM008,zmz,tarweed,live,FB,na,tr,na,opp lf,henrycoe,postfire,1yr,2022
+HCM008,zmz,clarkia sp,live,FB,na,tr,na,tiny clarkia? 4merous dry fr,henrycoe,postfire,1yr,2022
+HCM008,zmz,galand,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM008,zmz,achmil,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM008,zmz,trifolium sp,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM008,zmz,primula sp,live,FB,na,tr,na,primula clevelandii or hendersonii,henrycoe,postfire,1yr,2022
+HCM008,zmz,themidaceae,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM008,zmz,hcmasteraceae4,live,FB,na,tr,na,"teeny dandelionish fb, 6cm tall",henrycoe,postfire,1yr,2022
+HCM008,zmz,brodia,live,GR,na,1,na,,henrycoe,postfire,1yr,2022
+HCM008,zmz,avefat,live,GR,na,1,na,,henrycoe,postfire,1yr,2022
+HCM008,zmz,elygla,live,GR,na,1,na,,henrycoe,postfire,1yr,2022
+HCM008,zmz,melica,live,GR,na,1,na,melica?,henrycoe,postfire,1yr,2022
+HCM008,zmz,hcmgrass2,live,GR,na,1,na,delicate skinny lf grass,henrycoe,postfire,1yr,2022
+HCM008,zmz,cynech,live,GR,na,1,na,,henrycoe,postfire,1yr,2022
+HCM008,zmz,poa,live,GR,na,1,na,poa?,henrycoe,postfire,1yr,2022
+HCM008,zmz,hcmbromus1,live,GR,na,1,na,.2m,henrycoe,postfire,1yr,2022
+HCM008,zmz,ribes sp,live,SH,na,tr,0.4,spiny,henrycoe,postfire,1yr,2022
+HCM008,zmz,hetarb,live,SH,na,tr,0.1,,henrycoe,postfire,1yr,2022
+HCM008,zmz,lonicera sp,live,SH,na,tr,0.4,,henrycoe,postfire,1yr,2022
+HCM008,zmz,toxdiv,live,SH,na,tr,0.5,,henrycoe,postfire,1yr,2022
+HCM008,zmz,frangula sp,live,SH,na,tr,0.15,,henrycoe,postfire,1yr,2022
+HCM008,zmz,arctostaphylos sp,live,SH,na,24,6.5,,henrycoe,postfire,1yr,2022
+HCM008,zmz,quke,live,TR,TOV,2,na,out of plot,henrycoe,postfire,1yr,2022
+HCM008,zmz,pisa,live,TR,TOV,12,na,,henrycoe,postfire,1yr,2022
+HCM008,zmz,pinus sp,live,TR,TSE,tr,na,,henrycoe,postfire,1yr,2022
+HCM008,zmz,umca,live,TR,TSE,tr,na,,henrycoe,postfire,1yr,2022
+HCM008,zmz,qudo,live,TR,TOV,6,na,,henrycoe,postfire,1yr,2022
+HCM008,zmz,quag,live,TR,TOV,25,na,,henrycoe,postfire,1yr,2022
+HCM008,zmz,quag,live,TR,TSA,tr,na,,henrycoe,postfire,1yr,2022
+HCM008,zmz,quag,live,TR,TSE,tr,na,,henrycoe,postfire,1yr,2022
+HCM008,zmz,pipo,live,TR,TOV,tr,na,,henrycoe,postfire,1yr,2022
+HCM008,zmz,arme,live,TR,TRE,tr,na,,henrycoe,postfire,1yr,2022
+HCM002,zmz,iris sp,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM002,zmz,carpyn,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM002,zmz,torarv,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM002,zmz,hcmgalium1,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM002,zmz,galand,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM002,zmz,brodia,live,GR,na,1,na,,henrycoe,postfire,1yr,2022
+HCM002,zmz,avefat,live,GR,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM002,zmz,elygla,live,GR,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM002,zmz,cynech,live,GR,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM002,zmz,ribes sp ,live,SH,na,tr,0.4,spiny,henrycoe,postfire,1yr,2022
+HCM002,zmz,arctostaphylos sp,live,SH,na,tr,0.3,,henrycoe,postfire,1yr,2022
+HCM002,zmz,toxdiv,live,SH,na,tr,0.5,,henrycoe,postfire,1yr,2022
+HCM002,zmz,lonicera sp,live,SH,na,tr,0.25,,henrycoe,postfire,1yr,2022
+HCM002,zmz,quke,live,TR,TOV,30,na,,henrycoe,postfire,1yr,2022
+HCM002,zmz,quke,live,TR,TSE,tr,na,,henrycoe,postfire,1yr,2022
+HCM002,zmz,pinus,live,TR,TSA,tr,na,PISA in regen,henrycoe,postfire,1yr,2022
+HCM002,zmz,pipo,live,TR,TOV,2,na,outside of plot ,henrycoe,postfire,1yr,2022
+HCM002,zmz,pinus,live,TR,TSE,tr,na,PIPO in regen,henrycoe,postfire,1yr,2022
+HCM002,zmz,quag,live,TR,TOV,50,na,,henrycoe,postfire,1yr,2022
+HCM002,zmz,quag,dead,TR,TSE,tr,na,,henrycoe,postfire,1yr,2022
+HCM002,zmz,quag,live,TR,TSE,tr,na,,henrycoe,postfire,1yr,2022
+HCM002,zmz,quag,live,TR,TRE,tr,na,,henrycoe,postfire,1yr,2022
+HCM007,zmz,torarv,live,FB,na,1,na,,henrycoe,postfire,1yr,2022
+HCM007,zmz,hcmgalium1,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM007,zmz,iris sp,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM007,zmz,lathyrus sp,live,FB,na,tr,na,lathyrus?,henrycoe,postfire,1yr,2022
+HCM007,zmz,galand,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM007,zmz,brodia,live,GR,na,2,na,grass id is always tough for me but in november... fuhgetaboutit!!!,henrycoe,postfire,1yr,2022
+HCM007,zmz,hcmgrass2,live,GR,na,2,na,delicate skinny lf grass,henrycoe,postfire,1yr,2022
+HCM007,zmz,cynech,live,GR,na,2,na,,henrycoe,postfire,1yr,2022
+HCM007,zmz,elygla,live,GR,na,2,na,,henrycoe,postfire,1yr,2022
+HCM007,zmz,lonicera sp,live,SH,na,tr,0.2,,henrycoe,postfire,1yr,2022
+HCM007,zmz,toxdiv,live,SH,na,tr,0.8,,henrycoe,postfire,1yr,2022
+HCM007,zmz,arctostaphylos sp,live,SH,na,5,4,,henrycoe,postfire,1yr,2022
+HCM007,zmz,umca,live,TR,TSE,tr,na,,henrycoe,postfire,1yr,2022
+HCM007,zmz,arme,live,TR,TSE,tr,na,,henrycoe,postfire,1yr,2022
+HCM007,zmz,pinus,live,TR,TSE,tr,na,PIPO in regen,henrycoe,postfire,1yr,2022
+HCM007,zmz,pinus,dead,TR,TSA,tr,na,,henrycoe,postfire,1yr,2022
+HCM007,zmz,pinus,live,TR,TSA,tr,na,,henrycoe,postfire,1yr,2022
+HCM007,zmz,quag,dead,TR,TOV,tr,na,,henrycoe,postfire,1yr,2022
+HCM007,zmz,quag,live,TR,TOV,55,na,,henrycoe,postfire,1yr,2022
+HCM007,zmz,quke,live,TR,TOV,30,na,,henrycoe,postfire,1yr,2022
+HCM007,zmz,quga,live,TR,TOV,1,na,,henrycoe,postfire,1yr,2022
+HCM007,zmz,quag,live,TR,TSE,tr,na,,henrycoe,postfire,1yr,2022
+HCM010,zmz,achmil,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM010,zmz,iris sp,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM010,zmz,hcmgalium1,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM010,zmz,tarweed,live,FB,na,tr,na,opp lf,henrycoe,postfire,1yr,2022
+HCM010,zmz,trifolium sp,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM010,zmz,torarv,live,FB,na,1,na,,henrycoe,postfire,1yr,2022
+HCM010,zmz,carpyn,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM010,zmz,perideridia sp,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM010,zmz,lathyrus sp,live,FB,na,tr,na,lathyrus?,henrycoe,postfire,1yr,2022
+HCM010,zmz,avefat,live,GR,na,4,na,,henrycoe,postfire,1yr,2022
+HCM010,zmz,hcmgrass2,live,GR,na,1,na,delicate skinny lf grass...melica?,henrycoe,postfire,1yr,2022
+HCM010,zmz,brodia,live,GR,na,2,na,,henrycoe,postfire,1yr,2022
+HCM010,zmz,echcyn,live,GR,na,10,na,,henrycoe,postfire,1yr,2022
+HCM010,zmz,pentri,live,FERN ,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM010,zmz,fracal,live,SH,na,5,2.5,,henrycoe,postfire,1yr,2022
+HCM010,zmz,arctostaphylos sp,live,SH,na,15,6.5,,henrycoe,postfire,1yr,2022
+HCM010,zmz,arctostaphylos sp,dead,SH,na,5,4,,henrycoe,postfire,1yr,2022
+HCM010,zmz,toxdiv,live,SH,na,tr,0.5,,henrycoe,postfire,1yr,2022
+HCM010,zmz,pipo,live,TR,TOV,5,na,,henrycoe,postfire,1yr,2022
+HCM010,zmz,pinus,live,TR,TSE,tr,na,,henrycoe,postfire,1yr,2022
+HCM010,zmz,umca,live,TR,TSE,tr,na,,henrycoe,postfire,1yr,2022
+HCM010,zmz,arme,live,TR,TRE,tr,na,,henrycoe,postfire,1yr,2022
+HCM010,zmz,quag,live,TR,TSE,tr,na,,henrycoe,postfire,1yr,2022
+HCM010,zmz,quag,live,TR,TOV,10,na,out of plot,henrycoe,postfire,1yr,2022
+HCM010,zmz,quke,live,TR,TOV,45,na,,henrycoe,postfire,1yr,2022
+HCM009,zmz,torarv,live,FB,na,1,na,,henrycoe,postfire,1yr,2022
+HCM009,zmz,tarweed,live,FB,na,tr,na,opp lf,henrycoe,postfire,1yr,2022
+HCM009,zmz,hcmgalium1,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM009,zmz,calochortus sp,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM009,zmz,lathyrus sp,live,FB,na,tr,na,lathyrus?,henrycoe,postfire,1yr,2022
+HCM009,zmz,carpyn,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM009,zmz,iris sp,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM009,zmz,hcmforb1,live,FB,na,tr,na,green stem plant...?,henrycoe,postfire,1yr,2022
+HCM009,zmz,brodia,live,GR,na,4,na,,henrycoe,postfire,1yr,2022
+HCM009,zmz,elygla,live,GR,na,3,na,,henrycoe,postfire,1yr,2022
+HCM009,zmz,aira caryophyllea,live,GR,na,2,na,? pretty panicle grass,henrycoe,postfire,1yr,2022
+HCM009,zmz,avefat,live,GR,na,4,na,,henrycoe,postfire,1yr,2022
+HCM009,zmz,bromus sp,live,GR,na,1,na,reminds me of elyely but more robust,henrycoe,postfire,1yr,2022
+HCM009,zmz,hcmgrass2,live,GR,na,1,na,delicate skinny lf grass...melica?,henrycoe,postfire,1yr,2022
+HCM009,zmz,cynech,live,GR,na,3,na,,henrycoe,postfire,1yr,2022
+HCM009,zmz,pentri,live,FERN ,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM009,zmz,bacpil,live,SH,na,tr,1.3,,henrycoe,postfire,1yr,2022
+HCM009,zmz,toxdiv,live,SH,na,tr,0.6,,henrycoe,postfire,1yr,2022
+HCM009,zmz,archtostaphylos sp,live,SH,na,2,2,,henrycoe,postfire,1yr,2022
+HCM009,zmz,arctostaphylos sp,dead,SH,na,2,0.8,,henrycoe,postfire,1yr,2022
+HCM009,zmz,arme,live,TR,TRE,tr,na,,henrycoe,postfire,1yr,2022
+HCM009,zmz,arme,live,TR,TSA,tr,na,,henrycoe,postfire,1yr,2022
+HCM009,zmz,quag,live,TR,TSE,tr,na,,henrycoe,postfire,1yr,2022
+HCM009,zmz,pipo,live,TR,TOV,tr,na,,henrycoe,postfire,1yr,2022
+HCM009,zmz,pipo,live,TR,TSA,2,na,,henrycoe,postfire,1yr,2022
+HCM009,zmz,pipo,live,TR,TSE,tr,na,,henrycoe,postfire,1yr,2022
+HCM009,zmz,quke,live,TR,TOV,50,na,,henrycoe,postfire,1yr,2022
+HCM009,zmz,umca,live,TR,TSE,tr,na,,henrycoe,postfire,1yr,2022
+HCM009,zmz,umca,live,TR,TSA,tr,na,,henrycoe,postfire,1yr,2022
+HCM009,zmz,umca,live,TR,TOV,8,na,,henrycoe,postfire,1yr,2022
+HCM013,zmz,torarv,live,FB,na,1,na,,henrycoe,postfire,1yr,2022
+HCM013,zmz,tarweed,live,FB,na,tr,na,opp lf,henrycoe,postfire,1yr,2022
+HCM013,zmz,calochortus sp,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM013,zmz,cirsium sp,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM013,zmz,hcmasteraceae3,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM013,zmz,antennaria,live,FB,na,tr,na,?,henrycoe,postfire,1yr,2022
+HCM013,zmz,hcmgalium1,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM013,zmz,themidaceae,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM013,zmz,trifolium sp,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM013,zmz,iris sp,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM013,zmz,perideridia sp,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM013,zmz,hcmgalium2,live,FB,na,tr,na,"galium, 6 lf per node, black armed seed >1mm",henrycoe,postfire,1yr,2022
+HCM013,zmz,lathyrus sp,live,FB,na,tr,na,lathyrus?,henrycoe,postfire,1yr,2022
+HCM013,zmz,hcmfabaceae1,live,FB,na,tr,na,"tiny pea, 1.5cm long skinny fruits",henrycoe,postfire,1yr,2022
+HCM013,zmz,elygla,live,GR,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM013,zmz,aira caryophyllea,live,GR,na,5,na,?,henrycoe,postfire,1yr,2022
+HCM013,zmz,brodia,live,GR,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM013,zmz,brocar,live,GR,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM013,zmz,cynech,live,GR,na,2,na,,henrycoe,postfire,1yr,2022
+HCM013,zmz,gasphl,live,GR,na,tr,na,gastridium phleoides,henrycoe,postfire,1yr,2022
+HCM013,zmz,bromus sp,live,GR,na,tr,na,reminds me of elyely but more robust,henrycoe,postfire,1yr,2022
+HCM013,zmz,hcmgrass2,live,GR,na,tr,na,delicate skinny lf grass...melica?,henrycoe,postfire,1yr,2022
+HCM013,zmz,melica,live,GR,na,tr,na,? more robust,henrycoe,postfire,1yr,2022
+HCM013,zmz,avefat,live,GR,na,1,na,,henrycoe,postfire,1yr,2022
+HCM013,zmz,pentri,live,FERN ,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM013,zmz,bacpil,live,SH,na,tr,0.6,,henrycoe,postfire,1yr,2022
+HCM013,zmz,symphoricarpos sp,live,SH,na,tr,0.3,,henrycoe,postfire,1yr,2022
+HCM013,zmz,toxdiv,live,SH,na,2,1.5,,henrycoe,postfire,1yr,2022
+HCM013,zmz,arctostaphylos sp,dead,SH,na,4,3.2,,henrycoe,postfire,1yr,2022
+HCM013,zmz,arctostaphylos sp,live,SH,na,20,3.2,,henrycoe,postfire,1yr,2022
+HCM013,zmz,arctostaphylos sp,live,SH,na,4,6.3,really tall one,henrycoe,postfire,1yr,2022
+HCM013,zmz,dipaur,live,SH,na,tr,0.5,,henrycoe,postfire,1yr,2022
+HCM013,zmz,hetarb,live,SH,na,tr,0.5,resprout,henrycoe,postfire,1yr,2022
+HCM013,zmz,qudo,live,TR,TOV,tr,na,,henrycoe,postfire,1yr,2022
+HCM013,zmz,qudo,live,TR,TSE,tr,na,,henrycoe,postfire,1yr,2022
+HCM013,zmz,umca,live,TR,TSE,tr,na,,henrycoe,postfire,1yr,2022
+HCM013,zmz,quag,dead,TR,TOV,tr,na,,henrycoe,postfire,1yr,2022
+HCM013,zmz,quercus sp,dead,TR,TOV,tr,na,,henrycoe,postfire,1yr,2022
+HCM013,zmz,arme,live,TR,TRE,tr,na,,henrycoe,postfire,1yr,2022
+HCM003,zmz,torarv,live,FB,na,1,na,,henrycoe,postfire,1yr,2022
+HCM003,zmz,hcmgalium1,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM003,zmz,carpyn,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM003,zmz,stachys sp,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM003,zmz,galand,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM003,zmz,iris sp,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM003,zmz,achmil,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM003,zmz,lathyrus sp,live,FB,na,tr,na,lathyrus?,henrycoe,postfire,1yr,2022
+HCM003,zmz,tarweed,live,FB,na,tr,na,opp lf,henrycoe,postfire,1yr,2022
+HCM003,zmz,hcmasteraceae3,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM003,zmz,antennaria sp,live,FB,na,tr,na,?,henrycoe,postfire,1yr,2022
+HCM003,zmz,cynech,live,GR,na,5,na,,henrycoe,postfire,1yr,2022
+HCM003,zmz,avefat,live,GR,na,2,na,,henrycoe,postfire,1yr,2022
+HCM003,zmz,brodia,live,GR,na,3,na,,henrycoe,postfire,1yr,2022
+HCM003,zmz,brocar,live,GR,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM003,zmz,hcmgrass2,live,GR,na,tr,na,delicate skinny lf grass...melica?,henrycoe,postfire,1yr,2022
+HCM003,zmz,elygla,live,GR,na,1,na,,henrycoe,postfire,1yr,2022
+HCM003,zmz,bromus sp,live,GR,na,tr,na,reminds me of elyely but more robust,henrycoe,postfire,1yr,2022
+HCM003,zmz,ribcal,live,SH,na,tr,0.9,,henrycoe,postfire,1yr,2022
+HCM003,zmz,toxdiv,live,SH,na,2,1,,henrycoe,postfire,1yr,2022
+HCM003,zmz,lonicera sp,live,SH,na,tr,0.6,,henrycoe,postfire,1yr,2022
+HCM003,zmz,archtostaphylos sp,dead,SH,na,4,3.2,,henrycoe,postfire,1yr,2022
+HCM003,zmz,archtostaphylos sp,live,SH,na,15,5.5,,henrycoe,postfire,1yr,2022
+HCM003,zmz,qudo,live,TR,TSE,tr,na,,henrycoe,postfire,1yr,2022
+HCM003,zmz,umca,live,TR,TSE,tr,na,,henrycoe,postfire,1yr,2022
+HCM003,zmz,quag,live,TR,TOV,35,na,,henrycoe,postfire,1yr,2022
+HCM003,zmz,quag,live,TR,TSE,tr,na,,henrycoe,postfire,1yr,2022
+HCM003,zmz,quag,live,TR,TRE,tr,na,,henrycoe,postfire,1yr,2022
+HCM003,zmz,pinus,live,TR,TSA,tr,na,PISA in regen,henrycoe,postfire,1yr,2022
+HCM003,zmz,pinus,live,TR,TSE,tr,na,,henrycoe,postfire,1yr,2022
+HCM003,zmz,pisa,live,TR,TOV,2,na,,henrycoe,postfire,1yr,2022
+HCM003,zmz,quke,dead,TR,TOV,tr,na,,henrycoe,postfire,1yr,2022
+HCM003,zmz,qulo,dead,TR,TOV,tr,na,white oak,henrycoe,postfire,1yr,2022
+HCM004,zmz,lupinus sp,live,FB,na,tr,na,"1.5cm fuzzy seed, 1cm lf (dry)",henrycoe,postfire,1yr,2022
+HCM004,zmz,primula sp,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM004,zmz,clarkia sp,live,FB,na,tr,na,bigger clarkia sp (is it diff?),henrycoe,postfire,1yr,2022
+HCM004,zmz,clarkia sp,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM004,zmz,popcorn flower,live,FB,na,tr,na,small,henrycoe,postfire,1yr,2022
+HCM004,zmz,carpyn,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM004,zmz,hcmapiaceae1,live,FB,na,tr,na,QAL looking small umbel,henrycoe,postfire,1yr,2022
+HCM004,zmz,hcmasteraceae3,live,FB,na,tr,na,chic tribe multiflower basal leaf,henrycoe,postfire,1yr,2022
+HCM004,zmz,trifolium sp,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM004,zmz,hcmgalium2,live,FB,na,tr,na,"galium, 6 lf per node, black armed seed >1mm",henrycoe,postfire,1yr,2022
+HCM004,zmz,torarv,live,FB,na,1,na,,henrycoe,postfire,1yr,2022
+HCM004,zmz,hcmgalium1,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM004,zmz,galand,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM004,zmz,lathyrus sp,live,FB,na,tr,na,lathyrus?,henrycoe,postfire,1yr,2022
+HCM004,zmz,melica,live,GR,na,tr,na,?,henrycoe,postfire,1yr,2022
+HCM004,zmz,brodia,live,GR,na,2,na,,henrycoe,postfire,1yr,2022
+HCM004,zmz,hcmgrass4,live,GR,na,8,na,other bromus sp? missing most of flowers,henrycoe,postfire,1yr,2022
+HCM004,zmz,avefat,live,GR,na,30,na,,henrycoe,postfire,1yr,2022
+HCM004,zmz,aira caryophyllea,live,GR,na,1,na,?,henrycoe,postfire,1yr,2022
+HCM004,zmz,cynech,live,GR,na,2,na,,henrycoe,postfire,1yr,2022
+HCM004,zmz,elygla,live,GR,na,1,na,,henrycoe,postfire,1yr,2022
+HCM004,zmz,ribcal,live,SH,na,tr,0.55,,henrycoe,postfire,1yr,2022
+HCM004,zmz,lonicera sp,live,SH,na,tr,0.2,,henrycoe,postfire,1yr,2022
+HCM004,zmz,toxdiv,live,SH,na,tr,0.7,,henrycoe,postfire,1yr,2022
+HCM004,zmz,archtostaphylos sp,dead,SH,na,tr,0.35,,henrycoe,postfire,1yr,2022
+HCM004,zmz,quke,live,TR,TOV,15,na,out of plot ,henrycoe,postfire,1yr,2022
+HCM004,zmz,quercus sp,live,TR,TSE,tr,na,,henrycoe,postfire,1yr,2022
+HCM004,zmz,quag,live,TR,TOV,25,na,,henrycoe,postfire,1yr,2022
+HCM004,zmz,quag,live,TR,TSE,tr,na,,henrycoe,postfire,1yr,2022
+HCM004,zmz,pinus ,live,TR,TSE,tr,na,PISA and PIPO in regen,henrycoe,postfire,1yr,2022
+HCM006,zmz,torarv,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM006,zmz,iris sp,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM006,zmz,hcmgalium1,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM006,zmz,brodaeia sp,live,FB,na,tr,na,probably elegans,henrycoe,postfire,1yr,2022
+HCM006,zmz,carpyn,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM006,zmz,cynech,live,GR,na,5,na,,henrycoe,postfire,1yr,2022
+HCM006,zmz,brodia,live,GR,na,3,na,,henrycoe,postfire,1yr,2022
+HCM006,zmz,avefat,live,GR,na,2,na,,henrycoe,postfire,1yr,2022
+HCM006,zmz,elygla,live,GR,na,1,na,,henrycoe,postfire,1yr,2022
+HCM006,zmz,hcmgrass2,live,GR,na,1.5,na,delicate skinny lf grass...melica?,henrycoe,postfire,1yr,2022
+HCM006,zmz,archtostaphylos sp,dead,SH,na,7,4.5,,henrycoe,postfire,1yr,2022
+HCM006,zmz,archtostaphylos sp,live,SH,na,25,6.3,,henrycoe,postfire,1yr,2022
+HCM006,zmz,symphoricarpos sp,live,SH,na,1,1.3,,henrycoe,postfire,1yr,2022
+HCM006,zmz,lonicera sp,live,SH,na,tr,0.6,,henrycoe,postfire,1yr,2022
+HCM006,zmz,toxdiv,live,SH,na,2,0.8,,henrycoe,postfire,1yr,2022
+HCM006,zmz,hetarb,live,SH,na,tr,1.5,,henrycoe,postfire,1yr,2022
+HCM006,zmz,umca,live,TR,TSE,tr,na,,henrycoe,postfire,1yr,2022
+HCM006,zmz,quag,live,TR,TOV,25,na,,henrycoe,postfire,1yr,2022
+HCM006,zmz,quag,live,TR,TSA,tr,na,,henrycoe,postfire,1yr,2022
+HCM006,zmz,quag,live,TR,TSE,tr,na,,henrycoe,postfire,1yr,2022
+HCM006,zmz,quag,dead,TR,TSE,tr,na,,henrycoe,postfire,1yr,2022
+HCM006,zmz,qudo,live,TR,TOV,5,na,,henrycoe,postfire,1yr,2022
+HCM006,zmz,quga,live,TR,TOV,3,na,,henrycoe,postfire,1yr,2022
+HCM006,zmz,quke,live,TR,TOV,20,na,,henrycoe,postfire,1yr,2022
+HCM006,zmz,pisa,live,TR,TOV,15,na,,henrycoe,postfire,1yr,2022
+HCM006,zmz,pisa,live,TR,TSA,tr,na,,henrycoe,postfire,1yr,2022
+HCM006,zmz,pisa,live,TR,TSE,tr,na,,henrycoe,postfire,1yr,2022
+HCM006,zmz,arme,live,TR,TRE,tr,na,,henrycoe,postfire,1yr,2022
+HCM006,zmz,arme,live,TR,TSA,tr,na,,henrycoe,postfire,1yr,2022
+HCM005,zmz,carpyn,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM005,zmz,torarv,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM005,zmz,hcmgalium1,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM005,zmz,lathyrus sp,live,FB,na,tr,na,lathyrus?,henrycoe,postfire,1yr,2022
+HCM005,zmz,hcmasteraceae3,live,FB,na,tr,na,chic tribe multiflower basal leaf,henrycoe,postfire,1yr,2022
+HCM005,zmz,lupinus sp,live,FB,na,tr,na,"- 1.5cm fuzzy seed, 1cm lf (dry)",henrycoe,postfire,1yr,2022
+HCM005,zmz,tarweed,live,FB,na,tr,na,opp lf,henrycoe,postfire,1yr,2022
+HCM005,zmz,galand,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM005,zmz,iris sp,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM005,zmz,hcmgrass2,live,GR,na,1,na,delicate skinny lf grass...melica?,henrycoe,postfire,1yr,2022
+HCM005,zmz,hcmgrass1,live,GR,na,4,na,bromus? skinny,henrycoe,postfire,1yr,2022
+HCM005,zmz,melica,live,GR,na,tr,na,?,henrycoe,postfire,1yr,2022
+HCM005,zmz,avefat,live,GR,na,2,na,,henrycoe,postfire,1yr,2022
+HCM005,zmz,brodia,live,GR,na,3,na,,henrycoe,postfire,1yr,2022
+HCM005,zmz,bromus sp,live,GR,na,tr,na,reminds me of elyely but more robust,henrycoe,postfire,1yr,2022
+HCM005,zmz,elygla,live,GR,na,2,na,,henrycoe,postfire,1yr,2022
+HCM005,zmz,cynech,live,GR,na,4,na,,henrycoe,postfire,1yr,2022
+HCM005,zmz,archtostaphylos sp,live,SH,na,15,3.7,,henrycoe,postfire,1yr,2022
+HCM005,zmz,ribcal,live,SH,na,tr,1.3,,henrycoe,postfire,1yr,2022
+HCM005,zmz,toxdiv,live,SH,na,2,0.6,,henrycoe,postfire,1yr,2022
+HCM005,zmz,hetarb,live,SH,na,tr,0.4,,henrycoe,postfire,1yr,2022
+HCM005,zmz,lonicera sp,live,SH,na,tr,0.4,,henrycoe,postfire,1yr,2022
+HCM005,zmz,pinus,live,TR,TSE,tr,na,,henrycoe,postfire,1yr,2022
+HCM005,zmz,qudo,live,TR,TOV,7,na,,henrycoe,postfire,1yr,2022
+HCM005,zmz,quag,live,TR,TOV,32,na,,henrycoe,postfire,1yr,2022
+HCM005,zmz,quag,live,TR,TSE,tr,na,,henrycoe,postfire,1yr,2022
+HCM005,zmz,quag,live,TR,TRE,tr,na,,henrycoe,postfire,1yr,2022
+HCM005,zmz,pisa,live,TR,TSA,tr,na,,henrycoe,postfire,1yr,2022
+HCM012,zmz,torarv,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM012,zmz,iris sp,live,FB,na,2,na,,henrycoe,postfire,1yr,2022
+HCM012,zmz,trifolium sp,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM012,zmz,hcmgalium1,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM012,zmz,antennaria,live,FB,na,tr,na,?,henrycoe,postfire,1yr,2022
+HCM012,zmz,brodiaea sp,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM012,zmz,lathyrus sp,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM012,zmz,carpyn,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM012,zmz,perideridia sp,live,FB,na,tr,na,leaves only,henrycoe,postfire,1yr,2022
+HCM012,zmz,aster,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM012,zmz,galapa,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM012,zmz,trilax,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM012,zmz,gastridium,live,GR,na,tr,na,"? spike infl, skinny mostly basal leaves",henrycoe,postfire,1yr,2022
+HCM012,zmz,avefat,live,GR,na,1,na,,henrycoe,postfire,1yr,2022
+HCM012,zmz,elygla,live,GR,na,1,na,,henrycoe,postfire,1yr,2022
+HCM012,zmz,hcmgrass2,live,GR,na,1,na,delicate skinny lf grass...melica?,henrycoe,postfire,1yr,2022
+HCM012,zmz,brodia,live,GR,na,1,na,,henrycoe,postfire,1yr,2022
+HCM012,zmz,aira caryophyllea,live,GR,na,1,na,?,henrycoe,postfire,1yr,2022
+HCM012,zmz,cynech,live,GR,na,5,na,,henrycoe,postfire,1yr,2022
+HCM012,zmz,bromus sp,live,GR,na,5,na,reminds me of elyely but more robust,henrycoe,postfire,1yr,2022
+HCM012,zmz,pentri,live,FERN ,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM012,zmz,ribes sp,live,SH,na,tr,na,"really spiny, see 2021 notes",henrycoe,postfire,1yr,2022
+HCM012,zmz,archtostaphylos sp,live,SH,na,50,6,,henrycoe,postfire,1yr,2022
+HCM012,zmz,fracal,live,SH,na,tr,0.45,,henrycoe,postfire,1yr,2022
+HCM012,zmz,rhamnus or prunus ilicifolia,live,SH,na,tr,0.5,,henrycoe,postfire,1yr,2022
+HCM012,zmz,hetarb,live,SH,na,tr,0.1,resprout,henrycoe,postfire,1yr,2022
+HCM012,zmz,hetarb,live,SH,na,tr,1.2,,henrycoe,postfire,1yr,2022
+HCM012,zmz,lonicera sp,live,SH,na,tr,0.3,,henrycoe,postfire,1yr,2022
+HCM012,zmz,toxdiv,live,SH,na,5,1.1,,henrycoe,postfire,1yr,2022
+HCM012,zmz,qudo,live,TR,TSE,tr,na,,henrycoe,postfire,1yr,2022
+HCM012,zmz,qudo,dead,TR,TOV,4,na,,henrycoe,postfire,1yr,2022
+HCM012,zmz,qudo,live,TR,TOV,40,na,,henrycoe,postfire,1yr,2022
+HCM012,zmz,quag,dead,TR,TRE,tr,na,,henrycoe,postfire,1yr,2022
+HCM012,zmz,quag,live,TR,TSE,tr,na,called TRE in regen,henrycoe,postfire,1yr,2022
+HCM012,zmz,umca,live,TR,TSE,tr,na,,henrycoe,postfire,1yr,2022
+HCM012,zmz,pipo,live,TR,TOV,2,na,,henrycoe,postfire,1yr,2022
+HCM011,zmz,torarv,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM011,zmz,hcmgalium1,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM011,zmz,lathyrus sp,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM011,zmz,iris sp,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM011,zmz,carpyn,live,FB,na,1,na,,henrycoe,postfire,1yr,2022
+HCM011,zmz,tarweed,live,FB,na,tr,na,opp lf,henrycoe,postfire,1yr,2022
+HCM011,zmz,trifolium sp,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM011,zmz,lupinus sp,live,FB,na,tr,na,"- 1.5cm fuzzy seed, 1cm lf (dry)",henrycoe,postfire,1yr,2022
+HCM011,zmz,elygla,live,GR,na,3,na,,henrycoe,postfire,1yr,2022
+HCM011,zmz,cynech,live,GR,na,5,na,,henrycoe,postfire,1yr,2022
+HCM011,zmz,avefat,live,GR,na,2,na,,henrycoe,postfire,1yr,2022
+HCM011,zmz,brocar,live,GR,na,1,na,,henrycoe,postfire,1yr,2022
+HCM011,zmz,hcmgrass2,live,GR,na,tr,na,delicate skinny lf grass...melica?,henrycoe,postfire,1yr,2022
+HCM011,zmz,brodia,live,GR,na,2,na,,henrycoe,postfire,1yr,2022
+HCM011,zmz,gastridium,live,GR,na,tr,na,"? spike infl, skinny mostly basal leaves",henrycoe,postfire,1yr,2022
+HCM011,zmz,ribes sp,live,SH,na,tr,1.1,,henrycoe,postfire,1yr,2022
+HCM011,zmz,toxdiv,live,SH,na,12,0.9,,henrycoe,postfire,1yr,2022
+HCM011,zmz,lonicera sp,live,SH,na,1,0.8,,henrycoe,postfire,1yr,2022
+HCM011,zmz,archtostaphylos sp,dead,SH,na,1,0.7,,henrycoe,postfire,1yr,2022
+HCM011,zmz,archtostaphylos sp,live,SH,na,2,2.8,,henrycoe,postfire,1yr,2022
+HCM011,zmz,arme,live,TR,TSA,tr,na,,henrycoe,postfire,1yr,2022
+HCM011,zmz,arme,live,TR,TRE,1.5,na,,henrycoe,postfire,1yr,2022
+HCM011,zmz,quag,live,TR,TSE,tr,na,,henrycoe,postfire,1yr,2022
+HCM011,zmz,pinus,live,TR,TSE,tr,na,PIPO in regen,henrycoe,postfire,1yr,2022
+HCM011,zmz,pipo,live,TR,TSA,tr,na,,henrycoe,postfire,1yr,2022
+HCM011,zmz,qudo,live,TR,TOV,tr,na,out of plot,henrycoe,postfire,1yr,2022
+HCM011,zmz,umca,live,TR,TRE,tr,na,,henrycoe,postfire,1yr,2022
+HCM011,zmz,quke,live,TR,TOV,55,na,,henrycoe,postfire,1yr,2022
+HCM001,zmz,iris sp,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM001,zmz,torarv,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM001,zmz,hcmgalium1,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM001,zmz,hcmgalium2,live,FB,na,tr,na,"galium, 6 lf per node, black armed seed >1mm",henrycoe,postfire,1yr,2022
+HCM001,zmz,galapa,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM001,zmz,galand,live,FB,na,tr,na,,henrycoe,postfire,1yr,2022
+HCM001,zmz,hcmgrass2,live,GR,na,2,na,delicate skinny lf grass...melica?,henrycoe,postfire,1yr,2022
+HCM001,zmz,brodia,live,GR,na,1,na,,henrycoe,postfire,1yr,2022
+HCM001,zmz,hcmgrass3,live,GR,na,1,na,blue green curled up lf bunchgrass...bromus? some is 1.4m tall,henrycoe,postfire,1yr,2022
+HCM001,zmz,elygla,live,GR,na,2,na,,henrycoe,postfire,1yr,2022
+HCM001,zmz,cynech,live,GR,na,3,na,,henrycoe,postfire,1yr,2022
+HCM001,zmz,lonicera sp,live,SH,na,1,0.4,,henrycoe,postfire,1yr,2022
+HCM001,zmz,toxdiv,live,SH,na,20,1.2,,henrycoe,postfire,1yr,2022
+HCM001,zmz,arctostaphylos sp,live,SH,na,35,4.9,,henrycoe,postfire,1yr,2022
+HCM001,zmz,arctostaphylos sp,dead,SH,na,5,1.5,,henrycoe,postfire,1yr,2022
+HCM001,zmz,ribes sp,live,SH,na,tr,1.3,really spiny,henrycoe,postfire,1yr,2022
+HCM001,zmz,hcshrub1,live,SH,na,tr,0.8,rhamnus or prunus ilicifolia,henrycoe,postfire,1yr,2022
+HCM001,zmz,hetarb,live,SH,na,tr,0.3,,henrycoe,postfire,1yr,2022
+HCM001,zmz,umca,live,TR,TSE,tr,na,Called TRE in regen,henrycoe,postfire,1yr,2022
+HCM001,zmz,umca,live,TR,TSA,tr,na,,henrycoe,postfire,1yr,2022
+HCM001,zmz,quag,live,TR,TSE,tr,na,Called TRE in regen,henrycoe,postfire,1yr,2022
+HCM001,zmz,quag,live,TR,TSA,tr,na,,henrycoe,postfire,1yr,2022
+HCM001,zmz,quag,live,TR,TOV,25,na,,henrycoe,postfire,1yr,2022
+HCM001,zmz,qulo,live,TR,TOV,10,na,,henrycoe,postfire,1yr,2022
+HCM001,zmz,arme,live,TR,TOV,20,na,,henrycoe,postfire,1yr,2022
+HCM001,zmz,pinus,live,TR,TSE,tr,na,,henrycoe,postfire,1yr,2022
+HCM001,zmz,qudo,live,TR,TSE,tr,na,,henrycoe,postfire,1yr,2022

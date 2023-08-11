@@ -1,0 +1,358 @@
+plotid,obs,species,status,lifeform,layer_code,percent,modal_ht_m,notes,site,pre_post_fire,postTime,year
+FM19-6,zmz,PIJE,live,TR,TOV,6,na,,frenchmeadows,postfire,1yr,2022
+FM19-6,zmz,abies sp,live,TR,TSA,tr,2,,frenchmeadows,postfire,1yr,2022
+FM19-6,zmz,abies sp,live,TR,TSE,tr,0.05,,frenchmeadows,postfire,1yr,2022
+FM19-6,zmz,PIJE,live,TR,TSE,tr,0.05,,frenchmeadows,postfire,1yr,2022
+FM19-6,zmz,abco,dead,TR,TOV,tr,na,,frenchmeadows,postfire,1yr,2022
+FM19-6,zmz,CADE,dead,TR,TOV,tr,3,,frenchmeadows,postfire,1yr,2022
+FM19-6,zmz,QUVA,live,SH,na,10,0.15,,frenchmeadows,postfire,1yr,2022
+FM19-6,zmz,QUVA,live,SH,na,2,0.3,,frenchmeadows,postfire,1yr,2022
+FM19-6,zmz,QUVA,dead,SH,na,tr,0.3,,frenchmeadows,postfire,1yr,2022
+FM19-6,zmz,Salix sp,live,SH,na,tr,1,,frenchmeadows,postfire,1yr,2022
+FM19-6,zmz,AmaUta,live,SH,na,3,0.1,,frenchmeadows,postfire,1yr,2022
+FM19-6,zmz,CeaCor,live,SH,na,tr,1,,frenchmeadows,postfire,1yr,2022
+FM19-6,zmz,symrot,live,SH,na,3,0.3,,frenchmeadows,postfire,1yr,2022
+FM19-6,zmz,RibVis,live,SH,na,tr,0.12,,frenchmeadows,postfire,1yr,2022
+FM19-6,zmz,fmforb10,live,FB,na,tr,na,woody at base mat wooly aster (?),frenchmeadows,postfire,1yr,2022
+FM19-6,zmz,allcam,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM19-6,zmz,collinsia sp,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM19-6,zmz,fmphlox5,live,FB,na,tr,na,tiny white phlox fam,frenchmeadows,postfire,1yr,2022
+FM19-6,zmz,fmasteraceae5,live,FB,na,tr,na,"hairy woody at base pale green, looks like antennaria/asteraceae",frenchmeadows,postfire,1yr,2022
+FM19-6,zmz,calmon,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM19-6,zmz,callec,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM19-6,zmz,drygla,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM19-6,zmz,big carex,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM19-6,zmz,gaydif,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM19-6,zmz,fmphlox4,live,FB,na,tr,na,spiky pink phloxy,frenchmeadows,postfire,1yr,2022
+FM19-6,zmz,erycap,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM19-6,zmz,fmforb2,live,FB,na,tr,na,little succ entire lf on rock,frenchmeadows,postfire,1yr,2022
+FM19-6,zmz,fmphlox3,live,FB,na,tr,na,tiny white phlox fam on rock,frenchmeadows,postfire,1yr,2022
+FM19-6,zmz,senecio,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM19-6,zmz,fmforb11,live,FB,na,tr,na,tiny white fl almost looks like extended scorpioid inf,frenchmeadows,postfire,1yr,2022
+FM19-6,zmz,fmphlox2,live,FB,na,tr,na,bigger phlox fam,frenchmeadows,postfire,1yr,2022
+FM19-6,zmz,coltor,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM19-6,zmz,phahas,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM19-6,zmz,gayophytum sp,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM19-6,zmz,fmphlox1,live,FB,na,tr,na,big sticky hairy phlox,frenchmeadows,postfire,1yr,2022
+FM19-6,zmz,viopur,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM19-6,zmz,fmasteraceae1,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM19-6,zmz,mairac,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM19-6,zmz,fmdiplacus2,live,FB,na,tr,na,tiny pink diplacus,frenchmeadows,postfire,1yr,2022
+FM19-6,zmz,polygonum sp,live,FB,na,tr,na,TRP: labeled w question mark,frenchmeadows,postfire,1yr,2022
+FM19-6,zmz,fmasteraceae2,live,FB,na,tr,na,chic tribe dyc,frenchmeadows,postfire,1yr,2022
+FM19-6,zmz,fmdiplacus1,live,FB,na,tr,na,bigger pink moneyflower,frenchmeadows,postfire,1yr,2022
+FM19-6,zmz,thafen,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM19-6,zmz,eucbre,live,FB,na,tr,na,TRP: labeled w question mark: eucephalus breweri?,frenchmeadows,postfire,1yr,2022
+FM19-6,zmz,fmforb1,live,FB,na,tr,na,silene? basal dark green rosette,frenchmeadows,postfire,1yr,2022
+FM19-6,zmz,kelgal,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM19-6,zmz,sillem,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM19-6,zmz,monodo,live,FB,na,1,na,,frenchmeadows,postfire,1yr,2022
+FM19-6,zmz,pedsem,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM19-6,zmz,fmgrass2,live,GR,na,tr,na,skinny long inf grass,frenchmeadows,postfire,1yr,2022
+FM19-6,zmz,elyely,live,GR,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM19-6,zmz,elygla,live,GR,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM19-6,zmz,brocar,live,GR,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM39,zmz,eucbre,live,FB,na,1,na,,frenchmeadows,postfire,1yr,2022
+FM39,zmz,apoand,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM39,zmz,penlae,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM39,zmz,monodo,live,FB,na,15,na,,frenchmeadows,postfire,1yr,2022
+FM39,zmz,allcam,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM39,zmz,erycap,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM39,zmz,phahyd,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM39,zmz,kelgal,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM39,zmz,osmber,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM39,zmz,pedsem,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM39,zmz,fmasteraceae5,live,FB,na,tr,na,"alt lf woody at base, other lf co, aster famming out of lf axil",frenchmeadows,postfire,1yr,2022
+FM39,zmz,fmforb1,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM39,zmz,coltor,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM39,zmz,viopur,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM39,zmz,phahas,live,FB,na,tr,na,TRP: labeled w question mark: phacelia hastata?,frenchmeadows,postfire,1yr,2022
+FM39,zmz,deldep,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM39,zmz,sidgla,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM39,zmz,erinud,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM39,zmz,luparb,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM39,zmz,thafen,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM39,zmz,hackelia sp,live,FB,na,2,na,nervosa?,frenchmeadows,postfire,1yr,2022
+FM39,zmz,hiealb,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM39,zmz,phacelia sp,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM39,zmz,allint,live,FB,na,tr,na,TRP: labeled w question mark: allophyllum integrifolium?,frenchmeadows,postfire,1yr,2022
+FM39,zmz,fmforb9,live,FB,na,tr,na,palmately compound and lobed lf,frenchmeadows,postfire,1yr,2022
+FM39,zmz,helcal,live,FB,na,2,na,,frenchmeadows,postfire,1yr,2022
+FM39,zmz,brocar,live,GR,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM39,zmz,fmgrass2,live,GR,na,tr,na,"smooth stem/ lf, long skinny infl",frenchmeadows,postfire,1yr,2022
+FM39,zmz,symrot,live,SH,na,5,0.2,,frenchmeadows,postfire,1yr,2022
+FM39,zmz,arcnev,live,SH,na,tr,0.2,,frenchmeadows,postfire,1yr,2022
+FM39,zmz,ribroe,live,SH,na,1,0.4,,frenchmeadows,postfire,1yr,2022
+FM39,zmz,ribvis,live,SH,na,1,0.3,,frenchmeadows,postfire,1yr,2022
+FM39,zmz,ceacor,live,SH,na,20,0.5,,frenchmeadows,postfire,1yr,2022
+FM39,zmz,ceacor,live,SH,na,tr,0.4,resprout,frenchmeadows,postfire,1yr,2022
+FM39,zmz,quevac,live,SH,na,1,0.4,resprout,frenchmeadows,postfire,1yr,2022
+FM39,zmz,quevac,live,SH,na,1,0.5,,frenchmeadows,postfire,1yr,2022
+FM39,zmz,quevac,dead,SH,na,1.5,0.9,,frenchmeadows,postfire,1yr,2022
+FM39,zmz,prunus,live,SH,na,tr,0.3,,frenchmeadows,postfire,1yr,2022
+FM39,zmz,arcpat,live,SH,na,tr,0.2,,frenchmeadows,postfire,1yr,2022
+FM39,zmz,abma,live,TR,TSA,2,2,,frenchmeadows,postfire,1yr,2022
+FM39,zmz,abma,dead,TR,TOV,tr,na,,frenchmeadows,postfire,1yr,2022
+FM39,zmz,abies,dead,TR,TSA,tr,2.1,,frenchmeadows,postfire,1yr,2022
+FM39,zmz,abies,live,TR,TSE,tr,0.5,,frenchmeadows,postfire,1yr,2022
+FM39,zmz,abies,dead,TR,TSE,tr,0.5,,frenchmeadows,postfire,1yr,2022
+FM39,zmz,abco,dead,TR,TOV,tr,na,,frenchmeadows,postfire,1yr,2022
+FM39,zmz,abco,live,TR,TOV,15,22,,frenchmeadows,postfire,1yr,2022
+FM39,zmz,cade,dead,TR,TOV,tr,4,,frenchmeadows,postfire,1yr,2022
+FM39,zmz,pije,live,TR,TOV,tr,5,,frenchmeadows,postfire,1yr,2022
+FM19-3,zmz,fmasteraceae1,live,FB,na,tr,na,chic tribe purpleish long entire tooth lf,frenchmeadows,postfire,1yr,2022
+FM19-3,zmz,apoand,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM19-3,zmz,pyrpic,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM19-3,zmz,phahyd,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM19-3,zmz,phahas,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM19-3,zmz,kelgal,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM19-3,zmz,fmforb3,live,FB,na,tr,na,"big .5 m 12cm lf, alternate toothed entire",frenchmeadows,postfire,1yr,2022
+FM19-3,zmz,fmforb8,live,FB,na,tr,na,tiny glabrous seedling,frenchmeadows,postfire,1yr,2022
+FM19-3,zmz,pteaqu,live,FERN ,na,5,0.4,,frenchmeadows,postfire,1yr,2022
+FM19-3,zmz,brocar,live,GR,na,tr,0.3,,frenchmeadows,postfire,1yr,2022
+FM19-3,zmz,symrot,live,SH,na,tr,0.2,,frenchmeadows,postfire,1yr,2022
+FM19-3,zmz,ribroe,live,SH,na,tr,0.03,,frenchmeadows,postfire,1yr,2022
+FM19-3,zmz,abco,live,TR,TOV,10,na,,frenchmeadows,postfire,1yr,2022
+FM19-3,zmz,abco,dead,TR,TOV,3,na,,frenchmeadows,postfire,1yr,2022
+FM19-3,zmz,abma,live,TR,TOV,5,na,,frenchmeadows,postfire,1yr,2022
+FM19-3,zmz,abma,dead,TR,TOV,7,na,,frenchmeadows,postfire,1yr,2022
+FM19-3,zmz,cade,live,TR,TOV,4,na,,frenchmeadows,postfire,1yr,2022
+FM19-3,zmz,pila,live,TR,TOV,2,na,,frenchmeadows,postfire,1yr,2022
+FM19-3,zmz,abies sp,live,TR,TSE,tr,na,,frenchmeadows,postfire,1yr,2022
+FM48,zmz,fmasteraceae1,live,FB,na,tr,na,chic tribe purpleish long entire tooth lf,frenchmeadows,postfire,1yr,2022
+FM48,zmz,viopur,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM48,zmz,phahyd,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM48,zmz,hackelia sp,live,FB,na,tr,na,nervosa?,frenchmeadows,postfire,1yr,2022
+FM48,zmz,fmPlagiobothrys1,live,FB,na,tr,na,"TRP renamed, formerly: tiny popcorn flower",frenchmeadows,postfire,1yr,2022
+FM48,zmz,fmforb8,live,FB,na,tr,na,tiny seedling,frenchmeadows,postfire,1yr,2022
+FM48,zmz,eucbre,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM48,zmz,phahas,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM48,zmz,thafen,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM48,zmz,sidgla,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM48,zmz,prunus,live,SH,na,tr,0.5,,frenchmeadows,postfire,1yr,2022
+FM48,zmz,ceacor,live,SH,na,tr,0.4,,frenchmeadows,postfire,1yr,2022
+FM48,zmz,ceacor,dead,SH,na,tr,0.5,,frenchmeadows,postfire,1yr,2022
+FM48,zmz,abma,live,TR,TOV,5,na,,frenchmeadows,postfire,1yr,2022
+FM48,zmz,abco,live,TR,TOV,5,na,,frenchmeadows,postfire,1yr,2022
+FM48,zmz,abies,dead,TR,TSE,tr,na,,frenchmeadows,postfire,1yr,2022
+FM48,zmz,abies,live,TR,TSE,tr,na,,frenchmeadows,postfire,1yr,2022
+FM48,zmz,abies,dead,TR,TSA,tr,2.5,,frenchmeadows,postfire,1yr,2022
+FM48,zmz,abco,dead,TR,TOV,1,na,,frenchmeadows,postfire,1yr,2022
+FM48,zmz,pila,dead,TR,TOV,tr,na,,frenchmeadows,postfire,1yr,2022
+FM19-7,zmz,thafen,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM19-7,zmz,liggra,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM19-7,zmz,chimen,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM19-7,zmz,phahyd,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM19-7,zmz,hiealb,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM19-7,zmz,eucbre,live,FB,na,1,na,TRP: Labeld with question mark: alt hairy entire long lf branching in lf axils discoid,frenchmeadows,postfire,1yr,2022
+FM19-7,zmz,kelgal,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM19-7,zmz,senecio sp,live,FB,na,2,na,integerrimus?,frenchmeadows,postfire,1yr,2022
+FM19-7,zmz,phahas,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM19-7,zmz,erycap,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM19-7,zmz,viopur,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM19-7,zmz,monodo,live,FB,na,1,na,,frenchmeadows,postfire,1yr,2022
+FM19-7,zmz,deldep,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM19-7,zmz,allium sp,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM19-7,zmz,coltor,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM19-7,zmz,sidgla,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM19-7,zmz,hackelia sp,live,FB,na,1,na,nervosa?,frenchmeadows,postfire,1yr,2022
+FM19-7,zmz,aqufor,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM19-7,zmz,fmforb1,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM19-7,zmz,lupinus sp,live,FB,na,12,na,,frenchmeadows,postfire,1yr,2022
+FM19-7,zmz,pedsem,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM19-7,zmz,penlae,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM19-7,zmz,erinud,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM19-7,zmz,triixi,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM19-7,zmz,phldiv,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM19-7,zmz,mairac,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM19-7,zmz,castilleja sp,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM19-7,zmz,carex sp,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM19-7,zmz,erythranthe sp,live,FB,na,tr,na,lil yellow...moschata?,frenchmeadows,postfire,1yr,2022
+FM19-7,zmz,drygla,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM19-7,zmz,fmforb2,live,FB,na,tr,na,tiny divided lf plant...apiaceae?,frenchmeadows,postfire,1yr,2022
+FM19-7,zmz,fmallium2,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM19-7,zmz,fmasteraceae4,live,FB,na,tr,na,opp lf asteraceae,frenchmeadows,postfire,1yr,2022
+FM19-7,zmz,fmgrass3,live,GR,na,tr,na,hairy little grass,frenchmeadows,postfire,1yr,2022
+FM19-7,zmz,fmgrass4,live,GR,na,tr,na,long blade smooth grass,frenchmeadows,postfire,1yr,2022
+FM19-7,zmz,fmgrass5,live,GR,na,tr,na,"short bunchy grass, purpleish at joints",frenchmeadows,postfire,1yr,2022
+FM19-7,zmz,fmgrass6,live,GR,na,tr,na,smooth floppy flower ,frenchmeadows,postfire,1yr,2022
+FM19-7,zmz,quevac,live,SH,na,tr,0.75,,frenchmeadows,postfire,1yr,2022
+FM19-7,zmz,symrot,live,SH,na,1,0.25,,frenchmeadows,postfire,1yr,2022
+FM19-7,zmz,ribroe,live,SH,na,tr,0.2,,frenchmeadows,postfire,1yr,2022
+FM19-7,zmz,ribvis,live,SH,na,tr,0.3,,frenchmeadows,postfire,1yr,2022
+FM19-7,zmz,ceacor,live,SH,na,tr,0.2,resprout,frenchmeadows,postfire,1yr,2022
+FM19-7,zmz,ceacor,live,SH,na,8,0.3,,frenchmeadows,postfire,1yr,2022
+FM19-7,zmz,arcnev,live,SH,na,22,0.2,,frenchmeadows,postfire,1yr,2022
+FM19-7,zmz,prunus sp,live,SH,na,tr,0.3,,frenchmeadows,postfire,1yr,2022
+FM19-7,zmz,abma,live,TR,TOV,25,na,,frenchmeadows,postfire,1yr,2022
+FM19-7,zmz,abma,dead,TR,TOV,1,na,,frenchmeadows,postfire,1yr,2022
+FM19-7,zmz,abco,dead,TR,TOV,tr,na,,frenchmeadows,postfire,1yr,2022
+FM19-7,zmz,abies,dead,TR,TSA,tr,2.2,,frenchmeadows,postfire,1yr,2022
+FM19-7,zmz,abies,dead,TR,TSE,tr,0.4,,frenchmeadows,postfire,1yr,2022
+FM19-7,zmz,abies,live,TR,TSA,10,2,,frenchmeadows,postfire,1yr,2022
+FM19-7,zmz,abies,live,TR,TSE,tr,0.7,,frenchmeadows,postfire,1yr,2022
+FM19-7,zmz,pila,live,TR,TSE,tr,0.5,,frenchmeadows,postfire,1yr,2022
+FM40,zmz,arnica sp,live,FB,na,1,na,or whitneya,frenchmeadows,postfire,1yr,2022
+FM40,zmz,phahyd,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM40,zmz,eucbre,live,FB,na,tr,na,"TRP: labeled with question mark: alt hairy entire long lf branching in lf axils, discoid asteraceae",frenchmeadows,postfire,1yr,2022
+FM40,zmz,viopur,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM40,zmz,apoand,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM40,zmz,monodo,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM40,zmz,thafen,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM40,zmz,fmasteraceae1,live,FB,na,tr,na,chic tribe purpleish long entire tooth lf,frenchmeadows,postfire,1yr,2022
+FM40,zmz,phahas,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM40,zmz,pyrpic,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM40,zmz,kelgal,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM40,zmz,hiealb,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM40,zmz,hackelia sp,live,FB,na,tr,na,nervosa?,frenchmeadows,postfire,1yr,2022
+FM40,zmz,fmforb8,live,FB,na,tr,na,tiny glabrous seedling,frenchmeadows,postfire,1yr,2022
+FM40,zmz,fmgrass7,live,GR,na,tr,na,really long lf grass or sedge?,frenchmeadows,postfire,1yr,2022
+FM40,zmz,fmgrass8,live,GR,na,tr,na,"delicate inf, smooth lf /stem",frenchmeadows,postfire,1yr,2022
+FM40,zmz,elygla,live,GR,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM40,zmz,prunus,live,SH,na,tr,0.15,,frenchmeadows,postfire,1yr,2022
+FM40,zmz,quevac,live,SH,na,tr,1,,frenchmeadows,postfire,1yr,2022
+FM40,zmz,quevac,dead,SH,na,tr,0.5,,frenchmeadows,postfire,1yr,2022
+FM40,zmz,quevac,live,SH,na,tr,0.2,resprout,frenchmeadows,postfire,1yr,2022
+FM40,zmz,ceacor,live,SH,na,16,1.2,,frenchmeadows,postfire,1yr,2022
+FM40,zmz,ceacor,live,SH,na,tr,0.3,resprout,frenchmeadows,postfire,1yr,2022
+FM40,zmz,arcnev,live,SH,na,tr,0.3,,frenchmeadows,postfire,1yr,2022
+FM40,zmz,ribroe,live,SH,na,tr,0.2,,frenchmeadows,postfire,1yr,2022
+FM40,zmz,abco,live,TR,TOV,20,na,,frenchmeadows,postfire,1yr,2022
+FM40,zmz,abco,dead,TR,TOV,1,na,,frenchmeadows,postfire,1yr,2022
+FM40,zmz,abma,dead,TR,TOV,2,na,,frenchmeadows,postfire,1yr,2022
+FM40,zmz,abma,live,TR,TOV,8,na,,frenchmeadows,postfire,1yr,2022
+FM40,zmz,cade,live,TR,TSA,tr,na,,frenchmeadows,postfire,1yr,2022
+FM40,zmz,cade,dead,TR,TSA,tr,2.5,,frenchmeadows,postfire,1yr,2022
+FM40,zmz,cade,live,TR,TSE,tr,na,,frenchmeadows,postfire,1yr,2022
+FM40,zmz,abco,live,TR,TSE,tr,na,,frenchmeadows,postfire,1yr,2022
+FM40,zmz,abies,dead,TR,TSE,tr,1,,frenchmeadows,postfire,1yr,2022
+FM38,zmz,fmasteraceae1,live,FB,na,12,na,chic tribe purpleish long entire tooth lf,frenchmeadows,postfire,1yr,2022
+FM38,zmz,phahyd,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM38,zmz,phahas,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM38,zmz,hackelia sp,live,FB,na,2,na,nervosa?,frenchmeadows,postfire,1yr,2022
+FM38,zmz,viopur,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM38,zmz,eucbre,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM38,zmz,pedsem,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM38,zmz,thafen,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM38,zmz,helcal,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM38,zmz,fmforb4,live,FB,na,tr,na,"soft fuzzy seedling, entire opp lf (?)",frenchmeadows,postfire,1yr,2022
+FM38,zmz,coltor,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM38,zmz,pyrpic,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM38,zmz,fmgrass2,live,GR,na,tr,na,delicate long infl grass,frenchmeadows,postfire,1yr,2022
+FM38,zmz,fmgrass9,live,GR,na,tr,na,"bigger bunchier smooth grass, TRP: named and I think different species but hard to tell from notes",frenchmeadows,postfire,1yr,2022
+FM38,zmz,symrot,live,SH,na,tr,0.2,,frenchmeadows,postfire,1yr,2022
+FM38,zmz,prunus,live,SH,na,tr,0.3,,frenchmeadows,postfire,1yr,2022
+FM38,zmz,quevac,live,SH,na,8,0.7,,frenchmeadows,postfire,1yr,2022
+FM38,zmz,ceacor,dead,SH,na,tr,0.5,,frenchmeadows,postfire,1yr,2022
+FM38,zmz,ceacor,live,SH,na,1,0.8,,frenchmeadows,postfire,1yr,2022
+FM38,zmz,arne,live,SH,na,10,0.15,,frenchmeadows,postfire,1yr,2022
+FM38,zmz,acegla,live,SH,na,tr,0.2,,frenchmeadows,postfire,1yr,2022
+FM38,zmz,ribroe,live,SH,na,tr,0.03,seedling ,frenchmeadows,postfire,1yr,2022
+FM38,zmz,pila,live,TR,TOV,15,na,,frenchmeadows,postfire,1yr,2022
+FM38,zmz,pila,live,TR,TSE,tr,na,,frenchmeadows,postfire,1yr,2022
+FM38,zmz,pila,live,TR,TSA,tr,2.1,,frenchmeadows,postfire,1yr,2022
+FM38,zmz,abma,live,TR,TOV,20,na,,frenchmeadows,postfire,1yr,2022
+FM38,zmz,abma,dead,TR,TOV,tr,na,,frenchmeadows,postfire,1yr,2022
+FM38,zmz,abma,live,TR,TSE,tr,na,,frenchmeadows,postfire,1yr,2022
+FM38,zmz,abma,dead,TR,TSE,tr,na,,frenchmeadows,postfire,1yr,2022
+FM38,zmz,abma,dead,TR,TSA,tr,2.5,,frenchmeadows,postfire,1yr,2022
+FM046,zmz,agaurt,live,FB,na,1,na,,frenchmeadows,postfire,1yr,2022
+FM046,zmz,monodo,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM046,zmz,phahas,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM046,zmz,sidgla,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM046,zmz,mairac,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM046,zmz,kelgal,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM046,zmz,antennaria sp,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM046,zmz,thafen,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM046,zmz,penstemon sp,live,FB,na,tr,na,dark green lf,frenchmeadows,postfire,1yr,2022
+FM046,zmz,fmforb5,dead,FB,na,tr,na,1cm needle lf forb,frenchmeadows,postfire,1yr,2022
+FM046,zmz,collinsia sp,dead,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM046,zmz,lilium sp,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM046,zmz,silene sp,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM046,zmz,gaydif,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM046,zmz,drymocallis sp,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM046,zmz,helcal,live,FB,na,1,na,,frenchmeadows,postfire,1yr,2022
+FM046,zmz,polemoniaceae sp,live,FB,na,tr,na,polemoniaceae popcorn fl lookalike (when dead),frenchmeadows,postfire,1yr,2022
+FM046,zmz,eurybia sp,live,FB,na,tr,na,"purple fl knapweedish asteraceae, has some mildew on leaves, TRP: question mark previously",frenchmeadows,postfire,1yr,2022
+FM046,zmz,fmforb7,live,FB,na,tr,na,"young growth sticky, older growth downy, alt lf, seems perennial, a little aromatic",frenchmeadows,postfire,1yr,2022
+FM046,zmz,fmforb6,live,FB,na,tr,na,"purple stem and lf underside, lf smooth, opposite lf?, other leaves coming out at leaf node",frenchmeadows,postfire,1yr,2022
+FM046,zmz,scrcal,live,FB,na,tr,na,"TRP: question mark: scrophularia californica? opp toothed lf, square stem, gr hersheys kiss fr with persistent style ",frenchmeadows,postfire,1yr,2022
+FM046,zmz,eriogonum sp,live,FB,na,tr,na,"dark gr/white leaf, pink red petiole/midvein",frenchmeadows,postfire,1yr,2022
+FM046,zmz,epilobium sp ,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM046,zmz,aqufor,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM046,zmz,fmgrass1,live,GR,na,tr,na,"3mm ligule, leafy stem, spike infl grass",frenchmeadows,postfire,1yr,2022
+FM046,zmz,acegla,live,SH,na,tr,0.3,,frenchmeadows,postfire,1yr,2022
+FM046,zmz,quevac,live,SH,na,5,1.3,,frenchmeadows,postfire,1yr,2022
+FM046,zmz,quevac,dead,SH,na,2,0.7,,frenchmeadows,postfire,1yr,2022
+FM046,zmz,fmshrub1,live,SH,na,tr,0.7,"opp lf shrub, scaly brown bud in axils, mock orange?",frenchmeadows,postfire,1yr,2022
+FM046,zmz,symmol,live,SH,na,tr,0.3,,frenchmeadows,postfire,1yr,2022
+FM046,zmz,ribes sp,live,SH,na,tr,0.1,non spiny stinky ribes,frenchmeadows,postfire,1yr,2022
+FM046,zmz,ribroe,live,SH,na,tr,0.2,,frenchmeadows,postfire,1yr,2022
+FM046,zmz,ameute,live,SH,na,tr,0.4,,frenchmeadows,postfire,1yr,2022
+FM046,zmz,pruema,live,SH,na,tr,0.5,,frenchmeadows,postfire,1yr,2022
+FM046,zmz,ceacor,live,SH,na,tr,0.15,,frenchmeadows,postfire,1yr,2022
+FM046,zmz,arctostaphylos sp,live,SH,na,tr,0.2,"little arctostaphylos, nev?",frenchmeadows,postfire,1yr,2022
+FM046,zmz,abco,live,TR,TSA,tr,na,,frenchmeadows,postfire,1yr,2022
+FM046,zmz,abco,dead,TR,TOV,5,na,,frenchmeadows,postfire,1yr,2022
+FM046,zmz,abco,live,TR,TOV,25,na,,frenchmeadows,postfire,1yr,2022
+FM046,zmz,abco,live,TR,TSE,tr,na,,frenchmeadows,postfire,1yr,2022
+FM046,zmz,abco,dead,TR,TSA,tr,na,,frenchmeadows,postfire,1yr,2022
+FM046,zmz,cade,live,TR,TOV,tr,na,,frenchmeadows,postfire,1yr,2022
+FM046,zmz,cade,dead,TR,TOV,tr,na,,frenchmeadows,postfire,1yr,2022
+FM046,zmz,abma,live,TR,TOV,tr,na,,frenchmeadows,postfire,1yr,2022
+FM046,zmz,abma,dead,TR,TOV,tr,na,,frenchmeadows,postfire,1yr,2022
+FM046,zmz,cade,dead,TR,TSA,tr,na,,frenchmeadows,postfire,1yr,2022
+FM046,zmz,cade,live,TR,TSE,tr,na,,frenchmeadows,postfire,1yr,2022
+FM046,zmz,pipo,live,TR,TSE,tr,na,,frenchmeadows,postfire,1yr,2022
+FM046,zmz,pila,live,TR,TSE,tr,na,,frenchmeadows,postfire,1yr,2022
+FM046,zmz,pipo,live,TR,TOV,tr,na,,frenchmeadows,postfire,1yr,2022
+FM047,zmz,gaydif,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM047,zmz,eurybia sp,live,FB,na,2,na,"purple fl knapweedish asteraceae, TRP: question mark previously",frenchmeadows,postfire,1yr,2022
+FM047,zmz,cirsium sp,live,FB,na,tr,na,"rosette, TRP: question mark previously",frenchmeadows,postfire,1yr,2022
+FM047,zmz,fmasteraceae3,live,FB,na,tr,na,"asteraceae corymb, leaves downturned",frenchmeadows,postfire,1yr,2022
+FM047,zmz,erinud,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM047,zmz,agaurt,live,FB,na,1,na,,frenchmeadows,postfire,1yr,2022
+FM047,zmz,polemoniaceae sp,dead,FB,na,tr,na,polemoniaceae popcorn fl lookalike (when dead),frenchmeadows,postfire,1yr,2022
+FM047,zmz,phahas,dead,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM047,zmz,helcal,dead,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM047,zmz,thafen,dead,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM047,zmz,senecio sp,dead,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM047,zmz,fmforb7,live,FB,na,tr,na,"young growth sticky, older growth downy, alt lf, seems perennial, a little aromatic",frenchmeadows,postfire,1yr,2022
+FM047,zmz,antennaria sp,dead,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM047,zmz,polygonum sp,dead,FB,na,tr,na,"TRP: labeled with question mark: polygonum? fl in lf axils, alt entire lf",frenchmeadows,postfire,1yr,2022
+FM047,zmz,penstemon sp,live,FB,na,tr,na,laetus?,frenchmeadows,postfire,1yr,2022
+FM047,zmz,hiealb,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM047,zmz,kelgal,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM047,zmz,sidgla,dead,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM047,zmz,allium sp,dead,FB,na,tr,na,flower detached from base--possibly from outside plot,frenchmeadows,postfire,1yr,2022
+FM047,zmz,monodo,dead,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM047,zmz,leptosiphon sp,dead,FB,na,tr,na,TRP: labeled with question mark,frenchmeadows,postfire,1yr,2022
+FM047,zmz,collinsia sp,dead,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM047,zmz,silene sp,live,FB,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM047,zmz,elygla,live,GR,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM047,zmz,brocar,live,GR,na,tr,na,,frenchmeadows,postfire,1yr,2022
+FM047,zmz,ceacor,dead,SH,na,tr,0.6,,frenchmeadows,postfire,1yr,2022
+FM047,zmz,ceacor,live,SH,na,1,0.9,,frenchmeadows,postfire,1yr,2022
+FM047,zmz,symo,live,SH,na,1,0.15,,frenchmeadows,postfire,1yr,2022
+FM047,zmz,pruema,live,SH,na,2,0.9,,frenchmeadows,postfire,1yr,2022
+FM047,zmz,ribes sp,live,SH,na,tr,0.3,non spiny stinky ribes,frenchmeadows,postfire,1yr,2022
+FM047,zmz,ameute,live,SH,na,1,0.4,,frenchmeadows,postfire,1yr,2022
+FM047,zmz,ribroe,live,SH,na,tr,0.55,,frenchmeadows,postfire,1yr,2022
+FM047,zmz,acegla,live,SH,na,tr,0.7,,frenchmeadows,postfire,1yr,2022
+FM047,zmz,quevac,live,SH,na,1,0.3,,frenchmeadows,postfire,1yr,2022
+FM047,zmz,quevac,dead,SH,na,1,1.2,,frenchmeadows,postfire,1yr,2022
+FM047,zmz,abco,live,TR,TOV,40,na,,frenchmeadows,postfire,1yr,2022
+FM047,zmz,abco,dead,TR,TOV,3,na,,frenchmeadows,postfire,1yr,2022
+FM047,zmz,abies sp,live,TR,TSE,tr,na,,frenchmeadows,postfire,1yr,2022
+FM047,zmz,abies sp,dead,TR,TSA,tr,na,,frenchmeadows,postfire,1yr,2022
+FM047,zmz,abma,live,TR,TOV,4,na,,frenchmeadows,postfire,1yr,2022
+FM047,zmz,pila,live,TR,TSE,tr,na,,frenchmeadows,postfire,1yr,2022
+FM047,zmz,cade,live,TR,TSE,tr,na,,frenchmeadows,postfire,1yr,2022
+FM047,zmz,cade,dead,TR,TOV,tr,na,,frenchmeadows,postfire,1yr,2022
+FM19-20,zmz,abco,live,TR,TOV,50,na,,frenchmeadows,postfire,1yr,2022
+FM19-20,zmz,abco,dead,TR,TOV,5,na,,frenchmeadows,postfire,1yr,2022
+FM19-20,zmz,abco,live,TR,TSE,tr,na,,frenchmeadows,postfire,1yr,2022
+FM19-20,zmz,abco,dead,TR,TSE,tr,na,,frenchmeadows,postfire,1yr,2022
+FM19-20,zmz,cade,live,TR,TSE,tr,na,,frenchmeadows,postfire,1yr,2022
+FM19-20,zmz,pipo,live,TR,TOV,4,na,,frenchmeadows,postfire,1yr,2022
+FM19-20,zmz,pila,live,TR,TSE,tr,na,,frenchmeadows,postfire,1yr,2022
